@@ -11,6 +11,17 @@
 		2007806A1C64AE4F0098B026 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200780691C64AE4F0098B026 /* ViewController.swift */; };
 		2007806C1C64AE4F0098B026 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2007806B1C64AE4F0098B026 /* Assets.xcassets */; };
 		2007806F1C64AE4F0098B026 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2007806D1C64AE4F0098B026 /* Main.storyboard */; };
+		200780CB1C64F3BC0098B026 /* SubRipSubtitleFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200780CA1C64F3BC0098B026 /* SubRipSubtitleFormat.swift */; };
+		200780CD1C64F3F90098B026 /* SubRipSubtitleFormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200780CC1C64F3F90098B026 /* SubRipSubtitleFormatTests.swift */; };
+		200C4B9E1C6601F800FBE406 /* MPL2SubtitleFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200C4B9D1C6601F800FBE406 /* MPL2SubtitleFormat.swift */; };
+		200C4BA01C66089600FBE406 /* TimeBasedSubtitleFormatProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200C4B9F1C66089600FBE406 /* TimeBasedSubtitleFormatProtocol.swift */; };
+		200C4BA11C6619D300FBE406 /* SubRipSubtitleFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200780CA1C64F3BC0098B026 /* SubRipSubtitleFormat.swift */; };
+		200C4BA21C6619D300FBE406 /* MPL2SubtitleFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200C4B9D1C6601F800FBE406 /* MPL2SubtitleFormat.swift */; };
+		200C4BA31C6619D300FBE406 /* TimeBasedSubtitleFormatProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200C4B9F1C66089600FBE406 /* TimeBasedSubtitleFormatProtocol.swift */; };
+		200C4BA61C664C8100FBE406 /* MPL2SubtitleFormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200C4BA41C6646B800FBE406 /* MPL2SubtitleFormatTests.swift */; };
+		200C4BA81C66552500FBE406 /* TMPlayerSubtitleFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200C4BA71C66552500FBE406 /* TMPlayerSubtitleFormat.swift */; };
+		200C4BA91C66552500FBE406 /* TMPlayerSubtitleFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200C4BA71C66552500FBE406 /* TMPlayerSubtitleFormat.swift */; };
+		200C4BAB1C66565700FBE406 /* TMPlayerSubtitleFormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200C4BAA1C66565700FBE406 /* TMPlayerSubtitleFormatTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +43,13 @@
 		200780701C64AE4F0098B026 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		200780751C64AE4F0098B026 /* NapiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NapiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2007807B1C64AE4F0098B026 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		200780CA1C64F3BC0098B026 /* SubRipSubtitleFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = SubRipSubtitleFormat.swift; path = "Models/Subtitle Formats/SubRipSubtitleFormat.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		200780CC1C64F3F90098B026 /* SubRipSubtitleFormatTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubRipSubtitleFormatTests.swift; sourceTree = "<group>"; };
+		200C4B9D1C6601F800FBE406 /* MPL2SubtitleFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MPL2SubtitleFormat.swift; path = "Models/Subtitle Formats/MPL2SubtitleFormat.swift"; sourceTree = "<group>"; };
+		200C4B9F1C66089600FBE406 /* TimeBasedSubtitleFormatProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimeBasedSubtitleFormatProtocol.swift; path = "Models/Subtitle Formats/TimeBasedSubtitleFormatProtocol.swift"; sourceTree = "<group>"; };
+		200C4BA41C6646B800FBE406 /* MPL2SubtitleFormatTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPL2SubtitleFormatTests.swift; sourceTree = "<group>"; };
+		200C4BA71C66552500FBE406 /* TMPlayerSubtitleFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TMPlayerSubtitleFormat.swift; path = "Models/Subtitle Formats/TMPlayerSubtitleFormat.swift"; sourceTree = "<group>"; };
+		200C4BAA1C66565700FBE406 /* TMPlayerSubtitleFormatTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMPlayerSubtitleFormatTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +91,7 @@
 		200780661C64AE4F0098B026 /* Napi */ = {
 			isa = PBXGroup;
 			children = (
+				200780C61C64B2410098B026 /* Models */,
 				200780671C64AE4F0098B026 /* AppDelegate.swift */,
 				200780691C64AE4F0098B026 /* ViewController.swift */,
 				200780851C64AE880098B026 /* Supporting Files */,
@@ -85,6 +104,9 @@
 			isa = PBXGroup;
 			children = (
 				2007807B1C64AE4F0098B026 /* Info.plist */,
+				200780CC1C64F3F90098B026 /* SubRipSubtitleFormatTests.swift */,
+				200C4BA41C6646B800FBE406 /* MPL2SubtitleFormatTests.swift */,
+				200C4BAA1C66565700FBE406 /* TMPlayerSubtitleFormatTests.swift */,
 			);
 			path = NapiTests;
 			sourceTree = "<group>";
@@ -103,7 +125,26 @@
 				2007806B1C64AE4F0098B026 /* Assets.xcassets */,
 				200780701C64AE4F0098B026 /* Info.plist */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		200780C61C64B2410098B026 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				200780C91C64F2C80098B026 /* Subtitle Formats */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		200780C91C64F2C80098B026 /* Subtitle Formats */ = {
+			isa = PBXGroup;
+			children = (
+				200780CA1C64F3BC0098B026 /* SubRipSubtitleFormat.swift */,
+				200C4B9D1C6601F800FBE406 /* MPL2SubtitleFormat.swift */,
+				200C4B9F1C66089600FBE406 /* TimeBasedSubtitleFormatProtocol.swift */,
+				200C4BA71C66552500FBE406 /* TMPlayerSubtitleFormat.swift */,
+			);
+			name = "Subtitle Formats";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,6 +249,10 @@
 			files = (
 				2007806A1C64AE4F0098B026 /* ViewController.swift in Sources */,
 				200780681C64AE4F0098B026 /* AppDelegate.swift in Sources */,
+				200C4BA81C66552500FBE406 /* TMPlayerSubtitleFormat.swift in Sources */,
+				200780CB1C64F3BC0098B026 /* SubRipSubtitleFormat.swift in Sources */,
+				200C4BA01C66089600FBE406 /* TimeBasedSubtitleFormatProtocol.swift in Sources */,
+				200C4B9E1C6601F800FBE406 /* MPL2SubtitleFormat.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,6 +260,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				200C4BA11C6619D300FBE406 /* SubRipSubtitleFormat.swift in Sources */,
+				200C4BA31C6619D300FBE406 /* TimeBasedSubtitleFormatProtocol.swift in Sources */,
+				200C4BAB1C66565700FBE406 /* TMPlayerSubtitleFormatTests.swift in Sources */,
+				200C4BA91C66552500FBE406 /* TMPlayerSubtitleFormat.swift in Sources */,
+				200780CD1C64F3F90098B026 /* SubRipSubtitleFormatTests.swift in Sources */,
+				200C4BA61C664C8100FBE406 /* MPL2SubtitleFormatTests.swift in Sources */,
+				200C4BA21C6619D300FBE406 /* MPL2SubtitleFormat.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,7 +377,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = Napi/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Napi/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mateuszkarwat.Napi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -337,7 +389,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = Napi/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Napi/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mateuszkarwat.Napi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -348,11 +400,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = NapiTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mateuszkarwat.NapiTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Napi.app/Contents/MacOS/Napi";
 			};
 			name = Debug;
@@ -361,6 +415,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = NapiTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
@@ -389,6 +444,7 @@
 				200780801C64AE4F0098B026 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		200780811C64AE4F0098B026 /* Build configuration list for PBXNativeTarget "NapiTests" */ = {
 			isa = XCConfigurationList;
@@ -397,6 +453,7 @@
 				200780831C64AE4F0098B026 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
