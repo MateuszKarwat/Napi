@@ -37,13 +37,13 @@ class MPL2SubtitleFormatTests: XCTestCase {
         let expectedFormattedValue1 = "[991][1000]It works!|As expected."
         let expectedFormattedValue2 = "[991][1000]This is one line of sample text"
         
-        let mplFormat1 = MPL2SubtitleFormat(startTimeCode: startTimeFromDeciseconds, endTimeCode: endTimeFromDecisecons, linesOfText: someText1)
-        let mplFormat2 = MPL2SubtitleFormat(startTimeCode: startTimeFromMilliseconds, endTimeCode: endTimeFromMilliseconds, linesOfText: someText1)
+        let mplFormat1 = MPL2SubtitleFormat(startTimeCode: startTimeFromDeciseconds, stopTimeCode: endTimeFromDecisecons, linesOfText: someText1)
+        let mplFormat2 = MPL2SubtitleFormat(startTimeCode: startTimeFromMilliseconds, stopTimeCode: endTimeFromMilliseconds, linesOfText: someText1)
         XCTAssertEqual(mplFormat1.formattedString(), expectedFormattedValue1)
         XCTAssertEqual(mplFormat2.formattedString(), expectedFormattedValue1)
         
-        let mplFormat3 = MPL2SubtitleFormat(startTimeCode: startTimeFromDeciseconds, endTimeCode: endTimeFromDecisecons, linesOfText: someText2)
-        let mplFormat4 = MPL2SubtitleFormat(startTimeCode: startTimeFromMilliseconds, endTimeCode: endTimeFromMilliseconds, linesOfText: someText2)
+        let mplFormat3 = MPL2SubtitleFormat(startTimeCode: startTimeFromDeciseconds, stopTimeCode: endTimeFromDecisecons, linesOfText: someText2)
+        let mplFormat4 = MPL2SubtitleFormat(startTimeCode: startTimeFromMilliseconds, stopTimeCode: endTimeFromMilliseconds, linesOfText: someText2)
         XCTAssertEqual(mplFormat3.formattedString(), expectedFormattedValue2)
         XCTAssertEqual(mplFormat4.formattedString(), expectedFormattedValue2)
     }

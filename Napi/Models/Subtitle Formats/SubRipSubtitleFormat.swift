@@ -10,20 +10,20 @@
 struct SubRipSubtitleFormat: TimeBasedSubtitleFormat {
     let textNumber: UInt
     let startTimeCode: TimeCodeFormat
-    let endTimeCode: TimeCodeFormat
+    let stopTimeCode: TimeCodeFormat?
     let linesOfText: [String]
     let linesSeparator = "\n"
     
-    init(textNumber: UInt, startTimeCode: SubRipTimeCode, endTimeCode: SubRipTimeCode, linesOfText: [String]) {
+    init(textNumber: UInt, startTimeCode: SubRipTimeCode, stopTimeCode: SubRipTimeCode, linesOfText: [String]) {
         self.textNumber = textNumber
         self.startTimeCode = startTimeCode
-        self.endTimeCode = endTimeCode
+        self.stopTimeCode = stopTimeCode
         self.linesOfText = linesOfText
     }
     
     func formattedString() -> String {
         return "\(textNumber)\n" +
-            "\(startTimeCode.formattedString()) --> \(endTimeCode.formattedString())\n" +
+            "\(startTimeCode.formattedString()) --> \(stopTimeCode!.formattedString())\n" +
             "\(linesOfText.joinWithSeparator(linesSeparator))\n" +
             "\n"
     }

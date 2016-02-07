@@ -9,7 +9,6 @@
 /// Struct to store all data used by TMP subtitle format.
 struct TMPlayerSubtitleFormat: TimeBasedSubtitleFormat {
     var startTimeCode: TimeCodeFormat
-    var endTimeCode: TimeCodeFormat { return startTimeCode }
     var linesOfText: [String]
     var linesSeparator: String = "|"
     

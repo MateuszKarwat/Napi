@@ -9,13 +9,13 @@
 /// Struct to store all informations required in MPL2 subtitle format.
 struct MPL2SubtitleFormat: TimeBasedSubtitleFormat {
     let startTimeCode: TimeCodeFormat
-    let endTimeCode: TimeCodeFormat
+    let stopTimeCode: TimeCodeFormat?
     let linesOfText: [String]
     let linesSeparator: String = "|"
     
-    init(startTimeCode: MPL2TimeCode, endTimeCode: MPL2TimeCode, linesOfText: [String]) {
+    init(startTimeCode: MPL2TimeCode, stopTimeCode: MPL2TimeCode, linesOfText: [String]) {
         self.startTimeCode = startTimeCode
-        self.endTimeCode = endTimeCode
+        self.stopTimeCode = stopTimeCode
         self.linesOfText = linesOfText
     }
     
@@ -24,7 +24,7 @@ struct MPL2SubtitleFormat: TimeBasedSubtitleFormat {
     ///
     ///     [111][222]SomeText|Which is correct.
     func formattedString() -> String {
-        return "[\(startTimeCode.formattedString())][\(endTimeCode.formattedString())]" +
+        return "[\(startTimeCode.formattedString())][\(stopTimeCode!.formattedString())]" +
             "\(linesOfText.joinWithSeparator(linesSeparator))"
     }
 }

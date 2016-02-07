@@ -53,7 +53,7 @@ class SubRipSubtitleFormatTests: XCTestCase {
         
         let someText = ["You know nothing!", "John Snow..."]
         
-        let correctSRT = SubRipSubtitleFormat(textNumber: 2, startTimeCode: subRipTimeCode1, endTimeCode: subRipTimeCode2, linesOfText: someText)
+        let correctSRT = SubRipSubtitleFormat(textNumber: 2, startTimeCode: subRipTimeCode1, stopTimeCode: subRipTimeCode2, linesOfText: someText)
         let expectedSRTFormat =
             "2\n" +
             "01:02:03,004 --> 02:03:33,040\n" +
