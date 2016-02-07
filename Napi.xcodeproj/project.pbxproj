@@ -25,6 +25,9 @@
 		20EF7CFC1C67B1C4005A17A7 /* MicroDVDSubtitleFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EF7CFB1C67B1C4005A17A7 /* MicroDVDSubtitleFormat.swift */; };
 		20EF7CFD1C67B1C4005A17A7 /* MicroDVDSubtitleFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EF7CFB1C67B1C4005A17A7 /* MicroDVDSubtitleFormat.swift */; };
 		20EF7CFF1C67B280005A17A7 /* MicroDVDSubtitleFormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EF7CFE1C67B280005A17A7 /* MicroDVDSubtitleFormatTests.swift */; };
+		20EF7D021C67B5EB005A17A7 /* FrameCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EF7D011C67B5EB005A17A7 /* FrameCalculator.swift */; };
+		20EF7D031C67B5EB005A17A7 /* FrameCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EF7D011C67B5EB005A17A7 /* FrameCalculator.swift */; };
+		20EF7D051C67BACB005A17A7 /* FrameCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EF7D041C67BACB005A17A7 /* FrameCalculatorTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,8 @@
 		200C4BAA1C66565700FBE406 /* TMPlayerSubtitleFormatTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMPlayerSubtitleFormatTests.swift; sourceTree = "<group>"; };
 		20EF7CFB1C67B1C4005A17A7 /* MicroDVDSubtitleFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MicroDVDSubtitleFormat.swift; path = "Models/Subtitle Formats/MicroDVDSubtitleFormat.swift"; sourceTree = "<group>"; };
 		20EF7CFE1C67B280005A17A7 /* MicroDVDSubtitleFormatTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicroDVDSubtitleFormatTests.swift; sourceTree = "<group>"; };
+		20EF7D011C67B5EB005A17A7 /* FrameCalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FrameCalculator.swift; path = Models/FrameCalculator/FrameCalculator.swift; sourceTree = "<group>"; };
+		20EF7D041C67BACB005A17A7 /* FrameCalculatorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrameCalculatorTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +118,7 @@
 				200C4BA41C6646B800FBE406 /* MPL2SubtitleFormatTests.swift */,
 				200C4BAA1C66565700FBE406 /* TMPlayerSubtitleFormatTests.swift */,
 				20EF7CFE1C67B280005A17A7 /* MicroDVDSubtitleFormatTests.swift */,
+				20EF7D041C67BACB005A17A7 /* FrameCalculatorTests.swift */,
 			);
 			path = NapiTests;
 			sourceTree = "<group>";
@@ -137,6 +143,7 @@
 		200780C61C64B2410098B026 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				20EF7D001C67B5AE005A17A7 /* Frame Calculator */,
 				200780C91C64F2C80098B026 /* Subtitle Formats */,
 			);
 			name = Models;
@@ -152,6 +159,14 @@
 				20EF7CFB1C67B1C4005A17A7 /* MicroDVDSubtitleFormat.swift */,
 			);
 			name = "Subtitle Formats";
+			sourceTree = "<group>";
+		};
+		20EF7D001C67B5AE005A17A7 /* Frame Calculator */ = {
+			isa = PBXGroup;
+			children = (
+				20EF7D011C67B5EB005A17A7 /* FrameCalculator.swift */,
+			);
+			name = "Frame Calculator";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +274,7 @@
 				200C4BA81C66552500FBE406 /* TMPlayerSubtitleFormat.swift in Sources */,
 				200780CB1C64F3BC0098B026 /* SubRipSubtitleFormat.swift in Sources */,
 				200C4BA01C66089600FBE406 /* SubtitleFormat.swift in Sources */,
+				20EF7D021C67B5EB005A17A7 /* FrameCalculator.swift in Sources */,
 				200C4B9E1C6601F800FBE406 /* MPL2SubtitleFormat.swift in Sources */,
 				20EF7CFC1C67B1C4005A17A7 /* MicroDVDSubtitleFormat.swift in Sources */,
 			);
@@ -270,9 +286,11 @@
 			files = (
 				200C4BA11C6619D300FBE406 /* SubRipSubtitleFormat.swift in Sources */,
 				200C4BA31C6619D300FBE406 /* SubtitleFormat.swift in Sources */,
+				20EF7D051C67BACB005A17A7 /* FrameCalculatorTests.swift in Sources */,
 				200C4BAB1C66565700FBE406 /* TMPlayerSubtitleFormatTests.swift in Sources */,
 				20EF7CFF1C67B280005A17A7 /* MicroDVDSubtitleFormatTests.swift in Sources */,
 				200C4BA91C66552500FBE406 /* TMPlayerSubtitleFormat.swift in Sources */,
+				20EF7D031C67B5EB005A17A7 /* FrameCalculator.swift in Sources */,
 				20EF7CFD1C67B1C4005A17A7 /* MicroDVDSubtitleFormat.swift in Sources */,
 				200780CD1C64F3F90098B026 /* SubRipSubtitleFormatTests.swift in Sources */,
 				200C4BA61C664C8100FBE406 /* MPL2SubtitleFormatTests.swift in Sources */,
