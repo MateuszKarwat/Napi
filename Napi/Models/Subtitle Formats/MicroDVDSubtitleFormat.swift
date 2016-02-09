@@ -19,7 +19,7 @@ struct MicroDVDSubtitleFormat: FrameBasedSubtitleFormat {
         self.linesOfText = linesOfText
     }
     
-    func formattedString() -> String {
+    func stringFormat() -> String {
         return "{\(startFrame)}{\(stopFrame)}\(linesOfText.joinWithSeparator(linesSeparator))"
     }
 }

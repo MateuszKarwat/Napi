@@ -12,27 +12,19 @@ protocol SubtitleFormat {
     var linesOfText: [String] { get }
     var linesSeparator: String { get }
     
-    func formattedString() -> String
+    func stringFormat() -> String
 }
 
 // MARK: Time Based Protocol
 
 protocol TimeBasedSubtitleFormat: SubtitleFormat {
-    var startTimeCode: TimeCodeFormat { get }
-    var stopTimeCode: TimeCodeFormat? { get }
+    var startTime: SubtitleTime { get }
+    var stopTime: SubtitleTime? { get }
 }
 
 extension TimeBasedSubtitleFormat {
     static var isTimeBased: Bool { return true }
-    var stopTimeCode: TimeCodeFormat? { return nil }
-}
-
-protocol TimeCodeFormat {
-    var totalNumberOfMilliseconds: UInt { get }
-    
-    init(totalNumberOfMilliseconds: UInt)
-    
-    func formattedString() -> String
+    var stopTime: SubtitleTime? { return nil }
 }
 
 // MARK: Frame Based Protocol
