@@ -6,20 +6,22 @@
 //  Copyright © 2016 Mateusz Karwat. All rights reserved.
 //
 
-struct MicroDVDSubtitleFormat: FrameBasedSubtitleFormat {
-    let startFrame: UInt
-    let stopFrame: UInt
+struct MicroDVDSubtitleFormat: SubtitleFormat {
+    var startstamp: Framestamp?
+    var stopstamp: Framestamp?
+    var text: String
     
-    var linesOfText: [String]
-    var linesSeparator: String = "|"
-    
-    init(startFrame: UInt, stopFrame: UInt, linesOfText: [String]) {
-        self.startFrame = startFrame
-        self.stopFrame = stopFrame
-        self.linesOfText = linesOfText
+    /// The output looks like this:
+    ///
+    ///     {111}{222}Some text.
+    func stringValue() -> String? {
+        if let startValue = startstamp?.frames, stopValue = stopstamp?.frames {
+            return "{\(startValue)}{\(stopValue)}\(text)"
+        }
+        return nil
     }
     
-    func stringFormat() -> String {
-        return "{\(startFrame)}{\(stopFrame)}\(linesOfText.joinWithSeparator(linesSeparator))"
+    func stringValueForTextStyle(style: TextStyle) -> String? {
+        return nil
     }
 }

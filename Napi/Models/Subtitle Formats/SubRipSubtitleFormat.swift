@@ -6,41 +6,46 @@
 //  Copyright © 2016 Mateusz Karwat. All rights reserved.
 //
 
-/// Struct to store all data required by SubRip subtitle format.
-struct SubRipSubtitleFormat: TimeBasedSubtitleFormat {
-    let textNumber: UInt
-    let startTime: SubtitleTime
-    let stopTime: SubtitleTime
-    let linesOfText: [String]
-    let linesSeparator = "\n"
+struct SubRipSubtitleFormat: SubtitleFormat {
+    var textNumber: UInt
+    var startstamp: Timestamp?
+    var stopstamp: Timestamp?
+    var text: String
     
-    init(textNumber: UInt, startTime: SubtitleTime, stopTime: SubtitleTime, linesOfText: [String]) {
-        self.textNumber = textNumber
-        self.startTime = startTime
-        self.stopTime = stopTime
-        self.linesOfText = linesOfText
+    /// The output looks like this:
+    ///
+    ///     2
+    ///     01:01:01,111 --> 02:02:02,222
+    ///     Some text
+    ///     \n
+    func stringValue() -> String? {
+        if startstamp != nil && stopstamp != nil {
+            return
+                "\(textNumber)\n" +
+                "\(stringFormatForSubtitleTime(startstamp!)) --> \(stringFormatForSubtitleTime(stopstamp!))\n" +
+                "\(text)\n" +
+                "\n"
+        }
+        return nil
     }
     
-    func stringFormat() -> String {
-        return "\(textNumber)\n" +
-            "\(stringFormatForSubtitleTime(startTime)) --> \(stringFormatForSubtitleTime(stopTime))\n" +
-            "\(linesOfText.joinWithSeparator(linesSeparator))\n" +
-            "\n"
+    func stringValueForTextStyle(style: TextStyle) -> String? {
+        return nil
     }
     
-    private func stringFormatForSubtitleTime(subtitleTime: SubtitleTime)  -> String {
+    private func stringFormatForSubtitleTime(timestamp: Timestamp)  -> String {
         func numberToString(number: UInt, withLeadingZeros: Int) -> String {
             return String(format: "%0\(withLeadingZeros)d", number)
         }
         
-        let minutes = subtitleTime - ST(hours: subtitleTime.fullHours)
-        let seconds = minutes - ST(minutes: minutes.fullMinutes)
-        let milliseconds = seconds - ST(seconds: seconds.fullSeconds)
+        let minutes = timestamp - TS(hours: timestamp.numberOfFullHours)
+        let seconds = minutes - TS(minutes: minutes.numberOfFullMinutes)
+        let milliseconds = seconds - TS(seconds: seconds.numberOfFullSeconds)
         
         return
-            "\(numberToString(subtitleTime.fullHours, withLeadingZeros: 2)):" +
-            "\(numberToString(minutes.fullMinutes, withLeadingZeros: 2)):" +
-            "\(numberToString(seconds.fullSeconds, withLeadingZeros: 2))," +
+            "\(numberToString(timestamp.numberOfFullHours, withLeadingZeros: 2)):" +
+            "\(numberToString(minutes.numberOfFullMinutes, withLeadingZeros: 2)):" +
+            "\(numberToString(seconds.numberOfFullSeconds, withLeadingZeros: 2))," +
             "\(numberToString(milliseconds.milliseconds, withLeadingZeros: 3))"
         
     }
