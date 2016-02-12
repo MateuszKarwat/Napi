@@ -13,7 +13,7 @@ struct MPL2SubtitleFormat: SubtitleFormat {
     var startstamp: Timestamp?
     var stopstamp: Timestamp?
     var text: String
-    static var regexPattern = "^\\[(\\d++\\)]\\[(\\d++\\)](.++)$"
+    static let regexPattern = "^\\[(\\d++\\)]\\[(\\d++\\)](.++)$"
     
     func stringValue() -> String? {
         if let startValue = startstamp?.milliseconds, stopValue = stopstamp?.milliseconds {

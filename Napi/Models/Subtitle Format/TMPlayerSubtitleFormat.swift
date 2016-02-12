@@ -13,7 +13,7 @@ struct TMPlayerSubtitleFormat: SubtitleFormat {
     var startstamp: Timestamp?
     var stopstamp: Timestamp?
     var text: String
-    static var regexPattern = "^(\\d{1,2}):(\\d{1,2}):(\\d{1,2}):(.++)$"
+    static let regexPattern = "^(\\d{1,2}):(\\d{1,2}):(\\d{1,2}):(.++)$"
     
     func stringValue() -> String? {
         if startstamp != nil {

@@ -13,7 +13,7 @@ struct MicroDVDSubtitleFormat: SubtitleFormat {
     var startstamp: Framestamp?
     var stopstamp: Framestamp?
     var text: String
-    static var regexPattern = "^\\{(\\d++\\)}\\{(\\d++\\)}(.++)$"
+    static let regexPattern = "^\\{(\\d++\\)}\\{(\\d++\\)}(.++)$"
     
     func stringValue() -> String? {
         if let startValue = startstamp?.frames, stopValue = stopstamp?.frames {

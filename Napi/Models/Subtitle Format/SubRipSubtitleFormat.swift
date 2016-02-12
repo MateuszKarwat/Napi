@@ -18,7 +18,7 @@ struct SubRipSubtitleFormat: SubtitleFormat {
     var startstamp: Timestamp?
     var stopstamp: Timestamp?
     var text: String
-    static var regexPattern =
+    static let regexPattern =
         "^(\\d++)$\\n" +
         "^(\\d{1,2}):(\\d{1,2}):(\\d{1,2}),(\\d{1,3})" +
         " --> " +
