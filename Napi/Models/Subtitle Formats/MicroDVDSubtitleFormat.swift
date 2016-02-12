@@ -6,14 +6,15 @@
 //  Copyright © 2016 Mateusz Karwat. All rights reserved.
 //
 
+/// MicroDVD Subtitle Format looks like this:
+///
+///     {111}{222}First line of text.|Seconds line of text.
 struct MicroDVDSubtitleFormat: SubtitleFormat {
     var startstamp: Framestamp?
     var stopstamp: Framestamp?
     var text: String
+    static var regexPattern = "^\\{(\\d++\\)}\\{(\\d++\\)}(.++)$"
     
-    /// The output looks like this:
-    ///
-    ///     {111}{222}Some text.
     func stringValue() -> String? {
         if let startValue = startstamp?.frames, stopValue = stopstamp?.frames {
             return "{\(startValue)}{\(stopValue)}\(text)"

@@ -6,14 +6,15 @@
 //  Copyright © 2016 Mateusz Karwat. All rights reserved.
 //
 
+/// TMPPlayer Subtitle Format looks like this:
+///
+///     01:12:33:First line of text.|Seconds line of text.
 struct TMPlayerSubtitleFormat: SubtitleFormat {
     var startstamp: Timestamp?
     var stopstamp: Timestamp?
     var text: String
+    static var regexPattern = "^(\\d{1,2}):(\\d{1,2}):(\\d{1,2}):(.++)$"
     
-    /// The output looks like this:
-    ///
-    ///     01:12:33:Line of text.
     func stringValue() -> String? {
         if startstamp != nil {
             return "\(stringFormatForSubtitleTime(startstamp!)):\(text)"

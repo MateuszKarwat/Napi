@@ -32,6 +32,10 @@
 		20EF7D051C67BACB005A17A7 /* SubtitleStampConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EF7D041C67BACB005A17A7 /* SubtitleStampConverterTests.swift */; };
 		20F6FBCB1C6DC00E005A1C12 /* Framestamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F6FBCA1C6DC00E005A1C12 /* Framestamp.swift */; };
 		20F6FBCC1C6DC00E005A1C12 /* Framestamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F6FBCA1C6DC00E005A1C12 /* Framestamp.swift */; };
+		20F6FBD31C6E5211005A1C12 /* SubRipSubtitleFormatFile.txt in Resources */ = {isa = PBXBuildFile; fileRef = 20F6FBD21C6E5211005A1C12 /* SubRipSubtitleFormatFile.txt */; };
+		20F6FBD51C6E527F005A1C12 /* MPL2SubtitleFormatFile.txt in Resources */ = {isa = PBXBuildFile; fileRef = 20F6FBD41C6E527F005A1C12 /* MPL2SubtitleFormatFile.txt */; };
+		20F6FBD71C6E52CE005A1C12 /* TMPlayerSubtitleFormatFile.txt in Resources */ = {isa = PBXBuildFile; fileRef = 20F6FBD61C6E52CE005A1C12 /* TMPlayerSubtitleFormatFile.txt */; };
+		20F6FBD91C6E5306005A1C12 /* MicroDVDSubtitleFormatFile.txt in Resources */ = {isa = PBXBuildFile; fileRef = 20F6FBD81C6E5306005A1C12 /* MicroDVDSubtitleFormatFile.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +70,10 @@
 		20EF7D011C67B5EB005A17A7 /* SubtitleStampConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitleStampConverter.swift; sourceTree = "<group>"; };
 		20EF7D041C67BACB005A17A7 /* SubtitleStampConverterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitleStampConverterTests.swift; sourceTree = "<group>"; };
 		20F6FBCA1C6DC00E005A1C12 /* Framestamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Framestamp.swift; sourceTree = "<group>"; };
+		20F6FBD21C6E5211005A1C12 /* SubRipSubtitleFormatFile.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SubRipSubtitleFormatFile.txt; sourceTree = "<group>"; };
+		20F6FBD41C6E527F005A1C12 /* MPL2SubtitleFormatFile.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MPL2SubtitleFormatFile.txt; sourceTree = "<group>"; };
+		20F6FBD61C6E52CE005A1C12 /* TMPlayerSubtitleFormatFile.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TMPlayerSubtitleFormatFile.txt; sourceTree = "<group>"; };
+		20F6FBD81C6E5306005A1C12 /* MicroDVDSubtitleFormatFile.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MicroDVDSubtitleFormatFile.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +127,7 @@
 		200780781C64AE4F0098B026 /* NapiTests */ = {
 			isa = PBXGroup;
 			children = (
+				20F6FBD11C6E51B1005A1C12 /* Resources */,
 				2007807B1C64AE4F0098B026 /* Info.plist */,
 				200C4BA41C6646B800FBE406 /* MPL2SubtitleFormatTests.swift */,
 				20EF7CFE1C67B280005A17A7 /* MicroDVDSubtitleFormatTests.swift */,
@@ -167,6 +176,17 @@
 				200C4BA71C66552500FBE406 /* TMPlayerSubtitleFormat.swift */,
 			);
 			path = "Subtitle Formats";
+			sourceTree = "<group>";
+		};
+		20F6FBD11C6E51B1005A1C12 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				20F6FBD41C6E527F005A1C12 /* MPL2SubtitleFormatFile.txt */,
+				20F6FBD81C6E5306005A1C12 /* MicroDVDSubtitleFormatFile.txt */,
+				20F6FBD21C6E5211005A1C12 /* SubRipSubtitleFormatFile.txt */,
+				20F6FBD61C6E52CE005A1C12 /* TMPlayerSubtitleFormatFile.txt */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +279,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20F6FBD91C6E5306005A1C12 /* MicroDVDSubtitleFormatFile.txt in Resources */,
+				20F6FBD51C6E527F005A1C12 /* MPL2SubtitleFormatFile.txt in Resources */,
+				20F6FBD71C6E52CE005A1C12 /* TMPlayerSubtitleFormatFile.txt in Resources */,
+				20F6FBD31C6E5211005A1C12 /* SubRipSubtitleFormatFile.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,29 @@
+23
+00:03:04,100 --> 00:03:09,105
+<i>Baza, tu 7-3.</i>
+<i>Mam denata na nabrzeżu...</i>
+
+24
+00:03:12,108 --> 00:03:14,819
+<font color="#ffccaa"><b>Z ARCHIWUM X</b></font>
+
+25
+00:03:15,820 --> 00:03:18,281
+<font color="#ffccaa"><b>Odcinek 03x05</b></font>
+<font color="#ffccaa"><b>Zbyt nieśmiały</b></font>
+
+26
+00:03:26,706 --> 00:03:29,584
+<b>ZJAWISKA PARANORMALNE</b>
+
+27
+00:03:31,002 --> 00:03:33,588
+<font color="#ffccaa"><b>W rolach głównych</b></font>
+
+28
+00:03:34,714 --> 00:03:37,217
+<b>RZĄD ZAPRZECZA</b>
+
+29
+00:03:54,109 --> 00:03:56,695
+<b>PRAWDA GDZIEŚ TAM JEST</b>

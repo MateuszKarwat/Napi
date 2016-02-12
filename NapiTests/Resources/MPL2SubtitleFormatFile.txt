@@ -1,0 +1,7 @@
+[1841][1891]{Y:i}Baza, tu 7-3.|Mam denata na nabrze¿u...
+[1921][1948]{C:$aaccff}{Y:b}Z ARCHIWUM X
+[1958][1983]{C:$aaccff}{y:b}Odcinek 03x05|{y:b}Zbyt nieœmia³y
+[2067][2096]{Y:b}ZJAWISKA PARANORMALNE
+[2110][2136]{C:$aaccff}{Y:b}W rolach g³ównych
+[2147][2172]{Y:b}RZ¥D ZAPRZECZA
+[2341][2367]{Y:b}PRAWDA GDZIEŒ TAM JEST

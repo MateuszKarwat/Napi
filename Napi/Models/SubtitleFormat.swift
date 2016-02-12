@@ -14,6 +14,7 @@ protocol SubtitleFormat {
     var startstamp: Stamp? { get set }
     var stopstamp: Stamp? { get set }
     var text: String { get set }
+    static var regexPattern: String { get }
     
     func stringValue() -> String?
     func stringValueForTextStyle(style: TextStyle) -> String?

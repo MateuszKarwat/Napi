@@ -6,14 +6,15 @@
 //  Copyright © 2016 Mateusz Karwat. All rights reserved.
 //
 
+/// MPL2 Subtitle Format looks like this:
+///
+///     [111][222]First line of text.|Seconds line of text.
 struct MPL2SubtitleFormat: SubtitleFormat {
     var startstamp: Timestamp?
     var stopstamp: Timestamp?
     var text: String
+    static var regexPattern = "^\\[(\\d++\\)]\\[(\\d++\\)](.++)$"
     
-    /// The output looks like this:
-    ///
-    ///     [111][222]SomeText|Which is correct.
     func stringValue() -> String? {
         if let startValue = startstamp?.milliseconds, stopValue = stopstamp?.milliseconds {
             return "[\(startValue / 100)][\(stopValue / 100)]\(text)"

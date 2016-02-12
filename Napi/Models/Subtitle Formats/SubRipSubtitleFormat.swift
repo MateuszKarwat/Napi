@@ -6,18 +6,27 @@
 //  Copyright © 2016 Mateusz Karwat. All rights reserved.
 //
 
+/// SubRip Subtitle Format looks like this:
+///
+///     2
+///     01:01:01,111 --> 02:02:02,222
+///     First line of text.
+///     Seconds line of text.
+///     \n
 struct SubRipSubtitleFormat: SubtitleFormat {
     var textNumber: UInt
     var startstamp: Timestamp?
     var stopstamp: Timestamp?
     var text: String
+    static var regexPattern =
+        "^(\\d++)$\\n" +
+        "^(\\d{1,2}):(\\d{1,2}):(\\d{1,2}),(\\d{1,3})" +
+        " --> " +
+        "^(\\d{1,2}):(\\d{1,2}):(\\d{1,2}),(\\d{1,3})" +
+        "(^.++$\\n)++" +
+        "\\n"
+
     
-    /// The output looks like this:
-    ///
-    ///     2
-    ///     01:01:01,111 --> 02:02:02,222
-    ///     Some text
-    ///     \n
     func stringValue() -> String? {
         if startstamp != nil && stopstamp != nil {
             return
