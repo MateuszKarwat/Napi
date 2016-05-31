@@ -14,9 +14,10 @@ class MicroDVDSubtitleFormatTests: XCTestCase {
         let oneLineOfText = "Simple one line of text"
         XCTAssertEqual(
             MicroDVDSubtitleFormat(
+                frameRate: 1.0,
                 startTimestamp: Timestamp(milliseconds: 0),
                 stopTimestamp: Timestamp(frames: 250, frameRate: 1.0),
-                frameRate: 1.0, text: oneLineOfText).stringValue(),
+                text: oneLineOfText).stringValue(),
             "{0}{250}Simple one line of text"
         )
     }
