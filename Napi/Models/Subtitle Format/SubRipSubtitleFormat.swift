@@ -14,9 +14,9 @@
 ///     Seconds line of text.
 ///     \n
 struct SubRipSubtitleFormat: SubtitleFormat {
-    var textNumber: UInt
-    var startstamp: Timestamp?
-    var stopstamp: Timestamp?
+    var textNumber: Int
+    var startTimestamp: Timestamp?
+    var stopTimestamp: Timestamp?
     var text: String
     static let regexPattern =
         "^(\\d++)$\\n" +
@@ -28,22 +28,18 @@ struct SubRipSubtitleFormat: SubtitleFormat {
 
     
     func stringValue() -> String? {
-        if startstamp != nil && stopstamp != nil {
+        if startTimestamp != nil && stopTimestamp != nil {
             return
                 "\(textNumber)\n" +
-                "\(stringFormatForSubtitleTime(startstamp!)) --> \(stringFormatForSubtitleTime(stopstamp!))\n" +
+                "\(stringFormatForSubtitleTime(startTimestamp!)) --> \(stringFormatForSubtitleTime(stopTimestamp!))\n" +
                 "\(text)\n" +
                 "\n"
         }
         return nil
     }
     
-    func stringValueForTextStyle(style: TextStyle) -> String? {
-        return nil
-    }
-    
     private func stringFormatForSubtitleTime(timestamp: Timestamp)  -> String {
-        func numberToString(number: UInt, withLeadingZeros: Int) -> String {
+        func numberToString(number: Int, withLeadingZeros: Int) -> String {
             return String(format: "%0\(withLeadingZeros)d", number)
         }
         

@@ -17,7 +17,7 @@ class SubRipSubtitleFormatTests: XCTestCase {
         
         let someText = "You know nothing!\nJohn Snow..."
         
-        let correctSRT = SubRipSubtitleFormat(textNumber: 2, startstamp: subRipTime1, stopstamp: subRipTime2, text: someText)
+        let correctSRT = SubRipSubtitleFormat(textNumber: 2, startTimestamp: subRipTime1, stopTimestamp: subRipTime2, text: someText)
         let expectedSRTFormat =
             "2\n" +
             "01:02:03,004 --> 02:03:33,040\n" +

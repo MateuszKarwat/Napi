@@ -10,19 +10,19 @@
 ///
 ///     {111}{222}First line of text.|Seconds line of text.
 struct MicroDVDSubtitleFormat: SubtitleFormat {
-    var startstamp: Framestamp?
-    var stopstamp: Framestamp?
+    var startTimestamp: Timestamp?
+    var stopTimestamp: Timestamp?
+    var frameRate: Double
+    
     var text: String
     static let regexPattern = "^\\{(\\d++\\)}\\{(\\d++\\)}(.++)$"
     
     func stringValue() -> String? {
-        if let startValue = startstamp?.frames, stopValue = stopstamp?.frames {
+        if let
+            startValue = startTimestamp?.numberOfFrames(withFrameRate: frameRate),
+            stopValue = stopTimestamp?.numberOfFrames(withFrameRate: frameRate) {
             return "{\(startValue)}{\(stopValue)}\(text)"
         }
-        return nil
-    }
-    
-    func stringValueForTextStyle(style: TextStyle) -> String? {
         return nil
     }
 }

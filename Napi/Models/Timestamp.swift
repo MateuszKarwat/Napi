@@ -6,32 +6,37 @@
 //  Copyright © 2016 Mateusz Karwat. All rights reserved.
 //
 
-typealias TS = Timestamp
+import Foundation
 
 struct Timestamp {
-    var milliseconds: UInt = 0
+    var milliseconds: Int = 0
     
-    var numberOfFullSeconds: UInt { return milliseconds / 1000 }
-    var numberOfFullMinutes: UInt { return numberOfFullSeconds / 60 }
-    var numberOfFullHours: UInt { return numberOfFullMinutes / 60 }
+    var numberOfFullSeconds: Int { return milliseconds / 1000 }
+    var numberOfFullMinutes: Int { return numberOfFullSeconds / 60 }
+    var numberOfFullHours: Int { return numberOfFullMinutes / 60 }
     
-    init(milliseconds: UInt) { self.milliseconds = milliseconds }
-    init(seconds: UInt) { milliseconds = seconds * 1000 }
-    init(minutes: UInt) { milliseconds = minutes * 60 * 1000 }
-    init(hours: UInt) { milliseconds = hours * 60 * 60 * 1000 }
+    init(milliseconds: Int) { self.milliseconds = milliseconds }
+    init(seconds: Int) { milliseconds = seconds * 1000 }
+    init(minutes: Int) { milliseconds = minutes * 60 * 1000 }
+    init(hours: Int) { milliseconds = hours * 60 * 60 * 1000 }
 }
 
-extension Timestamp: SubtitleStamp {
-    var type: SubtitleStampType {
-        return .TimeBased
+// Support for frame based stamps
+extension Timestamp {
+    init(frames: Int, frameRate: Double) {
+        let calculatedValue = Double(frames) / frameRate * 1000
+        milliseconds = Int(round(calculatedValue))
     }
     
-    var absoluteValue: UInt {
-        return milliseconds
+    func numberOfFrames(withFrameRate frameRate: Double) -> Int {
+        let calculatedValue = Double(milliseconds) * frameRate / 1000
+        return Int(round(calculatedValue))
     }
 }
 
 // MARK: Arithmetic Operators
+
+typealias TS = Timestamp
 
 func +(left: TS, right: TS) -> TS {
     let sum = left.milliseconds + right.milliseconds

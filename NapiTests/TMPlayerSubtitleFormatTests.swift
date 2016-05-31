@@ -20,8 +20,8 @@ class TMPlayerSubtitleFormatTests: XCTestCase {
         let expectedStringFormat1 = "01:01:11:A long time ago...|In a galaxy far far away..."
         let expectedStringFormat2 = "02:01:11:Text which is only one line long"
         
-        XCTAssertEqual(TMPlayerSubtitleFormat(startstamp: startTime1, stopstamp: nil, text: sampleText1).stringValue(), expectedStringFormat1)
-        XCTAssertEqual(TMPlayerSubtitleFormat(startstamp: startTime2, stopstamp: nil, text: sampleText2).stringValue(), expectedStringFormat2)
+        XCTAssertEqual(TMPlayerSubtitleFormat(startTimestamp: startTime1, stopTimestamp: nil, text: sampleText1).stringValue(), expectedStringFormat1)
+        XCTAssertEqual(TMPlayerSubtitleFormat(startTimestamp: startTime2, stopTimestamp: nil, text: sampleText2).stringValue(), expectedStringFormat2)
     }
 
 }

@@ -10,24 +10,20 @@
 ///
 ///     01:12:33:First line of text.|Seconds line of text.
 struct TMPlayerSubtitleFormat: SubtitleFormat {
-    var startstamp: Timestamp?
-    var stopstamp: Timestamp?
+    var startTimestamp: Timestamp?
+    var stopTimestamp: Timestamp?
     var text: String
     static let regexPattern = "^(\\d{1,2}):(\\d{1,2}):(\\d{1,2}):(.++)$"
     
     func stringValue() -> String? {
-        if startstamp != nil {
-            return "\(stringFormatForSubtitleTime(startstamp!)):\(text)"
+        if startTimestamp != nil {
+            return "\(stringFormatForSubtitleTime(startTimestamp!)):\(text)"
         }
         return nil
     }
     
-    func stringValueForTextStyle(style: TextStyle) -> String? {
-        return nil
-    }
-    
     private func stringFormatForSubtitleTime(timestamp: Timestamp)  -> String {
-        func numberToString(number: UInt, withLeadingZeros: Int) -> String {
+        func numberToString(number: Int, withLeadingZeros: Int) -> String {
             return String(format: "%0\(withLeadingZeros)d", number)
         }
         

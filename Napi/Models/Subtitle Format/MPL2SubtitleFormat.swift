@@ -10,22 +10,15 @@
 ///
 ///     [111][222]First line of text.|Seconds line of text.
 struct MPL2SubtitleFormat: SubtitleFormat {
-    var startstamp: Timestamp?
-    var stopstamp: Timestamp?
+    var startTimestamp: Timestamp?
+    var stopTimestamp: Timestamp?
     var text: String
     static let regexPattern = "^\\[(\\d++\\)]\\[(\\d++\\)](.++)$"
     
     func stringValue() -> String? {
-        if let startValue = startstamp?.milliseconds, stopValue = stopstamp?.milliseconds {
+        if let startValue = startTimestamp?.milliseconds, stopValue = stopTimestamp?.milliseconds {
             return "[\(startValue / 100)][\(stopValue / 100)]\(text)"
         }
         return nil
-    }
-    
-    func stringValueForTextStyle(style: TextStyle) -> String? {
-        switch style {
-        default:
-            return nil
-        }
     }
 }
