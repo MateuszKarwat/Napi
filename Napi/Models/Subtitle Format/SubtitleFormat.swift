@@ -21,12 +21,12 @@ extension SubtitleFormat {
 }
 
 enum SupportedSubtitleFormat {
-    case MPL2
-    case MicroDVD
-    case SubRip
-    case TMPlayer
+    case mpl2
+    case microDVD
+    case subRip
+    case tmPlayer
     
     var allSupportedSubtitleFormats: [SupportedSubtitleFormat] {
-        return [MPL2, MicroDVD, SubRip, TMPlayer]
+        return [mpl2, microDVD, subRip, tmPlayer]
     }
 }

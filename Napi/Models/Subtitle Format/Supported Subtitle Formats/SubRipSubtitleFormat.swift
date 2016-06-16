@@ -38,20 +38,16 @@ struct SubRipSubtitleFormat: SubtitleFormat {
         return nil
     }
     
-    private func stringFormatForSubtitleTime(timestamp: Timestamp)  -> String {
-        func numberToString(number: Int, withLeadingZeros: Int) -> String {
-            return String(format: "%0\(withLeadingZeros)d", number)
-        }
-        
+    private func stringFormatForSubtitleTime(_ timestamp: Timestamp)  -> String {
         let minutes = timestamp - TS(hours: timestamp.numberOfFullHours)
         let seconds = minutes - TS(minutes: minutes.numberOfFullMinutes)
         let milliseconds = seconds - TS(seconds: seconds.numberOfFullSeconds)
         
         return
-            "\(numberToString(timestamp.numberOfFullHours, withLeadingZeros: 2)):" +
-            "\(numberToString(minutes.numberOfFullMinutes, withLeadingZeros: 2)):" +
-            "\(numberToString(seconds.numberOfFullSeconds, withLeadingZeros: 2))," +
-            "\(numberToString(milliseconds.milliseconds, withLeadingZeros: 3))"
+            "\(timestamp.numberOfFullHours.toString(withLeadingZeros: 2)):" +
+            "\(minutes.numberOfFullMinutes.toString(withLeadingZeros: 2)):" +
+            "\(seconds.numberOfFullSeconds.toString(withLeadingZeros: 2))," +
+            "\(milliseconds.milliseconds.toString(withLeadingZeros: 3))"
         
     }
 }

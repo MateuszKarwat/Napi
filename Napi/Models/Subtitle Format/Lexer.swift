@@ -25,7 +25,7 @@ struct Lexer<TokenType> {
         var lastMatchedIndex = 0
         
         while currentMatchIndex < stream.characters.count {
-            let substringToMatch = stream.substringFromIndex(currentMatchIndex)
+            let substringToMatch = stream.substring(from: currentMatchIndex)
             
             if let (generator, matchedPrefix) = findMatch(in: substringToMatch) {
                 tokens.append(generator.tokenForStream(matchedPrefix))
@@ -38,7 +38,7 @@ struct Lexer<TokenType> {
                 lastMatchedIndex = currentMatchIndex
                 continue
             }
-            
+
             currentMatchIndex += 1
         }
         
@@ -51,9 +51,9 @@ struct Lexer<TokenType> {
         let range = NSMakeRange(0, string.characters.count)
         
         for tokenGenerator in tokenGenerators {
-            if let regex = try? NSRegularExpression(pattern: tokenGenerator.pattern, options: []),
-                let match = regex.firstMatchInString(string, options: [.Anchored], range: range) {
-                return (tokenGenerator, string.substringToIndex(match.range.length))
+            if let regex = try? RegularExpression(pattern: tokenGenerator.pattern, options: []),
+                let match = regex.firstMatch(in: string, options: [.anchored], range: range) {
+                return (tokenGenerator, string.substring(to: match.range.length))
             }
         }
         

@@ -12,7 +12,7 @@ struct Token<T>: CustomStringConvertible {
     let lexeme: String?
     let type: T
     
-    init(lexeme: String? = nil, type: T) {
+    init(type: T, lexeme: String? = nil) {
         self.lexeme = lexeme
         self.type = type
     }

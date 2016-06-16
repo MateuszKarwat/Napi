@@ -9,18 +9,18 @@
 import Foundation
 
 public extension String {
-    public func substringFromIndex(n: Int) -> String {
-        return self.substringFromIndex(self.startIndex.advancedBy(n))
+    public func substring(from index: Int) -> String {
+        return self.substring(from: self.characters.index(self.startIndex, offsetBy: index))
     }
     
-    public func substringToIndex(n: Int) -> String {
-        return self.substringToIndex(self.startIndex.advancedBy(n))
+    public func substring(to index: Int) -> String {
+        return self.substring(to: self.characters.index(self.startIndex, offsetBy: index))
     }
 }
 
 public extension String {
     public subscript (i: Int) -> Character {
-        return self[self.startIndex.advancedBy(i)]
+        return self[self.characters.index(self.startIndex, offsetBy: i)]
     }
     
     public subscript (i: Int) -> String {
@@ -28,8 +28,8 @@ public extension String {
     }
     
     public subscript (r: Range<Int>) -> String {
-        let start = startIndex.advancedBy(r.startIndex)
-        let end = start.advancedBy(r.endIndex - r.startIndex)
+        let start = characters.index(startIndex, offsetBy: r.lowerBound)
+        let end = characters.index(start, offsetBy: r.upperBound - r.lowerBound)
         return self[Range(start ..< end)]
     }
 }
