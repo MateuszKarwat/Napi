@@ -17,8 +17,8 @@ struct TMPlayerSubtitleFormat: SubtitleFormat {
     static let regexPattern = "^(\\d{1,2}):(\\d{1,2}):(\\d{1,2}):(.++)$"
     
     func stringValue() -> String? {
-        if startTimestamp != nil {
-            return "\(stringFormatForSubtitleTime(startTimestamp!)):\(text)"
+        if let startTimestamp = startTimestamp {
+            return "\(stringFormatForSubtitleTime(startTimestamp)):\(text)"
         }
         return nil
     }
@@ -28,15 +28,19 @@ struct TMPlayerSubtitleFormat: SubtitleFormat {
         let seconds = minutes - TS(minutes: minutes.numberOfFullMinutes)
         
         return
-            
-            "\(timestamp.numberOfFullHours.toString(withLeadingZeros: 2)):" +
-            "\(minutes.numberOfFullMinutes.toString(withLeadingZeros: 2)):" +
-            "\(seconds.numberOfFullSeconds.toString(withLeadingZeros: 2))"
+            "\(timestamp.numberOfFullHours.toString(leadingZeros: 2)):" +
+            "\(minutes.numberOfFullMinutes.toString(leadingZeros: 2)):" +
+            "\(seconds.numberOfFullSeconds.toString(leadingZeros: 2))"
+    }
+
+    func stringValue<TokenType>(for: Token<TokenType>) -> String? {
+        // TODO: Implement
+        return nil
     }
 }
 
 extension Int {
-    func toString(withLeadingZeros: Int) -> String {
-        return String(format: "%0\(withLeadingZeros)d", self)
+    func toString(leadingZeros: Int) -> String {
+        return String(format: "%0\(leadingZeros)d", self)
     }
 }

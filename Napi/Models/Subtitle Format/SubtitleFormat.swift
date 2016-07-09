@@ -11,22 +11,20 @@ protocol SubtitleFormat {
     var stopTimestamp: Timestamp? { get set }
     
     var text: String { get set }
+
     static var regexPattern: String { get }
     
     func stringValue() -> String?
-}
-
-extension SubtitleFormat {
-    // TODO: Implement computed property for tokenized text
+    func stringValue<TokenType>(for: Token<TokenType>) -> String?
 }
 
 enum SupportedSubtitleFormat {
     case mpl2
     case microDVD
     case subRip
-    case tmPlayer
+    case tmplayer
     
     var allSupportedSubtitleFormats: [SupportedSubtitleFormat] {
-        return [mpl2, microDVD, subRip, tmPlayer]
+        return [mpl2, microDVD, subRip, tmplayer]
     }
 }

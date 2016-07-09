@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import Napi
 
 class TimestampTests: XCTestCase {
 

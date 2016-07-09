@@ -8,25 +8,33 @@
 
 import Foundation
 
-struct Token<T>: CustomStringConvertible {
-    let lexeme: String?
-    let type: T
-    
-    init(type: T, lexeme: String? = nil) {
-        self.lexeme = lexeme
-        self.type = type
-    }
-    
-    var description: String {
-        if lexeme == nil {
-            return "Token(\(type))"
-        } else {
-            return "Token(\(lexeme!), \(type))"
+struct Token<Type: RawRepresentable> {
+    let type: Type
+    let lexeme: String
+    let pattern: RegularExpression
+}
+
+extension Token {
+    var values: [String] {
+        let match = pattern.firstMatch(in: lexeme, options: [], range: NSRange(location: 0, length: lexeme.characters.count))!
+
+        var substrings = [String]()
+
+        for i in 1 ..< match.numberOfRanges {
+            let rangeOfSubstring = match.range(at: i)
+            let substring = lexeme[rangeOfSubstring]
+
+            substrings.append(substring)
         }
+
+        return substrings
     }
 }
 
-struct TokenGenerator<T> {
-    let pattern: String
-    let tokenForStream: (String) -> Token<T>
+// MARK: CustomStringConvertible
+
+extension Token: CustomStringConvertible {
+    var description: String {
+        return "Token(\(type), \(values))"
+    }
 }

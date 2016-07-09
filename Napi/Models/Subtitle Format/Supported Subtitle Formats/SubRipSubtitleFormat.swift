@@ -28,10 +28,10 @@ struct SubRipSubtitleFormat: SubtitleFormat {
         "\\n"
     
     func stringValue() -> String? {
-        if startTimestamp != nil && stopTimestamp != nil {
+        if let startTimestamp = startTimestamp, stopTimestamp = stopTimestamp {
             return
                 "\(textNumber)\n" +
-                "\(stringFormatForSubtitleTime(startTimestamp!)) --> \(stringFormatForSubtitleTime(stopTimestamp!))\n" +
+                "\(stringFormatForSubtitleTime(startTimestamp)) --> \(stringFormatForSubtitleTime(stopTimestamp))\n" +
                 "\(text)\n" +
                 "\n"
         }
@@ -44,10 +44,14 @@ struct SubRipSubtitleFormat: SubtitleFormat {
         let milliseconds = seconds - TS(seconds: seconds.numberOfFullSeconds)
         
         return
-            "\(timestamp.numberOfFullHours.toString(withLeadingZeros: 2)):" +
-            "\(minutes.numberOfFullMinutes.toString(withLeadingZeros: 2)):" +
-            "\(seconds.numberOfFullSeconds.toString(withLeadingZeros: 2))," +
-            "\(milliseconds.milliseconds.toString(withLeadingZeros: 3))"
-        
+            "\(timestamp.numberOfFullHours.toString(leadingZeros: 2)):" +
+            "\(minutes.numberOfFullMinutes.toString(leadingZeros: 2)):" +
+            "\(seconds.numberOfFullSeconds.toString(leadingZeros: 2))," +
+            "\(milliseconds.milliseconds.toString(leadingZeros: 3))"
+    }
+
+    func stringValue<TokenType>(for: Token<TokenType>) -> String? {
+        // TODO: Implement
+        return nil
     }
 }

@@ -8,55 +8,51 @@
 
 import Foundation
 
-struct Lexer<TokenType> {
-    let stream: String
-    var tokenGenerators: [TokenGenerator<TokenType>]
-    
-    private(set) var tokens = [Token<TokenType>]()
-    private(set) var unmatchedSubstreams = [String]()
-    
-    init(stream: String, tokenGenerators: [TokenGenerator<TokenType>]) {
-        self.stream = stream
-        self.tokenGenerators = tokenGenerators
+class Lexer<TokenType: RawRepresentable> {
+    private(set) var rules: [(RegularExpression, TokenType)]
+
+    init(rules: [(RegularExpression, TokenType)]) {
+        self.rules = rules
     }
-    
-    mutating func lex() {
-        var currentMatchIndex = 0
-        var lastMatchedIndex = 0
-        
-        while currentMatchIndex < stream.characters.count {
-            let substringToMatch = stream.substring(from: currentMatchIndex)
-            
-            if let (generator, matchedPrefix) = findMatch(in: substringToMatch) {
-                tokens.append(generator.tokenForStream(matchedPrefix))
-                
-                if lastMatchedIndex < currentMatchIndex {
-                    unmatchedSubstreams.append(stream[lastMatchedIndex..<currentMatchIndex])
+
+    init?(rules: [(String, TokenType)]) {
+        self.rules = []
+
+        for (pattern, type) in rules {
+            guard let regex = try? RegularExpression(pattern: pattern, options: []) else {
+                return nil
+            }
+            self.rules.append((regex, type))
+        }
+    }
+
+    func lex(stream: String) -> [Token<TokenType>] {
+        var tokens = [Token<TokenType>]()
+        var unmatchedStream = stream
+
+        while !unmatchedStream.isEmpty {
+            var nextToken: Token<TokenType>? = nil
+
+            for (regex, tokenType) in rules {
+                if let match = match(of: regex, in: unmatchedStream) {
+                    nextToken = Token(type: tokenType, lexeme: unmatchedStream[match.range], pattern: regex)
+                    unmatchedStream = unmatchedStream.substring(from: match.range.length)
+                    break
                 }
-                
-                currentMatchIndex += matchedPrefix.characters.count
-                lastMatchedIndex = currentMatchIndex
-                continue
             }
 
-            currentMatchIndex += 1
-        }
-        
-        if lastMatchedIndex < currentMatchIndex {
-            unmatchedSubstreams.append(stream[lastMatchedIndex..<currentMatchIndex])
-        }
-    }
-    
-    private func findMatch(in string: String) -> (TokenGenerator<TokenType>, String)? {
-        let range = NSMakeRange(0, string.characters.count)
-        
-        for tokenGenerator in tokenGenerators {
-            if let regex = try? RegularExpression(pattern: tokenGenerator.pattern, options: []),
-                let match = regex.firstMatch(in: string, options: [.anchored], range: range) {
-                return (tokenGenerator, string.substring(to: match.range.length))
+            if let nextToken = nextToken {
+                tokens.append(nextToken)
+            } else {
+                unmatchedStream.characters.removeFirst()
             }
         }
-        
-        return nil
+
+        return tokens
+    }
+
+    private func match(of regex: RegularExpression, in stream: String) -> TextCheckingResult? {
+        let streamRange = NSRange(location: 0, length: stream.characters.count)
+        return regex.firstMatch(in: stream, options: [.anchored], range: streamRange)
     }
 }

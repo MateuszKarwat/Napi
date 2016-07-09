@@ -21,7 +21,8 @@ struct Timestamp {
     init(hours: Int) { milliseconds = max(0, hours * 60 * 60 * 1000) }
 }
 
-// Support for frame based stamps
+// MARK: Frame based support
+
 extension Timestamp {
     init(frames: Int, frameRate: Double) {
         let calculatedValue = Double(max(0, frames)) / max(0.0, frameRate) * 1000

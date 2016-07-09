@@ -22,4 +22,9 @@ struct MPL2SubtitleFormat: SubtitleFormat {
         }
         return nil
     }
+
+    func stringValue<TokenType>(for: Token<TokenType>) -> String? {
+        // TODO: Implement
+        return nil
+    }
 }
