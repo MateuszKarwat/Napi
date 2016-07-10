@@ -12,14 +12,14 @@ import XCTest
 class MicroDVDSubtitleFormatTests: XCTestCase {
 
     func testStringValue() {
-        let oneLineOfText = "Simple one line of text"
+        let oneLineOfText = "Simple one line of a text"
         XCTAssertEqual(
             MicroDVDSubtitleFormat(
                 frameRate: 1.0,
                 startTimestamp: Timestamp(milliseconds: 0),
                 stopTimestamp: Timestamp(frames: 250, frameRate: 1.0),
                 text: oneLineOfText).stringValue(),
-            "{0}{250}Simple one line of text"
+                "{0}{250}Simple one line of a text"
         )
     }
 
