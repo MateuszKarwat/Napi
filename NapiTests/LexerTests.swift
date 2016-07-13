@@ -73,5 +73,151 @@ class LexerTests: XCTestCase {
 }
 
 class LexerAndSubtitleTokenTypeTests: XCTestCase {
-    // TODO: Implement
+
+    var lexer: Lexer<SubtitleTokenType>!
+
+    override func setUp() {
+        super.setUp()
+
+        lexer = Lexer(rules: Lexer<SubtitleTokenType>.defaultSubtitleRules)
+    }
+
+    func assert(stream: String, expectexType: SubtitleTokenType) {
+        let oneResult = lexer.lex(stream: stream)
+        XCTAssertEqual(oneResult.first!.type, expectexType)
+        XCTAssertEqual(oneResult.first!.lexeme, stream)
+
+        // Check stream made of two equal strings.
+        let results = lexer.lex(stream: stream + stream)
+
+        for result in results {
+            XCTAssertEqual(result.type, expectexType)
+            XCTAssertEqual(result.lexeme, stream)
+        }
+    }
+
+    func testBoldPattern() {
+        assert(stream: "{b}", expectexType: .boldStart)
+        assert(stream: "{y:b}", expectexType: .boldStart)
+        assert(stream: "<b>", expectexType: .boldStart)
+
+        assert(stream: "{/b}", expectexType: .boldEnd)
+        assert(stream: "{/y:b}", expectexType: .boldEnd)
+        assert(stream: "</b>", expectexType: .boldEnd)
+    }
+
+    func testItalicPattern() {
+        assert(stream: "{i}", expectexType: .italicStart)
+        assert(stream: "{y:i}", expectexType: .italicStart)
+        assert(stream: "<i>", expectexType: .italicStart)
+
+        assert(stream: "{/i}", expectexType: .italicEnd)
+        assert(stream: "{/y:i}", expectexType: .italicEnd)
+        assert(stream: "</i>", expectexType: .italicEnd)
+    }
+
+    func testUnderlinePattern() {
+        assert(stream: "{u}", expectexType: .underlineStart)
+        assert(stream: "{y:u}", expectexType: .underlineStart)
+        assert(stream: "<u>", expectexType: .underlineStart)
+
+        assert(stream: "{/u}", expectexType: .underlineEnd)
+        assert(stream: "{/y:u}", expectexType: .underlineEnd)
+        assert(stream: "</u>", expectexType: .underlineEnd)
+    }
+
+    func testColorPattern() {
+        assert(stream: "{c:AABBCC}", expectexType: .fontColorStart)
+        assert(stream: "{c:#AABBCC}", expectexType: .fontColorStart)
+        assert(stream: "{c:$AABBCC}", expectexType: .fontColorStart)
+
+        assert(stream: "{c:RED}", expectexType: .fontColorStart)
+        assert(stream: "{c:#RED}", expectexType: .fontColorStart)
+        assert(stream: "{c:$RED}", expectexType: .fontColorStart)
+
+        assert(stream: "<font color=\"AABBCC\">", expectexType: .fontColorStart)
+        assert(stream: "<font color=\"#AABBCC\">", expectexType: .fontColorStart)
+        assert(stream: "<font color=\"$AABBCC\">", expectexType: .fontColorStart)
+
+        assert(stream: "<font color=\"RED\">", expectexType: .fontColorStart)
+        assert(stream: "<font color=\"#RED\">", expectexType: .fontColorStart)
+        assert(stream: "<font color=\"$RED\">", expectexType: .fontColorStart)
+
+        assert(stream: "{/c}", expectexType: .fontColorEnd)
+        assert(stream: "</font>", expectexType: .fontColorEnd)
+    }
+
+    func testLineSeparatorPattern() {
+        assert(stream: "\n", expectexType: .newLine)
+        assert(stream: "|", expectexType: .newLine)
+    }
+
+    func testWhitespacePattern() {
+        assert(stream: " ", expectexType: .whitespace)
+        assert(stream: "\t", expectexType: .whitespace)
+    }
+
+    func testWordPattern() {
+        let words = ["WORD", "LONG_LONG_LONG_LONG-WORD", "1234", "!@#}", "WORD1234!@#}"]
+
+        for (index, word) in words.enumerated() {
+            let result = lexer.lex(stream: word)
+            XCTAssertEqual(result.first!.type, .word)
+            XCTAssertEqual(result.first!.lexeme, words[index])
+        }
+    }
+
+    func testUnknownCharacterPattern() {
+        // '{' and '<' are not treated as words. Word can't include them,
+        // because they start most common tags, so before them word should end.
+        assert(stream: "{", expectexType: .unknownCharacter)
+        assert(stream: "<", expectexType: .unknownCharacter)
+    }
+
+    func testAllTokensInOneStream() {
+        var partsOfStream = ["{Y:b}", "</B>", "{i}", "{/i}",
+                             "<u>", "</U>", "{c:#AABBCC}", "{/c}", "</font>",
+                             "|", "\n", " ", "\t", "JUST-SOME-WORDS", "{", "<"]
+
+        var expectedTokens: [SubtitleTokenType] = [.boldStart, .boldEnd, .italicStart, .italicEnd,
+                                                   .underlineStart, .underlineEnd, .fontColorStart,
+                                                   .fontColorEnd, .fontColorEnd, .newLine, .newLine,
+                                                   .whitespace, .whitespace, .word, .unknownCharacter,
+                                                   .unknownCharacter]
+
+        let streamInParsingOrder = partsOfStream.joined(separator: "")
+        for (index, result) in lexer.lex(stream: streamInParsingOrder).enumerated() {
+            XCTAssertEqual(result.type, expectedTokens[index])
+            XCTAssertEqual(result.lexeme, partsOfStream[index])
+        }
+
+        // Test the same stream, but elements now are reversed.
+        expectedTokens.reverse()
+        partsOfStream.reverse()
+
+        let streamInReverseToParsingOrder = partsOfStream.reversed().joined(separator: "")
+        for (index, result) in lexer.lex(stream: streamInReverseToParsingOrder).enumerated() {
+            XCTAssertEqual(result.type, expectedTokens[index])
+            XCTAssertEqual(result.lexeme, partsOfStream[index])
+        }
+    }
+
+    func testCornerCases() {
+        // Test empty stream.
+        let noResults = lexer.lex(stream: "")
+        XCTAssertTrue(noResults.isEmpty)
+
+        // Test something what starts like a tag, but it's not.
+        let notRealTags = lexer.lex(stream: "{n}{/x}<font>")
+        let expectedTokens: [SubtitleTokenType] = [.unknownCharacter, .word,
+                                                   .unknownCharacter, .word,
+                                                   .unknownCharacter, .word]
+        let expectedLexemes = ["{", "n}", "{", "/x}", "<", "font>"]
+
+        for (index, result) in notRealTags.enumerated() {
+            XCTAssertEqual(result.type, expectedTokens[index])
+            XCTAssertEqual(result.lexeme, expectedLexemes[index])
+        }
+    }
+
 }

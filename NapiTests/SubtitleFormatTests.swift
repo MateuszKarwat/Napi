@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import Napi
 
 class SubtitleFormatTests: XCTestCase {
     // TODO: Implement
