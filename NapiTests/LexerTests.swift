@@ -195,7 +195,7 @@ class LexerAndSubtitleTokenTypeTests: XCTestCase {
         expectedTokens.reverse()
         partsOfStream.reverse()
 
-        let streamInReverseToParsingOrder = partsOfStream.reversed().joined(separator: "")
+        let streamInReverseToParsingOrder = partsOfStream.joined(separator: "")
         for (index, result) in lexer.lex(stream: streamInReverseToParsingOrder).enumerated() {
             XCTAssertEqual(result.type, expectedTokens[index])
             XCTAssertEqual(result.lexeme, partsOfStream[index])
