@@ -60,7 +60,7 @@ class MicroDVDSubtitleFormatTests: XCTestCase {
     }
 
     func testDecodeCorrectInputWithFrameRate() {
-        let input = "{90_000}{91_525}Simple one line of a text"
+        let input = "{90000}{91525}Simple one line of a text"
 
         let microDVDFormat = MicroDVDSubtitleFormat.decode(input, frameRate: 25.0)
 

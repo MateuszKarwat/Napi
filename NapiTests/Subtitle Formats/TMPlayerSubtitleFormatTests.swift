@@ -47,7 +47,8 @@ class TMPlayerSubtitleFormatTests: XCTestCase {
                                "Test."]
 
         for incorrectInput in incorrectInputs {
-            XCTAssertNil(TMPlayerSubtitleFormat.decode(incorrectInput))
+            XCTAssertNil(TMPlayerSubtitleFormat.decode(incorrectInput),
+                         "Assertion failed with input: \(incorrectInput)")
         }
     }
     

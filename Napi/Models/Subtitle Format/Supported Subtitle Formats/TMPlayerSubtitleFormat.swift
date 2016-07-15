@@ -6,6 +6,8 @@
 //  Copyright © 2016 Mateusz Karwat. All rights reserved.
 //
 
+import Foundation
+
 /// Represents TMPlayer Subtitle Format.
 /// TMPlayer Subtitle Format looks like this:
 ///
@@ -16,11 +18,25 @@ struct TMPlayerSubtitleFormat: SubtitleFormat {
     
     var text: String
     
-    static let regexPattern = "^(\\d{1,2}):(\\d{1,2}):(\\d{1,2}):(.+)$"
+    static let regexPattern = "(\\d{1,2}):(\\d{1,2}):(\\d{1,2}):(.+)"
 
     static func decode(_ aString: String) -> TMPlayerSubtitleFormat? {
-        // TODO: Implement
-        return nil
+        let regex = try! RegularExpression(pattern: TMPlayerSubtitleFormat.regexPattern, options: [])
+        let range = NSRange(location: 0, length: aString.characters.count)
+
+        guard
+            let match = regex.firstMatch(in: aString, options: [], range: range),
+            let hours = Int(aString[match.range(at: 1)]),
+            let minutes = Int(aString[match.range(at: 2)]),
+            let seconds = Int(aString[match.range(at: 3)]) else {
+                return nil
+        }
+
+        let timestamp = TS(hours: hours) + TS(minutes: minutes) + TS(seconds: seconds)
+
+        return TMPlayerSubtitleFormat(startTimestamp: timestamp,
+                                      stopTimestamp: nil,
+                                      text: aString[match.range(at: 4)])
     }
     
     func stringValue() -> String? {

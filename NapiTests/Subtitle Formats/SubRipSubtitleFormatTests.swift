@@ -24,8 +24,7 @@ class SubRipSubtitleFormatTests: XCTestCase {
             "2\n" +
             "01:02:03,004 --> 02:03:33,040\n" +
             "You know nothing!\n" +
-            "John Snow...\n" +
-            "\n"
+            "John Snow...\n"
 
         XCTAssertEqual(subRipFormat.stringValue(), expectedStringValue)
     }
@@ -52,6 +51,7 @@ class SubRipSubtitleFormatTests: XCTestCase {
             "John Snow...\n" +
             "\n"
 
+
         let srtFormat = SubRipSubtitleFormat.decode(input)
 
         let startTimestamp = TS(hours: 1) + TS(minutes: 2) + TS(seconds: 3) + TS(milliseconds: 4)
@@ -68,13 +68,12 @@ class SubRipSubtitleFormatTests: XCTestCase {
                                startTimestamp: String = "01:02:03,004",
                                arrow: String = " --> ",
                                stopTimestamp: String = "02:03:33,040\n",
-                               text: String = "Test.\n",
-                               newLine: String = "\n") {
-            let input = lineNumber + startTimestamp + arrow + stopTimestamp + text + newLine
-            XCTAssertNil(SubRipSubtitleFormat.decode(input))
+                               text: String = "Test.") {
+            let input = lineNumber + startTimestamp + arrow + stopTimestamp + text
+            XCTAssertNil(SubRipSubtitleFormat.decode(input),
+                         "Assertion failed with input: \(input)")
         }
 
-        assertBrokenInput()
         // Incorrect lineNumber
         assertBrokenInput(lineNumber: "")
         assertBrokenInput(lineNumber: "\n")
@@ -94,17 +93,13 @@ class SubRipSubtitleFormatTests: XCTestCase {
         assertBrokenInput(stopTimestamp: "02:03:33,040")
 
         // Incorrect arrow
-        assertBrokenInput(arrow: "--> ")
         assertBrokenInput(arrow: " -> ")
         assertBrokenInput(arrow: " -- ")
-        assertBrokenInput(arrow: " -->")
 
         // Incorrect text
         assertBrokenInput(text: "")
-        assertBrokenInput(text: "Test.")
-
-        // Incorrect last new line
-        assertBrokenInput(newLine: "")
+        assertBrokenInput(text: " ")
+        assertBrokenInput(text: "\n")
     }
     
 }

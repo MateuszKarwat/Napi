@@ -6,6 +6,8 @@
 //  Copyright © 2016 Mateusz Karwat. All rights reserved.
 //
 
+import Foundation
+
 /// Represents SubRip Subtitle Format.
 /// SubRip Subtitle Format looks like this:
 ///
@@ -22,16 +24,47 @@ struct SubRipSubtitleFormat: SubtitleFormat {
     var text: String
     
     static let regexPattern =
-        "^(\\d+)$\\n" +
-        "^(\\d{1,2}):(\\d{1,2}):(\\d{1,2}),(\\d{1,3})" +
-        " --> " +
-        "^(\\d{1,2}):(\\d{1,2}):(\\d{1,2}),(\\d{1,3})" +
-        "(^.+$\\n)+" +
-        "\\n"
+        "(\\d+)\\s" +
+        "(\\d{1,2}):(\\d{1,2}):(\\d{1,2}),(\\d{1,3})" +
+        " +--> +" +
+        "(\\d{1,2}):(\\d{1,2}):(\\d{1,2}),(\\d{1,3})\\s" +
+        "((?:.+\\s?)+\\S+)" // Take all lines of text, but don't include Whitespace at the very end.
 
     static func decode(_ aString: String) -> SubRipSubtitleFormat? {
-        // TODO: Implement
-        return nil
+        let regex = try! RegularExpression(pattern: SubRipSubtitleFormat.regexPattern, options: [])
+        let range = NSRange(location: 0, length: aString.characters.count)
+
+        guard
+            let match = regex.firstMatch(in: aString, options: [], range: range),
+            let lineNumber = Int(aString[match.range(at: 1)]) else {
+                return nil
+        }
+
+        // Extract all numbers which represent hours, minutes, etc.
+        var timestampNumbers = [Int]()
+        for i in 2 ... 9 {
+            guard let newNumber = Int(aString[match.range(at: i)]) else {
+                return nil
+            }
+
+            timestampNumbers.append(newNumber)
+        }
+
+        let startstamp =
+            TS(hours: timestampNumbers[0]) +
+            TS(minutes: timestampNumbers[1]) +
+            TS(seconds: timestampNumbers[2]) +
+            TS(milliseconds: timestampNumbers[3])
+        let stopstamp =
+            TS(hours: timestampNumbers[4]) +
+            TS(minutes: timestampNumbers[5]) +
+            TS(seconds: timestampNumbers[6]) +
+            TS(milliseconds: timestampNumbers[7])
+
+        return SubRipSubtitleFormat(textNumber: lineNumber,
+                                    startTimestamp: startstamp,
+                                    stopTimestamp: stopstamp,
+                                    text: aString[match.range(at: 10)])
     }
 
     func stringValue() -> String? {
@@ -39,8 +72,7 @@ struct SubRipSubtitleFormat: SubtitleFormat {
             return
                 "\(textNumber)\n" +
                 "\(stringFormatForSubtitleTime(startTimestamp)) --> \(stringFormatForSubtitleTime(stopTimestamp))\n" +
-                "\(text)\n" +
-                "\n"
+                "\(text)\n"
         }
         return nil
     }

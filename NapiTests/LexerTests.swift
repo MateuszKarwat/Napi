@@ -97,8 +97,8 @@ class LexerAndSubtitleTokenTypeTests: XCTestCase {
         let results = lexer.lex(stream: stream + stream)
 
         for result in results {
-            XCTAssertEqual(result.type, expectexType)
-            XCTAssertEqual(result.lexeme, stream)
+            XCTAssertEqual(result.type, expectexType, "Assertion failed with type: \(expectexType)")
+            XCTAssertEqual(result.lexeme, stream, "Assertion failed with stream: \(stream)")
         }
     }
 
