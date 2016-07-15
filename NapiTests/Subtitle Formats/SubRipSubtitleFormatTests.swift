@@ -70,8 +70,7 @@ class SubRipSubtitleFormatTests: XCTestCase {
                                stopTimestamp: String = "02:03:33,040\n",
                                text: String = "Test.") {
             let input = lineNumber + startTimestamp + arrow + stopTimestamp + text
-            XCTAssertNil(SubRipSubtitleFormat.decode(input),
-                         "Assertion failed with input: \(input)")
+            XCTAssertNil(SubRipSubtitleFormat.decode(input), "Assertion failed with input: \(input)")
         }
 
         // Incorrect lineNumber

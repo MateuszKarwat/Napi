@@ -31,12 +31,10 @@ class LexerTests: XCTestCase {
         let lexer = Lexer(rules: [("RULE", TestingToken.word)])!
 
         let oneMatch = lexer.lex(stream: "This should find one RULE")
-        XCTAssertEqual([TestingToken.word], oneMatch.map { $0.type },
-                       "There should be only one match")
+        XCTAssertEqual([TestingToken.word], oneMatch.map { $0.type })
 
         let twoMatches = lexer.lex(stream: "This should find this RULE and thisRULE")
-        XCTAssertEqual([TestingToken.word, TestingToken.word], twoMatches.map { $0.type },
-                       "There should be two matches")
+        XCTAssertEqual([TestingToken.word, TestingToken.word], twoMatches.map { $0.type })
     }
 
     func testLexWithMultipleTokensAndIncompleteGramma() {
@@ -46,8 +44,7 @@ class LexerTests: XCTestCase {
         let expectedTokenTypes: [TestingToken] = [.twoValues, .whitespace, .word,
                                                   .whitespace, .bold, .color, .whitespace]
 
-        XCTAssertEqual(expectedTokenTypes, tokens.map { $0.type },
-                       "Token types should be in the same order")
+        XCTAssertEqual(expectedTokenTypes, tokens.map { $0.type })
     }
 
     func testLexWithMultipleTokensAndCompleteGramma() {
@@ -57,15 +54,14 @@ class LexerTests: XCTestCase {
         let expectedTokenTypes: [TestingToken] = [.twoValues, .whitespace, .word,
                                                   .whitespace, .bold, .color, .whitespace]
 
-        XCTAssertEqual(expectedTokenTypes, tokens.map { $0.type },
-                       "Token types should be in the same order")
+        XCTAssertEqual(expectedTokenTypes, tokens.map { $0.type })
     }
 
     func testLexWithMultipleTokensButNoMatch() {
         let lexer = Lexer(rules: testingRules)!
         let tokens = lexer.lex(stream: "0987654321")
 
-        XCTAssertTrue(tokens.isEmpty, "There should be no match for a given stream")
+        XCTAssertTrue(tokens.isEmpty)
     }
 
     func testLexWithoutTokens() {
@@ -73,7 +69,7 @@ class LexerTests: XCTestCase {
         let lexer = Lexer(rules: rules)!
         let tokens = lexer.lex(stream: "This is testing stream")
 
-        XCTAssertTrue(tokens.isEmpty, "With no rules there should be no tokens")
+        XCTAssertTrue(tokens.isEmpty)
     }
     
 }
