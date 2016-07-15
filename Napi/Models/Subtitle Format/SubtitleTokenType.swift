@@ -52,7 +52,7 @@ extension Lexer {
 
             // Word is anything until whitespace or '{' or '<' is detected.
             // { and < must be specified to stop when formatting tag begins.
-            ("[^\\s{<]+", .word),
+            ("[^\\s\\{<]+", .word),
 
             // If nothing specified before matches given string, it's an unknown character.
             (".", .unknownCharacter),

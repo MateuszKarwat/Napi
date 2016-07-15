@@ -16,7 +16,7 @@ struct MPL2SubtitleFormat: SubtitleFormat {
     
     var text: String
 
-    static let regexPattern = "^\\[(\\d++\\)]\\[(\\d++\\)](.++)$"
+    static let regexPattern = "^\\[(\\d+)\\]\\[(\\d+)\\](.+)$"
 
     static func decode(_ aString: String) -> MPL2SubtitleFormat? {
         // TODO: Implement

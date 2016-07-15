@@ -22,11 +22,11 @@ struct SubRipSubtitleFormat: SubtitleFormat {
     var text: String
     
     static let regexPattern =
-        "^(\\d++)$\\n" +
+        "^(\\d+)$\\n" +
         "^(\\d{1,2}):(\\d{1,2}):(\\d{1,2}),(\\d{1,3})" +
         " --> " +
         "^(\\d{1,2}):(\\d{1,2}):(\\d{1,2}),(\\d{1,3})" +
-        "(^.++$\\n)++" +
+        "(^.+$\\n)+" +
         "\\n"
 
     static func decode(_ aString: String) -> SubRipSubtitleFormat? {

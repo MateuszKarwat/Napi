@@ -16,7 +16,7 @@ struct TMPlayerSubtitleFormat: SubtitleFormat {
     
     var text: String
     
-    static let regexPattern = "^(\\d{1,2}):(\\d{1,2}):(\\d{1,2}):(.++)$"
+    static let regexPattern = "^(\\d{1,2}):(\\d{1,2}):(\\d{1,2}):(.+)$"
 
     static func decode(_ aString: String) -> TMPlayerSubtitleFormat? {
         // TODO: Implement

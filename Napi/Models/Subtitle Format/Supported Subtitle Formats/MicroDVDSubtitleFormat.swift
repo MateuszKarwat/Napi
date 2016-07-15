@@ -17,9 +17,13 @@ struct MicroDVDSubtitleFormat: SubtitleFormat {
     
     var text: String
     
-    static let regexPattern = "^\\{(\\d++\\)}\\{(\\d++\\)}(.++)$"
+    static let regexPattern = "^\\{(\\d+)\\}\\{(\\d+)\\}(.+)$"
 
     static func decode(_ aString: String) -> MicroDVDSubtitleFormat? {
+        return MicroDVDSubtitleFormat.decode(aString, frameRate: 23.976)
+    }
+
+    static func decode(_ aString: String, frameRate: Double) -> MicroDVDSubtitleFormat? {
         // TODO: Implement
         return nil
     }
