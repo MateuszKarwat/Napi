@@ -28,44 +28,50 @@ class LexerTests: XCTestCase {
     ]
 
     func testLexWithOneToken() {
-        let lexer = Lexer(rules: [("RULE", TestingToken.word)])
+        let lexer = Lexer(rules: [("RULE", TestingToken.word)])!
 
-        let oneMatch = lexer!.lex(stream: "This should find one RULE")
-        XCTAssertEqual([TestingToken.word], oneMatch.map { $0.type }, "There should be only one match")
+        let oneMatch = lexer.lex(stream: "This should find one RULE")
+        XCTAssertEqual([TestingToken.word], oneMatch.map { $0.type },
+                       "There should be only one match")
 
-        let twoMatches = lexer!.lex(stream: "This should find this RULE and thisRULE")
-        XCTAssertEqual([TestingToken.word, TestingToken.word], twoMatches.map { $0.type }, "There should be only two matches")
+        let twoMatches = lexer.lex(stream: "This should find this RULE and thisRULE")
+        XCTAssertEqual([TestingToken.word, TestingToken.word], twoMatches.map { $0.type },
+                       "There should be two matches")
     }
 
     func testLexWithMultipleTokensAndIncompleteGramma() {
-        let lexer = Lexer(rules: testingRules)
-        let tokens = lexer!.lex(stream: "12 SampleWord 34<b>Color<BLUE> ")
+        let lexer = Lexer(rules: testingRules)!
+        let tokens = lexer.lex(stream: "12 SampleWord 34<b>Color<BLUE> ")
 
-        let expectedTokenTypes: [TestingToken] = [.twoValues, .whitespace, .word, .whitespace, .bold, .color, .whitespace]
+        let expectedTokenTypes: [TestingToken] = [.twoValues, .whitespace, .word,
+                                                  .whitespace, .bold, .color, .whitespace]
 
-        XCTAssertEqual(expectedTokenTypes, tokens.map { $0.type }, "Token types should be in the same order")
+        XCTAssertEqual(expectedTokenTypes, tokens.map { $0.type },
+                       "Token types should be in the same order")
     }
 
     func testLexWithMultipleTokensAndCompleteGramma() {
-        let lexer = Lexer(rules: testingRules)
-        let tokens = lexer!.lex(stream: "12 SampleWord <b>Color<BLUE> ")
+        let lexer = Lexer(rules: testingRules)!
+        let tokens = lexer.lex(stream: "12 SampleWord <b>Color<BLUE> ")
 
-        let expectedTokenTypes: [TestingToken] = [.twoValues, .whitespace, .word, .whitespace, .bold, .color, .whitespace]
+        let expectedTokenTypes: [TestingToken] = [.twoValues, .whitespace, .word,
+                                                  .whitespace, .bold, .color, .whitespace]
 
-        XCTAssertEqual(expectedTokenTypes, tokens.map { $0.type }, "Token types should be in the same order")
+        XCTAssertEqual(expectedTokenTypes, tokens.map { $0.type },
+                       "Token types should be in the same order")
     }
 
     func testLexWithMultipleTokensButNoMatch() {
-        let lexer = Lexer(rules: testingRules)
-        let tokens = lexer!.lex(stream: "0987654321")
+        let lexer = Lexer(rules: testingRules)!
+        let tokens = lexer.lex(stream: "0987654321")
 
         XCTAssertTrue(tokens.isEmpty, "There should be no match for a given stream")
     }
 
     func testLexWithoutTokens() {
         let rules = [(String, TestingToken)]()
-        let lexer = Lexer(rules: rules)
-        let tokens = lexer!.lex(stream: "This is testing stream")
+        let lexer = Lexer(rules: rules)!
+        let tokens = lexer.lex(stream: "This is testing stream")
 
         XCTAssertTrue(tokens.isEmpty, "With no rules there should be no tokens")
     }
@@ -82,7 +88,7 @@ class LexerAndSubtitleTokenTypeTests: XCTestCase {
         lexer = Lexer(rules: Lexer<SubtitleTokenType>.defaultSubtitleRules)
     }
 
-    func assert(stream: String, expectexType: SubtitleTokenType) {
+    func assertLex(stream: String, expectexType: SubtitleTokenType) {
         let oneResult = lexer.lex(stream: stream)
         XCTAssertEqual(oneResult.first!.type, expectexType)
         XCTAssertEqual(oneResult.first!.lexeme, stream)
@@ -97,64 +103,64 @@ class LexerAndSubtitleTokenTypeTests: XCTestCase {
     }
 
     func testBoldPattern() {
-        assert(stream: "{b}", expectexType: .boldStart)
-        assert(stream: "{y:b}", expectexType: .boldStart)
-        assert(stream: "<b>", expectexType: .boldStart)
+        assertLex(stream: "{b}", expectexType: .boldStart)
+        assertLex(stream: "{y:b}", expectexType: .boldStart)
+        assertLex(stream: "<b>", expectexType: .boldStart)
 
-        assert(stream: "{/b}", expectexType: .boldEnd)
-        assert(stream: "{/y:b}", expectexType: .boldEnd)
-        assert(stream: "</b>", expectexType: .boldEnd)
+        assertLex(stream: "{/b}", expectexType: .boldEnd)
+        assertLex(stream: "{/y:b}", expectexType: .boldEnd)
+        assertLex(stream: "</b>", expectexType: .boldEnd)
     }
 
     func testItalicPattern() {
-        assert(stream: "{i}", expectexType: .italicStart)
-        assert(stream: "{y:i}", expectexType: .italicStart)
-        assert(stream: "<i>", expectexType: .italicStart)
+        assertLex(stream: "{i}", expectexType: .italicStart)
+        assertLex(stream: "{y:i}", expectexType: .italicStart)
+        assertLex(stream: "<i>", expectexType: .italicStart)
 
-        assert(stream: "{/i}", expectexType: .italicEnd)
-        assert(stream: "{/y:i}", expectexType: .italicEnd)
-        assert(stream: "</i>", expectexType: .italicEnd)
+        assertLex(stream: "{/i}", expectexType: .italicEnd)
+        assertLex(stream: "{/y:i}", expectexType: .italicEnd)
+        assertLex(stream: "</i>", expectexType: .italicEnd)
     }
 
     func testUnderlinePattern() {
-        assert(stream: "{u}", expectexType: .underlineStart)
-        assert(stream: "{y:u}", expectexType: .underlineStart)
-        assert(stream: "<u>", expectexType: .underlineStart)
+        assertLex(stream: "{u}", expectexType: .underlineStart)
+        assertLex(stream: "{y:u}", expectexType: .underlineStart)
+        assertLex(stream: "<u>", expectexType: .underlineStart)
 
-        assert(stream: "{/u}", expectexType: .underlineEnd)
-        assert(stream: "{/y:u}", expectexType: .underlineEnd)
-        assert(stream: "</u>", expectexType: .underlineEnd)
+        assertLex(stream: "{/u}", expectexType: .underlineEnd)
+        assertLex(stream: "{/y:u}", expectexType: .underlineEnd)
+        assertLex(stream: "</u>", expectexType: .underlineEnd)
     }
 
     func testColorPattern() {
-        assert(stream: "{c:AABBCC}", expectexType: .fontColorStart)
-        assert(stream: "{c:#AABBCC}", expectexType: .fontColorStart)
-        assert(stream: "{c:$AABBCC}", expectexType: .fontColorStart)
+        assertLex(stream: "{c:AABBCC}", expectexType: .fontColorStart)
+        assertLex(stream: "{c:#AABBCC}", expectexType: .fontColorStart)
+        assertLex(stream: "{c:$AABBCC}", expectexType: .fontColorStart)
 
-        assert(stream: "{c:RED}", expectexType: .fontColorStart)
-        assert(stream: "{c:#RED}", expectexType: .fontColorStart)
-        assert(stream: "{c:$RED}", expectexType: .fontColorStart)
+        assertLex(stream: "{c:RED}", expectexType: .fontColorStart)
+        assertLex(stream: "{c:#RED}", expectexType: .fontColorStart)
+        assertLex(stream: "{c:$RED}", expectexType: .fontColorStart)
 
-        assert(stream: "<font color=\"AABBCC\">", expectexType: .fontColorStart)
-        assert(stream: "<font color=\"#AABBCC\">", expectexType: .fontColorStart)
-        assert(stream: "<font color=\"$AABBCC\">", expectexType: .fontColorStart)
+        assertLex(stream: "<font color=\"AABBCC\">", expectexType: .fontColorStart)
+        assertLex(stream: "<font color=\"#AABBCC\">", expectexType: .fontColorStart)
+        assertLex(stream: "<font color=\"$AABBCC\">", expectexType: .fontColorStart)
 
-        assert(stream: "<font color=\"RED\">", expectexType: .fontColorStart)
-        assert(stream: "<font color=\"#RED\">", expectexType: .fontColorStart)
-        assert(stream: "<font color=\"$RED\">", expectexType: .fontColorStart)
+        assertLex(stream: "<font color=\"RED\">", expectexType: .fontColorStart)
+        assertLex(stream: "<font color=\"#RED\">", expectexType: .fontColorStart)
+        assertLex(stream: "<font color=\"$RED\">", expectexType: .fontColorStart)
 
-        assert(stream: "{/c}", expectexType: .fontColorEnd)
-        assert(stream: "</font>", expectexType: .fontColorEnd)
+        assertLex(stream: "{/c}", expectexType: .fontColorEnd)
+        assertLex(stream: "</font>", expectexType: .fontColorEnd)
     }
 
     func testLineSeparatorPattern() {
-        assert(stream: "\n", expectexType: .newLine)
-        assert(stream: "|", expectexType: .newLine)
+        assertLex(stream: "\n", expectexType: .newLine)
+        assertLex(stream: "|", expectexType: .newLine)
     }
 
     func testWhitespacePattern() {
-        assert(stream: " ", expectexType: .whitespace)
-        assert(stream: "\t", expectexType: .whitespace)
+        assertLex(stream: " ", expectexType: .whitespace)
+        assertLex(stream: "\t", expectexType: .whitespace)
     }
 
     func testWordPattern() {
@@ -170,8 +176,8 @@ class LexerAndSubtitleTokenTypeTests: XCTestCase {
     func testUnknownCharacterPattern() {
         // '{' and '<' are not treated as words. Word can't include them,
         // because they start most common tags, so before them word should end.
-        assert(stream: "{", expectexType: .unknownCharacter)
-        assert(stream: "<", expectexType: .unknownCharacter)
+        assertLex(stream: "{", expectexType: .unknownCharacter)
+        assertLex(stream: "<", expectexType: .unknownCharacter)
     }
 
     func testAllTokensInOneStream() {

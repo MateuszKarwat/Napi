@@ -12,20 +12,42 @@ import XCTest
 class MPL2SubtitleFormatTests: XCTestCase {
     
     func testStringValue() {
-        let startTimestamp = TS(milliseconds: 99_100)
-        let stopTimestamp = TS(milliseconds: 100_000)
-        
-        let text1 = "It works!|As expected."
-        let text2 = "This is one line of sample text"
-        
-        let expectedStringValue1 = "[991][1000]It works!|As expected."
-        let expectedStringValue2 = "[991][1000]This is one line of sample text"
-        
-        let mplFormat1 = MPL2SubtitleFormat(startTimestamp: startTimestamp, stopTimestamp: stopTimestamp, text: text1)
-        XCTAssertEqual(mplFormat1.stringValue(), expectedStringValue1)
-        
-        let mplFormat2 = MPL2SubtitleFormat(startTimestamp: startTimestamp, stopTimestamp: stopTimestamp, text: text2)
-        XCTAssertEqual(mplFormat2.stringValue(), expectedStringValue2)
+        let mplFormat = MPL2SubtitleFormat(startTimestamp: TS(milliseconds: 99_100),
+                                           stopTimestamp: TS(milliseconds: 100_000),
+                                           text: "Test.")
+
+        XCTAssertEqual(mplFormat.stringValue(), "[991][1000]Test.")
     }
-    
+
+    func testStringValueNil() {
+        let timestamp = TS(milliseconds: 1000)
+
+        XCTAssertNil(MPL2SubtitleFormat(startTimestamp: nil, stopTimestamp: timestamp, text: "Test").stringValue())
+        XCTAssertNil(MPL2SubtitleFormat(startTimestamp: timestamp, stopTimestamp: nil, text: "Test").stringValue())
+    }
+
+    func testDecodeCorrectInput() {
+        let input = "[1][9999]Test."
+
+        let mplFormat = MPL2SubtitleFormat.decode(input)
+
+        XCTAssertEqual(mplFormat?.startTimestamp?.milliseconds, 100)
+        XCTAssertEqual(mplFormat?.stopTimestamp?.milliseconds, 999_900)
+        XCTAssertEqual(mplFormat?.text, "Test.")
+    }
+
+    func testDecodeIncorrectInput() {
+        let incorrectInputs = ["[][1]Test.",
+                               "[1][]Test.",
+                               "[1]  Test.",
+                               "  [1]Test.",
+                               "[1]Test.",
+                               "[1][1]",
+                               "Test."]
+
+        for incorrectInput in incorrectInputs {
+            XCTAssertNil(MPL2SubtitleFormat.decode(incorrectInput))
+        }
+    }
+
 }
