@@ -21,23 +21,21 @@ struct MPL2SubtitleFormat: SubtitleFormat {
     static let regexPattern = "\\[(\\d+)\\]\\[(\\d+)\\](.+)"
 
     static func decode(_ aString: String) -> MPL2SubtitleFormat? {
-        let regex = try! RegularExpression(pattern: MPL2SubtitleFormat.regexPattern, options: [])
-        let range = NSRange(location: 0, length: aString.characters.count)
-
         guard
-            let match = regex.firstMatch(in: aString, options: [], range: range),
-            let startStamp = Int(aString[match.range(at: 1)]),
-            let stopStamp = Int(aString[match.range(at: 2)]) else {
+            let substrings = MPL2SubtitleFormat.capturedSubstrings(from: aString),
+            let startStamp = Int(substrings[0]),
+            let stopStamp = Int(substrings[1]),
+            substrings.count == 3 else {
                 return nil
         }
 
         return MPL2SubtitleFormat(startTimestamp: TS(milliseconds: startStamp * 100),
                                   stopTimestamp: TS(milliseconds: stopStamp * 100),
-                                  text: aString[match.range(at: 3)])
+                                  text: substrings[2])
     }
 
     func stringValue() -> String? {
-        if let startValue = startTimestamp?.milliseconds, stopValue = stopTimestamp?.milliseconds {
+        if let startValue = startTimestamp?.milliseconds, let stopValue = stopTimestamp?.milliseconds {
             return "[\(startValue / 100)][\(stopValue / 100)]\(text)"
         }
         return nil

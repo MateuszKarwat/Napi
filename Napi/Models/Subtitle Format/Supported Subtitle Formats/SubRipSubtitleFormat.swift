@@ -31,19 +31,17 @@ struct SubRipSubtitleFormat: SubtitleFormat {
         "((?:.+\\s?)+\\S+)" // Take all lines of text, but don't include Whitespace at the very end.
 
     static func decode(_ aString: String) -> SubRipSubtitleFormat? {
-        let regex = try! RegularExpression(pattern: SubRipSubtitleFormat.regexPattern, options: [])
-        let range = NSRange(location: 0, length: aString.characters.count)
-
         guard
-            let match = regex.firstMatch(in: aString, options: [], range: range),
-            let lineNumber = Int(aString[match.range(at: 1)]) else {
+            let substrings = SubRipSubtitleFormat.capturedSubstrings(from: aString),
+            let lineNumber = Int(substrings[0]),
+            substrings.count == 10 else {
                 return nil
         }
 
         // Extract all numbers which represent hours, minutes, etc.
         var timestampNumbers = [Int]()
-        for i in 2 ... 9 {
-            guard let newNumber = Int(aString[match.range(at: i)]) else {
+        for i in 1 ... 8 {
+            guard let newNumber = Int(substrings[i]) else {
                 return nil
             }
 
@@ -64,11 +62,11 @@ struct SubRipSubtitleFormat: SubtitleFormat {
         return SubRipSubtitleFormat(textNumber: lineNumber,
                                     startTimestamp: startstamp,
                                     stopTimestamp: stopstamp,
-                                    text: aString[match.range(at: 10)])
+                                    text: substrings[9])
     }
 
     func stringValue() -> String? {
-        if let startTimestamp = startTimestamp, stopTimestamp = stopTimestamp {
+        if let startTimestamp = startTimestamp, let stopTimestamp = stopTimestamp {
             return
                 "\(textNumber)\n" +
                 "\(stringFormatForSubtitleTime(startTimestamp)) --> \(stringFormatForSubtitleTime(stopTimestamp))\n" +

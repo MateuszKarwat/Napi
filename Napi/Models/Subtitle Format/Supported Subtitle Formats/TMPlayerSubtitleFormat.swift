@@ -21,14 +21,12 @@ struct TMPlayerSubtitleFormat: SubtitleFormat {
     static let regexPattern = "(\\d{1,2}):(\\d{1,2}):(\\d{1,2}):(.+)"
 
     static func decode(_ aString: String) -> TMPlayerSubtitleFormat? {
-        let regex = try! RegularExpression(pattern: TMPlayerSubtitleFormat.regexPattern, options: [])
-        let range = NSRange(location: 0, length: aString.characters.count)
-
         guard
-            let match = regex.firstMatch(in: aString, options: [], range: range),
-            let hours = Int(aString[match.range(at: 1)]),
-            let minutes = Int(aString[match.range(at: 2)]),
-            let seconds = Int(aString[match.range(at: 3)]) else {
+            let substrings = TMPlayerSubtitleFormat.capturedSubstrings(from: aString),
+            let hours = Int(substrings[0]),
+            let minutes = Int(substrings[1]),
+            let seconds = Int(substrings[2]),
+            substrings.count == 4 else {
                 return nil
         }
 
@@ -36,7 +34,7 @@ struct TMPlayerSubtitleFormat: SubtitleFormat {
 
         return TMPlayerSubtitleFormat(startTimestamp: timestamp,
                                       stopTimestamp: nil,
-                                      text: aString[match.range(at: 4)])
+                                      text: substrings[3])
     }
     
     func stringValue() -> String? {

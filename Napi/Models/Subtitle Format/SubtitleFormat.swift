@@ -6,6 +6,8 @@
 //  Copyright © 2016 Mateusz Karwat. All rights reserved.
 //
 
+import Foundation
+
 /// Requirements for types that are a subtitle format.
 protocol SubtitleFormat {
 
@@ -37,6 +39,36 @@ protocol SubtitleFormat {
     /// Returns `String` representation of a given `Token`.
     /// If a given `Token` is not supported, it should return a `nil`.
     func stringValue(for token: Token<SubtitleTokenType>) -> String?
+}
+
+extension SubtitleFormat {
+
+    /// Function to extract substrings which base on capture groups
+    /// specified in a `regexPattern`.
+    ///
+    /// - Parameter aString: A `String` which will be matched with `regexPattern`.
+    ///   From this `String` all capture groups will be extracted.
+    ///
+    /// - Returns: An `Array` of strings which are a substrings of given `String`.
+    ///   Elements of the array are in order they are matched by capture groups.
+    ///   If `regexPattern` is not a correct pattern for `RegularExpression`,
+    ///   function will return a `nil`.
+    static func capturedSubstrings(from aString: String) -> [String]? {
+        var substrings = [String]()
+        let range = NSRange(location: 0, length: aString.characters.count)
+
+        guard
+            let regex = try? RegularExpression(pattern: Self.regexPattern, options: []),
+            let match = regex.firstMatch(in: aString, options: [], range: range) else {
+                return nil
+        }
+
+        for i in 1 ... match.numberOfRanges - 1 {
+            substrings.append(aString[match.range(at: i)])
+        }
+
+        return substrings
+    }
 }
 
 extension SubtitleFormat {

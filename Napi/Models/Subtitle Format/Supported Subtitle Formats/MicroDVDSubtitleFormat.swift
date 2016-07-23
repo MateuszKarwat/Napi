@@ -26,26 +26,23 @@ struct MicroDVDSubtitleFormat: SubtitleFormat {
     }
 
     static func decode(_ aString: String, frameRate: Double) -> MicroDVDSubtitleFormat? {
-        let regex = try! RegularExpression(pattern: MicroDVDSubtitleFormat.regexPattern, options: [])
-        let range = NSRange(location: 0, length: aString.characters.count)
-
         guard
-            let match = regex.firstMatch(in: aString, options: [], range: range),
-            let startStamp = Int(aString[match.range(at: 1)]),
-            let stopStamp = Int(aString[match.range(at: 2)]) else {
+            let substrings = MicroDVDSubtitleFormat.capturedSubstrings(from: aString),
+            let startStamp = Int(substrings[0]),
+            let stopStamp = Int(substrings[1]),
+            substrings.count == 3 else {
                 return nil
         }
 
         return MicroDVDSubtitleFormat(frameRate: frameRate,
                                       startTimestamp: TS(frames: startStamp, frameRate: frameRate),
                                       stopTimestamp: TS(frames: stopStamp, frameRate: frameRate),
-                                      text: aString[match.range(at: 3)])
+                                      text: substrings[2])
     }
     
     func stringValue() -> String? {
-        if let
-            startValue = startTimestamp?.numberOfFrames(withFrameRate: frameRate),
-            stopValue = stopTimestamp?.numberOfFrames(withFrameRate: frameRate) {
+        if let startValue = startTimestamp?.numberOfFrames(withFrameRate: frameRate),
+            let stopValue = stopTimestamp?.numberOfFrames(withFrameRate: frameRate) {
             return "{\(startValue)}{\(stopValue)}\(text)"
         }
         return nil
