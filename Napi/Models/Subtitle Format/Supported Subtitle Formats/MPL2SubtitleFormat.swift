@@ -13,8 +13,8 @@ import Foundation
 ///
 ///     [111][222]First line of a text.|Seconds line of a text.
 struct MPL2SubtitleFormat: SubtitleFormat {
-    var startTimestamp: Timestamp?
-    var stopTimestamp: Timestamp?
+    var startTimestamp: Timestamp
+    var stopTimestamp: Timestamp
     
     var text: String
 
@@ -34,10 +34,7 @@ struct MPL2SubtitleFormat: SubtitleFormat {
                                   text: substrings[2])
     }
 
-    func stringValue() -> String? {
-        if let startValue = startTimestamp?.milliseconds, let stopValue = stopTimestamp?.milliseconds {
-            return "[\(startValue / 100)][\(stopValue / 100)]\(text)"
-        }
-        return nil
+    func stringValue() -> String {
+        return "[\(startTimestamp.milliseconds / 100)][\(stopTimestamp.milliseconds / 100)]\(text)"
     }
 }

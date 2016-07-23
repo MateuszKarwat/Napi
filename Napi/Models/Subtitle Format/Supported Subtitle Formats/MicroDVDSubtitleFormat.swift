@@ -14,8 +14,8 @@ import Foundation
 ///     {111}{222}First line of a text.|Seconds line of a text.
 struct MicroDVDSubtitleFormat: SubtitleFormat {
     var frameRate: Double
-    var startTimestamp: Timestamp?
-    var stopTimestamp: Timestamp?
+    var startTimestamp: Timestamp
+    var stopTimestamp: Timestamp
     
     var text: String
     
@@ -40,11 +40,10 @@ struct MicroDVDSubtitleFormat: SubtitleFormat {
                                       text: substrings[2])
     }
     
-    func stringValue() -> String? {
-        if let startValue = startTimestamp?.numberOfFrames(withFrameRate: frameRate),
-            let stopValue = stopTimestamp?.numberOfFrames(withFrameRate: frameRate) {
-            return "{\(startValue)}{\(stopValue)}\(text)"
-        }
-        return nil
+    func stringValue() -> String {
+        let startValue = startTimestamp.numberOfFrames(withFrameRate: frameRate)
+        let stopValue = stopTimestamp.numberOfFrames(withFrameRate: frameRate)
+
+        return "{\(startValue)}{\(stopValue)}\(text)"
     }
 }

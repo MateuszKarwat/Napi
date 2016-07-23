@@ -13,11 +13,11 @@ protocol SubtitleFormat {
 
     /// Represents a timestamp that tells when subtitle
     /// should appear on a screen.
-    var startTimestamp: Timestamp? { get set }
+    var startTimestamp: Timestamp { get set }
 
     /// Represents a timestamp that tells when subtitle
     /// should disappear from a screen.
-    var stopTimestamp: Timestamp? { get set }
+    var stopTimestamp: Timestamp { get set }
 
     /// Represents a text (subtitle) which is displayed on a screen.
     var text: String { get set }
@@ -34,7 +34,7 @@ protocol SubtitleFormat {
     /// of a subtitle format. This `String` must be in a format
     /// that is stored in a subtitle file. Must include all tags,
     /// formatters and timestamps required by file format.
-    func stringValue() -> String?
+    func stringValue() -> String
 
     /// Returns `String` representation of a given `Token`.
     /// If a given `Token` is not supported, it should return a `nil`.

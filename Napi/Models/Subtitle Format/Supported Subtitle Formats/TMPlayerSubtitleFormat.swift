@@ -13,8 +13,8 @@ import Foundation
 ///
 ///     01:12:33:First line of a text.|Seconds line of a text.
 struct TMPlayerSubtitleFormat: SubtitleFormat {
-    var startTimestamp: Timestamp?
-    var stopTimestamp: Timestamp?
+    var startTimestamp: Timestamp
+    var stopTimestamp: Timestamp
     
     var text: String
     
@@ -33,15 +33,12 @@ struct TMPlayerSubtitleFormat: SubtitleFormat {
         let timestamp = TS(hours: hours) + TS(minutes: minutes) + TS(seconds: seconds)
 
         return TMPlayerSubtitleFormat(startTimestamp: timestamp,
-                                      stopTimestamp: nil,
+                                      stopTimestamp: timestamp + TS(seconds: 5),
                                       text: substrings[3])
     }
     
-    func stringValue() -> String? {
-        if let startTimestamp = startTimestamp {
-            return "\(stringFormatForSubtitleTime(startTimestamp)):\(text)"
-        }
-        return nil
+    func stringValue() -> String {
+        return "\(stringFormatForSubtitleTime(startTimestamp)):\(text)"
     }
 }
 

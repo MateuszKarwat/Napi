@@ -19,21 +19,14 @@ class TMPlayerSubtitleFormatTests: XCTestCase {
         XCTAssertEqual(tmplayerFormat.stringValue(), "01:01:11:A long time ago...|In a galaxy far far away...")
     }
 
-    func testStringValueNil() {
-        let timestamp = TS(milliseconds: 1000)
-
-        XCTAssertNil(TMPlayerSubtitleFormat(startTimestamp: nil, stopTimestamp: timestamp, text: "Test").stringValue())
-    }
-
     func testDecodeCorrectInput() {
         let input = "01:01:11:A long time ago...|In a galaxy far far away..."
 
         let tmplayerFormat = TMPlayerSubtitleFormat.decode(input)
 
-        XCTAssertEqual(tmplayerFormat?.startTimestamp?.milliseconds, 3_671_000)
+        XCTAssertEqual(tmplayerFormat?.startTimestamp.milliseconds, 3_671_000)
+        XCTAssertEqual(tmplayerFormat?.stopTimestamp.milliseconds, 3_676_000)
         XCTAssertEqual(tmplayerFormat?.text, "A long time ago...|In a galaxy far far away...")
-
-        XCTAssertNil(tmplayerFormat?.stopTimestamp)
     }
 
     func testDecodeIncorrectInput() {

@@ -19,20 +19,13 @@ class MPL2SubtitleFormatTests: XCTestCase {
         XCTAssertEqual(mplFormat.stringValue(), "[991][1000]Test.")
     }
 
-    func testStringValueNil() {
-        let timestamp = TS(milliseconds: 1000)
-
-        XCTAssertNil(MPL2SubtitleFormat(startTimestamp: nil, stopTimestamp: timestamp, text: "Test").stringValue())
-        XCTAssertNil(MPL2SubtitleFormat(startTimestamp: timestamp, stopTimestamp: nil, text: "Test").stringValue())
-    }
-
     func testDecodeCorrectInput() {
         let input = "[1][9999]Test."
 
         let mplFormat = MPL2SubtitleFormat.decode(input)
 
-        XCTAssertEqual(mplFormat?.startTimestamp?.milliseconds, 100)
-        XCTAssertEqual(mplFormat?.stopTimestamp?.milliseconds, 999_900)
+        XCTAssertEqual(mplFormat?.startTimestamp.milliseconds, 100)
+        XCTAssertEqual(mplFormat?.stopTimestamp.milliseconds, 999_900)
         XCTAssertEqual(mplFormat?.text, "Test.")
     }
 

@@ -28,20 +28,6 @@ class SubRipSubtitleFormatTests: XCTestCase {
 
         XCTAssertEqual(subRipFormat.stringValue(), expectedStringValue)
     }
-
-    func testStringValueNil() {
-        let timestamp = TS(milliseconds: 1000)
-
-        XCTAssertNil(SubRipSubtitleFormat(textNumber: 1,
-                                          startTimestamp: nil,
-                                          stopTimestamp: timestamp,
-                                          text: "Test").stringValue())
-
-        XCTAssertNil(SubRipSubtitleFormat(textNumber: 1,
-                                          startTimestamp: timestamp,
-                                          stopTimestamp: nil,
-                                          text: "Test").stringValue())
-    }
     
     func testDecodeCorrectInput() {
         let input =
@@ -58,8 +44,8 @@ class SubRipSubtitleFormatTests: XCTestCase {
         let stopTimestamp = TS(hours: 2) + TS(minutes: 3) + TS(seconds: 33) + TS(milliseconds: 40)
 
         XCTAssertEqual(srtFormat?.textNumber, 2)
-        XCTAssertEqual(srtFormat?.startTimestamp?.milliseconds, startTimestamp.milliseconds)
-        XCTAssertEqual(srtFormat?.stopTimestamp?.milliseconds, stopTimestamp.milliseconds)
+        XCTAssertEqual(srtFormat?.startTimestamp.milliseconds, startTimestamp.milliseconds)
+        XCTAssertEqual(srtFormat?.stopTimestamp.milliseconds, stopTimestamp.milliseconds)
         XCTAssertEqual(srtFormat?.text, "You know nothing!\nJohn Snow...")
     }
 

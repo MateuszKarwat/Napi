@@ -18,8 +18,8 @@ import Foundation
 ///     \n
 struct SubRipSubtitleFormat: SubtitleFormat {
     var textNumber: Int
-    var startTimestamp: Timestamp?
-    var stopTimestamp: Timestamp?
+    var startTimestamp: Timestamp
+    var stopTimestamp: Timestamp
     
     var text: String
     
@@ -65,14 +65,11 @@ struct SubRipSubtitleFormat: SubtitleFormat {
                                     text: substrings[9])
     }
 
-    func stringValue() -> String? {
-        if let startTimestamp = startTimestamp, let stopTimestamp = stopTimestamp {
-            return
-                "\(textNumber)\n" +
-                "\(stringFormatForSubtitleTime(startTimestamp)) --> \(stringFormatForSubtitleTime(stopTimestamp))\n" +
-                "\(text)\n"
-        }
-        return nil
+    func stringValue() -> String {
+        return
+            "\(textNumber)\n" +
+            "\(stringFormatForSubtitleTime(startTimestamp)) --> \(stringFormatForSubtitleTime(stopTimestamp))\n" +
+            "\(text)\n"
     }
 
     func stringValue(for token: Token<SubtitleTokenType>) -> String? {
