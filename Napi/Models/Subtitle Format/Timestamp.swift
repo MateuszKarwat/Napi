@@ -8,76 +8,124 @@
 
 import Foundation
 
-/// Represents an interval in number of milliseconds.
+/// Represents a stamp to determine how many given units
+/// passed since some point in time. For example: it can
+/// represent a point when a subtitle should appear on a 
+/// screen since the beginning of the movie.
 struct Timestamp {
 
-    /// Total number of milliseconds.
-    var milliseconds: Int = 0
+    /// Represents a "time" unit to differentiate `Timestamp`
+    /// for different purposes.
+    enum Unit {
+        case milliseconds
+        case deciseconds
+        case seconds
+        case minutes
+        case hours
+        case framesPerSecond(frameRate: Double)
 
-    /// Returns a number of full seconds calculated from `milliseconds`.
-    var numberOfFullSeconds: Int { return milliseconds / 1000 }
-
-    /// Returns a number of full minutes calculated from `milliseconds`.
-    var numberOfFullMinutes: Int { return numberOfFullSeconds / 60 }
-
-    /// Returns a number of full hours calculated from `milliseconds`.
-    var numberOfFullHours: Int { return numberOfFullMinutes / 60 }
-
-    /// Creates a new instance with specified number of `milliseconds.`
-    init(milliseconds: Int) { self.milliseconds = max(0, milliseconds) }
-
-    /// Creates a new instance with number of `milliseconds`
-    /// calculated based on the given number of `seconds`
-    init(seconds: Int) { self.init(milliseconds: seconds * 1000) }
-
-    /// Creates a new instance with number of `milliseconds`
-    /// calculated based on the given number of `minutes`.
-    init(minutes: Int) { self.init(seconds: minutes * 60 ) }
-
-    /// Creates a new instance with number of `milliseconds`
-    /// calculated based on the given number of `hours`.
-    init(hours: Int) { self.init(minutes: hours * 60) }
-}
-
-// MARK: Frame based support
-
-extension Timestamp {
-
-    /// Creates a new instance with number of milliseconds
-    /// calculated based on the given number of frames
-    /// in a specific frame rate.
-    init(frames: Int, frameRate: Double) {
-        let calculatedValue = Double(max(0, frames)) / max(0.0, frameRate) * 1000
-        milliseconds = Int(round(calculatedValue))
+        /// Returns a number which represents how many
+        /// base values given unit represents.
+        /// For example: `seconds` represents 1000 base values,
+        /// but `millisecond` represents only one base value.
+        /// In other words: 1000 base units equals 1 second.
+        var baseValueMultiplier: Double {
+            switch self {
+            case .milliseconds:
+                return 1
+            case .deciseconds:
+                return 100
+            case .seconds:
+                return 1000
+            case .minutes:
+                return 1000 * 60
+            case .hours:
+                return 1000 * 60 * 60
+            case .framesPerSecond(frameRate: let rate):
+                return 1000 / rate
+            }
+        }
     }
 
-    /// Returns number of frames with specified frame rate.
+    /// Represents a number of `units`.
+    let value: Double
+
+    /// Represnts a unit in which `Timestamp` calculates `baseValue`.
+    let unit: Unit
+
+    /// Represents a value which doesn't depend on any unit
+    /// or unit's value. It can be treated as a base unit
+    /// which all `Unit`s can be calculated from or stored in.
+    /// Its value depends on a multiplier specified for each `Unit`.
+    let baseValue: Double
+
+    /// Creates a new instance with given `value` in specified
+    /// `unit`. `baseValue` is calculaed based on `value` and `unit`.
     ///
-    /// - Parameter withFrameRate: Specifies to which frame rate
-    ///   current `milliseconds` should be converted.
+    /// - Parameter value: Number of units.
+    /// - Parameter unit: Unit in which `Timestamp` is represented.
+    init(value: Double, unit: Unit) {
+        self.value = value
+        self.unit = unit
+        self.baseValue = value * unit.baseValueMultiplier
+    }
+
+    /// Creates a new instance with given `value` in specified
+    /// `unit`. `baseValue` is calculaed based on `value` and `unit`.
     ///
-    /// - Returns: Number of frames in specific frame rate based on current
-    ///   number of `milliseconds`.
-    func numberOfFrames(withFrameRate frameRate: Double) -> Int {
-        let calculatedValue = Double(milliseconds) * frameRate / 1000
-        return Int(round(calculatedValue))
+    /// - Parameter value: Number of units.
+    /// - Parameter unit: Unit in which `Timestamp` is represented.
+    init(value: Int, unit: Unit) {
+        self.init(value: Double(value), unit: unit)
+    }
+
+    /// Returns a number of units calculated based on current
+    /// `baseValue` rounded down.
+    ///
+    /// For example:
+    ///
+    ///     59.seconds.numberOfFull(.minutes) // Returns 0
+    ///     61.seconds.numberOfFull(.minutes) // Returns 1
+    ///
+    /// - Parameter otherUnit: Specifies which `Unit`'s maximum size
+    ///   should be checked of how many of them fits in current `Timestamp`.
+    func numberOfFull(_ otherUnit: Unit) -> Int {
+        return Int(baseValue / otherUnit.baseValueMultiplier)
+    }
+
+    /// Returns a rounded number of units calculated based on current
+    /// `baseValue`.
+    ///
+    /// For example:
+    ///     
+    ///     59.seconds.numberOfFull(.minutes) // Returns 1
+    ///     61.seconds.numberOfFull(.minutes) // Returns 1
+    ///
+    /// - Parameter otherUnit: Specifies to which `Unit` current
+    ///   `baseValue` should be rounded.
+    func roundedValue(in unit: Unit) -> Int {
+        return Int(round(baseValue / unit.baseValueMultiplier))
+    }
+
+    /// Returns a new instance of `Timestamp` with given `Unit`.
+    ///
+    /// - Parameter otherUnit: Specified in which `Unit` 
+    ///   new `Timestamp` should be represented.
+    func converted(to otherUnit: Unit) -> Timestamp {
+        return Timestamp(value: baseValue / otherUnit.baseValueMultiplier, unit: otherUnit)
     }
 }
 
 // MARK: Arithmetic Operators
 
-typealias TS = Timestamp
-
-func +(lhs: TS, rhs: TS) -> TS {
-    let sum = lhs.milliseconds + rhs.milliseconds
-    return TS(milliseconds: sum)
+/// Returns new `Timestamp` which is a result of adding `baseValues`
+/// of both parameters. New `Timestamp` has the same `Unit` as `lhs`.
+func +(lhs: Timestamp, rhs: Timestamp) -> Timestamp {
+    return Timestamp(value: lhs.baseValue + rhs.baseValue, unit: .milliseconds).converted(to: lhs.unit)
 }
 
-func -(lhs: TS, rhs: TS) -> TS {
-    if lhs.milliseconds > rhs.milliseconds {
-        return TS(milliseconds: lhs.milliseconds - rhs.milliseconds)
-    } else {
-
-        return TS(milliseconds: 0)
-    }
+/// Returns new `Timestamp` which is a result of subtracting 
+/// `rhs`'s `baseValue` from `lhs`'s. New `Timestamp` has the same `Unit` as `lhs`.
+func -(lhs: Timestamp, rhs: Timestamp) -> Timestamp {
+    return Timestamp(value: lhs.baseValue - rhs.baseValue, unit: .milliseconds).converted(to: lhs.unit)
 }

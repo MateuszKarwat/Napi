@@ -48,20 +48,20 @@ struct SubRipSubtitleFormat: SubtitleFormat {
             timestampNumbers.append(newNumber)
         }
 
-        let startstamp =
-            TS(hours: timestampNumbers[0]) +
-            TS(minutes: timestampNumbers[1]) +
-            TS(seconds: timestampNumbers[2]) +
-            TS(milliseconds: timestampNumbers[3])
-        let stopstamp =
-            TS(hours: timestampNumbers[4]) +
-            TS(minutes: timestampNumbers[5]) +
-            TS(seconds: timestampNumbers[6]) +
-            TS(milliseconds: timestampNumbers[7])
+        let startStamp =
+            timestampNumbers[0].hours +
+            timestampNumbers[1].minutes +
+            timestampNumbers[2].seconds +
+            timestampNumbers[3].milliseconds
+        let stopStamp =
+            timestampNumbers[4].hours +
+            timestampNumbers[5].minutes +
+            timestampNumbers[6].seconds +
+            timestampNumbers[7].milliseconds
 
         return SubRipSubtitleFormat(textNumber: lineNumber,
-                                    startTimestamp: startstamp,
-                                    stopTimestamp: stopstamp,
+                                    startTimestamp: startStamp,
+                                    stopTimestamp: stopStamp,
                                     text: substrings[9])
     }
 
@@ -94,15 +94,15 @@ extension SubRipSubtitleFormat {
 
     /// Returns `Timestamp` as a `String` that is compatible with SubRip format.
     private func stringFormatForSubtitleTime(_ timestamp: Timestamp)  -> String {
-        let minutes = timestamp - TS(hours: timestamp.numberOfFullHours)
-        let seconds = minutes - TS(minutes: minutes.numberOfFullMinutes)
-        let milliseconds = seconds - TS(seconds: seconds.numberOfFullSeconds)
+        let minutes = timestamp - Timestamp(value: timestamp.numberOfFull(.hours), unit: .hours)
+        let seconds = minutes - Timestamp(value: minutes.numberOfFull(.minutes), unit: .minutes)
+        let milliseconds = seconds - Timestamp(value: seconds.numberOfFull(.seconds), unit: .seconds)
 
         return
-            "\(timestamp.numberOfFullHours.toString(leadingZeros: 2)):" +
-            "\(minutes.numberOfFullMinutes.toString(leadingZeros: 2)):" +
-            "\(seconds.numberOfFullSeconds.toString(leadingZeros: 2))," +
-            "\(milliseconds.milliseconds.toString(leadingZeros: 3))"
+            "\(timestamp.numberOfFull(.hours).toString(leadingZeros: 2)):" +
+            "\(minutes.numberOfFull(.minutes).toString(leadingZeros: 2)):" +
+            "\(seconds.numberOfFull(.seconds).toString(leadingZeros: 2))," +
+            "\(milliseconds.numberOfFull(.milliseconds).toString(leadingZeros: 3))"
     }
 }
 

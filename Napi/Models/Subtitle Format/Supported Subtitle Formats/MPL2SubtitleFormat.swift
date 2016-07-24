@@ -23,18 +23,21 @@ struct MPL2SubtitleFormat: SubtitleFormat {
     static func decode(_ aString: String) -> MPL2SubtitleFormat? {
         guard
             let substrings = MPL2SubtitleFormat.capturedSubstrings(from: aString),
-            let startStamp = Int(substrings[0]),
-            let stopStamp = Int(substrings[1]),
+            let startStamp = Int(substrings[0])?.deciseconds,
+            let stopStamp = Int(substrings[1])?.deciseconds,
             substrings.count == 3 else {
                 return nil
         }
 
-        return MPL2SubtitleFormat(startTimestamp: TS(milliseconds: startStamp * 100),
-                                  stopTimestamp: TS(milliseconds: stopStamp * 100),
+        return MPL2SubtitleFormat(startTimestamp: startStamp,
+                                  stopTimestamp: stopStamp,
                                   text: substrings[2])
     }
 
     func stringValue() -> String {
-        return "[\(startTimestamp.milliseconds / 100)][\(stopTimestamp.milliseconds / 100)]\(text)"
+        return
+            "[\(startTimestamp.roundedValue(in: .deciseconds))]" +
+            "[\(stopTimestamp.roundedValue(in: .deciseconds))]" +
+            "\(text)"
     }
 }

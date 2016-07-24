@@ -12,9 +12,8 @@ import XCTest
 class MicroDVDSubtitleFormatTests: XCTestCase {
 
     func testStringValue() {
-        let microDVDFormat = MicroDVDSubtitleFormat(frameRate: 1.0,
-                                                    startTimestamp: TS(milliseconds: 0),
-                                                    stopTimestamp: TS(frames: 250, frameRate: 1.0),
+        let microDVDFormat = MicroDVDSubtitleFormat(startTimestamp: 0.framesPerSecond(frameRate: 1.0),
+                                                    stopTimestamp: 250.framesPerSecond(frameRate: 1.0),
                                                     text: "Simple one line of a text")
 
         XCTAssertEqual(microDVDFormat.stringValue(), "{0}{250}Simple one line of a text")
@@ -25,8 +24,8 @@ class MicroDVDSubtitleFormatTests: XCTestCase {
 
         let microDVDFormat = MicroDVDSubtitleFormat.decode(input)
 
-        XCTAssertEqual(microDVDFormat?.startTimestamp.milliseconds, 0)
-        XCTAssertEqual(microDVDFormat?.stopTimestamp.milliseconds, 4_171)
+        XCTAssertEqual(microDVDFormat?.startTimestamp.numberOfFull(.milliseconds), 0)
+        XCTAssertEqual(microDVDFormat?.stopTimestamp.numberOfFull(.milliseconds), 4_170)
         XCTAssertEqual(microDVDFormat?.text, "Simple one line of a text")
     }
 
@@ -50,8 +49,8 @@ class MicroDVDSubtitleFormatTests: XCTestCase {
 
         let microDVDFormat = MicroDVDSubtitleFormat.decode(input, frameRate: 25.0)
 
-        XCTAssertEqual(microDVDFormat?.startTimestamp.milliseconds, 3_600_000)
-        XCTAssertEqual(microDVDFormat?.stopTimestamp.milliseconds, 3_661_000)
+        XCTAssertEqual(microDVDFormat?.startTimestamp.baseValue, 3_600_000)
+        XCTAssertEqual(microDVDFormat?.stopTimestamp.baseValue, 3_661_000)
         XCTAssertEqual(microDVDFormat?.text, "Simple one line of a text")
     }
     

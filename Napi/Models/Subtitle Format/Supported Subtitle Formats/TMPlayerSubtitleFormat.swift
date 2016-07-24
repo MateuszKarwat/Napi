@@ -23,17 +23,17 @@ struct TMPlayerSubtitleFormat: SubtitleFormat {
     static func decode(_ aString: String) -> TMPlayerSubtitleFormat? {
         guard
             let substrings = TMPlayerSubtitleFormat.capturedSubstrings(from: aString),
-            let hours = Int(substrings[0]),
-            let minutes = Int(substrings[1]),
-            let seconds = Int(substrings[2]),
+            let hours = Int(substrings[0])?.hours,
+            let minutes = Int(substrings[1])?.minutes,
+            let seconds = Int(substrings[2])?.seconds,
             substrings.count == 4 else {
                 return nil
         }
 
-        let timestamp = TS(hours: hours) + TS(minutes: minutes) + TS(seconds: seconds)
+        let timestamp = hours + minutes + seconds
 
         return TMPlayerSubtitleFormat(startTimestamp: timestamp,
-                                      stopTimestamp: timestamp + TS(seconds: 5),
+                                      stopTimestamp: timestamp + 5.seconds,
                                       text: substrings[3])
     }
     
@@ -46,12 +46,12 @@ extension TMPlayerSubtitleFormat {
 
     /// Returns `Timestamp` as a `String` that is compatible with TMPlayer format.
     private func stringFormatForSubtitleTime(_ timestamp: Timestamp)  -> String {
-        let minutes = timestamp - TS(hours: timestamp.numberOfFullHours)
-        let seconds = minutes - TS(minutes: minutes.numberOfFullMinutes)
+        let minutes = timestamp - Timestamp(value: timestamp.numberOfFull(.hours), unit: .hours)
+        let seconds = minutes - Timestamp(value: minutes.numberOfFull(.minutes), unit: .minutes)
 
         return
-            "\(timestamp.numberOfFullHours.toString(leadingZeros: 2)):" +
-            "\(minutes.numberOfFullMinutes.toString(leadingZeros: 2)):" +
-            "\(seconds.numberOfFullSeconds.toString(leadingZeros: 2))"
+            "\(timestamp.numberOfFull(.hours).toString(leadingZeros: 2)):" +
+            "\(minutes.numberOfFull(.minutes).toString(leadingZeros: 2)):" +
+            "\(seconds.numberOfFull(.seconds).toString(leadingZeros: 2))"
     }
 }

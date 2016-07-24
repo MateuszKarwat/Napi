@@ -13,7 +13,6 @@ import Foundation
 ///
 ///     {111}{222}First line of a text.|Seconds line of a text.
 struct MicroDVDSubtitleFormat: SubtitleFormat {
-    var frameRate: Double
     var startTimestamp: Timestamp
     var stopTimestamp: Timestamp
     
@@ -28,21 +27,32 @@ struct MicroDVDSubtitleFormat: SubtitleFormat {
     static func decode(_ aString: String, frameRate: Double) -> MicroDVDSubtitleFormat? {
         guard
             let substrings = MicroDVDSubtitleFormat.capturedSubstrings(from: aString),
-            let startStamp = Int(substrings[0]),
-            let stopStamp = Int(substrings[1]),
+            let startStamp = Int(substrings[0])?.framesPerSecond(frameRate: frameRate),
+            let stopStamp = Int(substrings[1])?.framesPerSecond(frameRate: frameRate),
             substrings.count == 3 else {
                 return nil
         }
 
-        return MicroDVDSubtitleFormat(frameRate: frameRate,
-                                      startTimestamp: TS(frames: startStamp, frameRate: frameRate),
-                                      stopTimestamp: TS(frames: stopStamp, frameRate: frameRate),
+        return MicroDVDSubtitleFormat(startTimestamp: startStamp,
+                                      stopTimestamp: stopStamp,
                                       text: substrings[2])
     }
     
     func stringValue() -> String {
-        let startValue = startTimestamp.numberOfFrames(withFrameRate: frameRate)
-        let stopValue = stopTimestamp.numberOfFrames(withFrameRate: frameRate)
+        var startValue: Int
+        var stopValue: Int
+
+        if case .framesPerSecond(frameRate: _) = startTimestamp.unit {
+            startValue = startTimestamp.numberOfFull(startTimestamp.unit)
+        } else {
+            startValue = startTimestamp.roundedValue(in: .framesPerSecond(frameRate: 23.976))
+        }
+
+        if case .framesPerSecond(frameRate: _) = stopTimestamp.unit {
+            stopValue = stopTimestamp.numberOfFull(startTimestamp.unit)
+        } else {
+            stopValue = stopTimestamp.roundedValue(in: .framesPerSecond(frameRate: 23.976))
+        }
 
         return "{\(startValue)}{\(stopValue)}\(text)"
     }

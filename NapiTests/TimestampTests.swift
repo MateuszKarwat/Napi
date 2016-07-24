@@ -13,62 +13,115 @@ class TimestampTests: XCTestCase {
 
     func testFrames() {
         // 25.0 FPS
-        XCTAssertEqual(TS(frames: 0, frameRate: 25.0).milliseconds, 0)
-        XCTAssertEqual(TS(frames: 12, frameRate: 25.0).milliseconds, 480)
-        XCTAssertEqual(TS(frames: 25, frameRate: 25.0).milliseconds, 1000)
-        XCTAssertEqual(TS(frames: 1_500, frameRate: 25.0).milliseconds, 60_000)
-        XCTAssertEqual(TS(frames: 90_000, frameRate: 25.0).milliseconds, 3_600_000)
-        XCTAssertEqual(TS(frames: 91_525, frameRate: 25.0).milliseconds, 3_661_000)
-        
+        XCTAssertEqual(0.framesPerSecond(frameRate: 25.0).numberOfFull(.milliseconds), 0)
+        XCTAssertEqual(12.framesPerSecond(frameRate: 25.0).numberOfFull(.milliseconds), 480)
+        XCTAssertEqual(25.framesPerSecond(frameRate: 25.0).numberOfFull(.milliseconds), 1000)
+        XCTAssertEqual(1_500.framesPerSecond(frameRate: 25.0).numberOfFull(.milliseconds), 60_000)
+        XCTAssertEqual(90_000.framesPerSecond(frameRate: 25.0).numberOfFull(.milliseconds), 3_600_000)
+        XCTAssertEqual(91_525.framesPerSecond(frameRate: 25.0).numberOfFull(.milliseconds), 3_661_000)
+
+        XCTAssertEqual(0.framesPerSecond(frameRate: 25.0).roundedValue(in: .milliseconds), 0)
+        XCTAssertEqual(12.framesPerSecond(frameRate: 25.0).roundedValue(in: .milliseconds), 480)
+        XCTAssertEqual(25.framesPerSecond(frameRate: 25.0).roundedValue(in: .milliseconds), 1000)
+        XCTAssertEqual(1_500.framesPerSecond(frameRate: 25.0).roundedValue(in: .milliseconds), 60_000)
+        XCTAssertEqual(90_000.framesPerSecond(frameRate: 25.0).roundedValue(in: .milliseconds), 3_600_000)
+        XCTAssertEqual(91_525.framesPerSecond(frameRate: 25.0).roundedValue(in: .milliseconds), 3_661_000)
+
         // 23.976 FPS
-        XCTAssertEqual(TS(frames: 0, frameRate: 23.976).milliseconds, 0)
-        XCTAssertEqual(TS(frames: 12, frameRate: 23.976).milliseconds, 501)
-        XCTAssertEqual(TS(frames: 25, frameRate: 23.976).milliseconds, 1043)
-        XCTAssertEqual(TS(frames: 1_500, frameRate: 23.976).milliseconds, 62_563)
-        XCTAssertEqual(TS(frames: 90_000, frameRate: 23.976).milliseconds, 3_753_754)
-        XCTAssertEqual(TS(frames: 91_525, frameRate: 23.976).milliseconds, 3_817_359)
+        XCTAssertEqual(0.framesPerSecond(frameRate: 23.976).numberOfFull(.milliseconds), 0)
+        XCTAssertEqual(12.framesPerSecond(frameRate: 23.976).numberOfFull(.milliseconds), 500)
+        XCTAssertEqual(25.framesPerSecond(frameRate: 23.976).numberOfFull(.milliseconds), 1042)
+        XCTAssertEqual(1_500.framesPerSecond(frameRate: 23.976).numberOfFull(.milliseconds), 62_562)
+        XCTAssertEqual(90_000.framesPerSecond(frameRate: 23.976).numberOfFull(.milliseconds), 3_753_753)
+        XCTAssertEqual(91_525.framesPerSecond(frameRate: 23.976).numberOfFull(.milliseconds), 3_817_359)
+
+        XCTAssertEqual(0.framesPerSecond(frameRate: 23.976).roundedValue(in: .milliseconds), 0)
+        XCTAssertEqual(12.framesPerSecond(frameRate: 23.976).roundedValue(in: .milliseconds), 501)
+        XCTAssertEqual(25.framesPerSecond(frameRate: 23.976).roundedValue(in: .milliseconds), 1043)
+        XCTAssertEqual(1_500.framesPerSecond(frameRate: 23.976).roundedValue(in: .milliseconds), 62_563)
+        XCTAssertEqual(90_000.framesPerSecond(frameRate: 23.976).roundedValue(in: .milliseconds), 3_753_754)
+        XCTAssertEqual(91_525.framesPerSecond(frameRate: 23.976).roundedValue(in: .milliseconds), 3_817_359)
     }
     
     func testMilliseconds() {
         // 25.0 FPS
-        XCTAssertEqual(TS(milliseconds: 0).numberOfFrames(withFrameRate: 25.0), 0) // Zero seconds
-        XCTAssertEqual(TS(milliseconds: 500).numberOfFrames(withFrameRate: 25.0), 13) // Half of a second
-        XCTAssertEqual(TS(milliseconds: 1_000).numberOfFrames(withFrameRate: 25.0), 25) // One second
-        XCTAssertEqual(TS(milliseconds: 60_000).numberOfFrames(withFrameRate: 25.0), 1_500) // One minute
-        XCTAssertEqual(TS(milliseconds: 3_600_000).numberOfFrames(withFrameRate: 25.0), 90_000) // One hour
-        XCTAssertEqual(TS(milliseconds: 3_661_000).numberOfFrames(withFrameRate: 25.0), 91_525) // One hour, one minute, one second
+        XCTAssertEqual(0.milliseconds.numberOfFull(.framesPerSecond(frameRate: 25.0)), 0) // Zero seconds
+        XCTAssertEqual(500.milliseconds.numberOfFull(.framesPerSecond(frameRate: 25.0)), 12) // Half of a second
+        XCTAssertEqual(1_000.milliseconds.numberOfFull(.framesPerSecond(frameRate: 25.0)), 25) // One second
+        XCTAssertEqual(60_000.milliseconds.numberOfFull(.framesPerSecond(frameRate: 25.0)), 1_500) // One minute
+        XCTAssertEqual(3_600_000.milliseconds.numberOfFull(.framesPerSecond(frameRate: 25.0)), 90_000) // One hour
+        XCTAssertEqual(3_661_000.milliseconds.numberOfFull(.framesPerSecond(frameRate: 25.0)), 91_525) // One hour, one minute, one second
+
+        XCTAssertEqual(0.milliseconds.roundedValue(in: .framesPerSecond(frameRate: 25.0)), 0) // Zero seconds
+        XCTAssertEqual(500.milliseconds.roundedValue(in: .framesPerSecond(frameRate: 25.0)), 13) // Half of a second
+        XCTAssertEqual(1_000.milliseconds.roundedValue(in: .framesPerSecond(frameRate: 25.0)), 25) // One second
+        XCTAssertEqual(60_000.milliseconds.roundedValue(in: .framesPerSecond(frameRate: 25.0)), 1_500) // One minute
+        XCTAssertEqual(3_600_000.milliseconds.roundedValue(in: .framesPerSecond(frameRate: 25.0)), 90_000) // One hour
+        XCTAssertEqual(3_661_000.milliseconds.roundedValue(in: .framesPerSecond(frameRate: 25.0)), 91_525) // One hour, one minute, one second
         
         // 23.976 FPS
-        XCTAssertEqual(TS(milliseconds: 0).numberOfFrames(withFrameRate: 23.976), 0) // Zero seconds
-        XCTAssertEqual(TS(milliseconds: 500).numberOfFrames(withFrameRate: 23.976), 12) // Half of a second
-        XCTAssertEqual(TS(milliseconds: 1_000).numberOfFrames(withFrameRate: 23.976), 24) // One second
-        XCTAssertEqual(TS(milliseconds: 60_000).numberOfFrames(withFrameRate: 23.976), 1_439) // One minute
-        XCTAssertEqual(TS(milliseconds: 3_600_000).numberOfFrames(withFrameRate: 23.976), 86_314) // One hour
-        XCTAssertEqual(TS(milliseconds: 3_661_000).numberOfFrames(withFrameRate: 23.976), 87_776) // One hour, one minute, one second
+        XCTAssertEqual(0.milliseconds.numberOfFull(.framesPerSecond(frameRate: 23.976)), 0) // Zero seconds
+        XCTAssertEqual(500.milliseconds.numberOfFull(.framesPerSecond(frameRate: 23.976)), 11) // Half of a second
+        XCTAssertEqual(1_000.milliseconds.numberOfFull(.framesPerSecond(frameRate: 23.976)), 23) // One second
+        XCTAssertEqual(60_000.milliseconds.numberOfFull(.framesPerSecond(frameRate: 23.976)), 1_438) // One minute
+        XCTAssertEqual(3_600_000.milliseconds.numberOfFull(.framesPerSecond(frameRate: 23.976)), 86_313) // One hour
+        XCTAssertEqual(3_661_000.milliseconds.numberOfFull(.framesPerSecond(frameRate: 23.976)), 87_776) // One hour, one minute, one second
+
+        XCTAssertEqual(0.milliseconds.roundedValue(in: .framesPerSecond(frameRate: 23.976)), 0) // Zero seconds
+        XCTAssertEqual(500.milliseconds.roundedValue(in: .framesPerSecond(frameRate: 23.976)), 12) // Half of a second
+        XCTAssertEqual(1_000.milliseconds.roundedValue(in: .framesPerSecond(frameRate: 23.976)), 24) // One second
+        XCTAssertEqual(60_000.milliseconds.roundedValue(in: .framesPerSecond(frameRate: 23.976)), 1_439) // One minute
+        XCTAssertEqual(3_600_000.milliseconds.roundedValue(in: .framesPerSecond(frameRate: 23.976)), 86_314) // One hour
+        XCTAssertEqual(3_661_000.milliseconds.roundedValue(in: .framesPerSecond(frameRate: 23.976)), 87_776) // One hour, one minute, one second
+    }
+
+    func testDeciseconds() {
+        XCTAssertEqual(1.deciseconds.numberOfFull(.milliseconds), 100)
+
+        XCTAssertEqual(99.milliseconds.numberOfFull(.deciseconds), 0)
+        XCTAssertEqual(100.milliseconds.numberOfFull(.deciseconds), 1)
+        XCTAssertEqual(101.milliseconds.numberOfFull(.deciseconds), 1)
+
+        XCTAssertEqual(99.milliseconds.roundedValue(in: .deciseconds), 1)
+        XCTAssertEqual(100.milliseconds.roundedValue(in: .deciseconds), 1)
+        XCTAssertEqual(101.milliseconds.roundedValue(in: .deciseconds), 1)
     }
 
     func testSeconds() {
-        XCTAssertEqual(TS(seconds: 1).milliseconds, 1_000)
+        XCTAssertEqual(1.seconds.numberOfFull(.milliseconds), 1_000)
 
-        XCTAssertEqual(TS(milliseconds: 999).numberOfFullSeconds, 0)
-        XCTAssertEqual(TS(milliseconds: 1_000).numberOfFullSeconds, 1)
-        XCTAssertEqual(TS(milliseconds: 1_001).numberOfFullSeconds, 1)
+        XCTAssertEqual(999.milliseconds.numberOfFull(.seconds), 0)
+        XCTAssertEqual(1_000.milliseconds.numberOfFull(.seconds), 1)
+        XCTAssertEqual(1_001.milliseconds.numberOfFull(.seconds), 1)
+
+        XCTAssertEqual(999.milliseconds.roundedValue(in: .seconds), 1)
+        XCTAssertEqual(1_000.milliseconds.roundedValue(in: .seconds), 1)
+        XCTAssertEqual(1_001.milliseconds.roundedValue(in: .seconds), 1)
     }
 
     func testMinutes() {
-        XCTAssertEqual(TS(minutes: 1).milliseconds, 60_000)
+        XCTAssertEqual(1.minutes.numberOfFull(.milliseconds), 60_000)
 
-        XCTAssertEqual(TS(seconds: 59).numberOfFullMinutes, 0)
-        XCTAssertEqual(TS(seconds: 60).numberOfFullMinutes, 1)
-        XCTAssertEqual(TS(seconds: 61).numberOfFullMinutes, 1)
+        XCTAssertEqual(59.seconds.numberOfFull(.minutes), 0)
+        XCTAssertEqual(60.seconds.numberOfFull(.minutes), 1)
+        XCTAssertEqual(61.seconds.numberOfFull(.minutes), 1)
+
+        XCTAssertEqual(59.seconds.roundedValue(in: .minutes), 1)
+        XCTAssertEqual(60.seconds.roundedValue(in: .minutes), 1)
+        XCTAssertEqual(61.seconds.roundedValue(in: .minutes), 1)
     }
 
     func testHours() {
-        XCTAssertEqual(TS(hours: 1).milliseconds, 3_600_000)
+        XCTAssertEqual(1.hours.numberOfFull(.milliseconds), 3_600_000)
 
-        XCTAssertEqual(TS(minutes: 59).numberOfFullHours, 0)
-        XCTAssertEqual(TS(minutes: 60).numberOfFullHours, 1)
-        XCTAssertEqual(TS(minutes: 61).numberOfFullHours, 1)
+        XCTAssertEqual(59.minutes.numberOfFull(.hours), 0)
+        XCTAssertEqual(60.minutes.numberOfFull(.hours), 1)
+        XCTAssertEqual(61.minutes.numberOfFull(.hours), 1)
+
+
+        XCTAssertEqual(59.minutes.roundedValue(in: .hours), 1)
+        XCTAssertEqual(60.minutes.roundedValue(in: .hours), 1)
+        XCTAssertEqual(61.minutes.roundedValue(in: .hours), 1)
     }
 
 }
