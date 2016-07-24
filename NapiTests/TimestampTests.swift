@@ -118,7 +118,6 @@ class TimestampTests: XCTestCase {
         XCTAssertEqual(60.minutes.numberOfFull(.hours), 1)
         XCTAssertEqual(61.minutes.numberOfFull(.hours), 1)
 
-
         XCTAssertEqual(59.minutes.roundedValue(in: .hours), 1)
         XCTAssertEqual(60.minutes.roundedValue(in: .hours), 1)
         XCTAssertEqual(61.minutes.roundedValue(in: .hours), 1)
