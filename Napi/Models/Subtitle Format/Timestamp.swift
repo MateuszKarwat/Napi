@@ -22,7 +22,7 @@ struct Timestamp {
         case seconds
         case minutes
         case hours
-        case framesPerSecond(frameRate: Double)
+        case frames(frameRate: Double)
 
         /// Returns a number which represents how many
         /// base values given unit represents.
@@ -41,7 +41,7 @@ struct Timestamp {
                 return 1000 * 60
             case .hours:
                 return 1000 * 60 * 60
-            case .framesPerSecond(frameRate: let rate):
+            case .frames(frameRate: let rate):
                 return 1000 / rate
             }
         }

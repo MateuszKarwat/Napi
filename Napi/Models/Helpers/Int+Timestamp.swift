@@ -27,7 +27,7 @@ extension Int {
         return Timestamp(value: self, unit: .hours)
     }
 
-    func framesPerSecond(frameRate: Double) -> Timestamp {
-        return Timestamp(value: self, unit: .framesPerSecond(frameRate: frameRate))
+    func frames(frameRate: Double) -> Timestamp {
+        return Timestamp(value: self, unit: .frames(frameRate: frameRate))
     }
 }

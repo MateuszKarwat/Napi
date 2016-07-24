@@ -27,8 +27,8 @@ struct MicroDVDSubtitleFormat: SubtitleFormat {
     static func decode(_ aString: String, frameRate: Double) -> MicroDVDSubtitleFormat? {
         guard
             let substrings = MicroDVDSubtitleFormat.capturedSubstrings(from: aString),
-            let startStamp = Int(substrings[0])?.framesPerSecond(frameRate: frameRate),
-            let stopStamp = Int(substrings[1])?.framesPerSecond(frameRate: frameRate),
+            let startStamp = Int(substrings[0])?.frames(frameRate: frameRate),
+            let stopStamp = Int(substrings[1])?.frames(frameRate: frameRate),
             substrings.count == 3 else {
                 return nil
         }
@@ -42,16 +42,16 @@ struct MicroDVDSubtitleFormat: SubtitleFormat {
         var startValue: Int
         var stopValue: Int
 
-        if case .framesPerSecond(frameRate: _) = startTimestamp.unit {
+        if case .frames(frameRate: _) = startTimestamp.unit {
             startValue = startTimestamp.numberOfFull(startTimestamp.unit)
         } else {
-            startValue = startTimestamp.roundedValue(in: .framesPerSecond(frameRate: 23.976))
+            startValue = startTimestamp.roundedValue(in: .frames(frameRate: 23.976))
         }
 
-        if case .framesPerSecond(frameRate: _) = stopTimestamp.unit {
+        if case .frames(frameRate: _) = stopTimestamp.unit {
             stopValue = stopTimestamp.numberOfFull(startTimestamp.unit)
         } else {
-            stopValue = stopTimestamp.roundedValue(in: .framesPerSecond(frameRate: 23.976))
+            stopValue = stopTimestamp.roundedValue(in: .frames(frameRate: 23.976))
         }
 
         return "{\(startValue)}{\(stopValue)}\(text)"

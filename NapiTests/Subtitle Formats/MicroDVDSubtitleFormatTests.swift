@@ -12,8 +12,8 @@ import XCTest
 class MicroDVDSubtitleFormatTests: XCTestCase {
 
     func testStringValue() {
-        let microDVDFormat = MicroDVDSubtitleFormat(startTimestamp: 0.framesPerSecond(frameRate: 1.0),
-                                                    stopTimestamp: 250.framesPerSecond(frameRate: 1.0),
+        let microDVDFormat = MicroDVDSubtitleFormat(startTimestamp: 0.frames(frameRate: 1.0),
+                                                    stopTimestamp: 250.frames(frameRate: 1.0),
                                                     text: "Simple one line of a text")
 
         XCTAssertEqual(microDVDFormat.stringValue(), "{0}{250}Simple one line of a text")
@@ -44,7 +44,7 @@ class MicroDVDSubtitleFormatTests: XCTestCase {
         }
     }
 
-    func testDecodeCorrectInputWithFrameRate() {
+    func testDecodeCorrectInputWithframeRate() {
         let input = "{90000}{91525}Simple one line of a text"
 
         let microDVDFormat = MicroDVDSubtitleFormat.decode(input, frameRate: 25.0)
