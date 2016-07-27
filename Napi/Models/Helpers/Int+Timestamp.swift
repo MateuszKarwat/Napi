@@ -31,3 +31,12 @@ extension Int {
         return Timestamp(value: self, unit: .frames(frameRate: frameRate))
     }
 }
+
+extension Int {
+
+    /// Converts an `Int` into  a `String` and adds
+    /// specified number of leadins zeros as a prefix.
+    func toString(leadingZeros: Int) -> String {
+        return String(format: "%0\(leadingZeros)d", self)
+    }
+}

@@ -13,14 +13,9 @@ import Foundation
 ///
 ///     01:12:33:First line of a text.|Seconds line of a text.
 struct TMPlayerSubtitleFormat: SubtitleFormat {
-    var startTimestamp: Timestamp
-    var stopTimestamp: Timestamp
-    
-    var text: String
-    
     static let regexPattern = "(\\d{1,2}):(\\d{1,2}):(\\d{1,2}):(.+)"
 
-    static func decode(_ aString: String) -> TMPlayerSubtitleFormat? {
+    static func decode(_ aString: String) -> Subtitle? {
         guard
             let substrings = TMPlayerSubtitleFormat.capturedSubstrings(from: aString),
             let hours = Int(substrings[0])?.hours,
@@ -32,25 +27,29 @@ struct TMPlayerSubtitleFormat: SubtitleFormat {
 
         let timestamp = hours + minutes + seconds
 
-        return TMPlayerSubtitleFormat(startTimestamp: timestamp,
-                                      stopTimestamp: timestamp + 5.seconds,
-                                      text: substrings[3])
+        return Subtitle(startTimestamp: timestamp,
+                        stopTimestamp: timestamp + 5.seconds,
+                        text: substrings[3])
     }
-    
-    func stringValue() -> String {
-        return "\(stringFormatForSubtitleTime(startTimestamp)):\(text)"
+
+    static func encode(_ subtitles: [Subtitle]) -> [String] {
+        var encodedSubtitles = [String]()
+
+        for subtitle in subtitles {
+            encodedSubtitles.append("\(subtitle.startTimestamp.stringFormat()):\(subtitle.text)")
+        }
+
+        return encodedSubtitles
     }
 }
 
-extension TMPlayerSubtitleFormat {
-
-    /// Returns `Timestamp` as a `String` that is compatible with TMPlayer format.
-    private func stringFormatForSubtitleTime(_ timestamp: Timestamp)  -> String {
-        let minutes = timestamp - Timestamp(value: timestamp.numberOfFull(.hours), unit: .hours)
+private extension Timestamp {
+    func stringFormat() -> String {
+        let minutes = self - Timestamp(value: self.numberOfFull(.hours), unit: .hours)
         let seconds = minutes - Timestamp(value: minutes.numberOfFull(.minutes), unit: .minutes)
 
         return
-            "\(timestamp.numberOfFull(.hours).toString(leadingZeros: 2)):" +
+            "\(self.numberOfFull(.hours).toString(leadingZeros: 2)):" +
             "\(minutes.numberOfFull(.minutes).toString(leadingZeros: 2)):" +
             "\(seconds.numberOfFull(.seconds).toString(leadingZeros: 2))"
     }

@@ -12,21 +12,21 @@ import XCTest
 class MPL2SubtitleFormatTests: XCTestCase {
     
     func testStringValue() {
-        let mplFormat = MPL2SubtitleFormat(startTimestamp: 99_100.milliseconds,
-                                           stopTimestamp: 100_000.milliseconds,
-                                           text: "Test.")
+        let subtitle = Subtitle(startTimestamp: 99_100.milliseconds,
+                                stopTimestamp: 100_000.milliseconds,
+                                text: "Test.")
 
-        XCTAssertEqual(mplFormat.stringValue(), "[991][1000]Test.")
+        XCTAssertEqual(MPL2SubtitleFormat.encode([subtitle]), ["[991][1000]Test."])
     }
 
     func testDecodeCorrectInput() {
         let input = "[1][9999]Test."
 
-        let mplFormat = MPL2SubtitleFormat.decode(input)
+        let decodedSubtitle = MPL2SubtitleFormat.decode(input)
 
-        XCTAssertEqual(mplFormat?.startTimestamp.baseValue, 100)
-        XCTAssertEqual(mplFormat?.stopTimestamp.baseValue, 999_900)
-        XCTAssertEqual(mplFormat?.text, "Test.")
+        XCTAssertEqual(decodedSubtitle?.startTimestamp.baseValue, 100)
+        XCTAssertEqual(decodedSubtitle?.stopTimestamp.baseValue, 999_900)
+        XCTAssertEqual(decodedSubtitle?.text, "Test.")
     }
 
     func testDecodeIncorrectInput() {

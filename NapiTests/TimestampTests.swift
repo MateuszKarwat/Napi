@@ -123,4 +123,13 @@ class TimestampTests: XCTestCase {
         XCTAssertEqual(61.minutes.roundedValue(in: .hours), 1)
     }
 
+    func testIsFrameBased() {
+        XCTAssertTrue(25.frames(frameRate: 25).isFrameBased)
+
+        XCTAssertFalse(10.milliseconds.isFrameBased)
+        XCTAssertFalse(10.deciseconds.isFrameBased)
+        XCTAssertFalse(10.seconds.isFrameBased)
+        XCTAssertFalse(10.minutes.isFrameBased)
+        XCTAssertFalse(10.hours.isFrameBased)
+    }
 }
