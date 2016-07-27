@@ -17,12 +17,6 @@ import Foundation
 ///     Seconds line of a text.
 ///     \n
 struct SubRipSubtitleFormat: SubtitleFormat {
-    var textNumber: Int
-    var startTimestamp: Timestamp
-    var stopTimestamp: Timestamp
-    
-    var text: String
-    
     static let regexPattern =
         "(\\d+)\\s" +
         "(\\d{1,2}):(\\d{1,2}):(\\d{1,2}),(\\d{1,3})" +
@@ -30,10 +24,10 @@ struct SubRipSubtitleFormat: SubtitleFormat {
         "(\\d{1,2}):(\\d{1,2}):(\\d{1,2}),(\\d{1,3})\\s" +
         "((?:.+\\s?)+\\S+)" // Take all lines of text, but don't include Whitespace at the very end.
 
-    static func decode(_ aString: String) -> SubRipSubtitleFormat? {
+    static func decode(_ aString: String) -> Subtitle? {
         guard
             let substrings = SubRipSubtitleFormat.capturedSubstrings(from: aString),
-            let lineNumber = Int(substrings[0]),
+            let _ = Int(substrings[0]),
             substrings.count == 10 else {
                 return nil
         }
@@ -48,28 +42,37 @@ struct SubRipSubtitleFormat: SubtitleFormat {
             timestampNumbers.append(newNumber)
         }
 
-        let startStamp =
+        let startTimestamp =
             timestampNumbers[0].hours +
             timestampNumbers[1].minutes +
             timestampNumbers[2].seconds +
             timestampNumbers[3].milliseconds
-        let stopStamp =
+        let stopTimestamp =
             timestampNumbers[4].hours +
             timestampNumbers[5].minutes +
             timestampNumbers[6].seconds +
             timestampNumbers[7].milliseconds
 
-        return SubRipSubtitleFormat(textNumber: lineNumber,
-                                    startTimestamp: startStamp,
-                                    stopTimestamp: stopStamp,
-                                    text: substrings[9])
+        return Subtitle(startTimestamp: startTimestamp,
+                        stopTimestamp: stopTimestamp,
+                        text: substrings[9])
     }
 
-    func stringValue() -> String {
-        return
-            "\(textNumber)\n" +
-            "\(stringFormatForSubtitleTime(startTimestamp)) --> \(stringFormatForSubtitleTime(stopTimestamp))\n" +
-            "\(text)\n"
+    static func encode(_ subtitles: [Subtitle]) -> [String] {
+        var encodedSubtitles = [String]()
+
+        for (index, subtitle) in subtitles.enumerated() {
+            encodedSubtitles.append(
+                "\(index + 1)\n" +
+                "\(subtitle.startTimestamp.stringFormat())" +
+                " --> " +
+                "\(subtitle.stopTimestamp.stringFormat())\n" +
+                "\(subtitle.text)" +
+                "\n"
+            )
+        }
+
+        return encodedSubtitles
     }
 
     func stringValue(for token: Token<SubtitleTokenType>) -> String? {
@@ -90,24 +93,16 @@ struct SubRipSubtitleFormat: SubtitleFormat {
     }
 }
 
-extension SubRipSubtitleFormat {
-
-    /// Returns `Timestamp` as a `String` that is compatible with SubRip format.
-    private func stringFormatForSubtitleTime(_ timestamp: Timestamp)  -> String {
-        let minutes = timestamp - Timestamp(value: timestamp.numberOfFull(.hours), unit: .hours)
+private extension Timestamp {
+    func stringFormat() -> String {
+        let minutes = self - Timestamp(value: self.numberOfFull(.hours), unit: .hours)
         let seconds = minutes - Timestamp(value: minutes.numberOfFull(.minutes), unit: .minutes)
         let milliseconds = seconds - Timestamp(value: seconds.numberOfFull(.seconds), unit: .seconds)
 
         return
-            "\(timestamp.numberOfFull(.hours).toString(leadingZeros: 2)):" +
+            "\(self.numberOfFull(.hours).toString(leadingZeros: 2)):" +
             "\(minutes.numberOfFull(.minutes).toString(leadingZeros: 2)):" +
             "\(seconds.numberOfFull(.seconds).toString(leadingZeros: 2))," +
             "\(milliseconds.numberOfFull(.milliseconds).toString(leadingZeros: 3))"
-    }
-}
-
-extension Int {
-    func toString(leadingZeros: Int) -> String {
-        return String(format: "%0\(leadingZeros)d", self)
     }
 }

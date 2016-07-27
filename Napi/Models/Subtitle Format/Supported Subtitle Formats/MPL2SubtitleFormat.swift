@@ -13,14 +13,9 @@ import Foundation
 ///
 ///     [111][222]First line of a text.|Seconds line of a text.
 struct MPL2SubtitleFormat: SubtitleFormat {
-    var startTimestamp: Timestamp
-    var stopTimestamp: Timestamp
-    
-    var text: String
-
     static let regexPattern = "\\[(\\d+)\\]\\[(\\d+)\\](.+)"
 
-    static func decode(_ aString: String) -> MPL2SubtitleFormat? {
+    static func decode(_ aString: String) -> Subtitle? {
         guard
             let substrings = MPL2SubtitleFormat.capturedSubstrings(from: aString),
             let startStamp = Int(substrings[0])?.deciseconds,
@@ -29,15 +24,21 @@ struct MPL2SubtitleFormat: SubtitleFormat {
                 return nil
         }
 
-        return MPL2SubtitleFormat(startTimestamp: startStamp,
-                                  stopTimestamp: stopStamp,
-                                  text: substrings[2])
+        return Subtitle(startTimestamp: startStamp,
+                        stopTimestamp: stopStamp,
+                        text: substrings[2])
     }
 
-    func stringValue() -> String {
-        return
-            "[\(startTimestamp.roundedValue(in: .deciseconds))]" +
-            "[\(stopTimestamp.roundedValue(in: .deciseconds))]" +
-            "\(text)"
+    static func encode(_ subtitles: [Subtitle]) -> [String] {
+        var encodedSubtitles = [String]()
+
+        for subtitle in subtitles {
+            encodedSubtitles.append(
+                "[\(subtitle.startTimestamp.roundedValue(in: .deciseconds))]" +
+                "[\(subtitle.stopTimestamp.roundedValue(in: .deciseconds))]" +
+                "\(subtitle.text)")
+        }
+
+        return encodedSubtitles
     }
 }

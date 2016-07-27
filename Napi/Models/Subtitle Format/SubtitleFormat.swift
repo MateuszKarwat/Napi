@@ -11,34 +11,23 @@ import Foundation
 /// Requirements for types that are a subtitle format.
 protocol SubtitleFormat {
 
-    /// Represents a timestamp that tells when subtitle
-    /// should appear on a screen.
-    var startTimestamp: Timestamp { get set }
-
-    /// Represents a timestamp that tells when subtitle
-    /// should disappear from a screen.
-    var stopTimestamp: Timestamp { get set }
-
-    /// Represents a text (subtitle) which is displayed on a screen.
-    var text: String { get set }
-
     /// A regular expression that represents a syntax (format)
     /// of a specific subtitle format.
     static var regexPattern: String { get }
 
-    /// Function which returns an instance of subtitle format
+    /// Function which returns an instance of a subtitle.
     /// if given `String` matches `regexPattern`. Returns `nil` otherwise.
-    static func decode(_ aString: String) -> Self?
+    static func decode(_ aString: String) -> Subtitle?
 
     /// Returns a `String` which represents specific implementation
     /// of a subtitle format. This `String` must be in a format
     /// that is stored in a subtitle file. Must include all tags,
     /// formatters and timestamps required by file format.
-    func stringValue() -> String
+    static func encode(_ subtitles: [Subtitle]) -> [String]
 
     /// Returns `String` representation of a given `Token`.
     /// If a given `Token` is not supported, it should return a `nil`.
-    func stringValue(for token: Token<SubtitleTokenType>) -> String?
+    static func stringValue(for token: Token<SubtitleTokenType>) -> String?
 }
 
 extension SubtitleFormat {
@@ -74,7 +63,7 @@ extension SubtitleFormat {
 extension SubtitleFormat {
 
     // Default implementation of all subtitle token types.
-    func stringValue(for token: Token<SubtitleTokenType>) -> String? {
+    static func stringValue(for token: Token<SubtitleTokenType>) -> String? {
         switch token.type {
         case .boldStart:        return "{y:b}"
         case .boldEnd:          return "{/y:b}"
@@ -89,18 +78,5 @@ extension SubtitleFormat {
         case .word:             return "\(token.lexeme)"
         case .unknownCharacter: return "\(token.lexeme)"
         }
-    }
-}
-
-/// Represents all supported subtitle formats by this application.
-enum SupportedSubtitleFormat {
-    case mpl2
-    case microDVD
-    case subRip
-    case tmplayer
-
-    /// Returns a sequence with all supported subtitle formats.
-    var allSupportedSubtitleFormats: [SupportedSubtitleFormat] {
-        return [mpl2, microDVD, subRip, tmplayer]
     }
 }

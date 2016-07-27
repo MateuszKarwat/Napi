@@ -13,18 +13,13 @@ import Foundation
 ///
 ///     {111}{222}First line of a text.|Seconds line of a text.
 struct MicroDVDSubtitleFormat: SubtitleFormat {
-    var startTimestamp: Timestamp
-    var stopTimestamp: Timestamp
-    
-    var text: String
-    
     static let regexPattern = "\\{(\\d+)\\}\\{(\\d+)\\}(.+)"
 
-    static func decode(_ aString: String) -> MicroDVDSubtitleFormat? {
-        return MicroDVDSubtitleFormat.decode(aString, frameRate: 23.976)
+    static func decode(_ aString: String) -> Subtitle? {
+        return MicroDVDSubtitleFormat.decode(aString, frameRate: 1.0)
     }
 
-    static func decode(_ aString: String, frameRate: Double) -> MicroDVDSubtitleFormat? {
+    static func decode(_ aString: String, frameRate: Double) -> Subtitle? {
         guard
             let substrings = MicroDVDSubtitleFormat.capturedSubstrings(from: aString),
             let startStamp = Int(substrings[0])?.frames(frameRate: frameRate),
@@ -33,27 +28,36 @@ struct MicroDVDSubtitleFormat: SubtitleFormat {
                 return nil
         }
 
-        return MicroDVDSubtitleFormat(startTimestamp: startStamp,
-                                      stopTimestamp: stopStamp,
-                                      text: substrings[2])
+        return Subtitle(startTimestamp: startStamp,
+                        stopTimestamp: stopStamp,
+                        text: substrings[2])
     }
-    
-    func stringValue() -> String {
-        var startValue: Int
-        var stopValue: Int
 
-        if case .frames(frameRate: _) = startTimestamp.unit {
-            startValue = startTimestamp.numberOfFull(startTimestamp.unit)
-        } else {
-            startValue = startTimestamp.roundedValue(in: .frames(frameRate: 23.976))
+    static func encode(_ subtitles: [Subtitle]) -> [String] {
+        var encodedSubtitles = [String]()
+
+        for subtitle in subtitles {
+            let startTimestamp = subtitle.startTimestamp
+            let stopTimestamp = subtitle.stopTimestamp
+
+            var startValue: Int
+            var stopValue: Int
+
+            if startTimestamp.isFrameBased {
+                startValue = startTimestamp.roundedValue(in: subtitle.startTimestamp.unit)
+            } else {
+                startValue = startTimestamp.numberOfFull(.frames(frameRate: 1.0))
+            }
+
+            if stopTimestamp.isFrameBased {
+                stopValue = stopTimestamp.roundedValue(in: subtitle.stopTimestamp.unit)
+            } else {
+                stopValue = stopTimestamp.numberOfFull(.frames(frameRate: 1.0))
+            }
+
+            encodedSubtitles.append("{\(startValue)}{\(stopValue)}\(subtitle.text)")
         }
 
-        if case .frames(frameRate: _) = stopTimestamp.unit {
-            stopValue = stopTimestamp.numberOfFull(startTimestamp.unit)
-        } else {
-            stopValue = stopTimestamp.roundedValue(in: .frames(frameRate: 23.976))
-        }
-
-        return "{\(startValue)}{\(stopValue)}\(text)"
+        return encodedSubtitles
     }
 }

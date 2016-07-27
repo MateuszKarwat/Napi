@@ -116,6 +116,17 @@ struct Timestamp {
     }
 }
 
+extension Timestamp {
+
+    /// Checks if `Timestamps` unit is based on frames.
+    var isFrameBased: Bool {
+        if case .frames(frameRate: _) = self.unit {
+            return true
+        }
+        return false
+    }
+}
+
 // MARK: Arithmetic Operators
 
 /// Returns new `Timestamp` which is a result of adding `baseValues`

@@ -15,18 +15,17 @@ class SubRipSubtitleFormatTests: XCTestCase {
         let startTimestamp = 1.hours + 2.minutes + 3.seconds + 4.milliseconds
         let stopTimestamp = 2.hours + 3.minutes + 33.seconds + 40.milliseconds
         
-        let subRipFormat = SubRipSubtitleFormat(textNumber: 2,
-                                                startTimestamp: startTimestamp,
-                                                stopTimestamp: stopTimestamp,
-                                                text: "You know nothing!\nJohn Snow...")
+        let subtitle = Subtitle(startTimestamp: startTimestamp,
+                                stopTimestamp: stopTimestamp,
+                                text: "You know nothing!\nJohn Snow...")
 
         let expectedStringValue =
-            "2\n" +
+            "1\n" +
             "01:02:03,004 --> 02:03:33,040\n" +
             "You know nothing!\n" +
             "John Snow...\n"
 
-        XCTAssertEqual(subRipFormat.stringValue(), expectedStringValue)
+        XCTAssertEqual(SubRipSubtitleFormat.encode([subtitle]), [expectedStringValue])
     }
     
     func testDecodeCorrectInput() {
@@ -38,15 +37,14 @@ class SubRipSubtitleFormatTests: XCTestCase {
             "\n"
 
 
-        let srtFormat = SubRipSubtitleFormat.decode(input)
+        let decodedSubtitle = SubRipSubtitleFormat.decode(input)
 
         let startTimestamp = 1.hours + 2.minutes + 3.seconds + 4.milliseconds
         let stopTimestamp = 2.hours + 3.minutes + 33.seconds + 40.milliseconds
 
-        XCTAssertEqual(srtFormat?.textNumber, 2)
-        XCTAssertEqual(srtFormat?.startTimestamp.baseValue, startTimestamp.baseValue)
-        XCTAssertEqual(srtFormat?.stopTimestamp.baseValue, stopTimestamp.baseValue)
-        XCTAssertEqual(srtFormat?.text, "You know nothing!\nJohn Snow...")
+        XCTAssertEqual(decodedSubtitle?.startTimestamp.baseValue, startTimestamp.baseValue)
+        XCTAssertEqual(decodedSubtitle?.stopTimestamp.baseValue, stopTimestamp.baseValue)
+        XCTAssertEqual(decodedSubtitle?.text, "You know nothing!\nJohn Snow...")
     }
 
     func testDecodeIncorrectInput() {
