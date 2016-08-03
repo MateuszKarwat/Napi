@@ -21,7 +21,7 @@ struct Token<Type: RawRepresentable> {
     let lexeme: String
 
     /// Description of the form that the lexemes of a token may take.
-    let pattern: RegularExpression
+    let pattern: NSRegularExpression
 }
 
 extension Token {
@@ -33,8 +33,8 @@ extension Token {
 
         var substrings = [String]()
 
-        for i in 1 ..< match.numberOfRanges {
-            let rangeOfSubstring = match.range(at: i)
+        for rangeIdx in 1 ..< match.numberOfRanges {
+            let rangeOfSubstring = match.rangeAt(rangeIdx)
             let substring = lexeme[rangeOfSubstring]
 
             substrings.append(substring)

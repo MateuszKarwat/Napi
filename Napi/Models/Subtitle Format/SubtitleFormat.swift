@@ -47,13 +47,13 @@ extension SubtitleFormat {
         let range = NSRange(location: 0, length: aString.characters.count)
 
         guard
-            let regex = try? RegularExpression(pattern: Self.regexPattern, options: []),
+            let regex = try? NSRegularExpression(pattern: Self.regexPattern, options: []),
             let match = regex.firstMatch(in: aString, options: [], range: range) else {
                 return nil
         }
 
-        for i in 1 ... match.numberOfRanges - 1 {
-            substrings.append(aString[match.range(at: i)])
+        for rangeIdx in 1 ... match.numberOfRanges - 1 {
+            substrings.append(aString[match.rangeAt(rangeIdx)])
         }
 
         return substrings

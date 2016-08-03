@@ -12,7 +12,7 @@ import Foundation
 class Lexer<TokenType: RawRepresentable> {
 
     /// Rules of the lexer to identify tokens in the `stream`.
-    private(set) var rules: [(RegularExpression, TokenType)]
+    private(set) var rules: [(NSRegularExpression, TokenType)]
 
     /// Creates a new instance with given sequence of rules.
     ///
@@ -20,7 +20,7 @@ class Lexer<TokenType: RawRepresentable> {
     ///   indicates specific token. In other words description of the form that
     ///   the lexemes of a token may take. `TokenType` is a type of Token which should
     ///   be created if pattern matches any substring.
-    init(rules: [(RegularExpression, TokenType)]) {
+    init(rules: [(NSRegularExpression, TokenType)]) {
         self.rules = rules
     }
 
@@ -36,7 +36,7 @@ class Lexer<TokenType: RawRepresentable> {
         self.rules = []
 
         for (pattern, type) in rules {
-            guard let regex = try? RegularExpression(pattern: pattern, options: [.caseInsensitive]) else {
+            guard let regex = try? NSRegularExpression(pattern: pattern, options: [.caseInsensitive]) else {
                 return nil
             }
             self.rules.append((regex, type))
@@ -94,7 +94,7 @@ class Lexer<TokenType: RawRepresentable> {
     ///
     /// - Returns: `TextCheckingResult` if **prefix** of the `stream` matches `regex`.
     ///   `nil` if first match is not anchored or not found at all.
-    private func match(of regex: RegularExpression, in stream: String) -> TextCheckingResult? {
+    private func match(of regex: NSRegularExpression, in stream: String) -> NSTextCheckingResult? {
         let streamRange = NSRange(location: 0, length: stream.characters.count)
         return regex.firstMatch(in: stream, options: [.anchored], range: streamRange)
     }
