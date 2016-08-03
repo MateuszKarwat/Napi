@@ -42,9 +42,9 @@ class SubRipSubtitleFormatTests: XCTestCase {
         let startTimestamp = 1.hours + 2.minutes + 3.seconds + 4.milliseconds
         let stopTimestamp = 2.hours + 3.minutes + 33.seconds + 40.milliseconds
 
-        XCTAssertEqual(decodedSubtitle?.startTimestamp.baseValue, startTimestamp.baseValue)
-        XCTAssertEqual(decodedSubtitle?.stopTimestamp.baseValue, stopTimestamp.baseValue)
-        XCTAssertEqual(decodedSubtitle?.text, "You know nothing!\nJohn Snow...")
+        XCTAssertEqual(decodedSubtitle[0].startTimestamp.baseValue, startTimestamp.baseValue)
+        XCTAssertEqual(decodedSubtitle[0].stopTimestamp.baseValue, stopTimestamp.baseValue)
+        XCTAssertEqual(decodedSubtitle[0].text, "You know nothing!\nJohn Snow...")
     }
 
     func testDecodeIncorrectInput() {
@@ -54,7 +54,7 @@ class SubRipSubtitleFormatTests: XCTestCase {
                                stopTimestamp: String = "02:03:33,040\n",
                                text: String = "Test.") {
             let input = lineNumber + startTimestamp + arrow + stopTimestamp + text
-            XCTAssertNil(SubRipSubtitleFormat.decode(input), "Assertion failed with input: \(input)")
+            XCTAssertTrue(SubRipSubtitleFormat.decode(input).isEmpty, "Assertion failed with input: \(input)")
         }
 
         // Incorrect lineNumber

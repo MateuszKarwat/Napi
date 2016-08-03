@@ -25,9 +25,9 @@ class TMPlayerSubtitleFormatTests: XCTestCase {
 
         let decodedSubtitle = TMPlayerSubtitleFormat.decode(input)
 
-        XCTAssertEqual(decodedSubtitle?.startTimestamp.baseValue, 3_671_000)
-        XCTAssertEqual(decodedSubtitle?.stopTimestamp.baseValue, 3_676_000)
-        XCTAssertEqual(decodedSubtitle?.text, "A long time ago...|In a galaxy far far away...")
+        XCTAssertEqual(decodedSubtitle[0].startTimestamp.baseValue, 3_671_000)
+        XCTAssertEqual(decodedSubtitle[0].stopTimestamp.baseValue, 3_676_000)
+        XCTAssertEqual(decodedSubtitle[0].text, "A long time ago...|In a galaxy far far away...")
     }
 
     func testDecodeIncorrectInput() {
@@ -41,7 +41,7 @@ class TMPlayerSubtitleFormatTests: XCTestCase {
                                "Test."]
 
         for incorrectInput in incorrectInputs {
-            XCTAssertNil(TMPlayerSubtitleFormat.decode(incorrectInput),
+            XCTAssertTrue(TMPlayerSubtitleFormat.decode(incorrectInput).isEmpty,
                          "Assertion failed with input: \(incorrectInput)")
         }
     }

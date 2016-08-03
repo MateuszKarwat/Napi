@@ -24,9 +24,9 @@ class MPL2SubtitleFormatTests: XCTestCase {
 
         let decodedSubtitle = MPL2SubtitleFormat.decode(input)
 
-        XCTAssertEqual(decodedSubtitle?.startTimestamp.baseValue, 100)
-        XCTAssertEqual(decodedSubtitle?.stopTimestamp.baseValue, 999_900)
-        XCTAssertEqual(decodedSubtitle?.text, "Test.")
+        XCTAssertEqual(decodedSubtitle[0].startTimestamp.baseValue, 100)
+        XCTAssertEqual(decodedSubtitle[0].stopTimestamp.baseValue, 999_900)
+        XCTAssertEqual(decodedSubtitle[0].text, "Test.")
     }
 
     func testDecodeIncorrectInput() {
@@ -39,7 +39,7 @@ class MPL2SubtitleFormatTests: XCTestCase {
                                "Test."]
 
         for incorrectInput in incorrectInputs {
-            XCTAssertNil(MPL2SubtitleFormat.decode(incorrectInput))
+            XCTAssertTrue(MPL2SubtitleFormat.decode(incorrectInput).isEmpty)
         }
     }
 

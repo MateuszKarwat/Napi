@@ -17,18 +17,21 @@ struct MPL2SubtitleFormat: SubtitleFormat {
     static let isTimeBased = true
     static let regexPattern = "\\[(\\d+)\\]\\[(\\d+)\\](.+)"
 
-    static func decode(_ aString: String) -> Subtitle? {
-        guard
-            let substrings = MPL2SubtitleFormat.capturedSubstrings(from: aString),
-            let startStamp = Int(substrings[0])?.deciseconds,
-            let stopStamp = Int(substrings[1])?.deciseconds,
-            substrings.count == 3 else {
-                return nil
+    static func decode(_ aString: String) -> [Subtitle] {
+        var decodedSubtitles = [Subtitle]()
+
+        self.enumerateMatches(in: aString) { match in
+            let startNumber = Int(match.capturedSubstrings[0])
+            let stopNumber = Int(match.capturedSubstrings[1])
+
+            let newSubtitle = Subtitle(startTimestamp: startNumber!.deciseconds,
+                                       stopTimestamp: stopNumber!.deciseconds,
+                                       text: match.capturedSubstrings[2])
+
+            decodedSubtitles.append(newSubtitle)
         }
 
-        return Subtitle(startTimestamp: startStamp,
-                        stopTimestamp: stopStamp,
-                        text: substrings[2])
+        return decodedSubtitles
     }
 
     static func encode(_ subtitles: [Subtitle]) -> [String] {

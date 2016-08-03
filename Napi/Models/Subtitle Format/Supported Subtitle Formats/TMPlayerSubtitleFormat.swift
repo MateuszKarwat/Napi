@@ -17,21 +17,24 @@ struct TMPlayerSubtitleFormat: SubtitleFormat {
     static let isTimeBased = true
     static let regexPattern = "(\\d{1,2}):(\\d{1,2}):(\\d{1,2}):(.+)"
 
-    static func decode(_ aString: String) -> Subtitle? {
-        guard
-            let substrings = TMPlayerSubtitleFormat.capturedSubstrings(from: aString),
-            let hours = Int(substrings[0])?.hours,
-            let minutes = Int(substrings[1])?.minutes,
-            let seconds = Int(substrings[2])?.seconds,
-            substrings.count == 4 else {
-                return nil
+    static func decode(_ aString: String) -> [Subtitle] {
+        var decodedSubtitles = [Subtitle]()
+
+        self.enumerateMatches(in: aString) { match in
+            let hours = Int(match.capturedSubstrings[0])!.hours
+            let minutes = Int(match.capturedSubstrings[1])!.minutes
+            let seconds = Int(match.capturedSubstrings[2])!.seconds
+
+            let timestamp = hours + minutes + seconds
+
+            let newSubtitle = Subtitle(startTimestamp: timestamp,
+                                       stopTimestamp: timestamp + 5.seconds,
+                                       text: match.capturedSubstrings[3])
+
+            decodedSubtitles.append(newSubtitle)
         }
 
-        let timestamp = hours + minutes + seconds
-
-        return Subtitle(startTimestamp: timestamp,
-                        stopTimestamp: timestamp + 5.seconds,
-                        text: substrings[3])
+        return decodedSubtitles
     }
 
     static func encode(_ subtitles: [Subtitle]) -> [String] {
