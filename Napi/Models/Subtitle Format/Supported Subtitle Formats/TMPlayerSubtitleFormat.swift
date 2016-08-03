@@ -13,6 +13,8 @@ import Foundation
 ///
 ///     01:12:33:First line of a text.|Seconds line of a text.
 struct TMPlayerSubtitleFormat: SubtitleFormat {
+    static let fileExtension = "txt"
+    static let isTimeBased = true
     static let regexPattern = "(\\d{1,2}):(\\d{1,2}):(\\d{1,2}):(.+)"
 
     static func decode(_ aString: String) -> Subtitle? {

@@ -17,6 +17,8 @@ import Foundation
 ///     Seconds line of a text.
 ///     \n
 struct SubRipSubtitleFormat: SubtitleFormat {
+    static let fileExtension = "srt"
+    static let isTimeBased = true
     static let regexPattern =
         "(\\d+)\\s" +
         "(\\d{1,2}):(\\d{1,2}):(\\d{1,2}),(\\d{1,3})" +

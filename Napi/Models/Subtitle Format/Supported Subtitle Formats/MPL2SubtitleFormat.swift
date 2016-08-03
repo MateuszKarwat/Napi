@@ -13,6 +13,8 @@ import Foundation
 ///
 ///     [111][222]First line of a text.|Seconds line of a text.
 struct MPL2SubtitleFormat: SubtitleFormat {
+    static let fileExtension = "txt"
+    static let isTimeBased = true
     static let regexPattern = "\\[(\\d+)\\]\\[(\\d+)\\](.+)"
 
     static func decode(_ aString: String) -> Subtitle? {

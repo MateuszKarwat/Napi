@@ -11,6 +11,12 @@ import Foundation
 /// Requirements for types that are a subtitle format.
 protocol SubtitleFormat {
 
+    /// Specifies an extension of a file which stores specific format.
+    static var fileExtension: String { get }
+
+    /// Indicates whether subtitle format is based on time unit.
+    static var isTimeBased: Bool { get }
+
     /// A regular expression that represents a syntax (format)
     /// of a specific subtitle format.
     static var regexPattern: String { get }

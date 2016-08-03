@@ -13,6 +13,8 @@ import Foundation
 ///
 ///     {111}{222}First line of a text.|Seconds line of a text.
 struct MicroDVDSubtitleFormat: SubtitleFormat {
+    static let fileExtension = "sub"
+    static let isTimeBased = false
     static let regexPattern = "\\{(\\d+)\\}\\{(\\d+)\\}(.+)"
 
     static func decode(_ aString: String) -> Subtitle? {
