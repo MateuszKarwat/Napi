@@ -42,10 +42,11 @@ extension SubtitleFormat {
     /// There are other additional convenience methods, for returning all matches at once, etc.
     /// Each match is specified by an instance of `SubtitleCheckingResult`.
     ///
-    /// - Parameter aString: A `String` which will be matched with `regexPattern`.
-    ///   From this `String` all matches will be enumerated.
-    /// - Patameter block: For each match represented as `SubtitleCheckingResult`
-    ///   this `block` will be triggered.
+    /// - Parameters:
+    ///     - aString: A `String` which will be matched with `regexPattern`.
+    ///       From this `String` all matches will be enumerated.
+    ///     - block: For each match represented as `SubtitleCheckingResult`
+    ///       this `block` will be triggered.
     static func enumerateMatches(in aString: String, using block: @noescape (SubtitleCheckingResult) -> ()) {
         guard let regex = try? NSRegularExpression(pattern: Self.regexPattern, options: []) else {
             return

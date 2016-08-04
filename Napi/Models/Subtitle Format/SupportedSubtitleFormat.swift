@@ -17,7 +17,7 @@ enum SupportedSubtitleFormat {
     case tmplayer
 
     /// Returns an `Array` with all supported subtitle formats.
-    var allValues: [SupportedSubtitleFormat] {
+    static var allValues: [SupportedSubtitleFormat] {
         return [.mpl2, .microDVD, .subRip, .tmplayer]
     }
 
