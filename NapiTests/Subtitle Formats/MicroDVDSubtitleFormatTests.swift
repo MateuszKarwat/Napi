@@ -20,13 +20,17 @@ class MicroDVDSubtitleFormatTests: XCTestCase {
     }
 
     func testDecodeCorrectInput() {
-        let input = "{0}{100}Simple one line of a text"
+        let input = "{0}{100}First Subtitle" + "\n" + "{100}{200}Second Subtitle"
 
         let decodedSubtitle = MicroDVDSubtitleFormat.decode(input)
 
         XCTAssertEqual(decodedSubtitle[0].startTimestamp.numberOfFull(.milliseconds), 0)
         XCTAssertEqual(decodedSubtitle[0].stopTimestamp.numberOfFull(.milliseconds), 100_000)
-        XCTAssertEqual(decodedSubtitle[0].text, "Simple one line of a text")
+        XCTAssertEqual(decodedSubtitle[0].text, "First Subtitle")
+
+        XCTAssertEqual(decodedSubtitle[1].startTimestamp.numberOfFull(.milliseconds), 100_000)
+        XCTAssertEqual(decodedSubtitle[1].stopTimestamp.numberOfFull(.milliseconds), 200_000)
+        XCTAssertEqual(decodedSubtitle[1].text, "Second Subtitle")
     }
 
     func testDecodeIncorrectInput() {

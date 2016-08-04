@@ -34,6 +34,10 @@ class SubRipSubtitleFormatTests: XCTestCase {
             "01:02:03,004 --> 02:03:33,040\n" +
             "You know nothing!\n" +
             "John Snow...\n" +
+            "\n" +
+            "2\n" +
+            "01:02:03,004 --> 02:03:33,040\n" +
+            "Valar Morghulis.\n" +
             "\n"
 
 
@@ -45,6 +49,10 @@ class SubRipSubtitleFormatTests: XCTestCase {
         XCTAssertEqual(decodedSubtitle[0].startTimestamp.baseValue, startTimestamp.baseValue)
         XCTAssertEqual(decodedSubtitle[0].stopTimestamp.baseValue, stopTimestamp.baseValue)
         XCTAssertEqual(decodedSubtitle[0].text, "You know nothing!\nJohn Snow...")
+
+        XCTAssertEqual(decodedSubtitle[1].startTimestamp.baseValue, startTimestamp.baseValue)
+        XCTAssertEqual(decodedSubtitle[1].stopTimestamp.baseValue, stopTimestamp.baseValue)
+        XCTAssertEqual(decodedSubtitle[1].text, "Valar Morghulis.")
     }
 
     func testDecodeIncorrectInput() {

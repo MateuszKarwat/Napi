@@ -21,13 +21,17 @@ class TMPlayerSubtitleFormatTests: XCTestCase {
     }
 
     func testDecodeCorrectInput() {
-        let input = "01:01:11:A long time ago...|In a galaxy far far away..."
+        let input = "01:01:11:A long time ago..." + "\n" + "01:01:11:In a galaxy far far away..."
 
         let decodedSubtitle = TMPlayerSubtitleFormat.decode(input)
 
         XCTAssertEqual(decodedSubtitle[0].startTimestamp.baseValue, 3_671_000)
         XCTAssertEqual(decodedSubtitle[0].stopTimestamp.baseValue, 3_676_000)
-        XCTAssertEqual(decodedSubtitle[0].text, "A long time ago...|In a galaxy far far away...")
+        XCTAssertEqual(decodedSubtitle[0].text, "A long time ago...")
+
+        XCTAssertEqual(decodedSubtitle[1].startTimestamp.baseValue, 3_671_000)
+        XCTAssertEqual(decodedSubtitle[1].stopTimestamp.baseValue, 3_676_000)
+        XCTAssertEqual(decodedSubtitle[1].text, "In a galaxy far far away...")
     }
 
     func testDecodeIncorrectInput() {
