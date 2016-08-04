@@ -51,19 +51,24 @@ struct Timestamp {
     let value: Double
 
     /// Represnts a unit in which `Timestamp` calculates `baseValue`.
-    let unit: Unit
+    var unit: Unit {
+        didSet {
+            baseValue = value * unit.baseValueMultiplier
+        }
+    }
 
     /// Represents a value which doesn't depend on any unit
     /// or unit's value. It can be treated as a base unit
     /// which all `Unit`s can be calculated from or stored in.
     /// Its value depends on a multiplier specified for each `Unit`.
-    let baseValue: Double
+    private(set) var baseValue: Double
 
     /// Creates a new instance with given `value` in specified
     /// `unit`. `baseValue` is calculaed based on `value` and `unit`.
     ///
-    /// - Parameter value: Number of units.
-    /// - Parameter unit: Unit in which `Timestamp` is represented.
+    /// - Parameter:
+    ///     - value: Number of units.
+    ///     - unit:  Unit in which `Timestamp` is represented.
     init(value: Double, unit: Unit) {
         self.value = value
         self.unit = unit
@@ -73,8 +78,9 @@ struct Timestamp {
     /// Creates a new instance with given `value` in specified
     /// `unit`. `baseValue` is calculaed based on `value` and `unit`.
     ///
-    /// - Parameter value: Number of units.
-    /// - Parameter unit: Unit in which `Timestamp` is represented.
+    /// - Parameters:
+    ///     - value: Number of units.
+    ///     - unit:  Unit in which `Timestamp` is represented.
     init(value: Int, unit: Unit) {
         self.init(value: Double(value), unit: unit)
     }
@@ -107,12 +113,24 @@ struct Timestamp {
         return Int(round(baseValue / unit.baseValueMultiplier))
     }
 
-    /// Returns a new instance of `Timestamp` with given `Unit`.
+    /// Returns a new instance of `Timestamp` calculated to given `Unit`.
+    /// New `Timestamp` will have different `value`,
+    /// but `baseValue` will not change.
     ///
     /// - Parameter otherUnit: Specified in which `Unit` 
     ///   new `Timestamp` should be represented.
     func converted(to otherUnit: Unit) -> Timestamp {
         return Timestamp(value: baseValue / otherUnit.baseValueMultiplier, unit: otherUnit)
+    }
+
+    /// Returns a new instance of `Timestamp` with given `Unit`.
+    /// New `Timestamp` will have different `baseValue`,
+    /// but `value` will not change.
+    ///
+    /// - parameter otherUnit: Specified in which `Unit`
+    ///   new `Timestamp` should be represented.
+    func changed(to otherUnit: Unit) -> Timestamp {
+        return Timestamp(value: value, unit: otherUnit)
     }
 }
 
@@ -127,7 +145,7 @@ extension Timestamp {
     }
 }
 
-// MARK: Arithmetic Operators
+// MARK: - Arithmetic Operators
 
 /// Returns new `Timestamp` which is a result of adding `baseValues`
 /// of both parameters. New `Timestamp` has the same `Unit` as `lhs`.
