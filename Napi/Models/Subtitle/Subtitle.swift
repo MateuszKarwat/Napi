@@ -21,3 +21,20 @@ struct Subtitle {
     /// Represents a text which is displayed on a screen.
     var text: String
 }
+
+// MARK: - Text Tokenization
+
+extension Subtitle {
+
+    /// Returns an `Array` of `Tokens` created by `Lexer`
+    /// using `defaultSubtitleRules`.
+    ///
+    /// - Note: See also `SubtitleTokenType` enum implementation.
+    var tokenizedText: [Token<SubtitleTokenType>] {
+        if let lexer = Lexer(rules: Lexer<SubtitleTokenType>.defaultSubtitleRules) {
+            return lexer.lex(stream: text)
+        }
+
+        return []
+    }
+}

@@ -26,6 +26,7 @@ enum SubtitleTokenType: String {
 }
 
 extension Lexer {
+    
     /// Set of rules which describe tokens possible to find in most common subtitle formats.
     class var defaultSubtitleRules: [(String, SubtitleTokenType)] {
         return [

@@ -60,6 +60,8 @@ class Lexer<TokenType: RawRepresentable> {
     ///   This means, if first rule matches current prefix of a stream, all other rules
     ///   won't be checked if they match the same prefix.
     ///
+    /// - Parameter stream: A string to tokenize.
+    ///
     /// - Returns: A sequence of `Tokens` in order they were detected in given `stream`.
     func lex(stream: String) -> [Token<TokenType>] {
         var tokens = [Token<TokenType>]()

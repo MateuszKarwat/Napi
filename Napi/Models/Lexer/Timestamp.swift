@@ -67,7 +67,7 @@ extension Timestamp {
     /// Creates a new instance with given `value` in specified
     /// `unit`. `baseValue` is calculaed based on `value` and `unit`.
     ///
-    /// - Parameter:
+    /// - Parameters:
     ///     - value: Number of units.
     ///     - unit:  Unit in which `Timestamp` is represented.
     init(value: Double, unit: Unit) {
@@ -89,7 +89,7 @@ extension Timestamp {
     /// Creates a new instance with given `baseValue` in specified
     /// `unit`. `value` is calculaed based on `baseValue` and `unit`.
     ///
-    /// - Parameter:
+    /// - Parameters:
     ///     - baseValue: Calculated baseValue.
     ///     - unit:      Unit in which `Timestamp` is represented.
     init(baseValue: Double, unit: Unit) {
@@ -155,7 +155,7 @@ extension Timestamp {
     /// New `Timestamp` will have different `baseValue`,
     /// but `value` will not change.
     ///
-    /// - parameter otherUnit: Specified in which `Unit`
+    /// - Parameter otherUnit: Specified in which `Unit`
     ///   new `Timestamp` should be represented.
     func changed(to otherUnit: Unit) -> Timestamp {
         return Timestamp(value: value, unit: otherUnit)
