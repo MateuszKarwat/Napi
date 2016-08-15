@@ -34,6 +34,17 @@ struct TMPlayerSubtitleFormat: SubtitleFormat {
             decodedSubtitles.append(newSubtitle)
         }
 
+        if decodedSubtitles.count > 1 {
+            for i in 0 ..< decodedSubtitles.count - 1 {
+                let currentStopTimestamp = decodedSubtitles[i].stopTimestamp.baseValue
+                let followingStartTimestamp = decodedSubtitles[i + 1].startTimestamp.baseValue
+
+                if currentStopTimestamp > followingStartTimestamp {
+                    decodedSubtitles[i].stopTimestamp = decodedSubtitles[i + 1].startTimestamp - 1.milliseconds
+                }
+            }
+        }
+
         return decodedSubtitles
     }
 
@@ -49,6 +60,7 @@ struct TMPlayerSubtitleFormat: SubtitleFormat {
 }
 
 private extension Timestamp {
+    // TODO: Add comment and for other same function too.
     func stringFormat() -> String {
         let minutes = self - Timestamp(value: self.numberOfFull(.hours), unit: .hours)
         let seconds = minutes - Timestamp(value: minutes.numberOfFull(.minutes), unit: .minutes)
