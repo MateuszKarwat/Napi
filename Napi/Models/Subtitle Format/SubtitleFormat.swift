@@ -47,12 +47,12 @@ extension SubtitleFormat {
     ///       From this `String` all matches will be enumerated.
     ///     - block: For each match represented as `SubtitleCheckingResult`
     ///       this `block` will be triggered.
-    static func enumerateMatches(in aString: String, using block: @noescape (SubtitleCheckingResult) -> ()) {
+    static func enumerateMatches(in aString: String, using block: (SubtitleCheckingResult) -> ()) {
         guard let regex = try? NSRegularExpression(pattern: Self.regexPattern, options: []) else {
             return
         }
 
-        let range = NSRange(location: 0, length: aString.characters.count)
+        let range = NSRange(location: 0, length: (aString as NSString).length)
 
         regex.enumerateMatches(in: aString, options: [], range: range) { (match, _, _) in
             if let match = match {

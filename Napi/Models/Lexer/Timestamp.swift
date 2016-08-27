@@ -29,7 +29,7 @@ struct Timestamp {
         /// For example: `seconds` represents 1000 base values,
         /// but `millisecond` represents only one base value.
         /// In other words: 1000 base units equals 1 second.
-        var baseValueMultiplier: Double {
+        var coefficient: Double {
             switch self {
             case .milliseconds:
                 return 1
@@ -73,7 +73,7 @@ extension Timestamp {
     init(value: Double, unit: Unit) {
         self.value = value
         self.unit = unit
-        self.baseValue = value * unit.baseValueMultiplier
+        self.baseValue = value * unit.coefficient
     }
 
     /// Creates a new instance with given `value` in specified
@@ -95,7 +95,7 @@ extension Timestamp {
     init(baseValue: Double, unit: Unit) {
         self.baseValue = baseValue
         self.unit = unit
-        self.value = baseValue / unit.baseValueMultiplier
+        self.value = baseValue / unit.coefficient
     }
 
     /// Creates a new instance with given `baseValue` in specified
@@ -124,7 +124,7 @@ extension Timestamp {
     /// - Parameter otherUnit: Specifies which `Unit`'s maximum size
     ///   should be checked of how many of them fits in current `Timestamp`.
     func numberOfFull(_ otherUnit: Unit) -> Int {
-        return Int(baseValue / otherUnit.baseValueMultiplier)
+        return Int(baseValue / otherUnit.coefficient)
     }
 
     /// Returns a rounded number of units calculated based on current
@@ -138,7 +138,7 @@ extension Timestamp {
     /// - Parameter otherUnit: Specifies to which `Unit` current
     ///   `baseValue` should be rounded.
     func roundedValue(in unit: Unit) -> Int {
-        return Int(round(baseValue / unit.baseValueMultiplier))
+        return Int(round(baseValue / unit.coefficient))
     }
 
     /// Returns a new instance of `Timestamp` calculated to given `Unit`.

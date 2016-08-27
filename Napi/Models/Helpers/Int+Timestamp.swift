@@ -6,6 +6,7 @@
 //  Copyright © 2016 Mateusz Karwat. All rights reserved.
 //
 
+// Extension to make operations on `Timestamps` very clear and easy.
 extension Int {
     var milliseconds: Timestamp {
         return Timestamp(value: self, unit: .milliseconds)
