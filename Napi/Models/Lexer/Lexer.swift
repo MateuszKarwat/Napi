@@ -97,7 +97,7 @@ class Lexer<TokenType: RawRepresentable> {
     /// - Returns: `TextCheckingResult` if **prefix** of the `stream` matches `regex`.
     ///   `nil` if first match is not anchored or not found at all.
     private func match(of regex: NSRegularExpression, in stream: String) -> NSTextCheckingResult? {
-        let streamRange = NSRange(location: 0, length: stream.characters.count)
+        let streamRange = NSRange(location: 0, length: (stream as NSString).length)
         return regex.firstMatch(in: stream, options: [.anchored], range: streamRange)
     }
 }

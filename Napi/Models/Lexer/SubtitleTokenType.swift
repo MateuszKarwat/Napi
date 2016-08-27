@@ -40,7 +40,7 @@ extension Lexer {
             // Font color can be specified in a few ways. Some examples are:
             // {c:#RRGGBB}, {c:$RED}, <font color="$RRGGBB">, <font color="#RED">
             // There is one capuring group to capture a color name.
-            ("\\{c:([$#]?\\w*)\\}|<font color=\"([$#]?\\w*)\">", .fontColorStart),
+            ("(?:\\{c:|<font color=\")([$#]?\\w*)(?:\\}|\">)", .fontColorStart),
 
             // Font color tag can be specified in one of two ways: '{/c}' or '</font>'.
             ("\\{/c\\}|</font>", .fontColorEnd),
