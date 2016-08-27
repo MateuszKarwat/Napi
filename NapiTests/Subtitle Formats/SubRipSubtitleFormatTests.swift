@@ -30,10 +30,10 @@ class SubRipSubtitleFormatTests: XCTestCase {
     
     func testDecodeCorrectInput() {
         let input =
-            "2\n" +
-            "01:02:03,004 --> 02:03:33,040\n" +
+            "2\r\n" +
+            "01:02:03,004 --> 02:03:33,040\r\n" +
             "You know nothing!\n" +
-            "John Snow...\n" +
+            "John Snow...\r\n" +
             "\n" +
             "2\n" +
             "01:02:03,004 --> 02:03:33,040\n" +
