@@ -59,7 +59,7 @@ struct TMPlayerSubtitleFormat: SubtitleFormat {
     }
 }
 
-private extension Timestamp {
+fileprivate extension Timestamp {
     // TODO: Add comment and for other same function too.
     func stringFormat() -> String {
         let minutes = self - Timestamp(value: self.numberOfFull(.hours), unit: .hours)

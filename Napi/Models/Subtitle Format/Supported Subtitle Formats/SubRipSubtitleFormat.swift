@@ -20,11 +20,11 @@ struct SubRipSubtitleFormat: SubtitleFormat {
     static let fileExtension = "srt"
     static let isTimeBased = true
     static let regexPattern =
-        "(\\d+)\\s" +
+        "(\\d+)\\R" +
         "(\\d{1,2}):(\\d{1,2}):(\\d{1,2}),(\\d{1,3})" +
         " +--> +" +
-        "(\\d{1,2}):(\\d{1,2}):(\\d{1,2}),(\\d{1,3})\\s" +
-        "((?:.+\\s?)+\\S+)" // Take all lines of text, but don't include Whitespace at the very end.
+        "(\\d{1,2}):(\\d{1,2}):(\\d{1,2}),(\\d{1,3})\\R" +
+        "((?:.+\\R?)+\\S+)" // Take all lines of text, but don't include Whitespace at the very end.
 
     static func decode(_ aString: String) -> [Subtitle] {
         var decodedSubtitles = [Subtitle]()
@@ -93,7 +93,7 @@ struct SubRipSubtitleFormat: SubtitleFormat {
     }
 }
 
-private extension Timestamp {
+fileprivate extension Timestamp {
     func stringFormat() -> String {
         let minutes = self - Timestamp(value: self.numberOfFull(.hours), unit: .hours)
         let seconds = minutes - Timestamp(value: minutes.numberOfFull(.minutes), unit: .minutes)
