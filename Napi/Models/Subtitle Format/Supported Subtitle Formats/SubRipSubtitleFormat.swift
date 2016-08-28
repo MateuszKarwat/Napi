@@ -94,6 +94,8 @@ struct SubRipSubtitleFormat: SubtitleFormat {
 }
 
 fileprivate extension Timestamp {
+
+    /// Returns a `String` which is in format required by SubRip Subtitle Format.
     func stringFormat() -> String {
         let minutes = self - Timestamp(value: self.numberOfFull(.hours), unit: .hours)
         let seconds = minutes - Timestamp(value: minutes.numberOfFull(.minutes), unit: .minutes)
