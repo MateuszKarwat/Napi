@@ -29,7 +29,7 @@ struct Timestamp {
         /// For example: `seconds` represents 1000 base values,
         /// but `millisecond` represents only one base value.
         /// In other words: 1000 base units equals 1 second.
-        var baseValueMultiplier: Double {
+        var coefficient: Double {
             switch self {
             case .milliseconds:
                 return 1
@@ -41,7 +41,7 @@ struct Timestamp {
                 return 1000 * 60
             case .hours:
                 return 1000 * 60 * 60
-            case .frames(frameRate: let rate):
+            case let .frames(frameRate: rate):
                 return 1000 / rate
             }
         }
@@ -58,26 +58,60 @@ struct Timestamp {
     /// which all `Unit`s can be calculated from or stored in.
     /// Its value depends on a multiplier specified for each `Unit`.
     let baseValue: Double
+}
+
+// MARK: - Initializers
+
+extension Timestamp {
 
     /// Creates a new instance with given `value` in specified
     /// `unit`. `baseValue` is calculaed based on `value` and `unit`.
     ///
-    /// - Parameter value: Number of units.
-    /// - Parameter unit: Unit in which `Timestamp` is represented.
+    /// - Parameters:
+    ///     - value: Number of units.
+    ///     - unit:  Unit in which `Timestamp` is represented.
     init(value: Double, unit: Unit) {
         self.value = value
         self.unit = unit
-        self.baseValue = value * unit.baseValueMultiplier
+        self.baseValue = value * unit.coefficient
     }
 
     /// Creates a new instance with given `value` in specified
     /// `unit`. `baseValue` is calculaed based on `value` and `unit`.
     ///
-    /// - Parameter value: Number of units.
-    /// - Parameter unit: Unit in which `Timestamp` is represented.
+    /// - Parameters:
+    ///     - value: Number of units.
+    ///     - unit:  Unit in which `Timestamp` is represented.
     init(value: Int, unit: Unit) {
         self.init(value: Double(value), unit: unit)
     }
+
+    /// Creates a new instance with given `baseValue` in specified
+    /// `unit`. `value` is calculaed based on `baseValue` and `unit`.
+    ///
+    /// - Parameters:
+    ///     - baseValue: Calculated baseValue.
+    ///     - unit:      Unit in which `Timestamp` is represented.
+    init(baseValue: Double, unit: Unit) {
+        self.baseValue = baseValue
+        self.unit = unit
+        self.value = baseValue / unit.coefficient
+    }
+
+    /// Creates a new instance with given `baseValue` in specified
+    /// `unit`. `value` is calculaed based on `baseValue` and `unit`.
+    ///
+    /// - Parameters:
+    ///     - baseValue: Calculated baseValue.
+    ///     - unit:      Unit in which `Timestamp` is represented.
+    init(baseValue: Int, unit: Unit) {
+        self.init(baseValue: Double(baseValue), unit: unit)
+    }
+}
+
+// MARK: - Unit Calculations
+
+extension Timestamp {
 
     /// Returns a number of units calculated based on current
     /// `baseValue` rounded down.
@@ -90,7 +124,7 @@ struct Timestamp {
     /// - Parameter otherUnit: Specifies which `Unit`'s maximum size
     ///   should be checked of how many of them fits in current `Timestamp`.
     func numberOfFull(_ otherUnit: Unit) -> Int {
-        return Int(baseValue / otherUnit.baseValueMultiplier)
+        return Int(baseValue / otherUnit.coefficient)
     }
 
     /// Returns a rounded number of units calculated based on current
@@ -104,17 +138,31 @@ struct Timestamp {
     /// - Parameter otherUnit: Specifies to which `Unit` current
     ///   `baseValue` should be rounded.
     func roundedValue(in unit: Unit) -> Int {
-        return Int(round(baseValue / unit.baseValueMultiplier))
+        return Int(round(baseValue / unit.coefficient))
     }
 
-    /// Returns a new instance of `Timestamp` with given `Unit`.
+    /// Returns a new instance of `Timestamp` calculated to given `Unit`.
+    /// New `Timestamp` will have different `value`,
+    /// but `baseValue` will not change.
     ///
     /// - Parameter otherUnit: Specified in which `Unit` 
     ///   new `Timestamp` should be represented.
     func converted(to otherUnit: Unit) -> Timestamp {
-        return Timestamp(value: baseValue / otherUnit.baseValueMultiplier, unit: otherUnit)
+        return Timestamp(baseValue: baseValue, unit: otherUnit)
+    }
+
+    /// Returns a new instance of `Timestamp` with given `Unit`.
+    /// New `Timestamp` will have different `baseValue`,
+    /// but `value` will not change.
+    ///
+    /// - Parameter otherUnit: Specified in which `Unit`
+    ///   new `Timestamp` should be represented.
+    func changed(to otherUnit: Unit) -> Timestamp {
+        return Timestamp(value: value, unit: otherUnit)
     }
 }
+
+// MARK: - Auxiliary Functions
 
 extension Timestamp {
 
@@ -127,16 +175,16 @@ extension Timestamp {
     }
 }
 
-// MARK: Arithmetic Operators
+// MARK: - Arithmetic Operators
 
 /// Returns new `Timestamp` which is a result of adding `baseValues`
 /// of both parameters. New `Timestamp` has the same `Unit` as `lhs`.
 func +(lhs: Timestamp, rhs: Timestamp) -> Timestamp {
-    return Timestamp(value: lhs.baseValue + rhs.baseValue, unit: .milliseconds).converted(to: lhs.unit)
+    return Timestamp(baseValue: lhs.baseValue + rhs.baseValue, unit: lhs.unit)
 }
 
 /// Returns new `Timestamp` which is a result of subtracting 
 /// `rhs`'s `baseValue` from `lhs`'s. New `Timestamp` has the same `Unit` as `lhs`.
 func -(lhs: Timestamp, rhs: Timestamp) -> Timestamp {
-    return Timestamp(value: lhs.baseValue - rhs.baseValue, unit: .milliseconds).converted(to: lhs.unit)
+    return Timestamp(baseValue: lhs.baseValue - rhs.baseValue, unit: lhs.unit)
 }

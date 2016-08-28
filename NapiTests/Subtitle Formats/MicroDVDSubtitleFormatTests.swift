@@ -20,13 +20,17 @@ class MicroDVDSubtitleFormatTests: XCTestCase {
     }
 
     func testDecodeCorrectInput() {
-        let input = "{0}{100}Simple one line of a text"
+        let input = "{0}{100}First Subtitle" + "\n" + "{100}{200}Second Subtitle"
 
         let decodedSubtitle = MicroDVDSubtitleFormat.decode(input)
 
-        XCTAssertEqual(decodedSubtitle?.startTimestamp.numberOfFull(.milliseconds), 0)
-        XCTAssertEqual(decodedSubtitle?.stopTimestamp.numberOfFull(.milliseconds), 100_000)
-        XCTAssertEqual(decodedSubtitle?.text, "Simple one line of a text")
+        XCTAssertEqual(decodedSubtitle[0].startTimestamp.numberOfFull(.milliseconds), 0)
+        XCTAssertEqual(decodedSubtitle[0].stopTimestamp.numberOfFull(.milliseconds), 100_000)
+        XCTAssertEqual(decodedSubtitle[0].text, "First Subtitle")
+
+        XCTAssertEqual(decodedSubtitle[1].startTimestamp.numberOfFull(.milliseconds), 100_000)
+        XCTAssertEqual(decodedSubtitle[1].stopTimestamp.numberOfFull(.milliseconds), 200_000)
+        XCTAssertEqual(decodedSubtitle[1].text, "Second Subtitle")
     }
 
     func testDecodeIncorrectInput() {
@@ -39,8 +43,8 @@ class MicroDVDSubtitleFormatTests: XCTestCase {
                                "Test."]
 
         for incorrectInput in incorrectInputs {
-            XCTAssertNil(MicroDVDSubtitleFormat.decode(incorrectInput))
-            XCTAssertNil(MicroDVDSubtitleFormat.decode(incorrectInput, frameRate: 1.0))
+            XCTAssertTrue(MicroDVDSubtitleFormat.decode(incorrectInput).isEmpty)
+            XCTAssertTrue(MicroDVDSubtitleFormat.decode(incorrectInput, frameRate: 1.0).isEmpty)
         }
     }
 
@@ -49,9 +53,9 @@ class MicroDVDSubtitleFormatTests: XCTestCase {
 
         let microDVDFormat = MicroDVDSubtitleFormat.decode(input, frameRate: 25.0)
 
-        XCTAssertEqual(microDVDFormat?.startTimestamp.baseValue, 3_600_000)
-        XCTAssertEqual(microDVDFormat?.stopTimestamp.baseValue, 3_661_000)
-        XCTAssertEqual(microDVDFormat?.text, "Simple one line of a text")
+        XCTAssertEqual(microDVDFormat[0].startTimestamp.baseValue, 3_600_000)
+        XCTAssertEqual(microDVDFormat[0].stopTimestamp.baseValue, 3_661_000)
+        XCTAssertEqual(microDVDFormat[0].text, "Simple one line of a text")
     }
     
 }

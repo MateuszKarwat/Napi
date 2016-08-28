@@ -17,45 +17,45 @@ import Foundation
 ///     Seconds line of a text.
 ///     \n
 struct SubRipSubtitleFormat: SubtitleFormat {
+    static let fileExtension = "srt"
+    static let isTimeBased = true
     static let regexPattern =
-        "(\\d+)\\s" +
+        "(\\d+)\\R" +
         "(\\d{1,2}):(\\d{1,2}):(\\d{1,2}),(\\d{1,3})" +
         " +--> +" +
-        "(\\d{1,2}):(\\d{1,2}):(\\d{1,2}),(\\d{1,3})\\s" +
-        "((?:.+\\s?)+\\S+)" // Take all lines of text, but don't include Whitespace at the very end.
+        "(\\d{1,2}):(\\d{1,2}):(\\d{1,2}),(\\d{1,3})\\R" +
+        "((?:.+\\R?)+\\S+)" // Take all lines of text, but don't include Whitespace at the very end.
 
-    static func decode(_ aString: String) -> Subtitle? {
-        guard
-            let substrings = SubRipSubtitleFormat.capturedSubstrings(from: aString),
-            let _ = Int(substrings[0]),
-            substrings.count == 10 else {
-                return nil
-        }
+    static func decode(_ aString: String) -> [Subtitle] {
+        var decodedSubtitles = [Subtitle]()
 
-        // Extract all numbers which represent hours, minutes, etc.
-        var timestampNumbers = [Int]()
-        for i in 1 ... 8 {
-            guard let newNumber = Int(substrings[i]) else {
-                return nil
+        self.enumerateMatches(in: aString) { match in
+            // Extract all numbers which represent hours, minutes, etc.
+            var timestampNumbers = [Int]()
+            for i in 1 ... 8 {
+                let newNumber = Int(match.capturedSubstrings[i])!
+                timestampNumbers.append(newNumber)
             }
 
-            timestampNumbers.append(newNumber)
+            let startTimestamp =
+                    timestampNumbers[0].hours +
+                    timestampNumbers[1].minutes +
+                    timestampNumbers[2].seconds +
+                    timestampNumbers[3].milliseconds
+            let stopTimestamp =
+                    timestampNumbers[4].hours +
+                    timestampNumbers[5].minutes +
+                    timestampNumbers[6].seconds +
+                    timestampNumbers[7].milliseconds
+
+            let newSubtitle = Subtitle(startTimestamp: startTimestamp,
+                                       stopTimestamp: stopTimestamp,
+                                       text: match.capturedSubstrings[9])
+
+            decodedSubtitles.append(newSubtitle)
         }
-
-        let startTimestamp =
-            timestampNumbers[0].hours +
-            timestampNumbers[1].minutes +
-            timestampNumbers[2].seconds +
-            timestampNumbers[3].milliseconds
-        let stopTimestamp =
-            timestampNumbers[4].hours +
-            timestampNumbers[5].minutes +
-            timestampNumbers[6].seconds +
-            timestampNumbers[7].milliseconds
-
-        return Subtitle(startTimestamp: startTimestamp,
-                        stopTimestamp: stopTimestamp,
-                        text: substrings[9])
+        
+        return decodedSubtitles
     }
 
     static func encode(_ subtitles: [Subtitle]) -> [String] {
@@ -93,7 +93,9 @@ struct SubRipSubtitleFormat: SubtitleFormat {
     }
 }
 
-private extension Timestamp {
+fileprivate extension Timestamp {
+
+    /// Returns a `String` which is in format required by SubRip Subtitle Format.
     func stringFormat() -> String {
         let minutes = self - Timestamp(value: self.numberOfFull(.hours), unit: .hours)
         let seconds = minutes - Timestamp(value: minutes.numberOfFull(.minutes), unit: .minutes)

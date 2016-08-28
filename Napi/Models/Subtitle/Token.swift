@@ -44,7 +44,7 @@ extension Token {
     }
 }
 
-// MARK: CustomStringConvertible
+// MARK: - CustomStringConvertible
 
 extension Token: CustomStringConvertible {
     var description: String {

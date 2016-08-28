@@ -13,23 +13,39 @@ import Foundation
 ///
 ///     01:12:33:First line of a text.|Seconds line of a text.
 struct TMPlayerSubtitleFormat: SubtitleFormat {
+    static let fileExtension = "txt"
+    static let isTimeBased = true
     static let regexPattern = "(\\d{1,2}):(\\d{1,2}):(\\d{1,2}):(.+)"
 
-    static func decode(_ aString: String) -> Subtitle? {
-        guard
-            let substrings = TMPlayerSubtitleFormat.capturedSubstrings(from: aString),
-            let hours = Int(substrings[0])?.hours,
-            let minutes = Int(substrings[1])?.minutes,
-            let seconds = Int(substrings[2])?.seconds,
-            substrings.count == 4 else {
-                return nil
+    static func decode(_ aString: String) -> [Subtitle] {
+        var decodedSubtitles = [Subtitle]()
+
+        self.enumerateMatches(in: aString) { match in
+            let hours = Int(match.capturedSubstrings[0])!.hours
+            let minutes = Int(match.capturedSubstrings[1])!.minutes
+            let seconds = Int(match.capturedSubstrings[2])!.seconds
+
+            let timestamp = hours + minutes + seconds
+
+            let newSubtitle = Subtitle(startTimestamp: timestamp,
+                                       stopTimestamp: timestamp + 5.seconds,
+                                       text: match.capturedSubstrings[3])
+
+            decodedSubtitles.append(newSubtitle)
         }
 
-        let timestamp = hours + minutes + seconds
+        if decodedSubtitles.count > 1 {
+            for i in 0 ..< decodedSubtitles.count - 1 {
+                let currentStopTimestamp = decodedSubtitles[i].stopTimestamp.baseValue
+                let followingStartTimestamp = decodedSubtitles[i + 1].startTimestamp.baseValue
 
-        return Subtitle(startTimestamp: timestamp,
-                        stopTimestamp: timestamp + 5.seconds,
-                        text: substrings[3])
+                if currentStopTimestamp > followingStartTimestamp {
+                    decodedSubtitles[i].stopTimestamp = decodedSubtitles[i + 1].startTimestamp - 1.milliseconds
+                }
+            }
+        }
+
+        return decodedSubtitles
     }
 
     static func encode(_ subtitles: [Subtitle]) -> [String] {
@@ -43,7 +59,9 @@ struct TMPlayerSubtitleFormat: SubtitleFormat {
     }
 }
 
-private extension Timestamp {
+fileprivate extension Timestamp {
+
+    /// Returns a `String` which is in format required by TMPlayer Subtitle Format.
     func stringFormat() -> String {
         let minutes = self - Timestamp(value: self.numberOfFull(.hours), unit: .hours)
         let seconds = minutes - Timestamp(value: minutes.numberOfFull(.minutes), unit: .minutes)

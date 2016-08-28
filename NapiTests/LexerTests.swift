@@ -150,6 +150,7 @@ class LexerAndSubtitleTokenTypeTests: XCTestCase {
     }
 
     func testLineSeparatorPattern() {
+        assertLex(stream: "\r\n", expectexType: .newLine)
         assertLex(stream: "\n", expectexType: .newLine)
         assertLex(stream: "|", expectexType: .newLine)
     }
@@ -179,13 +180,13 @@ class LexerAndSubtitleTokenTypeTests: XCTestCase {
     func testAllTokensInOneStream() {
         var partsOfStream = ["{Y:b}", "</B>", "{i}", "{/i}",
                              "<u>", "</U>", "{c:#AABBCC}", "{/c}", "</font>",
-                             "|", "\n", " ", "\t", "JUST-SOME-WORDS", "{", "<"]
+                             "|", "\r\n", "\n", " ", "\t", "JUST-SOME-WORDS", "{", "<"]
 
         var expectedTokens: [SubtitleTokenType] = [.boldStart, .boldEnd, .italicStart, .italicEnd,
                                                    .underlineStart, .underlineEnd, .fontColorStart,
                                                    .fontColorEnd, .fontColorEnd, .newLine, .newLine,
-                                                   .whitespace, .whitespace, .word, .unknownCharacter,
-                                                   .unknownCharacter]
+                                                   .newLine, .whitespace, .whitespace, .word,
+                                                   .unknownCharacter, .unknownCharacter]
 
         let streamInParsingOrder = partsOfStream.joined(separator: "")
         for (index, result) in lexer.lex(stream: streamInParsingOrder).enumerated() {
