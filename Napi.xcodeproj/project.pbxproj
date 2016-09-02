@@ -24,6 +24,9 @@
 		200C4BAB1C66565700FBE406 /* SubRipSubtitleFormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200C4BAA1C66565700FBE406 /* SubRipSubtitleFormatTests.swift */; };
 		20176E931C6A502500574B5B /* Timestamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20176E921C6A502500574B5B /* Timestamp.swift */; };
 		208625CB1D4513A800B6DEF6 /* Int+Timestamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208625CA1D4513A800B6DEF6 /* Int+Timestamp.swift */; };
+		208BF2A41D72BCC700111F4D /* FileInformationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208BF2A31D72BCC700111F4D /* FileInformationProvider.swift */; };
+		208BF2AD1D7316FC00111F4D /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208BF2AC1D7316FC00111F4D /* String+MD5.swift */; };
+		208BF2AF1D73170700111F4D /* Data+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208BF2AE1D73170700111F4D /* Data+MD5.swift */; };
 		209FA9671D2FE4FD00C54DCA /* TokenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209FA9661D2FE4FD00C54DCA /* TokenTests.swift */; };
 		20A76D701D47D94F00BC031B /* Subtitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A76D6F1D47D94F00BC031B /* Subtitle.swift */; };
 		20A8622A1D52257D007FEC7C /* SupportedSubtitleFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A862291D52257D007FEC7C /* SupportedSubtitleFormat.swift */; };
@@ -72,6 +75,10 @@
 		200C4BAA1C66565700FBE406 /* SubRipSubtitleFormatTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubRipSubtitleFormatTests.swift; sourceTree = "<group>"; };
 		20176E921C6A502500574B5B /* Timestamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; name = Timestamp.swift; path = ../Lexer/Timestamp.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		208625CA1D4513A800B6DEF6 /* Int+Timestamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "Int+Timestamp.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		208BF2A31D72BCC700111F4D /* FileInformationProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileInformationProvider.swift; sourceTree = "<group>"; };
+		208BF2A91D73073500111F4D /* Napi-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Napi-Bridging-Header.h"; sourceTree = "<group>"; };
+		208BF2AC1D7316FC00111F4D /* String+MD5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
+		208BF2AE1D73170700111F4D /* Data+MD5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+MD5.swift"; sourceTree = "<group>"; };
 		209FA95F1D2FC04D00C54DCA /* LexerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LexerTests.swift; sourceTree = "<group>"; };
 		209FA9661D2FE4FD00C54DCA /* TokenTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenTests.swift; sourceTree = "<group>"; };
 		20A76D6F1D47D94F00BC031B /* Subtitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subtitle.swift; sourceTree = "<group>"; };
@@ -172,6 +179,7 @@
 		200780851C64AE880098B026 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				208BF2A91D73073500111F4D /* Napi-Bridging-Header.h */,
 				2007806B1C64AE4F0098B026 /* Assets.xcassets */,
 				200780701C64AE4F0098B026 /* Info.plist */,
 			);
@@ -185,6 +193,7 @@
 				20A8622B1D5226BA007FEC7C /* Lexer */,
 				20A8622C1D5226C1007FEC7C /* Subtitle */,
 				200780C91C64F2C80098B026 /* Subtitle Format */,
+				208BF2A31D72BCC700111F4D /* FileInformationProvider.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -236,6 +245,8 @@
 			children = (
 				208625CA1D4513A800B6DEF6 /* Int+Timestamp.swift */,
 				200364F91CFE110600A09CEA /* String+Substring.swift */,
+				208BF2AC1D7316FC00111F4D /* String+MD5.swift */,
+				208BF2AE1D73170700111F4D /* Data+MD5.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -366,12 +377,15 @@
 				20A76D701D47D94F00BC031B /* Subtitle.swift in Sources */,
 				20C9896E1D36AB3100B16DD2 /* SubtitleTokenType.swift in Sources */,
 				200780CB1C64F3BC0098B026 /* SubRipSubtitleFormat.swift in Sources */,
+				208BF2A41D72BCC700111F4D /* FileInformationProvider.swift in Sources */,
 				200364F81CFE0EF800A09CEA /* Token.swift in Sources */,
 				200C4BA01C66089600FBE406 /* SubtitleFormat.swift in Sources */,
+				208BF2AF1D73170700111F4D /* Data+MD5.swift in Sources */,
 				20A862301D5246F1007FEC7C /* SubtitleConverter.swift in Sources */,
 				208625CB1D4513A800B6DEF6 /* Int+Timestamp.swift in Sources */,
 				200C4B9E1C6601F800FBE406 /* MPL2SubtitleFormat.swift in Sources */,
 				20EF7CFC1C67B1C4005A17A7 /* MicroDVDSubtitleFormat.swift in Sources */,
+				208BF2AD1D7316FC00111F4D /* String+MD5.swift in Sources */,
 				20A8622E1D522C4C007FEC7C /* SubtitleCheckingResult.swift in Sources */,
 				200364FA1CFE110700A09CEA /* String+Substring.swift in Sources */,
 			);
@@ -499,11 +513,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Napi/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mateuszkarwat.Napi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Napi/Supporting Files/Napi-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -512,11 +529,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Napi/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = mateuszkarwat.Napi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Napi/Supporting Files/Napi-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 			};
