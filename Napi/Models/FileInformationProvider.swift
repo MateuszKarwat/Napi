@@ -27,7 +27,7 @@ struct FileInformationProvider {
 
     /// Returns a size of a file in bytes.
     /// If file doesn't exist or cannot access its size value, returns 0.
-    var fileSize: Int {
+    var size: Int {
         do {
             let fileAttributes = try FileManager.default.attributesOfItem(atPath: url.path)
             return fileAttributes[.size] as? Int ?? 0
@@ -71,7 +71,7 @@ struct FileInformationProvider {
 
         var resultString = String(format: "%qx", result)
 
-        // Make sure it has 16 character. Otherwise add zeros at the beginning.
+        // Make sure it has 16 characters. Otherwise add zeros at the beginning.
         for _ in 0 ..< 16 - resultString.characters.count {
             resultString.insert("0", at: resultString.startIndex)
         }
