@@ -25,6 +25,11 @@ struct FileInformationProvider {
         self.url = url
     }
 
+    /// Returns file name with extension.
+    var name: String {
+        return url.lastPathComponent
+    }
+
     /// Returns a size of a file in bytes.
     /// If file doesn't exist or cannot access its size value, returns 0.
     var size: Int {
