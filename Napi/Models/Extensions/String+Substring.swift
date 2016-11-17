@@ -21,7 +21,7 @@ extension String {
     func substring(to index: Int) -> String {
         return (self as NSString).substring(to: index)
     }
-}
+} 
 
 extension String {
     subscript (r: NSRange) -> String {
