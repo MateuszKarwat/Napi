@@ -1,7 +1,4 @@
 //
-//  String+MD5.swift
-//  Napi
-//
 //  Created by Mateusz Karwat on 28/08/16.
 //  Copyright © 2016 Mateusz Karwat. All rights reserved.
 //
@@ -10,7 +7,7 @@ import Foundation
 
 extension String {
 
-    // TODO
+    /// Creates 128-bit hash value.
     var md5: String {
         let digestLength = Int(CC_MD5_DIGEST_LENGTH)
         let md5Buffer = UnsafeMutablePointer<CUnsignedChar>.allocate(capacity: digestLength)

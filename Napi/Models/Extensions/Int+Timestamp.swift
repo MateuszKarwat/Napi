@@ -1,7 +1,4 @@
 //
-//  Int+Timestamp.swift
-//  Napi
-//
 //  Created by Mateusz Karwat on 24/07/16.
 //  Copyright © 2016 Mateusz Karwat. All rights reserved.
 //

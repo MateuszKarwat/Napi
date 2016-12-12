@@ -5,6 +5,7 @@
 
 import Foundation
 
+/// Utility struct to extract compressed files.
 struct Unziper {
 
     /// Extract compressed files in an archive using `unzip` command line.

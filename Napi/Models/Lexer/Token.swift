@@ -1,7 +1,4 @@
 //
-//  Token.swift
-//  Napi
-//
 //  Created by Mateusz Karwat on 31/05/16.
 //  Copyright © 2016 Mateusz Karwat. All rights reserved.
 //

@@ -1,7 +1,4 @@
 //
-//  SubtitleFormatConverter.swift
-//  Napi
-//
 //  Created by Mateusz Karwat on 03/08/16.
 //  Copyright © 2016 Mateusz Karwat. All rights reserved.
 //
@@ -62,7 +59,7 @@ struct SubtitleConverter {
     /// At first it tries to detect format of `subtitles.
     /// Then it decodes all entries.
     ///
-    /// - Parameters
+    /// - Parameters:
     ///     - subtitles: A `String` with all encoded subtitles.
     ///     - frameRate: A frame rate in which subtitles are encoded.
     ///       Usually used by frame based subtitles formats.
@@ -77,7 +74,6 @@ struct SubtitleConverter {
         self.encodedSubtitles = subtitles
 
         for format in SupportedSubtitleFormat.allValues {
-            
             if format.type.canDecode(subtitles) {
                 self.detectedSubtitleFormat = format
                 self.decodedSubtitles = format.type.decode(subtitles)

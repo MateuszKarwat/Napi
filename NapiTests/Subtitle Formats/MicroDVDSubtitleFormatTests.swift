@@ -1,7 +1,4 @@
 //
-//  MicroDVDSubtitleFormatTests.swift
-//  Napi
-//
 //  Created by Mateusz Karwat on 07/02/16.
 //  Copyright © 2016 Mateusz Karwat. All rights reserved.
 //

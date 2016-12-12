@@ -1,7 +1,4 @@
 //
-//  Disctionary+HTTPBodyFormat.swift
-//  Napi
-//
 //  Created by Mateusz Karwat on 06/09/16.
 //  Copyright © 2016 Mateusz Karwat. All rights reserved.
 //

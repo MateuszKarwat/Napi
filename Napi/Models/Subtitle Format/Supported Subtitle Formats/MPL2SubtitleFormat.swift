@@ -1,7 +1,4 @@
 //
-//  MPL2Format.swift
-//  Napi
-//
 //  Created by Mateusz Karwat on 06/02/16.
 //  Copyright © 2016 Mateusz Karwat. All rights reserved.
 //

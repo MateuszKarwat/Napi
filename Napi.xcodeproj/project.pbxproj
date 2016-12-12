@@ -1,1618 +1,652 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>200364F11CFE04A400A09CEA</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>lineEnding</key>
-			<string>0</string>
-			<key>path</key>
-			<string>TimestampTests.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-			<key>xcLanguageSpecificationIdentifier</key>
-			<string>xcode.lang.swift</string>
-		</dict>
-		<key>200364F21CFE04A400A09CEA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>200364F11CFE04A400A09CEA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>200364F41CFE0D4B00A09CEA</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>200C4B9D1C6601F800FBE406</string>
-				<string>20EF7CFB1C67B1C4005A17A7</string>
-				<string>200780CA1C64F3BC0098B026</string>
-				<string>200C4BA71C66552500FBE406</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Supported Subtitle Formats</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>200364F51CFE0EEA00A09CEA</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>Lexer.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>200364F61CFE0EEA00A09CEA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>200364F51CFE0EEA00A09CEA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>200364F71CFE0EF800A09CEA</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>Token.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>200364F81CFE0EF800A09CEA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>200364F71CFE0EF800A09CEA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>200364F91CFE110600A09CEA</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>String+Substring.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>200364FA1CFE110700A09CEA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>200364F91CFE110600A09CEA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2007805B1C64AE4F0098B026</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>200780661C64AE4F0098B026</string>
-				<string>200780781C64AE4F0098B026</string>
-				<string>200780651C64AE4F0098B026</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2007805C1C64AE4F0098B026</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>LastSwiftUpdateCheck</key>
-				<string>0720</string>
-				<key>LastUpgradeCheck</key>
-				<string>0800</string>
-				<key>ORGANIZATIONNAME</key>
-				<string>Mateusz Karwat</string>
-				<key>TargetAttributes</key>
-				<dict>
-					<key>200780631C64AE4F0098B026</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>7.2.1</string>
-						<key>LastSwiftMigration</key>
-						<string>0800</string>
-					</dict>
-					<key>200780741C64AE4F0098B026</key>
-					<dict>
-						<key>CreatedOnToolsVersion</key>
-						<string>7.2.1</string>
-						<key>LastSwiftMigration</key>
-						<string>0800</string>
-						<key>TestTargetID</key>
-						<string>200780631C64AE4F0098B026</string>
-					</dict>
-				</dict>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>2007805F1C64AE4F0098B026</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-				<string>Base</string>
-			</array>
-			<key>mainGroup</key>
-			<string>2007805B1C64AE4F0098B026</string>
-			<key>productRefGroup</key>
-			<string>200780651C64AE4F0098B026</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>200780631C64AE4F0098B026</string>
-				<string>200780741C64AE4F0098B026</string>
-			</array>
-		</dict>
-		<key>2007805F1C64AE4F0098B026</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>2007807C1C64AE4F0098B026</string>
-				<string>2007807D1C64AE4F0098B026</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>200780601C64AE4F0098B026</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>2007806A1C64AE4F0098B026</string>
-				<string>200780681C64AE4F0098B026</string>
-				<string>20176E931C6A502500574B5B</string>
-				<string>20909F141D9C2631004622B0</string>
-				<string>200364F61CFE0EEA00A09CEA</string>
-				<string>200C4BA81C66552500FBE406</string>
-				<string>20A8622A1D52257D007FEC7C</string>
-				<string>20A76D701D47D94F00BC031B</string>
-				<string>20C9896E1D36AB3100B16DD2</string>
-				<string>200780CB1C64F3BC0098B026</string>
-				<string>208BF2A41D72BCC700111F4D</string>
-				<string>200364F81CFE0EF800A09CEA</string>
-				<string>200C4BA01C66089600FBE406</string>
-				<string>208BF2AF1D73170700111F4D</string>
-				<string>20A862301D5246F1007FEC7C</string>
-				<string>20909F171D9C2756004622B0</string>
-				<string>208625CB1D4513A800B6DEF6</string>
-				<string>200C4B9E1C6601F800FBE406</string>
-				<string>20EF7CFC1C67B1C4005A17A7</string>
-				<string>208BF2AD1D7316FC00111F4D</string>
-				<string>20A8622E1D522C4C007FEC7C</string>
-				<string>200364FA1CFE110700A09CEA</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>200780611C64AE4F0098B026</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>200780621C64AE4F0098B026</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>2007806C1C64AE4F0098B026</string>
-				<string>2007806F1C64AE4F0098B026</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>200780631C64AE4F0098B026</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>2007807E1C64AE4F0098B026</string>
-			<key>buildPhases</key>
-			<array>
-				<string>200780601C64AE4F0098B026</string>
-				<string>200780611C64AE4F0098B026</string>
-				<string>200780621C64AE4F0098B026</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>Napi</string>
-			<key>productName</key>
-			<string>Napi</string>
-			<key>productReference</key>
-			<string>200780641C64AE4F0098B026</string>
-			<key>productType</key>
-			<string>com.apple.product-type.application</string>
-		</dict>
-		<key>200780641C64AE4F0098B026</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.application</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>Napi.app</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>200780651C64AE4F0098B026</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>200780641C64AE4F0098B026</string>
-				<string>200780751C64AE4F0098B026</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>200780661C64AE4F0098B026</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>200780C61C64B2410098B026</string>
-				<string>200780841C64AE800098B026</string>
-				<string>200780851C64AE880098B026</string>
-				<string>200780671C64AE4F0098B026</string>
-				<string>200780691C64AE4F0098B026</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Napi</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>200780671C64AE4F0098B026</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>AppDelegate.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>200780681C64AE4F0098B026</key>
-		<dict>
-			<key>fileRef</key>
-			<string>200780671C64AE4F0098B026</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>200780691C64AE4F0098B026</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>ViewController.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2007806A1C64AE4F0098B026</key>
-		<dict>
-			<key>fileRef</key>
-			<string>200780691C64AE4F0098B026</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2007806B1C64AE4F0098B026</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>folder.assetcatalog</string>
-			<key>path</key>
-			<string>Assets.xcassets</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2007806C1C64AE4F0098B026</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2007806B1C64AE4F0098B026</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>2007806D1C64AE4F0098B026</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>2007806E1C64AE4F0098B026</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>Main.storyboard</string>
-			<key>path</key>
-			<string>.</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2007806E1C64AE4F0098B026</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.storyboard</string>
-			<key>name</key>
-			<string>Base</string>
-			<key>path</key>
-			<string>Base.lproj/Main.storyboard</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2007806F1C64AE4F0098B026</key>
-		<dict>
-			<key>fileRef</key>
-			<string>2007806D1C64AE4F0098B026</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>200780701C64AE4F0098B026</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>200780711C64AE4F0098B026</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>200C4BAB1C66565700FBE406</string>
-				<string>20EF7CFF1C67B280005A17A7</string>
-				<string>209FA9671D2FE4FD00C54DCA</string>
-				<string>200780CD1C64F3F90098B026</string>
-				<string>20C989691D36A92C00B16DD2</string>
-				<string>200C4BA61C664C8100FBE406</string>
-				<string>20A862321D5258BB007FEC7C</string>
-				<string>200364F21CFE04A400A09CEA</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>200780721C64AE4F0098B026</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>200780731C64AE4F0098B026</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>20F6FBD91C6E5306005A1C12</string>
-				<string>20F6FBD51C6E527F005A1C12</string>
-				<string>20F6FBD71C6E52CE005A1C12</string>
-				<string>20F6FBD31C6E5211005A1C12</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>200780741C64AE4F0098B026</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>200780811C64AE4F0098B026</string>
-			<key>buildPhases</key>
-			<array>
-				<string>200780711C64AE4F0098B026</string>
-				<string>200780721C64AE4F0098B026</string>
-				<string>200780731C64AE4F0098B026</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>200780771C64AE4F0098B026</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>NapiTests</string>
-			<key>productName</key>
-			<string>NapiTests</string>
-			<key>productReference</key>
-			<string>200780751C64AE4F0098B026</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle.unit-test</string>
-		</dict>
-		<key>200780751C64AE4F0098B026</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>NapiTests.xctest</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>200780761C64AE4F0098B026</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>2007805C1C64AE4F0098B026</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>200780631C64AE4F0098B026</string>
-			<key>remoteInfo</key>
-			<string>Napi</string>
-		</dict>
-		<key>200780771C64AE4F0098B026</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>200780631C64AE4F0098B026</string>
-			<key>targetProxy</key>
-			<string>200780761C64AE4F0098B026</string>
-		</dict>
-		<key>200780781C64AE4F0098B026</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>20F6FBD11C6E51B1005A1C12</string>
-				<string>206F86FD1D30066000C1585E</string>
-				<string>2007807B1C64AE4F0098B026</string>
-				<string>209FA95F1D2FC04D00C54DCA</string>
-				<string>20A862311D5258BB007FEC7C</string>
-				<string>200364F11CFE04A400A09CEA</string>
-				<string>209FA9661D2FE4FD00C54DCA</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>NapiTests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2007807B1C64AE4F0098B026</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>2007807C1C64AE4F0098B026</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY</key>
-				<string>-</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>ENABLE_TESTABILITY</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>MACOSX_DEPLOYMENT_TARGET</key>
-				<string>10.11</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>YES</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>SDKROOT</key>
-				<string>macosx</string>
-				<key>SWIFT_OPTIMIZATION_LEVEL</key>
-				<string>-Onone</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>2007807D1C64AE4F0098B026</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_UNREACHABLE_CODE</key>
-				<string>YES</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY</key>
-				<string>-</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf-with-dsym</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
-				<string>YES</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_NO_COMMON_BLOCKS</key>
-				<string>YES</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES_AGGRESSIVE</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>MACOSX_DEPLOYMENT_TARGET</key>
-				<string>10.11</string>
-				<key>MTL_ENABLE_DEBUG_INFO</key>
-				<string>NO</string>
-				<key>SDKROOT</key>
-				<string>macosx</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>2007807E1C64AE4F0098B026</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>2007807F1C64AE4F0098B026</string>
-				<string>200780801C64AE4F0098B026</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>2007807F1C64AE4F0098B026</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>COMBINE_HIDPI_IMAGES</key>
-				<string>YES</string>
-				<key>INFOPLIST_FILE</key>
-				<string>$(SRCROOT)/Napi/Supporting Files/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/../Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>mateuszkarwat.Napi</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SWIFT_OBJC_BRIDGING_HEADER</key>
-				<string>Napi/Supporting Files/Napi-Bridging-Header.h</string>
-				<key>SWIFT_OPTIMIZATION_LEVEL</key>
-				<string>-Onone</string>
-				<key>SWIFT_VERSION</key>
-				<string>3.0</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>200780801C64AE4F0098B026</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>COMBINE_HIDPI_IMAGES</key>
-				<string>YES</string>
-				<key>INFOPLIST_FILE</key>
-				<string>$(SRCROOT)/Napi/Supporting Files/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/../Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>mateuszkarwat.Napi</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SWIFT_OBJC_BRIDGING_HEADER</key>
-				<string>Napi/Supporting Files/Napi-Bridging-Header.h</string>
-				<key>SWIFT_OPTIMIZATION_LEVEL</key>
-				<string>-Owholemodule</string>
-				<key>SWIFT_VERSION</key>
-				<string>3.0</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>200780811C64AE4F0098B026</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>200780821C64AE4F0098B026</string>
-				<string>200780831C64AE4F0098B026</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>200780821C64AE4F0098B026</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>BUNDLE_LOADER</key>
-				<string>$(TEST_HOST)</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>COMBINE_HIDPI_IMAGES</key>
-				<string>YES</string>
-				<key>INFOPLIST_FILE</key>
-				<string>NapiTests/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>mateuszkarwat.NapiTests</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SWIFT_OPTIMIZATION_LEVEL</key>
-				<string>-Onone</string>
-				<key>SWIFT_VERSION</key>
-				<string>3.0</string>
-				<key>TEST_HOST</key>
-				<string>$(BUILT_PRODUCTS_DIR)/Napi.app/Contents/MacOS/Napi</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>200780831C64AE4F0098B026</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>BUNDLE_LOADER</key>
-				<string>$(TEST_HOST)</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>COMBINE_HIDPI_IMAGES</key>
-				<string>YES</string>
-				<key>INFOPLIST_FILE</key>
-				<string>NapiTests/Info.plist</string>
-				<key>LD_RUNPATH_SEARCH_PATHS</key>
-				<string>$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks</string>
-				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
-				<string>mateuszkarwat.NapiTests</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>SWIFT_OPTIMIZATION_LEVEL</key>
-				<string>-Owholemodule</string>
-				<key>SWIFT_VERSION</key>
-				<string>3.0</string>
-				<key>TEST_HOST</key>
-				<string>$(BUILT_PRODUCTS_DIR)/Napi.app/Contents/MacOS/Napi</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>200780841C64AE800098B026</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>2007806D1C64AE4F0098B026</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Storyboards</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>200780851C64AE880098B026</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>2007806B1C64AE4F0098B026</string>
-				<string>200780701C64AE4F0098B026</string>
-				<string>208BF2A91D73073500111F4D</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>200780C61C64B2410098B026</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>20F105C71D327501000E157F</string>
-				<string>20A8622B1D5226BA007FEC7C</string>
-				<string>20A8622C1D5226C1007FEC7C</string>
-				<string>200780C91C64F2C80098B026</string>
-				<string>20909F151D9C2718004622B0</string>
-				<string>208BF2A31D72BCC700111F4D</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Models</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>200780C91C64F2C80098B026</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>200364F41CFE0D4B00A09CEA</string>
-				<string>20A8622D1D522C4C007FEC7C</string>
-				<string>200C4B9F1C66089600FBE406</string>
-				<string>20A862291D52257D007FEC7C</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Subtitle Format</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>200780CA1C64F3BC0098B026</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>lineEnding</key>
-			<string>0</string>
-			<key>path</key>
-			<string>SubRipSubtitleFormat.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-			<key>xcLanguageSpecificationIdentifier</key>
-			<string>xcode.lang.swift</string>
-		</dict>
-		<key>200780CB1C64F3BC0098B026</key>
-		<dict>
-			<key>fileRef</key>
-			<string>200780CA1C64F3BC0098B026</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>200780CC1C64F3F90098B026</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>TMPlayerSubtitleFormatTests.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>200780CD1C64F3F90098B026</key>
-		<dict>
-			<key>fileRef</key>
-			<string>200780CC1C64F3F90098B026</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>200C4B9D1C6601F800FBE406</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>MPL2SubtitleFormat.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>200C4B9E1C6601F800FBE406</key>
-		<dict>
-			<key>fileRef</key>
-			<string>200C4B9D1C6601F800FBE406</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>200C4B9F1C66089600FBE406</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>SubtitleFormat.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>200C4BA01C66089600FBE406</key>
-		<dict>
-			<key>fileRef</key>
-			<string>200C4B9F1C66089600FBE406</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>200C4BA41C6646B800FBE406</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>MPL2SubtitleFormatTests.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>200C4BA61C664C8100FBE406</key>
-		<dict>
-			<key>fileRef</key>
-			<string>200C4BA41C6646B800FBE406</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>200C4BA71C66552500FBE406</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>TMPlayerSubtitleFormat.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>200C4BA81C66552500FBE406</key>
-		<dict>
-			<key>fileRef</key>
-			<string>200C4BA71C66552500FBE406</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>200C4BAA1C66565700FBE406</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>SubRipSubtitleFormatTests.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>200C4BAB1C66565700FBE406</key>
-		<dict>
-			<key>fileRef</key>
-			<string>200C4BAA1C66565700FBE406</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>20176E921C6A502500574B5B</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>lineEnding</key>
-			<string>0</string>
-			<key>path</key>
-			<string>Timestamp.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-			<key>xcLanguageSpecificationIdentifier</key>
-			<string>xcode.lang.swift</string>
-		</dict>
-		<key>20176E931C6A502500574B5B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>20176E921C6A502500574B5B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>206F86FD1D30066000C1585E</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>200C4BA41C6646B800FBE406</string>
-				<string>20EF7CFE1C67B280005A17A7</string>
-				<string>200C4BAA1C66565700FBE406</string>
-				<string>200780CC1C64F3F90098B026</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Subtitle Formats</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>208625CA1D4513A800B6DEF6</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>lineEnding</key>
-			<string>0</string>
-			<key>path</key>
-			<string>Int+Timestamp.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-			<key>xcLanguageSpecificationIdentifier</key>
-			<string>xcode.lang.swift</string>
-		</dict>
-		<key>208625CB1D4513A800B6DEF6</key>
-		<dict>
-			<key>fileRef</key>
-			<string>208625CA1D4513A800B6DEF6</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>208BF2A31D72BCC700111F4D</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>FileInformationProvider.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>208BF2A41D72BCC700111F4D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>208BF2A31D72BCC700111F4D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>208BF2A91D73073500111F4D</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>Napi-Bridging-Header.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>208BF2AC1D7316FC00111F4D</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>String+MD5.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>208BF2AD1D7316FC00111F4D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>208BF2AC1D7316FC00111F4D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>208BF2AE1D73170700111F4D</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>Data+MD5.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>208BF2AF1D73170700111F4D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>208BF2AE1D73170700111F4D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>20909F131D9C2631004622B0</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>Disctionary+HTTPBodyFormat.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>20909F141D9C2631004622B0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>20909F131D9C2631004622B0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>20909F151D9C2718004622B0</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>20909F161D9C2756004622B0</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Subtitle Provider</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>20909F161D9C2756004622B0</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>Napisy24.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>20909F171D9C2756004622B0</key>
-		<dict>
-			<key>fileRef</key>
-			<string>20909F161D9C2756004622B0</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>209FA95F1D2FC04D00C54DCA</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>LexerTests.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>209FA9661D2FE4FD00C54DCA</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>TokenTests.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>209FA9671D2FE4FD00C54DCA</key>
-		<dict>
-			<key>fileRef</key>
-			<string>209FA9661D2FE4FD00C54DCA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>20A76D6F1D47D94F00BC031B</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>Subtitle.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>20A76D701D47D94F00BC031B</key>
-		<dict>
-			<key>fileRef</key>
-			<string>20A76D6F1D47D94F00BC031B</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>20A862291D52257D007FEC7C</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>SupportedSubtitleFormat.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>20A8622A1D52257D007FEC7C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>20A862291D52257D007FEC7C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>20A8622B1D5226BA007FEC7C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>200364F51CFE0EEA00A09CEA</string>
-				<string>20F105C11D3114A2000E157F</string>
-				<string>200364F71CFE0EF800A09CEA</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Lexer</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>20A8622C1D5226C1007FEC7C</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>20A76D6F1D47D94F00BC031B</string>
-				<string>20A8622F1D5246F1007FEC7C</string>
-				<string>20176E921C6A502500574B5B</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Subtitle</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>20A8622D1D522C4C007FEC7C</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>SubtitleCheckingResult.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>20A8622E1D522C4C007FEC7C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>20A8622D1D522C4C007FEC7C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>20A8622F1D5246F1007FEC7C</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>SubtitleConverter.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>20A862301D5246F1007FEC7C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>20A8622F1D5246F1007FEC7C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>20A862311D5258BB007FEC7C</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>SubtitleConverterTests.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>20A862321D5258BB007FEC7C</key>
-		<dict>
-			<key>fileRef</key>
-			<string>20A862311D5258BB007FEC7C</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>20C989691D36A92C00B16DD2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>209FA95F1D2FC04D00C54DCA</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>20C9896E1D36AB3100B16DD2</key>
-		<dict>
-			<key>fileRef</key>
-			<string>20F105C11D3114A2000E157F</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>20EF7CFB1C67B1C4005A17A7</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>lineEnding</key>
-			<string>0</string>
-			<key>path</key>
-			<string>MicroDVDSubtitleFormat.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-			<key>xcLanguageSpecificationIdentifier</key>
-			<string>xcode.lang.swift</string>
-		</dict>
-		<key>20EF7CFC1C67B1C4005A17A7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>20EF7CFB1C67B1C4005A17A7</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>20EF7CFE1C67B280005A17A7</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>lineEnding</key>
-			<string>0</string>
-			<key>path</key>
-			<string>MicroDVDSubtitleFormatTests.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-			<key>xcLanguageSpecificationIdentifier</key>
-			<string>xcode.lang.swift</string>
-		</dict>
-		<key>20EF7CFF1C67B280005A17A7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>20EF7CFE1C67B280005A17A7</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>20F105C11D3114A2000E157F</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.swift</string>
-			<key>path</key>
-			<string>SubtitleTokenType.swift</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>20F105C71D327501000E157F</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>208BF2AE1D73170700111F4D</string>
-				<string>20909F131D9C2631004622B0</string>
-				<string>208625CA1D4513A800B6DEF6</string>
-				<string>208BF2AC1D7316FC00111F4D</string>
-				<string>200364F91CFE110600A09CEA</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Extensions</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>20F6FBD11C6E51B1005A1C12</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>20F6FBD41C6E527F005A1C12</string>
-				<string>20F6FBD81C6E5306005A1C12</string>
-				<string>20F6FBD21C6E5211005A1C12</string>
-				<string>20F6FBD61C6E52CE005A1C12</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Resources</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>20F6FBD21C6E5211005A1C12</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text</string>
-			<key>path</key>
-			<string>SubRipSubtitleFormatFile.txt</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>20F6FBD31C6E5211005A1C12</key>
-		<dict>
-			<key>fileRef</key>
-			<string>20F6FBD21C6E5211005A1C12</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>20F6FBD41C6E527F005A1C12</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text</string>
-			<key>path</key>
-			<string>MPL2SubtitleFormatFile.txt</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>20F6FBD51C6E527F005A1C12</key>
-		<dict>
-			<key>fileRef</key>
-			<string>20F6FBD41C6E527F005A1C12</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>20F6FBD61C6E52CE005A1C12</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text</string>
-			<key>path</key>
-			<string>TMPlayerSubtitleFormatFile.txt</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>20F6FBD71C6E52CE005A1C12</key>
-		<dict>
-			<key>fileRef</key>
-			<string>20F6FBD61C6E52CE005A1C12</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>20F6FBD81C6E5306005A1C12</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text</string>
-			<key>path</key>
-			<string>MicroDVDSubtitleFormatFile.txt</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>20F6FBD91C6E5306005A1C12</key>
-		<dict>
-			<key>fileRef</key>
-			<string>20F6FBD81C6E5306005A1C12</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>2007805C1C64AE4F0098B026</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		200364F21CFE04A400A09CEA /* TimestampTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200364F11CFE04A400A09CEA /* TimestampTests.swift */; };
+		200364F61CFE0EEA00A09CEA /* Lexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200364F51CFE0EEA00A09CEA /* Lexer.swift */; };
+		200364F81CFE0EF800A09CEA /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200364F71CFE0EF800A09CEA /* Token.swift */; };
+		200364FA1CFE110700A09CEA /* String+Substring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200364F91CFE110600A09CEA /* String+Substring.swift */; };
+		200780681C64AE4F0098B026 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200780671C64AE4F0098B026 /* AppDelegate.swift */; };
+		2007806A1C64AE4F0098B026 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200780691C64AE4F0098B026 /* ViewController.swift */; };
+		2007806C1C64AE4F0098B026 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2007806B1C64AE4F0098B026 /* Assets.xcassets */; };
+		2007806F1C64AE4F0098B026 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2007806D1C64AE4F0098B026 /* Main.storyboard */; };
+		200780CB1C64F3BC0098B026 /* SubRipSubtitleFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200780CA1C64F3BC0098B026 /* SubRipSubtitleFormat.swift */; };
+		200780CD1C64F3F90098B026 /* TMPlayerSubtitleFormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200780CC1C64F3F90098B026 /* TMPlayerSubtitleFormatTests.swift */; };
+		200C4B9E1C6601F800FBE406 /* MPL2SubtitleFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200C4B9D1C6601F800FBE406 /* MPL2SubtitleFormat.swift */; };
+		200C4BA01C66089600FBE406 /* SubtitleFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200C4B9F1C66089600FBE406 /* SubtitleFormat.swift */; };
+		200C4BA61C664C8100FBE406 /* MPL2SubtitleFormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200C4BA41C6646B800FBE406 /* MPL2SubtitleFormatTests.swift */; };
+		200C4BA81C66552500FBE406 /* TMPlayerSubtitleFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200C4BA71C66552500FBE406 /* TMPlayerSubtitleFormat.swift */; };
+		200C4BAB1C66565700FBE406 /* SubRipSubtitleFormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200C4BAA1C66565700FBE406 /* SubRipSubtitleFormatTests.swift */; };
+		20176E931C6A502500574B5B /* Timestamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20176E921C6A502500574B5B /* Timestamp.swift */; };
+		202C93131DDCE1180083658E /* CombinationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202C93121DDCE1180083658E /* CombinationsTests.swift */; };
+		203B126E1DEF55ED0036D52D /* URL+FileManagerChecks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203B126D1DEF55ED0036D52D /* URL+FileManagerChecks.swift */; };
+		203B12701DEF56220036D52D /* Unziper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203B126F1DEF56220036D52D /* Unziper.swift */; };
+		208625CB1D4513A800B6DEF6 /* Int+Timestamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208625CA1D4513A800B6DEF6 /* Int+Timestamp.swift */; };
+		208BF2A41D72BCC700111F4D /* FileInformationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208BF2A31D72BCC700111F4D /* FileInformationProvider.swift */; };
+		208BF2AD1D7316FC00111F4D /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208BF2AC1D7316FC00111F4D /* String+MD5.swift */; };
+		208BF2AF1D73170700111F4D /* Data+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208BF2AE1D73170700111F4D /* Data+MD5.swift */; };
+		20909F141D9C2631004622B0 /* Disctionary+HTTPBodyFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20909F131D9C2631004622B0 /* Disctionary+HTTPBodyFormat.swift */; };
+		209FA9671D2FE4FD00C54DCA /* TokenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209FA9661D2FE4FD00C54DCA /* TokenTests.swift */; };
+		20A76D701D47D94F00BC031B /* Subtitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A76D6F1D47D94F00BC031B /* Subtitle.swift */; };
+		20A8622A1D52257D007FEC7C /* SupportedSubtitleFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A862291D52257D007FEC7C /* SupportedSubtitleFormat.swift */; };
+		20A8622E1D522C4C007FEC7C /* SubtitleCheckingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A8622D1D522C4C007FEC7C /* SubtitleCheckingResult.swift */; };
+		20A862301D5246F1007FEC7C /* SubtitleConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A8622F1D5246F1007FEC7C /* SubtitleConverter.swift */; };
+		20A862321D5258BB007FEC7C /* SubtitleConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A862311D5258BB007FEC7C /* SubtitleConverterTests.swift */; };
+		20C989691D36A92C00B16DD2 /* LexerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209FA95F1D2FC04D00C54DCA /* LexerTests.swift */; };
+		20C9896E1D36AB3100B16DD2 /* SubtitleTokenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F105C11D3114A2000E157F /* SubtitleTokenType.swift */; };
+		20CBB5801DDE0F8F00C4F782 /* Combinations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CBB57F1DDE0F8F00C4F782 /* Combinations.swift */; };
+		20EF7CFC1C67B1C4005A17A7 /* MicroDVDSubtitleFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EF7CFB1C67B1C4005A17A7 /* MicroDVDSubtitleFormat.swift */; };
+		20EF7CFF1C67B280005A17A7 /* MicroDVDSubtitleFormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EF7CFE1C67B280005A17A7 /* MicroDVDSubtitleFormatTests.swift */; };
+		20F6FBD31C6E5211005A1C12 /* SubRipSubtitleFormatFile.txt in Resources */ = {isa = PBXBuildFile; fileRef = 20F6FBD21C6E5211005A1C12 /* SubRipSubtitleFormatFile.txt */; };
+		20F6FBD51C6E527F005A1C12 /* MPL2SubtitleFormatFile.txt in Resources */ = {isa = PBXBuildFile; fileRef = 20F6FBD41C6E527F005A1C12 /* MPL2SubtitleFormatFile.txt */; };
+		20F6FBD71C6E52CE005A1C12 /* TMPlayerSubtitleFormatFile.txt in Resources */ = {isa = PBXBuildFile; fileRef = 20F6FBD61C6E52CE005A1C12 /* TMPlayerSubtitleFormatFile.txt */; };
+		20F6FBD91C6E5306005A1C12 /* MicroDVDSubtitleFormatFile.txt in Resources */ = {isa = PBXBuildFile; fileRef = 20F6FBD81C6E5306005A1C12 /* MicroDVDSubtitleFormatFile.txt */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		200780761C64AE4F0098B026 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2007805C1C64AE4F0098B026 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 200780631C64AE4F0098B026;
+			remoteInfo = Napi;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		202C930C1DDCD23A0083658E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		200364F11CFE04A400A09CEA /* TimestampTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TimestampTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		200364F51CFE0EEA00A09CEA /* Lexer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lexer.swift; sourceTree = "<group>"; };
+		200364F71CFE0EF800A09CEA /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		200364F91CFE110600A09CEA /* String+Substring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Substring.swift"; sourceTree = "<group>"; };
+		200780641C64AE4F0098B026 /* Napi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Napi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		200780671C64AE4F0098B026 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		200780691C64AE4F0098B026 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2007806B1C64AE4F0098B026 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2007806E1C64AE4F0098B026 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		200780701C64AE4F0098B026 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		200780751C64AE4F0098B026 /* NapiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NapiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2007807B1C64AE4F0098B026 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		200780CA1C64F3BC0098B026 /* SubRipSubtitleFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SubRipSubtitleFormat.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		200780CC1C64F3F90098B026 /* TMPlayerSubtitleFormatTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMPlayerSubtitleFormatTests.swift; sourceTree = "<group>"; };
+		200C4B9D1C6601F800FBE406 /* MPL2SubtitleFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPL2SubtitleFormat.swift; sourceTree = "<group>"; };
+		200C4B9F1C66089600FBE406 /* SubtitleFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitleFormat.swift; sourceTree = "<group>"; };
+		200C4BA41C6646B800FBE406 /* MPL2SubtitleFormatTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPL2SubtitleFormatTests.swift; sourceTree = "<group>"; };
+		200C4BA71C66552500FBE406 /* TMPlayerSubtitleFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMPlayerSubtitleFormat.swift; sourceTree = "<group>"; };
+		200C4BAA1C66565700FBE406 /* SubRipSubtitleFormatTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubRipSubtitleFormatTests.swift; sourceTree = "<group>"; };
+		20176E921C6A502500574B5B /* Timestamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Timestamp.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		202C93121DDCE1180083658E /* CombinationsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CombinationsTests.swift; sourceTree = "<group>"; };
+		203B126D1DEF55ED0036D52D /* URL+FileManagerChecks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+FileManagerChecks.swift"; sourceTree = "<group>"; };
+		203B126F1DEF56220036D52D /* Unziper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unziper.swift; sourceTree = "<group>"; };
+		208625CA1D4513A800B6DEF6 /* Int+Timestamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "Int+Timestamp.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		208BF2A31D72BCC700111F4D /* FileInformationProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileInformationProvider.swift; sourceTree = "<group>"; };
+		208BF2A91D73073500111F4D /* Napi-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Napi-Bridging-Header.h"; sourceTree = "<group>"; };
+		208BF2AC1D7316FC00111F4D /* String+MD5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
+		208BF2AE1D73170700111F4D /* Data+MD5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+MD5.swift"; sourceTree = "<group>"; };
+		20909F131D9C2631004622B0 /* Disctionary+HTTPBodyFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Disctionary+HTTPBodyFormat.swift"; sourceTree = "<group>"; };
+		209FA95F1D2FC04D00C54DCA /* LexerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LexerTests.swift; sourceTree = "<group>"; };
+		209FA9661D2FE4FD00C54DCA /* TokenTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenTests.swift; sourceTree = "<group>"; };
+		20A76D6F1D47D94F00BC031B /* Subtitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subtitle.swift; sourceTree = "<group>"; };
+		20A862291D52257D007FEC7C /* SupportedSubtitleFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportedSubtitleFormat.swift; sourceTree = "<group>"; };
+		20A8622D1D522C4C007FEC7C /* SubtitleCheckingResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitleCheckingResult.swift; sourceTree = "<group>"; };
+		20A8622F1D5246F1007FEC7C /* SubtitleConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitleConverter.swift; sourceTree = "<group>"; };
+		20A862311D5258BB007FEC7C /* SubtitleConverterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitleConverterTests.swift; sourceTree = "<group>"; };
+		20CBB57F1DDE0F8F00C4F782 /* Combinations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Combinations.swift; sourceTree = "<group>"; };
+		20EF7CFB1C67B1C4005A17A7 /* MicroDVDSubtitleFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MicroDVDSubtitleFormat.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		20EF7CFE1C67B280005A17A7 /* MicroDVDSubtitleFormatTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MicroDVDSubtitleFormatTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		20F105C11D3114A2000E157F /* SubtitleTokenType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitleTokenType.swift; sourceTree = "<group>"; };
+		20F6FBD21C6E5211005A1C12 /* SubRipSubtitleFormatFile.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SubRipSubtitleFormatFile.txt; sourceTree = "<group>"; };
+		20F6FBD41C6E527F005A1C12 /* MPL2SubtitleFormatFile.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MPL2SubtitleFormatFile.txt; sourceTree = "<group>"; };
+		20F6FBD61C6E52CE005A1C12 /* TMPlayerSubtitleFormatFile.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TMPlayerSubtitleFormatFile.txt; sourceTree = "<group>"; };
+		20F6FBD81C6E5306005A1C12 /* MicroDVDSubtitleFormatFile.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MicroDVDSubtitleFormatFile.txt; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		200780611C64AE4F0098B026 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		200780721C64AE4F0098B026 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		200364F41CFE0D4B00A09CEA /* Supported Subtitle Formats */ = {
+			isa = PBXGroup;
+			children = (
+				200C4B9D1C6601F800FBE406 /* MPL2SubtitleFormat.swift */,
+				20EF7CFB1C67B1C4005A17A7 /* MicroDVDSubtitleFormat.swift */,
+				200780CA1C64F3BC0098B026 /* SubRipSubtitleFormat.swift */,
+				200C4BA71C66552500FBE406 /* TMPlayerSubtitleFormat.swift */,
+			);
+			path = "Supported Subtitle Formats";
+			sourceTree = "<group>";
+		};
+		2007805B1C64AE4F0098B026 = {
+			isa = PBXGroup;
+			children = (
+				200780661C64AE4F0098B026 /* Napi */,
+				200780781C64AE4F0098B026 /* NapiTests */,
+				200780651C64AE4F0098B026 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		200780651C64AE4F0098B026 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				200780641C64AE4F0098B026 /* Napi.app */,
+				200780751C64AE4F0098B026 /* NapiTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		200780661C64AE4F0098B026 /* Napi */ = {
+			isa = PBXGroup;
+			children = (
+				200780C61C64B2410098B026 /* Models */,
+				200780841C64AE800098B026 /* Storyboards */,
+				200780851C64AE880098B026 /* Supporting Files */,
+				200780671C64AE4F0098B026 /* AppDelegate.swift */,
+				200780691C64AE4F0098B026 /* ViewController.swift */,
+			);
+			path = Napi;
+			sourceTree = "<group>";
+		};
+		200780781C64AE4F0098B026 /* NapiTests */ = {
+			isa = PBXGroup;
+			children = (
+				20F6FBD11C6E51B1005A1C12 /* Resources */,
+				206F86FD1D30066000C1585E /* Subtitle Formats */,
+				202C93121DDCE1180083658E /* CombinationsTests.swift */,
+				2007807B1C64AE4F0098B026 /* Info.plist */,
+				209FA95F1D2FC04D00C54DCA /* LexerTests.swift */,
+				20A862311D5258BB007FEC7C /* SubtitleConverterTests.swift */,
+				200364F11CFE04A400A09CEA /* TimestampTests.swift */,
+				209FA9661D2FE4FD00C54DCA /* TokenTests.swift */,
+			);
+			path = NapiTests;
+			sourceTree = "<group>";
+		};
+		200780841C64AE800098B026 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				2007806D1C64AE4F0098B026 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		200780851C64AE880098B026 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2007806B1C64AE4F0098B026 /* Assets.xcassets */,
+				200780701C64AE4F0098B026 /* Info.plist */,
+				208BF2A91D73073500111F4D /* Napi-Bridging-Header.h */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		200780C61C64B2410098B026 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				20F105C71D327501000E157F /* Extensions */,
+				20A8622B1D5226BA007FEC7C /* Lexer */,
+				20A8622C1D5226C1007FEC7C /* Subtitle */,
+				200780C91C64F2C80098B026 /* Subtitle Format */,
+				20CBB57F1DDE0F8F00C4F782 /* Combinations.swift */,
+				208BF2A31D72BCC700111F4D /* FileInformationProvider.swift */,
+				203B126F1DEF56220036D52D /* Unziper.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		200780C91C64F2C80098B026 /* Subtitle Format */ = {
+			isa = PBXGroup;
+			children = (
+				200364F41CFE0D4B00A09CEA /* Supported Subtitle Formats */,
+				20A8622D1D522C4C007FEC7C /* SubtitleCheckingResult.swift */,
+				200C4B9F1C66089600FBE406 /* SubtitleFormat.swift */,
+				20A862291D52257D007FEC7C /* SupportedSubtitleFormat.swift */,
+			);
+			path = "Subtitle Format";
+			sourceTree = "<group>";
+		};
+		206F86FD1D30066000C1585E /* Subtitle Formats */ = {
+			isa = PBXGroup;
+			children = (
+				200C4BA41C6646B800FBE406 /* MPL2SubtitleFormatTests.swift */,
+				20EF7CFE1C67B280005A17A7 /* MicroDVDSubtitleFormatTests.swift */,
+				200C4BAA1C66565700FBE406 /* SubRipSubtitleFormatTests.swift */,
+				200780CC1C64F3F90098B026 /* TMPlayerSubtitleFormatTests.swift */,
+			);
+			path = "Subtitle Formats";
+			sourceTree = "<group>";
+		};
+		20A8622B1D5226BA007FEC7C /* Lexer */ = {
+			isa = PBXGroup;
+			children = (
+				200364F51CFE0EEA00A09CEA /* Lexer.swift */,
+				20F105C11D3114A2000E157F /* SubtitleTokenType.swift */,
+				200364F71CFE0EF800A09CEA /* Token.swift */,
+			);
+			path = Lexer;
+			sourceTree = "<group>";
+		};
+		20A8622C1D5226C1007FEC7C /* Subtitle */ = {
+			isa = PBXGroup;
+			children = (
+				20A76D6F1D47D94F00BC031B /* Subtitle.swift */,
+				20A8622F1D5246F1007FEC7C /* SubtitleConverter.swift */,
+				20176E921C6A502500574B5B /* Timestamp.swift */,
+			);
+			path = Subtitle;
+			sourceTree = "<group>";
+		};
+		20F105C71D327501000E157F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				208BF2AE1D73170700111F4D /* Data+MD5.swift */,
+				20909F131D9C2631004622B0 /* Disctionary+HTTPBodyFormat.swift */,
+				208625CA1D4513A800B6DEF6 /* Int+Timestamp.swift */,
+				208BF2AC1D7316FC00111F4D /* String+MD5.swift */,
+				200364F91CFE110600A09CEA /* String+Substring.swift */,
+				203B126D1DEF55ED0036D52D /* URL+FileManagerChecks.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		20F6FBD11C6E51B1005A1C12 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				20F6FBD41C6E527F005A1C12 /* MPL2SubtitleFormatFile.txt */,
+				20F6FBD81C6E5306005A1C12 /* MicroDVDSubtitleFormatFile.txt */,
+				20F6FBD21C6E5211005A1C12 /* SubRipSubtitleFormatFile.txt */,
+				20F6FBD61C6E52CE005A1C12 /* TMPlayerSubtitleFormatFile.txt */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		200780631C64AE4F0098B026 /* Napi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2007807E1C64AE4F0098B026 /* Build configuration list for PBXNativeTarget "Napi" */;
+			buildPhases = (
+				200780601C64AE4F0098B026 /* Sources */,
+				200780611C64AE4F0098B026 /* Frameworks */,
+				200780621C64AE4F0098B026 /* Resources */,
+				202C930C1DDCD23A0083658E /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Napi;
+			productName = Napi;
+			productReference = 200780641C64AE4F0098B026 /* Napi.app */;
+			productType = "com.apple.product-type.application";
+		};
+		200780741C64AE4F0098B026 /* NapiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 200780811C64AE4F0098B026 /* Build configuration list for PBXNativeTarget "NapiTests" */;
+			buildPhases = (
+				200780711C64AE4F0098B026 /* Sources */,
+				200780721C64AE4F0098B026 /* Frameworks */,
+				200780731C64AE4F0098B026 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				200780771C64AE4F0098B026 /* PBXTargetDependency */,
+			);
+			name = NapiTests;
+			productName = NapiTests;
+			productReference = 200780751C64AE4F0098B026 /* NapiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2007805C1C64AE4F0098B026 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Mateusz Karwat";
+				TargetAttributes = {
+					200780631C64AE4F0098B026 = {
+						CreatedOnToolsVersion = 7.2.1;
+						LastSwiftMigration = 0800;
+					};
+					200780741C64AE4F0098B026 = {
+						CreatedOnToolsVersion = 7.2.1;
+						LastSwiftMigration = 0800;
+						TestTargetID = 200780631C64AE4F0098B026;
+					};
+				};
+			};
+			buildConfigurationList = 2007805F1C64AE4F0098B026 /* Build configuration list for PBXProject "Napi" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2007805B1C64AE4F0098B026;
+			productRefGroup = 200780651C64AE4F0098B026 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				200780631C64AE4F0098B026 /* Napi */,
+				200780741C64AE4F0098B026 /* NapiTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		200780621C64AE4F0098B026 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2007806C1C64AE4F0098B026 /* Assets.xcassets in Resources */,
+				2007806F1C64AE4F0098B026 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		200780731C64AE4F0098B026 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				20F6FBD91C6E5306005A1C12 /* MicroDVDSubtitleFormatFile.txt in Resources */,
+				20F6FBD51C6E527F005A1C12 /* MPL2SubtitleFormatFile.txt in Resources */,
+				20F6FBD71C6E52CE005A1C12 /* TMPlayerSubtitleFormatFile.txt in Resources */,
+				20F6FBD31C6E5211005A1C12 /* SubRipSubtitleFormatFile.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		200780601C64AE4F0098B026 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2007806A1C64AE4F0098B026 /* ViewController.swift in Sources */,
+				200780681C64AE4F0098B026 /* AppDelegate.swift in Sources */,
+				20176E931C6A502500574B5B /* Timestamp.swift in Sources */,
+				20909F141D9C2631004622B0 /* Disctionary+HTTPBodyFormat.swift in Sources */,
+				200364F61CFE0EEA00A09CEA /* Lexer.swift in Sources */,
+				203B12701DEF56220036D52D /* Unziper.swift in Sources */,
+				200C4BA81C66552500FBE406 /* TMPlayerSubtitleFormat.swift in Sources */,
+				20A8622A1D52257D007FEC7C /* SupportedSubtitleFormat.swift in Sources */,
+				20A76D701D47D94F00BC031B /* Subtitle.swift in Sources */,
+				20C9896E1D36AB3100B16DD2 /* SubtitleTokenType.swift in Sources */,
+				200780CB1C64F3BC0098B026 /* SubRipSubtitleFormat.swift in Sources */,
+				208BF2A41D72BCC700111F4D /* FileInformationProvider.swift in Sources */,
+				200364F81CFE0EF800A09CEA /* Token.swift in Sources */,
+				200C4BA01C66089600FBE406 /* SubtitleFormat.swift in Sources */,
+				20CBB5801DDE0F8F00C4F782 /* Combinations.swift in Sources */,
+				208BF2AF1D73170700111F4D /* Data+MD5.swift in Sources */,
+				20A862301D5246F1007FEC7C /* SubtitleConverter.swift in Sources */,
+				208625CB1D4513A800B6DEF6 /* Int+Timestamp.swift in Sources */,
+				200C4B9E1C6601F800FBE406 /* MPL2SubtitleFormat.swift in Sources */,
+				20EF7CFC1C67B1C4005A17A7 /* MicroDVDSubtitleFormat.swift in Sources */,
+				208BF2AD1D7316FC00111F4D /* String+MD5.swift in Sources */,
+				20A8622E1D522C4C007FEC7C /* SubtitleCheckingResult.swift in Sources */,
+				200364FA1CFE110700A09CEA /* String+Substring.swift in Sources */,
+				203B126E1DEF55ED0036D52D /* URL+FileManagerChecks.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		200780711C64AE4F0098B026 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				200C4BAB1C66565700FBE406 /* SubRipSubtitleFormatTests.swift in Sources */,
+				20EF7CFF1C67B280005A17A7 /* MicroDVDSubtitleFormatTests.swift in Sources */,
+				209FA9671D2FE4FD00C54DCA /* TokenTests.swift in Sources */,
+				202C93131DDCE1180083658E /* CombinationsTests.swift in Sources */,
+				200780CD1C64F3F90098B026 /* TMPlayerSubtitleFormatTests.swift in Sources */,
+				20C989691D36A92C00B16DD2 /* LexerTests.swift in Sources */,
+				200C4BA61C664C8100FBE406 /* MPL2SubtitleFormatTests.swift in Sources */,
+				20A862321D5258BB007FEC7C /* SubtitleConverterTests.swift in Sources */,
+				200364F21CFE04A400A09CEA /* TimestampTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		200780771C64AE4F0098B026 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 200780631C64AE4F0098B026 /* Napi */;
+			targetProxy = 200780761C64AE4F0098B026 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2007806D1C64AE4F0098B026 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2007806E1C64AE4F0098B026 /* Base */,
+			);
+			name = Main.storyboard;
+			path = .;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2007807C1C64AE4F0098B026 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2007807D1C64AE4F0098B026 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		2007807F1C64AE4F0098B026 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_OPTIMIZATION_PROFILE_FILE = "$(SRCROOT)/OptimizationProfiles/$(PROJECT_NAME).profdata";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Napi/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = mateuszkarwat.Napi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Napi/Supporting Files/Napi-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		200780801C64AE4F0098B026 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Napi/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = mateuszkarwat.Napi;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Napi/Supporting Files/Napi-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		200780821C64AE4F0098B026 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = NapiTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = mateuszkarwat.NapiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Napi.app/Contents/MacOS/Napi";
+			};
+			name = Debug;
+		};
+		200780831C64AE4F0098B026 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = NapiTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = mateuszkarwat.NapiTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Napi.app/Contents/MacOS/Napi";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2007805F1C64AE4F0098B026 /* Build configuration list for PBXProject "Napi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2007807C1C64AE4F0098B026 /* Debug */,
+				2007807D1C64AE4F0098B026 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2007807E1C64AE4F0098B026 /* Build configuration list for PBXNativeTarget "Napi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2007807F1C64AE4F0098B026 /* Debug */,
+				200780801C64AE4F0098B026 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		200780811C64AE4F0098B026 /* Build configuration list for PBXNativeTarget "NapiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				200780821C64AE4F0098B026 /* Debug */,
+				200780831C64AE4F0098B026 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2007805C1C64AE4F0098B026 /* Project object */;
+}

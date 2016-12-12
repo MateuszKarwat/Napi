@@ -1,7 +1,4 @@
 //
-//  LexerTests.swift
-//  Napi
-//
 //  Created by Mateusz Karwat on 08/07/16.
 //  Copyright © 2016 Mateusz Karwat. All rights reserved.
 //
