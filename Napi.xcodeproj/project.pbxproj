@@ -25,6 +25,8 @@
 		20176E931C6A502500574B5B /* Timestamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20176E921C6A502500574B5B /* Timestamp.swift */; };
 		202571E61E00659C00BC9EF5 /* FileEncodingDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202571E51E00659C00BC9EF5 /* FileEncodingDetector.swift */; };
 		202C93131DDCE1180083658E /* CombinationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202C93121DDCE1180083658E /* CombinationsTests.swift */; };
+		202F8DE41E0301B800F225D8 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202F8DE31E0301B800F225D8 /* Language.swift */; };
+		202F8DE61E0301FE00F225D8 /* LanguageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202F8DE51E0301FE00F225D8 /* LanguageTests.swift */; };
 		203B126E1DEF55ED0036D52D /* URL+FileManagerChecks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203B126D1DEF55ED0036D52D /* URL+FileManagerChecks.swift */; };
 		203B12701DEF56220036D52D /* Unziper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203B126F1DEF56220036D52D /* Unziper.swift */; };
 		208625CB1D4513A800B6DEF6 /* Int+Timestamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208625CA1D4513A800B6DEF6 /* Int+Timestamp.swift */; };
@@ -97,6 +99,8 @@
 		20176E921C6A502500574B5B /* Timestamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Timestamp.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		202571E51E00659C00BC9EF5 /* FileEncodingDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileEncodingDetector.swift; sourceTree = "<group>"; };
 		202C93121DDCE1180083658E /* CombinationsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CombinationsTests.swift; sourceTree = "<group>"; };
+		202F8DE31E0301B800F225D8 /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
+		202F8DE51E0301FE00F225D8 /* LanguageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageTests.swift; sourceTree = "<group>"; };
 		203B126D1DEF55ED0036D52D /* URL+FileManagerChecks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+FileManagerChecks.swift"; sourceTree = "<group>"; };
 		203B126F1DEF56220036D52D /* Unziper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unziper.swift; sourceTree = "<group>"; };
 		208625CA1D4513A800B6DEF6 /* Int+Timestamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "Int+Timestamp.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -190,11 +194,12 @@
 				206F86FD1D30066000C1585E /* Subtitle Formats */,
 				202C93121DDCE1180083658E /* CombinationsTests.swift */,
 				2007807B1C64AE4F0098B026 /* Info.plist */,
+				202F8DE51E0301FE00F225D8 /* LanguageTests.swift */,
 				209FA95F1D2FC04D00C54DCA /* LexerTests.swift */,
 				20A862311D5258BB007FEC7C /* SubtitleConverterTests.swift */,
+				20F5D23B1DFF062F00FA9BAC /* TemporaryDirectoryManagerTests.swift */,
 				200364F11CFE04A400A09CEA /* TimestampTests.swift */,
 				209FA9661D2FE4FD00C54DCA /* TokenTests.swift */,
-				20F5D23B1DFF062F00FA9BAC /* TemporaryDirectoryManagerTests.swift */,
 			);
 			path = NapiTests;
 			sourceTree = "<group>";
@@ -227,8 +232,9 @@
 				20CBB57F1DDE0F8F00C4F782 /* Combinations.swift */,
 				202571E51E00659C00BC9EF5 /* FileEncodingDetector.swift */,
 				208BF2A31D72BCC700111F4D /* FileInformationProvider.swift */,
-				203B126F1DEF56220036D52D /* Unziper.swift */,
+				202F8DE31E0301B800F225D8 /* Language.swift */,
 				20F5D2391DFF025E00FA9BAC /* TemporaryDirectoryManager.swift */,
+				203B126F1DEF56220036D52D /* Unziper.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -241,6 +247,7 @@
 				200C4B9F1C66089600FBE406 /* SubtitleFormat.swift */,
 				20A862291D52257D007FEC7C /* SupportedSubtitleFormat.swift */,
 			);
+			name = "Subtitle Format";
 			path = "Subtitle Format";
 			sourceTree = "<group>";
 		};
@@ -427,6 +434,7 @@
 				208625CB1D4513A800B6DEF6 /* Int+Timestamp.swift in Sources */,
 				200C4B9E1C6601F800FBE406 /* MPL2SubtitleFormat.swift in Sources */,
 				202571E61E00659C00BC9EF5 /* FileEncodingDetector.swift in Sources */,
+				202F8DE41E0301B800F225D8 /* Language.swift in Sources */,
 				20EF7CFC1C67B1C4005A17A7 /* MicroDVDSubtitleFormat.swift in Sources */,
 				208BF2AD1D7316FC00111F4D /* String+MD5.swift in Sources */,
 				20A8622E1D522C4C007FEC7C /* SubtitleCheckingResult.swift in Sources */,
@@ -449,6 +457,7 @@
 				20F5D23C1DFF062F00FA9BAC /* TemporaryDirectoryManagerTests.swift in Sources */,
 				20A862321D5258BB007FEC7C /* SubtitleConverterTests.swift in Sources */,
 				200364F21CFE04A400A09CEA /* TimestampTests.swift in Sources */,
+				202F8DE61E0301FE00F225D8 /* LanguageTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
