@@ -1,6 +1,11 @@
 language: objective-c
 osx_image: xcode8.1
 
+notifications:
+  email:
+    on_success: never
+    on_failure: always
+
 env:
   global:
   - LC_CTYPE=en_US.UTF-8
