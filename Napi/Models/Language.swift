@@ -8,9 +8,9 @@ import Foundation
 /// Represents a language based on ISO-639 code representation of names of languages.
 struct Language {
 
-    /// A correct ISO-639 code representation.
+    /// A correct ISO-639-1 or ISO-639-2 code representation.
     ///
-    /// - seealso: [Table of available codes](http://www.loc.gov/standards/iso639-2/php/English_list.php)
+    /// - SeeAlso: [Table of available codes](http://www.loc.gov/standards/iso639-2/php/English_list.php)
     var isoCode: String
 
     /// Returns full name of language in locale which directly comes from `isoCode`.
