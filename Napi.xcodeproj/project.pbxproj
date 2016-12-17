@@ -27,7 +27,7 @@
 		202C93131DDCE1180083658E /* CombinationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202C93121DDCE1180083658E /* CombinationsTests.swift */; };
 		202F8DE41E0301B800F225D8 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202F8DE31E0301B800F225D8 /* Language.swift */; };
 		202F8DE61E0301FE00F225D8 /* LanguageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202F8DE51E0301FE00F225D8 /* LanguageTests.swift */; };
-		203B126E1DEF55ED0036D52D /* URL+FileManagerChecks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203B126D1DEF55ED0036D52D /* URL+FileManagerChecks.swift */; };
+		203B126E1DEF55ED0036D52D /* URL+FileManagerOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203B126D1DEF55ED0036D52D /* URL+FileManagerOperations.swift */; };
 		203B12701DEF56220036D52D /* Unziper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203B126F1DEF56220036D52D /* Unziper.swift */; };
 		2057DBAF1E0433C70049DC3A /* SubtitleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2057DBAE1E0433C70049DC3A /* SubtitleEntity.swift */; };
 		2057DBB11E0436C30049DC3A /* SubtitleEntityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2057DBB01E0436C30049DC3A /* SubtitleEntityTests.swift */; };
@@ -42,6 +42,9 @@
 		20A8622E1D522C4C007FEC7C /* SubtitleCheckingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A8622D1D522C4C007FEC7C /* SubtitleCheckingResult.swift */; };
 		20A862301D5246F1007FEC7C /* SubtitleConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A8622F1D5246F1007FEC7C /* SubtitleConverter.swift */; };
 		20A862321D5258BB007FEC7C /* SubtitleConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A862311D5258BB007FEC7C /* SubtitleConverterTests.swift */; };
+		20BEECEE1E05BDDC0018A5B7 /* NameMatcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20BEECED1E05BDDC0018A5B7 /* NameMatcherTests.swift */; };
+		20C394651E055E3600EB7D63 /* NameMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C394641E055E3600EB7D63 /* NameMatcher.swift */; };
+		20C394671E05A33E00EB7D63 /* Date+Timestamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C394661E05A33E00EB7D63 /* Date+Timestamp.swift */; };
 		20C989691D36A92C00B16DD2 /* LexerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209FA95F1D2FC04D00C54DCA /* LexerTests.swift */; };
 		20C9896E1D36AB3100B16DD2 /* SubtitleTokenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F105C11D3114A2000E157F /* SubtitleTokenType.swift */; };
 		20CBB5801DDE0F8F00C4F782 /* Combinations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CBB57F1DDE0F8F00C4F782 /* Combinations.swift */; };
@@ -103,7 +106,7 @@
 		202C93121DDCE1180083658E /* CombinationsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CombinationsTests.swift; sourceTree = "<group>"; };
 		202F8DE31E0301B800F225D8 /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		202F8DE51E0301FE00F225D8 /* LanguageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageTests.swift; sourceTree = "<group>"; };
-		203B126D1DEF55ED0036D52D /* URL+FileManagerChecks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+FileManagerChecks.swift"; sourceTree = "<group>"; };
+		203B126D1DEF55ED0036D52D /* URL+FileManagerOperations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+FileManagerOperations.swift"; sourceTree = "<group>"; };
 		203B126F1DEF56220036D52D /* Unziper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unziper.swift; sourceTree = "<group>"; };
 		2057DBAE1E0433C70049DC3A /* SubtitleEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitleEntity.swift; sourceTree = "<group>"; };
 		2057DBB01E0436C30049DC3A /* SubtitleEntityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitleEntityTests.swift; sourceTree = "<group>"; };
@@ -120,6 +123,9 @@
 		20A8622D1D522C4C007FEC7C /* SubtitleCheckingResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitleCheckingResult.swift; sourceTree = "<group>"; };
 		20A8622F1D5246F1007FEC7C /* SubtitleConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitleConverter.swift; sourceTree = "<group>"; };
 		20A862311D5258BB007FEC7C /* SubtitleConverterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitleConverterTests.swift; sourceTree = "<group>"; };
+		20BEECED1E05BDDC0018A5B7 /* NameMatcherTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameMatcherTests.swift; sourceTree = "<group>"; };
+		20C394641E055E3600EB7D63 /* NameMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameMatcher.swift; sourceTree = "<group>"; };
+		20C394661E05A33E00EB7D63 /* Date+Timestamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Timestamp.swift"; sourceTree = "<group>"; };
 		20CBB57F1DDE0F8F00C4F782 /* Combinations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Combinations.swift; sourceTree = "<group>"; };
 		20EF7CFB1C67B1C4005A17A7 /* MicroDVDSubtitleFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MicroDVDSubtitleFormat.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		20EF7CFE1C67B280005A17A7 /* MicroDVDSubtitleFormatTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MicroDVDSubtitleFormatTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -200,11 +206,12 @@
 				2007807B1C64AE4F0098B026 /* Info.plist */,
 				202F8DE51E0301FE00F225D8 /* LanguageTests.swift */,
 				209FA95F1D2FC04D00C54DCA /* LexerTests.swift */,
+				20BEECED1E05BDDC0018A5B7 /* NameMatcherTests.swift */,
 				20A862311D5258BB007FEC7C /* SubtitleConverterTests.swift */,
+				2057DBB01E0436C30049DC3A /* SubtitleEntityTests.swift */,
 				20F5D23B1DFF062F00FA9BAC /* TemporaryDirectoryManagerTests.swift */,
 				200364F11CFE04A400A09CEA /* TimestampTests.swift */,
 				209FA9661D2FE4FD00C54DCA /* TokenTests.swift */,
-				2057DBB01E0436C30049DC3A /* SubtitleEntityTests.swift */,
 			);
 			path = NapiTests;
 			sourceTree = "<group>";
@@ -238,9 +245,10 @@
 				202571E51E00659C00BC9EF5 /* FileEncodingDetector.swift */,
 				208BF2A31D72BCC700111F4D /* FileInformationProvider.swift */,
 				202F8DE31E0301B800F225D8 /* Language.swift */,
+				20C394641E055E3600EB7D63 /* NameMatcher.swift */,
+				2057DBAE1E0433C70049DC3A /* SubtitleEntity.swift */,
 				20F5D2391DFF025E00FA9BAC /* TemporaryDirectoryManager.swift */,
 				203B126F1DEF56220036D52D /* Unziper.swift */,
-				2057DBAE1E0433C70049DC3A /* SubtitleEntity.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -291,11 +299,12 @@
 			isa = PBXGroup;
 			children = (
 				208BF2AE1D73170700111F4D /* Data+MD5.swift */,
+				20C394661E05A33E00EB7D63 /* Date+Timestamp.swift */,
 				20909F131D9C2631004622B0 /* Disctionary+HTTPBodyFormat.swift */,
 				208625CA1D4513A800B6DEF6 /* Int+Timestamp.swift */,
 				208BF2AC1D7316FC00111F4D /* String+MD5.swift */,
 				200364F91CFE110600A09CEA /* String+Substring.swift */,
-				203B126D1DEF55ED0036D52D /* URL+FileManagerChecks.swift */,
+				203B126D1DEF55ED0036D52D /* URL+FileManagerOperations.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -422,8 +431,10 @@
 				20F5D23A1DFF025E00FA9BAC /* TemporaryDirectoryManager.swift in Sources */,
 				200780681C64AE4F0098B026 /* AppDelegate.swift in Sources */,
 				20176E931C6A502500574B5B /* Timestamp.swift in Sources */,
+				20C394671E05A33E00EB7D63 /* Date+Timestamp.swift in Sources */,
 				20909F141D9C2631004622B0 /* Disctionary+HTTPBodyFormat.swift in Sources */,
 				200364F61CFE0EEA00A09CEA /* Lexer.swift in Sources */,
+				20C394651E055E3600EB7D63 /* NameMatcher.swift in Sources */,
 				203B12701DEF56220036D52D /* Unziper.swift in Sources */,
 				200C4BA81C66552500FBE406 /* TMPlayerSubtitleFormat.swift in Sources */,
 				20A8622A1D52257D007FEC7C /* SupportedSubtitleFormat.swift in Sources */,
@@ -445,7 +456,7 @@
 				2057DBAF1E0433C70049DC3A /* SubtitleEntity.swift in Sources */,
 				20A8622E1D522C4C007FEC7C /* SubtitleCheckingResult.swift in Sources */,
 				200364FA1CFE110700A09CEA /* String+Substring.swift in Sources */,
-				203B126E1DEF55ED0036D52D /* URL+FileManagerChecks.swift in Sources */,
+				203B126E1DEF55ED0036D52D /* URL+FileManagerOperations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,6 +475,7 @@
 				20F5D23C1DFF062F00FA9BAC /* TemporaryDirectoryManagerTests.swift in Sources */,
 				20A862321D5258BB007FEC7C /* SubtitleConverterTests.swift in Sources */,
 				200364F21CFE04A400A09CEA /* TimestampTests.swift in Sources */,
+				20BEECEE1E05BDDC0018A5B7 /* NameMatcherTests.swift in Sources */,
 				202F8DE61E0301FE00F225D8 /* LanguageTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

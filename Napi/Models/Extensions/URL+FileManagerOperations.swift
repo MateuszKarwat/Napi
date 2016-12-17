@@ -23,4 +23,15 @@ extension URL {
     var exists: Bool {
         return FileManager.default.fileExists(atPath: self.path)
     }
+
+    /// Returns last component of `URL` without extension.
+    var lastPathComponentWithoutExtension: String {
+        return self.deletingPathExtension().lastPathComponent
+    }
+
+    /// Returns a new `URL` which has current date timestamp added to last path component.
+    var appendingCurrentDateTimestamp: URL {
+        let newName = self.lastPathComponentWithoutExtension + Date().timestamp
+        return self.deletingLastPathComponent().appendingPathComponent(newName).appendingPathExtension(self.pathExtension)
+    }
 }

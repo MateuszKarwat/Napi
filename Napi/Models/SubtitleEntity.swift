@@ -47,3 +47,16 @@ struct SubtitleEntity {
         self.format = format
     }
 }
+
+extension SubtitleEntity {
+
+    /// Returns a `URL` to a local file if `Format` is not remote.
+    var fileURL: URL? {
+        switch format {
+        case .archive(location: let location), .text(location: let location):
+            return location
+        default:
+            return nil
+        }
+    }
+}

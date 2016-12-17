@@ -6,7 +6,7 @@
 import Foundation
 
 /// Lexer (Lexical Analysier) converts a string (stream) into a sequence of tokens.
-class Lexer<TokenType: RawRepresentable> {
+final class Lexer<TokenType: RawRepresentable> {
 
     /// Rules of the lexer to identify tokens in the `stream`.
     private(set) var rules: [(NSRegularExpression, TokenType)]
