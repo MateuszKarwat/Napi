@@ -20,7 +20,8 @@ final class TemporaryDirectoryManager {
 
     /// Creates a new instance of `TemporaryDirectoryManager` with default directory name.
     class var `default`: TemporaryDirectoryManager {
-        return TemporaryDirectoryManager(directoryName: Bundle.main.infoDictionary![kCFBundleNameKey as String] as! String)
+        return TemporaryDirectoryManager(directoryName: Bundle.main.bundleIdentifier ??
+            Bundle.main.infoDictionary![kCFBundleNameKey as String] as! String)
     }
 
     /// Checks if temporary directory is empty.

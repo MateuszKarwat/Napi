@@ -598,7 +598,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Napi/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				PRODUCT_BUNDLE_IDENTIFIER = mateuszkarwat.Napi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mateuszkarwat.Napi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Napi/Supporting Files/Napi-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -616,7 +616,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Napi/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				PRODUCT_BUNDLE_IDENTIFIER = mateuszkarwat.Napi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mateuszkarwat.Napi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Napi/Supporting Files/Napi-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
