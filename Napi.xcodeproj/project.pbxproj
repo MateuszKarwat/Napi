@@ -23,6 +23,7 @@
 		200C4BA81C66552500FBE406 /* TMPlayerSubtitleFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200C4BA71C66552500FBE406 /* TMPlayerSubtitleFormat.swift */; };
 		200C4BAB1C66565700FBE406 /* SubRipSubtitleFormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200C4BAA1C66565700FBE406 /* SubRipSubtitleFormatTests.swift */; };
 		20176E931C6A502500574B5B /* Timestamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20176E921C6A502500574B5B /* Timestamp.swift */; };
+		201ED1151E2A47AF006392F8 /* DirectoryScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201ED1141E2A47AF006392F8 /* DirectoryScanner.swift */; };
 		202571E61E00659C00BC9EF5 /* FileEncodingDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202571E51E00659C00BC9EF5 /* FileEncodingDetector.swift */; };
 		202C93131DDCE1180083658E /* CombinationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202C93121DDCE1180083658E /* CombinationsTests.swift */; };
 		202F8DE41E0301B800F225D8 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202F8DE31E0301B800F225D8 /* Language.swift */; };
@@ -102,6 +103,7 @@
 		200C4BA71C66552500FBE406 /* TMPlayerSubtitleFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMPlayerSubtitleFormat.swift; sourceTree = "<group>"; };
 		200C4BAA1C66565700FBE406 /* SubRipSubtitleFormatTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubRipSubtitleFormatTests.swift; sourceTree = "<group>"; };
 		20176E921C6A502500574B5B /* Timestamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Timestamp.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		201ED1141E2A47AF006392F8 /* DirectoryScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectoryScanner.swift; sourceTree = "<group>"; };
 		202571E51E00659C00BC9EF5 /* FileEncodingDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileEncodingDetector.swift; sourceTree = "<group>"; };
 		202C93121DDCE1180083658E /* CombinationsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CombinationsTests.swift; sourceTree = "<group>"; };
 		202F8DE31E0301B800F225D8 /* Language.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				2057DBAE1E0433C70049DC3A /* SubtitleEntity.swift */,
 				20F5D2391DFF025E00FA9BAC /* TemporaryDirectoryManager.swift */,
 				203B126F1DEF56220036D52D /* Unziper.swift */,
+				201ED1141E2A47AF006392F8 /* DirectoryScanner.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -441,6 +444,7 @@
 				20A76D701D47D94F00BC031B /* Subtitle.swift in Sources */,
 				20C9896E1D36AB3100B16DD2 /* SubtitleTokenType.swift in Sources */,
 				200780CB1C64F3BC0098B026 /* SubRipSubtitleFormat.swift in Sources */,
+				201ED1151E2A47AF006392F8 /* DirectoryScanner.swift in Sources */,
 				208BF2A41D72BCC700111F4D /* FileInformationProvider.swift in Sources */,
 				200364F81CFE0EF800A09CEA /* Token.swift in Sources */,
 				200C4BA01C66089600FBE406 /* SubtitleFormat.swift in Sources */,
