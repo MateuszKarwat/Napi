@@ -71,11 +71,10 @@ final class NameMatcher {
     ///
     /// - Throws: `NameMatchingError` or `FileManager`'s error.
     func move(_ subtitleEntity: SubtitleEntity, toMatchFileAt patternURL: URL) throws {
-        guard
-            let sourceURL = subtitleEntity.fileURL,
-            sourceURL.exists,
-            sourceURL.isFile else {
-                throw NameMatchingError.fileAtSourceURLDoesNotExist
+        let sourceURL = subtitleEntity.url
+
+        guard sourceURL.exists, sourceURL.isFile else {
+            throw NameMatchingError.fileAtSourceURLDoesNotExist
         }
 
         let destinationDirectory = patternURL.deletingLastPathComponent()

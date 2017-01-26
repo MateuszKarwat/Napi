@@ -13,7 +13,7 @@ class SubtitleEntityTests: XCTestCase {
 
         for _ in 0 ..< 10 {
             let language = Language(isoCode: "pl")
-            let subtitleEntity = SubtitleEntity(language: language)
+            let subtitleEntity = SubtitleEntity(language: language, format: .text)
             let id = subtitleEntity.id
 
             XCTAssertFalse(generatedIDs.contains(id), "\(id) has been generated at least twice.")
@@ -24,14 +24,30 @@ class SubtitleEntityTests: XCTestCase {
         XCTAssertEqual(generatedIDs.count, 10)
     }
 
-    func testDefaultFormatValue() {
+    func testTemporaryPathWithoutFormatExtension() {
         let language = Language(isoCode: "en")
-        let subtitleEntity = SubtitleEntity(language: language)
+        var subtitleEntity = SubtitleEntity(language: language, format: .text)
 
-        guard case .remote = subtitleEntity.format else {
-            XCTFail()
-            return
-        }
+        let expectedURL = TemporaryDirectoryManager.default.temporaryDirectory.appendingPathComponent(subtitleEntity.id.uuidString)
+
+        XCTAssertEqual(subtitleEntity.temporaryPathWithoutFormatExtension, expectedURL)
+
+        subtitleEntity.format = .archive
+
+        XCTAssertEqual(subtitleEntity.temporaryPathWithoutFormatExtension, expectedURL)
     }
 
+    func testTemporaryPathWithFormatExtension() {
+        let language = Language(isoCode: "en")
+        var subtitleEntity = SubtitleEntity(language: language, format: .text)
+
+        let expectedURL = TemporaryDirectoryManager.default.temporaryDirectory.appendingPathComponent(subtitleEntity.id.uuidString)
+
+        XCTAssertEqual(subtitleEntity.temporaryPathWithFormatExtension, expectedURL.appendingPathExtension("text"))
+
+        subtitleEntity.format = .archive
+
+        XCTAssertEqual(subtitleEntity.temporaryPathWithFormatExtension, expectedURL.appendingPathExtension("archive"))
+    }
+    
 }

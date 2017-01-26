@@ -11,7 +11,7 @@ class NameMatcherTests: XCTestCase {
     func testName() {
         let language = Language(isoCode: "pl")
         let url = Bundle(for: type(of: self)).url(forResource: "MPL2SubtitleFormatFile", withExtension: "txt")!
-        let subtitleEntity = SubtitleEntity(language: language, format: .archive(location: url))
+        let subtitleEntity = SubtitleEntity(language: language, format: .archive)
 
         let matcher = NameMatcher()
         XCTAssertEqual(try! matcher.name(for: subtitleEntity, matchingFileAt: url), "MPL2SubtitleFormatFile.pl")
@@ -19,5 +19,5 @@ class NameMatcherTests: XCTestCase {
         matcher.appendLanguageCode = false
         XCTAssertEqual(try! matcher.name(for: subtitleEntity, matchingFileAt: url), "MPL2SubtitleFormatFile")
     }
-
+    
 }
