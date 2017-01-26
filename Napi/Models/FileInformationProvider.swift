@@ -98,6 +98,6 @@ struct FileInformationProvider {
             return fileHandler.readData(ofLength: chunkSize).md5
         }
 
-        return try? Data(contentsOf: url).md5
+        return try? Data(contentsOf: url, options: .alwaysMapped).md5
     }
 }
