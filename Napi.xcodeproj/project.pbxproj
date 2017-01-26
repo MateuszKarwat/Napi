@@ -23,6 +23,7 @@
 		200C4BA81C66552500FBE406 /* TMPlayerSubtitleFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200C4BA71C66552500FBE406 /* TMPlayerSubtitleFormat.swift */; };
 		200C4BAB1C66565700FBE406 /* SubRipSubtitleFormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200C4BAA1C66565700FBE406 /* SubRipSubtitleFormatTests.swift */; };
 		20176E931C6A502500574B5B /* Timestamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20176E921C6A502500574B5B /* Timestamp.swift */; };
+		201D62A91E3A70FF0010A7CA /* URLSession+DataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201D62A81E3A70FF0010A7CA /* URLSession+DataTask.swift */; };
 		201ED1151E2A47AF006392F8 /* DirectoryScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201ED1141E2A47AF006392F8 /* DirectoryScanner.swift */; };
 		202571E61E00659C00BC9EF5 /* FileEncodingDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202571E51E00659C00BC9EF5 /* FileEncodingDetector.swift */; };
 		202C93131DDCE1180083658E /* CombinationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202C93121DDCE1180083658E /* CombinationsTests.swift */; };
@@ -110,6 +111,7 @@
 		200C4BA71C66552500FBE406 /* TMPlayerSubtitleFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMPlayerSubtitleFormat.swift; sourceTree = "<group>"; };
 		200C4BAA1C66565700FBE406 /* SubRipSubtitleFormatTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubRipSubtitleFormatTests.swift; sourceTree = "<group>"; };
 		20176E921C6A502500574B5B /* Timestamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Timestamp.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		201D62A81E3A70FF0010A7CA /* URLSession+DataTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLSession+DataTask.swift"; sourceTree = "<group>"; };
 		201ED1141E2A47AF006392F8 /* DirectoryScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectoryScanner.swift; sourceTree = "<group>"; };
 		202571E51E00659C00BC9EF5 /* FileEncodingDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileEncodingDetector.swift; sourceTree = "<group>"; };
 		202C93121DDCE1180083658E /* CombinationsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CombinationsTests.swift; sourceTree = "<group>"; };
@@ -121,7 +123,7 @@
 		204C2EE31E06B07500A8F58E /* Napisy24.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Napisy24.swift; sourceTree = "<group>"; };
 		204C2EE51E06B61200A8F58E /* SearchCriteria.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCriteria.swift; sourceTree = "<group>"; };
 		2056CA861E339E5D007BF13A /* ISO-639-NameMapping.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ISO-639-NameMapping.plist"; sourceTree = "<group>"; };
-		2057DBAE1E0433C70049DC3A /* SubtitleEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubtitleEntity.swift; path = SubtitleEntity.swift; sourceTree = "<group>"; };
+		2057DBAE1E0433C70049DC3A /* SubtitleEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitleEntity.swift; sourceTree = "<group>"; };
 		2057DBB01E0436C30049DC3A /* SubtitleEntityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitleEntityTests.swift; sourceTree = "<group>"; };
 		208625CA1D4513A800B6DEF6 /* Int+Timestamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "Int+Timestamp.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		208BF2A31D72BCC700111F4D /* FileInformationProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileInformationProvider.swift; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 				208BF2AC1D7316FC00111F4D /* String+MD5.swift */,
 				200364F91CFE110600A09CEA /* String+Substring.swift */,
 				203B126D1DEF55ED0036D52D /* URL+FileManagerOperations.swift */,
+				201D62A81E3A70FF0010A7CA /* URLSession+DataTask.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -499,6 +502,7 @@
 				202571E61E00659C00BC9EF5 /* FileEncodingDetector.swift in Sources */,
 				202F8DE41E0301B800F225D8 /* Language.swift in Sources */,
 				20DFA6691E2A5D0F0073ED45 /* NapiProjekt.swift in Sources */,
+				201D62A91E3A70FF0010A7CA /* URLSession+DataTask.swift in Sources */,
 				20EF7CFC1C67B1C4005A17A7 /* MicroDVDSubtitleFormat.swift in Sources */,
 				208BF2AD1D7316FC00111F4D /* String+MD5.swift in Sources */,
 				2057DBAF1E0433C70049DC3A /* SubtitleEntity.swift in Sources */,
