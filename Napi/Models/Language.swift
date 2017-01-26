@@ -22,4 +22,17 @@ struct Language {
     var currentLocaleName: String? {
         return (Locale.current as NSLocale).displayName(forKey: .languageCode, value: isoCode)
     }
+
+    /// Returns ISO-639-2 code if such code exists. Otherwise it returns `isoCode`.
+    var isoCodeLong: String {
+        guard
+            let plistURL = Bundle.main.url(forResource: "ISO-639-NameMapping", withExtension: "plist"),
+            let isoCodes = NSDictionary(contentsOf: plistURL),
+            let isoCodeLong = isoCodes[isoCode] as? String
+        else {
+            return isoCode
+        }
+
+        return isoCodeLong
+    }
 }
