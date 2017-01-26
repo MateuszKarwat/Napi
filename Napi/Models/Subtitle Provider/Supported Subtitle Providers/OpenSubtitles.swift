@@ -5,7 +5,7 @@
 
 import Foundation
 
-class OpenSubtitles: SubtitleProvider {
+final class OpenSubtitles: SubtitleProvider {
 
     /// Token required for API requests.
     var token: String?
