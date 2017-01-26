@@ -26,4 +26,9 @@ class LanguageTests: XCTestCase {
         XCTAssertEqual(polishLanguage.currentLocaleName, localizedName)
     }
 
+    func testISOCodeLong() {
+        let polishLanguage = Language(isoCode: "pl")
+        XCTAssertEqual(polishLanguage.isoCodeLong, "pol")
+    }
+
 }
