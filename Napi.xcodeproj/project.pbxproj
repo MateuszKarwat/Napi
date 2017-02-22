@@ -263,6 +263,7 @@
 				20A8622C1D5226C1007FEC7C /* Subtitle */,
 				200780C91C64F2C80098B026 /* Subtitle Format */,
 				204C2EDF1E06AEBB00A8F58E /* Subtitle Provider */,
+				20A6DF231E59DDE900895BF0 /* AsynchronousOperation.swift */,
 				20CBB57F1DDE0F8F00C4F782 /* Combinations.swift */,
 				201ED1141E2A47AF006392F8 /* DirectoryScanner.swift */,
 				202571E51E00659C00BC9EF5 /* FileEncodingDetector.swift */,
@@ -272,7 +273,6 @@
 				20F5D2391DFF025E00FA9BAC /* TemporaryDirectoryManager.swift */,
 				203B126F1DEF56220036D52D /* Unziper.swift */,
 				20EFC2F91E3A549100004CB1 /* XMLRPCDocument.swift */,
-				20A6DF231E59DDE900895BF0 /* AsynchronousOperation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";

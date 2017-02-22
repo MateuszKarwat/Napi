@@ -95,7 +95,7 @@ extension SubtitleFormat {
 
         if
             let regex = try? NSRegularExpression(pattern: Self.regexPattern, options: []),
-            let _ = regex.firstMatch(in: aString, options: [.anchored], range: range) {
+            let _ = regex.firstMatch(in: aString, range: range) {
                 return true
         }
 
