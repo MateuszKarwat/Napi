@@ -43,6 +43,7 @@
 		208BF2AF1D73170700111F4D /* Data+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208BF2AE1D73170700111F4D /* Data+MD5.swift */; };
 		20909F141D9C2631004622B0 /* Disctionary+HTTPBodyFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20909F131D9C2631004622B0 /* Disctionary+HTTPBodyFormat.swift */; };
 		209FA9671D2FE4FD00C54DCA /* TokenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209FA9661D2FE4FD00C54DCA /* TokenTests.swift */; };
+		20A6DF241E59DDE900895BF0 /* AsynchronousOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A6DF231E59DDE900895BF0 /* AsynchronousOperation.swift */; };
 		20A76D701D47D94F00BC031B /* Subtitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A76D6F1D47D94F00BC031B /* Subtitle.swift */; };
 		20A8622A1D52257D007FEC7C /* SupportedSubtitleFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A862291D52257D007FEC7C /* SupportedSubtitleFormat.swift */; };
 		20A8622E1D522C4C007FEC7C /* SubtitleCheckingResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A8622D1D522C4C007FEC7C /* SubtitleCheckingResult.swift */; };
@@ -133,6 +134,7 @@
 		20909F131D9C2631004622B0 /* Disctionary+HTTPBodyFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Disctionary+HTTPBodyFormat.swift"; sourceTree = "<group>"; };
 		209FA95F1D2FC04D00C54DCA /* LexerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LexerTests.swift; sourceTree = "<group>"; };
 		209FA9661D2FE4FD00C54DCA /* TokenTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenTests.swift; sourceTree = "<group>"; };
+		20A6DF231E59DDE900895BF0 /* AsynchronousOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsynchronousOperation.swift; sourceTree = "<group>"; };
 		20A76D6F1D47D94F00BC031B /* Subtitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subtitle.swift; sourceTree = "<group>"; };
 		20A862291D52257D007FEC7C /* SupportedSubtitleFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportedSubtitleFormat.swift; sourceTree = "<group>"; };
 		20A8622D1D522C4C007FEC7C /* SubtitleCheckingResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitleCheckingResult.swift; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 				20F5D2391DFF025E00FA9BAC /* TemporaryDirectoryManager.swift */,
 				203B126F1DEF56220036D52D /* Unziper.swift */,
 				20EFC2F91E3A549100004CB1 /* XMLRPCDocument.swift */,
+				20A6DF231E59DDE900895BF0 /* AsynchronousOperation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -475,6 +478,7 @@
 				20F5D23A1DFF025E00FA9BAC /* TemporaryDirectoryManager.swift in Sources */,
 				200780681C64AE4F0098B026 /* AppDelegate.swift in Sources */,
 				204C2EE41E06B07500A8F58E /* Napisy24.swift in Sources */,
+				20A6DF241E59DDE900895BF0 /* AsynchronousOperation.swift in Sources */,
 				20176E931C6A502500574B5B /* Timestamp.swift in Sources */,
 				20C394671E05A33E00EB7D63 /* Date+Timestamp.swift in Sources */,
 				20909F141D9C2631004622B0 /* Disctionary+HTTPBodyFormat.swift in Sources */,
