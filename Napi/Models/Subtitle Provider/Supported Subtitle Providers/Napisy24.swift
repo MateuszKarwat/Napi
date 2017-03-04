@@ -22,8 +22,8 @@ struct Napisy24: SubtitleProvider {
                 let stringResponse = String(data: data, encoding: encoding),
                 let subtitleEntity = self.subtitleEntity(from: stringResponse, in: searchCritera.language)
             else {
-                    completionHandler([])
-                    return
+                completionHandler([])
+                return
             }
 
             completionHandler([subtitleEntity])
@@ -60,6 +60,7 @@ struct Napisy24: SubtitleProvider {
 
                     try fileManager.moveItem(at: subtitle, to: extractedSubtitlePath)
                     try fileManager.removeItem(at: extractedArchive)
+                    try fileManager.removeItem(at: subtitleEntity.url)
                     
                     downloadedSubtitleEntity = subtitleEntity
                     downloadedSubtitleEntity?.format = .text
