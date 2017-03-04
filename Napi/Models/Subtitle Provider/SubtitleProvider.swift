@@ -28,3 +28,8 @@ protocol SubtitleProvider {
     ///   - completionHandler: Completion handler called when download is completed.
     func download(_ subtitleEntity: SubtitleEntity, completionHandler: @escaping (SubtitleEntity?) -> Void)
 }
+
+// SubtitleProvider: Equatable
+func ==(lhs: SubtitleProvider, rhs: SubtitleProvider) -> Bool {
+    return lhs.name == rhs.name && lhs.homepage == rhs.homepage
+}

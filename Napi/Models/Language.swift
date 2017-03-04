@@ -36,3 +36,9 @@ struct Language {
         return isoCodeLong
     }
 }
+
+extension Language: Equatable {
+    static func ==(lhs: Language, rhs: Language) -> Bool {
+        return lhs.isoCode == rhs.isoCode
+    }
+}
