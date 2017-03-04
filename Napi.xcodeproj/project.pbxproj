@@ -57,6 +57,9 @@
 		20CBB5801DDE0F8F00C4F782 /* Combinations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CBB57F1DDE0F8F00C4F782 /* Combinations.swift */; };
 		20DF1F4C1E335673003A3491 /* OpenSubtitles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DF1F4B1E335673003A3491 /* OpenSubtitles.swift */; };
 		20DFA6691E2A5D0F0073ED45 /* NapiProjekt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DFA6681E2A5D0F0073ED45 /* NapiProjekt.swift */; };
+		20EB4A0E1E6B31B600BB1BC9 /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20EB4A0D1E6B31B600BB1BC9 /* SwiftyBeaver.framework */; };
+		20EB4A0F1E6B31B600BB1BC9 /* SwiftyBeaver.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 20EB4A0D1E6B31B600BB1BC9 /* SwiftyBeaver.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		20EB4A131E6B31FF00BB1BC9 /* SwiftyBeaver.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 20EB4A121E6B31FF00BB1BC9 /* SwiftyBeaver.framework.dSYM */; };
 		20EF7CFC1C67B1C4005A17A7 /* MicroDVDSubtitleFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EF7CFB1C67B1C4005A17A7 /* MicroDVDSubtitleFormat.swift */; };
 		20EF7CFF1C67B280005A17A7 /* MicroDVDSubtitleFormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EF7CFE1C67B280005A17A7 /* MicroDVDSubtitleFormatTests.swift */; };
 		20EFC2FA1E3A549100004CB1 /* XMLRPCDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EFC2F91E3A549100004CB1 /* XMLRPCDocument.swift */; };
@@ -85,8 +88,19 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				20EB4A0F1E6B31B600BB1BC9 /* SwiftyBeaver.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		20EB4A111E6B31E500BB1BC9 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				20EB4A131E6B31FF00BB1BC9 /* SwiftyBeaver.framework.dSYM in CopyFiles */,
+			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -146,6 +160,8 @@
 		20CBB57F1DDE0F8F00C4F782 /* Combinations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Combinations.swift; sourceTree = "<group>"; };
 		20DF1F4B1E335673003A3491 /* OpenSubtitles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenSubtitles.swift; sourceTree = "<group>"; };
 		20DFA6681E2A5D0F0073ED45 /* NapiProjekt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NapiProjekt.swift; sourceTree = "<group>"; };
+		20EB4A0D1E6B31B600BB1BC9 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/Mac/SwiftyBeaver.framework; sourceTree = "<group>"; };
+		20EB4A121E6B31FF00BB1BC9 /* SwiftyBeaver.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftyBeaver.framework.dSYM; path = Carthage/Build/Mac/SwiftyBeaver.framework.dSYM; sourceTree = "<group>"; };
 		20EF7CFB1C67B1C4005A17A7 /* MicroDVDSubtitleFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MicroDVDSubtitleFormat.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		20EF7CFE1C67B280005A17A7 /* MicroDVDSubtitleFormatTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MicroDVDSubtitleFormatTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		20EFC2F91E3A549100004CB1 /* XMLRPCDocument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XMLRPCDocument.swift; sourceTree = "<group>"; };
@@ -163,6 +179,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20EB4A0E1E6B31B600BB1BC9 /* SwiftyBeaver.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +210,7 @@
 				200780661C64AE4F0098B026 /* Napi */,
 				200780781C64AE4F0098B026 /* NapiTests */,
 				200780651C64AE4F0098B026 /* Products */,
+				20EB4A101E6B31C600BB1BC9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -340,6 +358,15 @@
 			path = Subtitle;
 			sourceTree = "<group>";
 		};
+		20EB4A101E6B31C600BB1BC9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				20EB4A121E6B31FF00BB1BC9 /* SwiftyBeaver.framework.dSYM */,
+				20EB4A0D1E6B31B600BB1BC9 /* SwiftyBeaver.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		20F105C71D327501000E157F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -378,6 +405,7 @@
 				200780621C64AE4F0098B026 /* Resources */,
 				202C930C1DDCD23A0083658E /* Embed Frameworks */,
 				2027E6B11E5F5713002C17EA /* ShellScript */,
+				20EB4A111E6B31E500BB1BC9 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -667,7 +695,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_OPTIMIZATION_PROFILE_FILE = "$(SRCROOT)/OptimizationProfiles/$(PROJECT_NAME).profdata";
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/Mac";
 				INFOPLIST_FILE = "$(SRCROOT)/Napi/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
@@ -685,7 +713,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/Mac";
 				INFOPLIST_FILE = "$(SRCROOT)/Napi/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
