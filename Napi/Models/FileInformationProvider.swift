@@ -95,7 +95,9 @@ struct FileInformationProvider {
             let chunkSize = chunkSize,
             let fileHandler = try? FileHandle(forReadingFrom: url),
             chunkSize > 0 {
-            return fileHandler.readData(ofLength: chunkSize).md5
+                let data = fileHandler.readData(ofLength: chunkSize)
+                fileHandler.closeFile()
+                return data.md5
         }
 
         return try? Data(contentsOf: url, options: .alwaysMapped).md5
