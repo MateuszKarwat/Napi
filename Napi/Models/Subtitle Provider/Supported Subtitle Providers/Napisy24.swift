@@ -101,9 +101,9 @@ struct Napisy24: SubtitleProvider {
 
     private func searchRequest(with searchCriteria: SearchCriteria) -> URLRequest? {
         guard
-            let informationProvider = FileInformationProvider(url: searchCriteria.fileURL),
-            let checksum = informationProvider.checksum,
-            let md5 = informationProvider.md5(chunkSize: 10 * 1024 * 1024)
+            let fileInformation = FileInformation(url: searchCriteria.fileURL),
+            let checksum = fileInformation.checksum,
+            let md5 = fileInformation.md5(chunkSize: 10 * 1024 * 1024)
         else {
             return nil
         }
@@ -116,9 +116,9 @@ struct Napisy24: SubtitleProvider {
         parameters["ap"] = "susolatnat"
         parameters["fh"] = checksum
         parameters["md"] = md5
-        parameters["fn"] = informationProvider.name
+        parameters["fn"] = fileInformation.name
         parameters["nl"] = searchCriteria.language.isoCode
-        parameters["fs"] = String(informationProvider.size)
+        parameters["fs"] = String(fileInformation.size)
         
         var urlRequest = URLRequest(url: baseURL)
         urlRequest.httpMethod = "POST"

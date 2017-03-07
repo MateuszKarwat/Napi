@@ -65,8 +65,8 @@ struct NapiProjekt: SubtitleProvider {
 
     private func searchRequest(with searchCriteria: SearchCriteria) -> URLRequest? {
         guard
-            let informationProvider = FileInformationProvider(url: searchCriteria.fileURL),
-            let md5 = informationProvider.md5(chunkSize: 10 * 1024 * 1024),
+            let fileInformation = FileInformation(url: searchCriteria.fileURL),
+            let md5 = fileInformation.md5(chunkSize: 10 * 1024 * 1024),
             let md5Hash = mysteriousHash(of: md5)
         else {
             return nil
