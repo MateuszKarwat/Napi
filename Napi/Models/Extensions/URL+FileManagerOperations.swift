@@ -19,6 +19,17 @@ extension URL {
         return !self.isDirectory
     }
 
+    /// Checks if a URL points fo a file with a video extension.
+    var isVideo: Bool {
+        if let uti = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension,
+                                                           self.pathExtension as CFString,
+                                                           nil) {
+            return UTTypeConformsTo(uti.takeRetainedValue(), kUTTypeMovie)
+        }
+
+        return false
+    }
+
     /// Checks if a URL points either to a file or directory which actually exists.
     var exists: Bool {
         return FileManager.default.fileExists(atPath: self.path)

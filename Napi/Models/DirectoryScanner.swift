@@ -17,15 +17,13 @@ final class DirectoryScanner {
     ///
     /// - Returns: URLs of all video files found at `path`.
     class func videoFilesInDirectory(at path: URL, shallowSearch: Bool = false) -> [URL] {
-        let videoFileExtensions = ["mkv", "avi", "mp4", "mov", "wmv", "mpg"]
-
         var videoFiles = [URL]()
 
         if let enumerator = FileManager.default.enumerator(at: path,
                                                            includingPropertiesForKeys: nil,
                                                            options: shallowSearch ? [.skipsSubdirectoryDescendants] : []) {
             while let file = enumerator.nextObject() as? URL {
-                if videoFileExtensions.contains(file.pathExtension) {
+                if file.isVideo {
                     videoFiles.append(file)
                 }
             }
