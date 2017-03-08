@@ -47,6 +47,7 @@
 		208C77881E6F427C00ED7394 /* FileInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208C77871E6F427C00ED7394 /* FileInformation.swift */; };
 		20909F141D9C2631004622B0 /* Disctionary+HTTPBodyFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20909F131D9C2631004622B0 /* Disctionary+HTTPBodyFormat.swift */; };
 		209FA9671D2FE4FD00C54DCA /* TokenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209FA9661D2FE4FD00C54DCA /* TokenTests.swift */; };
+		20A2C6B21E7075DF005131C8 /* DraggingDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A2C6B11E7075DF005131C8 /* DraggingDestinationView.swift */; };
 		20A6DF241E59DDE900895BF0 /* AsynchronousOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A6DF231E59DDE900895BF0 /* AsynchronousOperation.swift */; };
 		20A76D701D47D94F00BC031B /* Subtitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A76D6F1D47D94F00BC031B /* Subtitle.swift */; };
 		20A8622A1D52257D007FEC7C /* SupportedSubtitleFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A862291D52257D007FEC7C /* SupportedSubtitleFormat.swift */; };
@@ -141,6 +142,7 @@
 		20909F131D9C2631004622B0 /* Disctionary+HTTPBodyFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Disctionary+HTTPBodyFormat.swift"; sourceTree = "<group>"; };
 		209FA95F1D2FC04D00C54DCA /* LexerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LexerTests.swift; sourceTree = "<group>"; };
 		209FA9661D2FE4FD00C54DCA /* TokenTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenTests.swift; sourceTree = "<group>"; };
+		20A2C6B11E7075DF005131C8 /* DraggingDestinationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggingDestinationView.swift; sourceTree = "<group>"; };
 		20A6DF231E59DDE900895BF0 /* AsynchronousOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsynchronousOperation.swift; sourceTree = "<group>"; };
 		20A76D6F1D47D94F00BC031B /* Subtitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subtitle.swift; sourceTree = "<group>"; };
 		20A862291D52257D007FEC7C /* SupportedSubtitleFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportedSubtitleFormat.swift; sourceTree = "<group>"; };
@@ -215,8 +217,8 @@
 			isa = PBXGroup;
 			children = (
 				200780C61C64B2410098B026 /* Models */,
-				200780841C64AE800098B026 /* Storyboards */,
 				200780851C64AE880098B026 /* Supporting Files */,
+				200780841C64AE800098B026 /* Views */,
 				200780671C64AE4F0098B026 /* AppDelegate.swift */,
 				200780691C64AE4F0098B026 /* ViewController.swift */,
 			);
@@ -241,12 +243,14 @@
 			path = NapiTests;
 			sourceTree = "<group>";
 		};
-		200780841C64AE800098B026 /* Storyboards */ = {
+		200780841C64AE800098B026 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				20A2C6B11E7075DF005131C8 /* DraggingDestinationView.swift */,
 				2007806D1C64AE4F0098B026 /* Main.storyboard */,
 			);
-			path = Storyboards;
+			name = Views;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		200780851C64AE880098B026 /* Supporting Files */ = {
@@ -510,6 +514,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2007806A1C64AE4F0098B026 /* ViewController.swift in Sources */,
+				20A2C6B21E7075DF005131C8 /* DraggingDestinationView.swift in Sources */,
 				20F5D23A1DFF025E00FA9BAC /* TemporaryDirectoryManager.swift in Sources */,
 				200780681C64AE4F0098B026 /* AppDelegate.swift in Sources */,
 				204C2EE41E06B07500A8F58E /* Napisy24.swift in Sources */,

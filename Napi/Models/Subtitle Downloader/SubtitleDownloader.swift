@@ -73,14 +73,14 @@ final class SubtitleDownloader {
     private let allSubtitleOperations: [SubtitleOperation]
 
     /// A reference to a video file which subtitles are needed for.
-    private var currentFileURL: URL? = nil
+    private var currentFileURL: URL?
 
     /// `SubtitleOperation`s waiting to be processed 
     /// in order to make search and download request.
     private var remainingSubtitleOperations: [SubtitleOperation]
 
     /// `SubtitleOperation` which currently is being processed.
-    private var currentSubtitleOperation: SubtitleOperation? = nil
+    private var currentSubtitleOperation: SubtitleOperation?
 
     /// Every time search request from `currentSubtitleOperation` returns any
     /// `SubtitleEntity`, it is appended to this array. Then this array is consumed
