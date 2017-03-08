@@ -16,7 +16,7 @@ final class DirectoryScanner {
     ///   - shallowSearch: Perform a shallow search. Do not descend into directories.
     ///
     /// - Returns: URLs of all video files found at `path`.
-    class func videoFilesInDirectory(at path: URL, shallowSearch: Bool = false) -> [URL] {
+    class func videoFiles(inDirectoryAt path: URL, shallowSearch: Bool = false) -> [URL] {
         var videoFiles = [URL]()
 
         if let enumerator = FileManager.default.enumerator(at: path,
@@ -29,6 +29,33 @@ final class DirectoryScanner {
             }
         }
 
+        return videoFiles
+    }
+
+    /// Returns URLs of all video files among given URLs.
+    /// Passed array may contain both directories and files.
+    /// Directories will be scanned to find all video files in them.
+    ///
+    /// - Parameters:
+    ///   - urls:          An array of URLs which can be directories and files.
+    ///   - shallowSearch: Perform a shallow search. Do not descend into directories.
+    ///
+    /// - Returns: URLs of all video files found at `urls`.
+    class func videoFiles(in urls: [URL], shallowSearch: Bool = false) -> [URL] {
+        var videoFiles = [URL]()
+
+        for url in urls {
+            guard url.exists else {
+                continue
+            }
+
+            if url.isDirectory {
+                videoFiles += self.videoFiles(inDirectoryAt: url, shallowSearch: shallowSearch)
+            } else if url.isVideo {
+                videoFiles.append(url)
+            }
+        }
+        
         return videoFiles
     }
 
@@ -52,10 +79,6 @@ final class DirectoryScanner {
 
         return associatedFiles
     }
-}
-
-
-extension DirectoryScanner {
 
     /// Returns all subtitle files which are associated with specified file.
     ///

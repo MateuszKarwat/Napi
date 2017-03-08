@@ -29,20 +29,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             return
         }
 
-        var videoURLs = [URL]()
-
-        for path in queuedPaths {
-            let url = URL(fileURLWithPath: path)
-
-            if url.isDirectory {
-                videoURLs += DirectoryScanner.videoFilesInDirectory(at: url)
-            } else if url.isVideo {
-                videoURLs.append(url)
-            }
-        }
+        let urls = queuedPaths.map { URL(fileURLWithPath: $0) }
+        let onlyVideos = DirectoryScanner.videoFiles(in: urls)
 
         // TODO: Do something with videoURLs.
-        dump(videoURLs)
+        dump(onlyVideos)
 
         queuedPaths = []
     }
