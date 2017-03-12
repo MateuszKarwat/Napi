@@ -2,7 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Siema</key>
-	<string>No Elo</string>
+	<key>General</key>
+	<dict>
+		<key>showDockIcon</key>
+		<true/>
+		<key>showStatusBarItem</key>
+		<true/>
+	</dict>
 </dict>
 </plist>

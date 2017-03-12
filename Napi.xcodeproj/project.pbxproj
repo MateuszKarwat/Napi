@@ -33,6 +33,9 @@
 		202F8DE61E0301FE00F225D8 /* LanguageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202F8DE51E0301FE00F225D8 /* LanguageTests.swift */; };
 		203B126E1DEF55ED0036D52D /* URL+FileManagerOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203B126D1DEF55ED0036D52D /* URL+FileManagerOperations.swift */; };
 		203B12701DEF56220036D52D /* Unziper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203B126F1DEF56220036D52D /* Unziper.swift */; };
+		2049F3D91E755A490083547D /* StatusBarItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2049F3D81E755A490083547D /* StatusBarItemController.swift */; };
+		2049F3DB1E755C580083547D /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2049F3DA1E755C580083547D /* Preferences.swift */; };
+		2049F3DD1E75615E0083547D /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2049F3DC1E75615E0083547D /* MainWindowController.swift */; };
 		204C2EE11E06AED300A8F58E /* SubtitleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204C2EE01E06AED300A8F58E /* SubtitleProvider.swift */; };
 		204C2EE41E06B07500A8F58E /* Napisy24.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204C2EE31E06B07500A8F58E /* Napisy24.swift */; };
 		204C2EE61E06B61200A8F58E /* SearchCriteria.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204C2EE51E06B61200A8F58E /* SearchCriteria.swift */; };
@@ -126,6 +129,9 @@
 		202F8DE51E0301FE00F225D8 /* LanguageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LanguageTests.swift; sourceTree = "<group>"; };
 		203B126D1DEF55ED0036D52D /* URL+FileManagerOperations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+FileManagerOperations.swift"; sourceTree = "<group>"; };
 		203B126F1DEF56220036D52D /* Unziper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unziper.swift; sourceTree = "<group>"; };
+		2049F3D81E755A490083547D /* StatusBarItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarItemController.swift; sourceTree = "<group>"; };
+		2049F3DA1E755C580083547D /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		2049F3DC1E75615E0083547D /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		204C2EE01E06AED300A8F58E /* SubtitleProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitleProvider.swift; sourceTree = "<group>"; };
 		204C2EE31E06B07500A8F58E /* Napisy24.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Napisy24.swift; sourceTree = "<group>"; };
 		204C2EE51E06B61200A8F58E /* SearchCriteria.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCriteria.swift; sourceTree = "<group>"; };
@@ -248,8 +254,9 @@
 			children = (
 				20A2C6B11E7075DF005131C8 /* DraggingDestinationView.swift */,
 				2007806D1C64AE4F0098B026 /* Main.storyboard */,
+				2049F3DC1E75615E0083547D /* MainWindowController.swift */,
+				2049F3D81E755A490083547D /* StatusBarItemController.swift */,
 			);
-			name = Views;
 			path = Views;
 			sourceTree = "<group>";
 		};
@@ -279,6 +286,7 @@
 				208C77871E6F427C00ED7394 /* FileInformation.swift */,
 				202F8DE31E0301B800F225D8 /* Language.swift */,
 				20C394641E055E3600EB7D63 /* NameMatcher.swift */,
+				2049F3DA1E755C580083547D /* Preferences.swift */,
 				20F5D2391DFF025E00FA9BAC /* TemporaryDirectoryManager.swift */,
 				203B126F1DEF56220036D52D /* Unziper.swift */,
 				20EFC2F91E3A549100004CB1 /* XMLRPCDocument.swift */,
@@ -519,9 +527,11 @@
 				200780681C64AE4F0098B026 /* AppDelegate.swift in Sources */,
 				204C2EE41E06B07500A8F58E /* Napisy24.swift in Sources */,
 				20A6DF241E59DDE900895BF0 /* AsynchronousOperation.swift in Sources */,
+				2049F3D91E755A490083547D /* StatusBarItemController.swift in Sources */,
 				20176E931C6A502500574B5B /* Timestamp.swift in Sources */,
 				20C394671E05A33E00EB7D63 /* Date+Timestamp.swift in Sources */,
 				202F3B401E6C2F6000BDB148 /* SubtitleOperation.swift in Sources */,
+				2049F3DB1E755C580083547D /* Preferences.swift in Sources */,
 				20909F141D9C2631004622B0 /* Disctionary+HTTPBodyFormat.swift in Sources */,
 				200364F61CFE0EEA00A09CEA /* Lexer.swift in Sources */,
 				20C394651E055E3600EB7D63 /* NameMatcher.swift in Sources */,
@@ -535,6 +545,7 @@
 				200780CB1C64F3BC0098B026 /* SubRipSubtitleFormat.swift in Sources */,
 				201ED1151E2A47AF006392F8 /* DirectoryScanner.swift in Sources */,
 				200364F81CFE0EF800A09CEA /* Token.swift in Sources */,
+				2049F3DD1E75615E0083547D /* MainWindowController.swift in Sources */,
 				200C4BA01C66089600FBE406 /* SubtitleFormat.swift in Sources */,
 				208BF2AF1D73170700111F4D /* Data+MD5.swift in Sources */,
 				204C2EE61E06B61200A8F58E /* SearchCriteria.swift in Sources */,
