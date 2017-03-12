@@ -101,6 +101,7 @@ struct Napisy24: SubtitleProvider {
 
     private func searchRequest(with searchCriteria: SearchCriteria) -> URLRequest? {
         guard
+            searchCriteria.language.isoCode == "pl", // Napisy24 returns only subtitles in Polish.
             let fileInformation = FileInformation(url: searchCriteria.fileURL),
             let checksum = fileInformation.checksum,
             let md5 = fileInformation.md5(chunkSize: 10 * 1024 * 1024)
