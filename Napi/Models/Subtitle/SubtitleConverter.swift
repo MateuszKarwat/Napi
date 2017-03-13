@@ -10,7 +10,7 @@ enum SubtitleConvertionError: Error {
     case frameRateNotSpecified
 }
 
-struct SubtitleConverter {
+final class SubtitleConverter {
 
     /// Represents a subtitle format detected based on an initial subtitles.
     let detectedSubtitleFormat: SupportedSubtitleFormat
@@ -23,7 +23,9 @@ struct SubtitleConverter {
     /// Entries are found and decoded based on `detectedSubtitleFormat`.
     /// If there is a substring which wasn't detected, it won't be decoded
     /// and stored in this array at all.
-    let decodedSubtitles: [Subtitle]
+    lazy var decodedSubtitles: [Subtitle] = {
+        return self.detectedSubtitleFormat.type.decode(self.encodedSubtitles)
+    }()
 
     /// Represents a delay of subtitles in milliseconds.
     var offset = 0
@@ -76,7 +78,6 @@ struct SubtitleConverter {
         for format in SupportedSubtitleFormat.allValues {
             if format.type.canDecode(subtitles) {
                 self.detectedSubtitleFormat = format
-                self.decodedSubtitles = format.type.decode(subtitles)
                 return
             }
         }
