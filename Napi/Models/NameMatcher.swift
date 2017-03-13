@@ -85,8 +85,6 @@ final class NameMatcher {
 
         if let customExtension = customExtension {
             destinationURL.appendPathExtension(customExtension)
-        } else if let subtitleFormat = subtitleEntity.subtitleFormat {
-            destinationURL.appendPathExtension(subtitleFormat.type.fileExtension)
         } else if !fileExtension.isEmpty {
             destinationURL.appendPathExtension(fileExtension)
         }
