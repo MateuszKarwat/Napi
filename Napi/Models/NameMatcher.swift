@@ -25,9 +25,9 @@ final class NameMatcher {
     /// - overwrite:             Replace existing item with new one.
     /// - backupDestinationItem: Backup item which already exists at desired location.
     /// - backupSourceItem:      Backup item which is going to be moved.
-    enum NameConflictAction {
+    enum NameConflictAction: String {
         case cancel
-        case overwrite
+        case override
         case backupDestinationItem
         case backupSourceItem
     }
@@ -70,7 +70,7 @@ final class NameMatcher {
     ///   - patternURL:     A `URL` to a file which name should be taken as a basename.
     ///
     /// - Throws: `NameMatchingError` or `FileManager`'s error.
-    func move(_ subtitleEntity: SubtitleEntity, toMatchFileAt patternURL: URL) throws {
+    func move(_ subtitleEntity: SubtitleEntity, toMatchFileAt patternURL: URL, customExtension: String? = nil) throws {
         let sourceURL = subtitleEntity.url
 
         guard sourceURL.exists, sourceURL.isFile else {
@@ -83,13 +83,17 @@ final class NameMatcher {
 
         var destinationURL = destinationDirectory.appendingPathComponent(destinationName)
 
-        if !fileExtension.isEmpty {
+        if let customExtension = customExtension {
+            destinationURL.appendPathExtension(customExtension)
+        } else if let subtitleFormat = subtitleEntity.subtitleFormat {
+            destinationURL.appendPathExtension(subtitleFormat.type.fileExtension)
+        } else if !fileExtension.isEmpty {
             destinationURL.appendPathExtension(fileExtension)
         }
 
         if destinationURL.exists {
             switch nameConflictAction {
-            case .overwrite, .backupDestinationItem:
+            case .override, .backupDestinationItem:
                 try FileManager.default.replaceItem(at: destinationURL,
                                                     withItemAt: sourceURL,
                                                     backupItemName: destinationURL.appendingCurrentDateTimestamp.lastPathComponent,
