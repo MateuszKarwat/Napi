@@ -72,7 +72,7 @@ struct SubRipSubtitleFormat: SubtitleFormat {
         return encodedSubtitles
     }
 
-    func stringValue(for token: Token<SubtitleTokenType>) -> String? {
+    static func stringValue(for token: Token<SubtitleTokenType>) -> String? {
         switch token.type {
         case .boldStart:        return "<b>"
         case .boldEnd:          return "</b>"
