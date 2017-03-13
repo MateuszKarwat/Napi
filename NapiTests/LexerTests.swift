@@ -220,10 +220,4 @@ class LexerAndSubtitleTokenTypeTests: XCTestCase {
         }
     }
 
-    func testThisAlso() {
-        let string = "znać,|/że"
-        let results = lexer.lex(stream: string)
-        dump(results)
-    }
-
 }
