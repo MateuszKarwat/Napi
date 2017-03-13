@@ -17,7 +17,7 @@ final class SubtitleDownloader {
     /// - none:             Never stop. Search and download everything.
     /// - first:            Stop when first subtitles are found.
     /// - firstPerLanguage: Stop when for each language there is a result (if any).
-    enum DownloadLimit {
+    enum DownloadLimit: String {
         case none
         case first
         case firstPerLanguage

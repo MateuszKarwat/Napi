@@ -7,7 +7,7 @@ import Foundation
 
 /// Represents a subtitle format which is supported,
 /// that is, `SubtitleFormat` protocol is implemented.
-enum SupportedSubtitleFormat {
+enum SupportedSubtitleFormat: String {
     case mpl2
     case microDVD
     case subRip
