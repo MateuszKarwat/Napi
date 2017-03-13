@@ -49,6 +49,7 @@
 		208BF2AF1D73170700111F4D /* Data+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208BF2AE1D73170700111F4D /* Data+MD5.swift */; };
 		208C77881E6F427C00ED7394 /* FileInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208C77871E6F427C00ED7394 /* FileInformation.swift */; };
 		20909F141D9C2631004622B0 /* Disctionary+HTTPBodyFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20909F131D9C2631004622B0 /* Disctionary+HTTPBodyFormat.swift */; };
+		209451621E7726A8001861CE /* SupportedSubtitleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209451611E7726A8001861CE /* SupportedSubtitleProvider.swift */; };
 		209FA9671D2FE4FD00C54DCA /* TokenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209FA9661D2FE4FD00C54DCA /* TokenTests.swift */; };
 		20A2C6B21E7075DF005131C8 /* DraggingDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A2C6B11E7075DF005131C8 /* DraggingDestinationView.swift */; };
 		20A6DF241E59DDE900895BF0 /* AsynchronousOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A6DF231E59DDE900895BF0 /* AsynchronousOperation.swift */; };
@@ -146,6 +147,7 @@
 		208BF2AE1D73170700111F4D /* Data+MD5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+MD5.swift"; sourceTree = "<group>"; };
 		208C77871E6F427C00ED7394 /* FileInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileInformation.swift; sourceTree = "<group>"; };
 		20909F131D9C2631004622B0 /* Disctionary+HTTPBodyFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Disctionary+HTTPBodyFormat.swift"; sourceTree = "<group>"; };
+		209451611E7726A8001861CE /* SupportedSubtitleProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportedSubtitleProvider.swift; sourceTree = "<group>"; };
 		209FA95F1D2FC04D00C54DCA /* LexerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LexerTests.swift; sourceTree = "<group>"; };
 		209FA9661D2FE4FD00C54DCA /* TokenTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenTests.swift; sourceTree = "<group>"; };
 		20A2C6B11E7075DF005131C8 /* DraggingDestinationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggingDestinationView.swift; sourceTree = "<group>"; };
@@ -322,6 +324,7 @@
 				204C2EE51E06B61200A8F58E /* SearchCriteria.swift */,
 				2057DBAE1E0433C70049DC3A /* SubtitleEntity.swift */,
 				204C2EE01E06AED300A8F58E /* SubtitleProvider.swift */,
+				209451611E7726A8001861CE /* SupportedSubtitleProvider.swift */,
 			);
 			path = "Subtitle Provider";
 			sourceTree = "<group>";
@@ -545,6 +548,7 @@
 				200780CB1C64F3BC0098B026 /* SubRipSubtitleFormat.swift in Sources */,
 				201ED1151E2A47AF006392F8 /* DirectoryScanner.swift in Sources */,
 				200364F81CFE0EF800A09CEA /* Token.swift in Sources */,
+				209451621E7726A8001861CE /* SupportedSubtitleProvider.swift in Sources */,
 				2049F3DD1E75615E0083547D /* MainWindowController.swift in Sources */,
 				200C4BA01C66089600FBE406 /* SubtitleFormat.swift in Sources */,
 				208BF2AF1D73170700111F4D /* Data+MD5.swift in Sources */,
