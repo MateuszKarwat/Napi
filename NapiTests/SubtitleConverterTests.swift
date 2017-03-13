@@ -44,7 +44,7 @@ class SubtitleConverterModificationTests: XCTestCase {
 
     func testOffset() {
         // Positive offset.
-        var subtitleConverter = try! SubtitleConverter(subtitles: "01:01:01:Text.")
+        let subtitleConverter = try! SubtitleConverter(subtitles: "01:01:01:Text.")
         subtitleConverter.frameRate = 1.0
         subtitleConverter.offset = 1000 // 1 second
         XCTAssertEqual(try! subtitleConverter.convert(to: .mpl2), "[36620][36670]Text.")
@@ -132,7 +132,7 @@ class SubtitleConverterModificationTests: XCTestCase {
 
     func testFrameRate() {
         // Time Based format to Frame Based format.
-        var timeBasedSubtitleConverter = try! SubtitleConverter(subtitles: "[3600][7200]Text.")
+        let timeBasedSubtitleConverter = try! SubtitleConverter(subtitles: "[3600][7200]Text.")
 
         timeBasedSubtitleConverter.frameRate = 2.0
         XCTAssertEqual(try! timeBasedSubtitleConverter.convert(to: .mpl2), "[3600][7200]Text.")
@@ -143,7 +143,7 @@ class SubtitleConverterModificationTests: XCTestCase {
         XCTAssertEqual(try! timeBasedSubtitleConverter.convert(to: .microDVD), "{3600}{7200}Text.")
 
         // Frame Based format to Time Based format.
-        var frameBasedSubtitleConverter = try! SubtitleConverter(subtitles: "{100}{200}Text.")
+        let frameBasedSubtitleConverter = try! SubtitleConverter(subtitles: "{100}{200}Text.")
 
         frameBasedSubtitleConverter.frameRate = 2.0
         XCTAssertEqual(try! frameBasedSubtitleConverter.convert(to: .microDVD), "{100}{200}Text.")
@@ -159,7 +159,7 @@ class SubtitleConverterModificationTests: XCTestCase {
     }
 
     func testFrameRateRatio() {
-        var subtitleConverter = try! SubtitleConverter(subtitles: "[300][600]Text.")
+        let subtitleConverter = try! SubtitleConverter(subtitles: "[300][600]Text.")
         subtitleConverter.frameRate = 5.0
 
         subtitleConverter.frameRateRatio = 5.0 // For example: Change Frame Rate from 2.0 to 10.0.
@@ -176,7 +176,7 @@ class SubtitleConverterModificationTests: XCTestCase {
     }
 
     func testMergeAdjacentWhitespaces() {
-        var subtitleConverter = try! SubtitleConverter(subtitles: "01:12:33:Text  with   ugly spaces.")
+        let subtitleConverter = try! SubtitleConverter(subtitles: "01:12:33:Text  with   ugly spaces.")
         subtitleConverter.mergeAdjacentWhitespaces = true
 
         let convertedSubtitles = try! subtitleConverter.convert(to: .tmplayer)
@@ -185,7 +185,7 @@ class SubtitleConverterModificationTests: XCTestCase {
     }
 
     func testCorrectPunctuation() {
-        var subtitleConverter = try! SubtitleConverter(subtitles: "01:12:33:Ugly ?! , punctuation .")
+        let subtitleConverter = try! SubtitleConverter(subtitles: "01:12:33:Ugly ?! , punctuation .")
         subtitleConverter.correctPunctuation = true
 
         let convertedSubtitles = try! subtitleConverter.convert(to: .tmplayer)
