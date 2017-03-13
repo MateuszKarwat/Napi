@@ -8,6 +8,8 @@ import Foundation
 extension UserDefaults {
 
     /// Tries to add the contents of the `DefaultSettings.plist` to the registration domain.
+    ///
+    /// - Note: To get rid of current settings, remove .plist file and run `killall -u $USER cfprefsd`.
     func registerDefaultSettings() {
         guard
             let defaultSettingsURL = Bundle.main.url(forResource: "DefaultPreferences", withExtension: "plist"),
