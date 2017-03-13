@@ -43,24 +43,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     /// Based on current settings sets application policy.
     private func setupApplicationActivationPolicy() {
-        if applicationShouldRunInForeground {
-            if Preferences.General.showDockIcon {
+        if !Preferences.runInBackground {
+            if Preferences.showDockIcon {
                 NSApp.setActivationPolicy(.regular)
             }
 
-            if Preferences.General.showStatusBarItem {
+            if Preferences.showStatusBarItem {
                 statusBarItemController.showStatusItem()
             }
 
             showApplicationInterface()
         }
-    }
-
-
-    /// Returns `true` if application has been run with run parameter
-    /// `runInBackground` set to `true.
-    private var applicationShouldRunInForeground: Bool {
-        return !UserDefaults.standard.bool(forKey: "runInBackground")
     }
 
     // MARK: - Handle Files and Directories
