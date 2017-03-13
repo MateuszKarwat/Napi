@@ -158,7 +158,7 @@ class LexerAndSubtitleTokenTypeTests: XCTestCase {
     }
 
     func testWordPattern() {
-        let words = ["WORD", "LONG_LONG_LONG_LONG-WORD", "1234", "!@#}", "WORD1234!@#}"]
+        let words = ["WORD", "LONGLONGLONGLONGWORD", "1234", "WORD1234"]
 
         for (index, word) in words.enumerated() {
             let result = lexer.lex(stream: word)
@@ -177,7 +177,7 @@ class LexerAndSubtitleTokenTypeTests: XCTestCase {
     func testAllTokensInOneStream() {
         var partsOfStream = ["{Y:b}", "</B>", "{i}", "{/i}",
                              "<u>", "</U>", "{c:#AABBCC}", "{/c}", "</font>",
-                             "|", "\r\n", "\n", " ", "\t", "JUST-SOME-WORDS", "{", "<"]
+                             "|", "\r\n", "\n", " ", "\t", "WORD", "{", "<"]
 
         var expectedTokens: [SubtitleTokenType] = [.boldStart, .boldEnd, .italicStart, .italicEnd,
                                                    .underlineStart, .underlineEnd, .fontColorStart,
@@ -209,15 +209,21 @@ class LexerAndSubtitleTokenTypeTests: XCTestCase {
 
         // Test something what starts like a tag, but it's not.
         let notRealTags = lexer.lex(stream: "{n}{/x}<font>")
-        let expectedTokens: [SubtitleTokenType] = [.unknownCharacter, .word,
-                                                   .unknownCharacter, .word,
-                                                   .unknownCharacter, .word]
-        let expectedLexemes = ["{", "n}", "{", "/x}", "<", "font>"]
+        let expectedTokens: [SubtitleTokenType] = [.unknownCharacter, .word, .unknownCharacter,
+                                                   .unknownCharacter, .unknownCharacter, .word, .unknownCharacter,
+                                                   .unknownCharacter, .word, .unknownCharacter,]
+        let expectedLexemes = ["{", "n", "}", "{", "/", "x", "}", "<", "font", ">"]
 
         for (index, result) in notRealTags.enumerated() {
             XCTAssertEqual(result.type, expectedTokens[index])
             XCTAssertEqual(result.lexeme, expectedLexemes[index])
         }
+    }
+
+    func testThisAlso() {
+        let string = "znać,|/że"
+        let results = lexer.lex(stream: string)
+        dump(results)
     }
 
 }

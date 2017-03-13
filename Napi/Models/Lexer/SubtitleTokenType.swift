@@ -48,9 +48,8 @@ extension Lexer {
             // Any character like space or tab.
             ("\\s", .whitespace),
 
-            // Word is anything until whitespace or '{' or '<' is detected.
-            // { and < must be specified to stop when formatting tag begins.
-            ("[^\\s\\{<]+", .word),
+            // Any word character.
+            ("\\w+", .word),
 
             // If nothing specified before matches given string, it's an unknown character.
             (".", .unknownCharacter),
