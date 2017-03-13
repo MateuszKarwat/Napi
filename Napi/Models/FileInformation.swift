@@ -40,24 +40,22 @@ struct FileInformation {
 
     /// Tries to detect an encoding of a file.
     ///
-    /// - Parameter fileURL: A `URL` to a file which encoding needs to be detected.
-    ///
-    /// - Returns: A detected string encoding. Returns `nil` for example
+    /// - Returns: A detected string encoding and decoded content. Returns `nil` for example
     ///   if file doesn't exist or contents of a file cannot be loaded.
     ///
     /// - Note: It doesn't guarantee to always return correct and best encoding.
     ///   It's important to check if content with detected encoding can be correctly
     ///   read and processed. Best results are for Polish language, which initially
-    ///   is the main language of this application.
-    var encoding: String.Encoding? {
+    ///   is the main target language of this application.
+    var encodedString: (string: String, encoding: String.Encoding)? {
         guard url.isFile, url.exists else {
             return nil
         }
 
         // Try to detect encoding using standard `String` method.
         var detectedEncoding: String.Encoding = .isoLatin1
-        if let _ = try? String(contentsOf: url, usedEncoding: &detectedEncoding) {
-            return detectedEncoding
+        if let encodedString = try? String(contentsOf: url, usedEncoding: &detectedEncoding) {
+            return (encodedString, detectedEncoding)
         }
 
         guard let fileData = try? Data(contentsOf: url) else {
@@ -70,28 +68,36 @@ struct FileInformation {
         // A set of most common encodings to try if standard detection fails.
         let possibleEncodings: [String.Encoding] = [.isoLatin1, .windowsCP1250, .windowsCP1252, .utf8]
 
+        var encodedString: String?
         var bestNumberOfMatches = 0
+
         for possibleEncoding in possibleEncodings {
             var currentNumberOfMatches = 0
-            if let encodedString = String(data: fileData, encoding: possibleEncoding) {
+            if let content = String(data: fileData, encoding: possibleEncoding) {
                 if bestNumberOfMatches == 0 {
+                    encodedString = content
                     detectedEncoding = possibleEncoding
                 }
 
                 for character in charactersToCount {
-                    if encodedString.characters.contains(character) {
+                    if content.characters.contains(character) {
                         currentNumberOfMatches += 1
                     }
                 }
 
                 if currentNumberOfMatches > bestNumberOfMatches {
+                    encodedString = content
                     detectedEncoding = possibleEncoding
                     bestNumberOfMatches = currentNumberOfMatches
                 }
             }
         }
 
-        return detectedEncoding
+        if let encodedString = encodedString {
+            return (encodedString, detectedEncoding)
+        } else {
+            return nil
+        }
     }
 
     /// Hash code is based on ​Media Player Classic.
