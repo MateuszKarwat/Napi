@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import AVFoundation
 
 /// Represents a struct which provides various informations
 /// about a file, such a size or checksum.
@@ -141,6 +142,19 @@ struct FileInformation {
         }
 
         return resultString
+    }
+
+    /// Tries to determine `frameRate` of a video file.
+    /// If `frameRate` is not possible to find, `nil` is returned.
+    var frameRate: Double? {
+        let asset = AVAsset(url: url)
+        let videoTracks = asset.tracks(withMediaType: AVMediaTypeVideo)
+
+        if let frameRate = videoTracks.first?.nominalFrameRate {
+            return Double(frameRate)
+        } else {
+            return nil
+        }
     }
 
     /// Produces MD5 hash value of a file.
