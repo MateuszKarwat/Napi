@@ -210,7 +210,7 @@ class LexerAndSubtitleTokenTypeTests: XCTestCase {
         // Test something what starts like a tag, but it's not.
         let notRealTags = lexer.lex(stream: "{n}{/x}<font>")
         let expectedTokens: [SubtitleTokenType] = [.unknownCharacter, .word, .unknownCharacter,
-                                                   .unknownCharacter, .unknownCharacter, .word, .unknownCharacter,
+                                                   .unknownCharacter, .italicStart, .word, .unknownCharacter,
                                                    .unknownCharacter, .word, .unknownCharacter,]
         let expectedLexemes = ["{", "n", "}", "{", "/", "x", "}", "<", "font", ">"]
 

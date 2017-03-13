@@ -51,6 +51,9 @@ extension Lexer {
             // Any word character.
             ("\\w+", .word),
 
+            // Sometimes '/' is used to mark whole line as italic.
+            ("/", .italicStart),
+
             // If nothing specified before matches given string, it's an unknown character.
             (".", .unknownCharacter),
         ]
