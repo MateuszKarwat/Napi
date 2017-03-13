@@ -86,7 +86,7 @@ final class DirectoryScanner {
     ///
     /// - Returns: All subtitle files which are associated with file at `path`.
     class func associatedSubtitlesWithFile(at path: URL) -> [URL] {
-        let subtitleFileExtensions = ["txt", "srt"]
+        let subtitleFileExtensions = ["txt", "srt", "sub"]
 
         return DirectoryScanner.associatedFilesWithFile(at: path).filter { subtitleFileExtensions.contains($0.pathExtension) }
     }
@@ -104,7 +104,8 @@ final class DirectoryScanner {
 
         for file in associatedFiles {
             let fileName = file.lastPathComponentWithoutExtension
-            let remainingSuffix = fileName.replacingOccurrences(of: path.lastPathComponentWithoutExtension, with: "").trimmingCharacters(in: .punctuationCharacters)
+            let remainingSuffix = fileName.replacingOccurrences(of: path.lastPathComponentWithoutExtension, with: "")
+                .trimmingCharacters(in: .punctuationCharacters)
 
             associatedLanguages.append(Language(isoCode: remainingSuffix))
         }
