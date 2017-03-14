@@ -43,12 +43,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     /// Based on current settings sets application policy.
     private func setupApplicationActivationPolicy() {
-        if !Preferences.runInBackground {
-            if Preferences.showDockIcon {
+        if !Preferences[.runInBackground] {
+            if Preferences[.showDockIcon] {
                 NSApp.setActivationPolicy(.regular)
             }
 
-            if Preferences.showStatusBarItem {
+            if Preferences[.showStatusBarItem] {
                 statusBarItemController.showStatusItem()
             }
 

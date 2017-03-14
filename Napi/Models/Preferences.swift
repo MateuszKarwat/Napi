@@ -5,146 +5,143 @@
 
 import Foundation
 
-fileprivate let defaults = UserDefaults.standard
+// This file contains all preferences which are possible to change
+// in order to determine application behaviour.
+//
+// Best way to use these is to access `Preferences` subscript to get
+// or set specific preference. For example:
+//
+//     let showDockIcon = Preferences[.showDockIcon]
+//     Preferences[.runInBackground] = false
+extension Defaults {
 
-/// Utility struct to simplify access to all preferences.
-struct Preferences {
+    // Launch parameters
 
-    // MARK: - Bool Values
+    static let runInBackground                  = DefaultsKey<Bool>("runInBackground")
+    static let pathToScan                       = DefaultsKey<String?>("pathToScan")
 
-    static var runInBackground: Bool {
-        get { return defaults.bool(forKey: "runInBackground") }
-        set { defaults.set(newValue, forKey: "runInBackground") }
+    // Appearance
+
+    static let showDockIcon                     = DefaultsKey<Bool>("showDockIcon")
+    static let showStatusBarItem                = DefaultsKey<Bool>("showStatusBarItem")
+    static let postNotifications                = DefaultsKey<Bool>("postNotifications")
+    static let showDownloadSummary              = DefaultsKey<Bool>("showDownloadSummary")
+    static let closeApplicationWhenFinished     = DefaultsKey<Bool>("closeApplicationWhenFinished")
+
+    // Directory Scanner
+
+    static let shallowSearch                    = DefaultsKey<Bool>("shallowSearch")
+
+    // Subtitle Downloader
+
+    static let languages                        = DefaultsKey<[Language]>("languages")
+    static let providers                        = DefaultsKey<[SubtitleProvider]>("providers")
+    static let skipAlreadyDownloadedLanguages   = DefaultsKey<Bool>("skipAlreadyDownloadedLanguages")
+    static let downloadLimit                    = DefaultsKey<SubtitleDownloader.DownloadLimit>("downloadLimit")
+
+    // Subtitle Converter
+
+    static let changeEncoding                   = DefaultsKey<Bool>("changeEncoding")
+    static let expectedEncoding                 = DefaultsKey<String.Encoding>("expectedEncoding")
+
+    static let tryToDetermineFrameRate          = DefaultsKey<Bool>("tryToDetermineFrameRate")
+    static let useBackupFrameRate               = DefaultsKey<Bool>("useBackupFrameRate")
+    static let backupFrameRate                  = DefaultsKey<Double>("backupFrameRate")
+
+    static let convertSubtitles                 = DefaultsKey<Bool>("convertSubtitles")
+    static let expectedSubtitleFormat           = DefaultsKey<SupportedSubtitleFormat>("expectedSubtitleFormat")
+
+    static let correctPunctuation               = DefaultsKey<Bool>("correctPunctuation")
+    static let mergeAdjacentWhitespaces         = DefaultsKey<Bool>("mergeAdjacentWhitespaces")
+
+    // Name Matcher
+
+    static let appendLanguageCode               = DefaultsKey<Bool>("appendLanguageCode")
+    static let nameConflictAction               = DefaultsKey<NameMatcher.NameConflictAction>("nameConflictAction")
+}
+
+// MARK: - Core
+
+let Preferences = UserDefaults.standard
+
+class Defaults {
+    fileprivate init() {}
+}
+
+class DefaultsKey<ValueType>: Defaults {
+    let key: String
+
+    init(_ key: String) {
+        self.key = key
+    }
+}
+
+// MARK: - Subscripts
+
+// Subscripts for easy access to `UserDefaults` and mapping different values.
+extension UserDefaults {
+    subscript(key: DefaultsKey<Bool>) -> Bool {
+        get { return bool(forKey: key.key) }
+        set { set(newValue, forKey: key.key) }
     }
 
-    static var showDockIcon: Bool {
-        get { return defaults.bool(forKey: "showDockIcon") }
-        set { defaults.set(newValue, forKey: "showDockIcon") }
+    subscript(key: DefaultsKey<String?>) -> String? {
+        get { return string(forKey: key.key) }
+        set { set(newValue, forKey: key.key) }
     }
 
-    static var showStatusBarItem: Bool {
-        get { return defaults.bool(forKey: "showStatusBarItem") }
-        set { defaults.set(newValue, forKey: "showStatusBarItem") }
+    subscript(key: DefaultsKey<Double>) -> Double {
+        get { return double(forKey: key.key) }
+        set { set(newValue, forKey: key.key) }
     }
 
-    static var shallowSearch: Bool {
-        get { return defaults.bool(forKey: "shallowSearch") }
-        set { defaults.set(newValue, forKey: "shallowSearch") }
+    subscript(key: DefaultsKey<SupportedSubtitleFormat>) -> SupportedSubtitleFormat? {
+        get { return unarchive(key) }
+        set { archive(key, newValue) }
     }
 
-    static var appendLanguageCode: Bool {
-        get { return defaults.bool(forKey: "appendLanguageCode") }
-        set { defaults.set(newValue, forKey: "appendLanguageCode") }
+    subscript(key: DefaultsKey<String.Encoding>) -> String.Encoding {
+        get { return unarchive(key) ?? .utf8 }
+        set { archive(key, newValue) }
     }
 
-    static var mergeAdjacentWhitespaces: Bool {
-        get { return defaults.bool(forKey: "mergeAdjacentWhitespaces") }
-        set { defaults.set(newValue, forKey: "mergeAdjacentWhitespaces") }
+    subscript(key: DefaultsKey<NameMatcher.NameConflictAction>) -> NameMatcher.NameConflictAction {
+        get { return unarchive(key) ?? .backupDestinationItem }
+        set { archive(key, newValue) }
     }
 
-    static var skipAlreadyDownloadedLanguages: Bool {
-        get { return defaults.bool(forKey: "skipAlreadyDownloadedLanguages") }
-        set { defaults.set(newValue, forKey: "skipAlreadyDownloadedLanguages") }
+    subscript(key: DefaultsKey<SubtitleDownloader.DownloadLimit>) -> SubtitleDownloader.DownloadLimit {
+        get { return unarchive(key) ?? .first }
+        set { archive(key, newValue) }
     }
 
-    static var convertSubtitles: Bool {
-        get { return defaults.bool(forKey: "convertSubtitles") }
-        set { defaults.set(newValue, forKey: "convertSubtitles") }
+    subscript(key: DefaultsKey<[Language]>) -> [Language] {
+        get { return stringArray(forKey: key.key)?.map { Language(isoCode: $0) } ?? [] }
+        set { set(newValue.map { $0.isoCode }, forKey: key.key) }
     }
 
-    static var changeEncoding: Bool {
-        get { return defaults.bool(forKey: "changeEncoding") }
-        set { defaults.set(newValue, forKey: "changeEncoding") }
-    }
-
-    static var postNotifications: Bool {
-        get { return defaults.bool(forKey: "postNotifications") }
-        set { defaults.set(newValue, forKey: "postNotifications") }
-    }
-
-    static var closeApplicationWhenFinished: Bool {
-        get { return defaults.bool(forKey: "closeApplicationWhenFinished") }
-        set { defaults.set(newValue, forKey: "closeApplicationWhenFinished") }
-    }
-
-    static var showDownloadSummary: Bool {
-        get { return defaults.bool(forKey: "showDownloadSummary") }
-        set { defaults.set(newValue, forKey: "showDownloadSummary") }
-    }
-
-    static var tryToDetermineFrameRate: Bool {
-        get { return defaults.bool(forKey: "tryToDetermineFrameRate") }
-        set { defaults.set(newValue, forKey: "tryToDetermineFrameRate") }
-    }
-
-    // MARK: - Number Values
-
-    static var backupFrameRate: Double {
-        get { return defaults.double(forKey: "backupFrameRate") }
-        set { defaults.set(newValue, forKey: "backupFrameRate") }
-    }
-
-    // MARK: - Enum Values
-
-    static var expectedSubtitleFormat: SupportedSubtitleFormat {
+    subscript(key: DefaultsKey<[SubtitleProvider]>) -> [SubtitleProvider] {
         get {
-            let stringValue = defaults.string(forKey: "expectedSubtitleFormat") ?? ""
-            return SupportedSubtitleFormat(rawValue: stringValue) ?? .subRip
-        }
-
-        set { defaults.set(newValue.rawValue, forKey: "expectedSubtitleFormat") }
-    }
-
-    static var expectedEncoding: String.Encoding {
-        get {
-            let integerValue = defaults.integer(forKey: "expectedEncoding")
-            return String.Encoding(rawValue: UInt(integerValue))
-        }
-
-        set { defaults.set(newValue.rawValue, forKey: "expectedEncoding") }
-    }
-
-    static var nameConflictAction: NameMatcher.NameConflictAction {
-        get {
-            let stringValue = defaults.string(forKey: "nameConflictAction") ?? ""
-            return NameMatcher.NameConflictAction(rawValue: stringValue) ?? .override
-        }
-
-        set { defaults.set(newValue.rawValue, forKey: "nameConflictAction") }
-    }
-
-    static var downloadLimit: SubtitleDownloader.DownloadLimit {
-        get {
-            let stringValue = defaults.string(forKey: "downloadLimit") ?? ""
-            return SubtitleDownloader.DownloadLimit(rawValue: stringValue) ?? .firstPerLanguage
-        }
-
-        set { defaults.set(newValue.rawValue, forKey: "downloadLimit") }
-    }
-
-    static var languages: [Language] {
-        get {
-            guard let strings = defaults.stringArray(forKey: "languages") else {
+            guard let strings = stringArray(forKey: "providers") else {
                 return []
             }
 
-            return strings.map { Language(isoCode: $0) }
+            return SupportedSubtitleProvider.allValues.map { $0.instance }.filter { strings.contains($0.name) }
         }
 
-        set { defaults.set(newValue.map { $0.isoCode }, forKey: "languages") }
+        set { set(newValue.map { $0.name }, forKey: key.key) }
+    }
+}
+
+// Helper functions to encode and decode enumerations.
+extension UserDefaults {
+    func archive<T: RawRepresentable>(_ key: DefaultsKey<T>, _ value: T?) {
+        if let value = value {
+            set(value.rawValue, forKey: key.key)
+        }
     }
 
-    static var providers: [SubtitleProvider] {
-        get {
-            guard let strings = defaults.stringArray(forKey: "providers") else {
-                return []
-            }
-
-            return SupportedSubtitleProvider.allValues
-                .map { $0.instance }
-                .filter { strings.contains($0.name) }
-        }
-
-        set { defaults.set(newValue.map { $0.name }, forKey: "providers") }
+    func unarchive<T: RawRepresentable>(_ key: DefaultsKey<T>) -> T? {
+        return object(forKey: key.key).flatMap { T(rawValue: $0 as! T.RawValue) }
     }
 }

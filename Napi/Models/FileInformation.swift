@@ -144,7 +144,7 @@ struct FileInformation {
         return resultString
     }
 
-    /// Tries to determine `frameRate` of a video file.
+    /// Tries to determine `nominalFrameRate` of a video file.
     /// If `frameRate` is not possible to find, `nil` is returned.
     var frameRate: Double? {
         let asset = AVAsset(url: url)

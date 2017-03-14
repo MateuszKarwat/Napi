@@ -2,22 +2,18 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>useBackupFrameRate</key>
+	<true/>
 	<key>postNotifications</key>
 	<false/>
 	<key>closeApplicationWhenFinished</key>
 	<false/>
 	<key>showDownloadSummary</key>
 	<true/>
-	<key>expectedSubtitleFormat</key>
-	<string>subRip</string>
-	<key>backupFrameRate</key>
-	<real>23.976</real>
 	<key>tryToDetermineFrameRate</key>
 	<true/>
 	<key>convertSubtitles</key>
 	<true/>
-	<key>expectedEncoding</key>
-	<string>4</string>
 	<key>changeEncoding</key>
 	<true/>
 	<key>skipAlreadyDownloadedLanguages</key>
@@ -30,14 +26,20 @@
 	<false/>
 	<key>appendLanguageCode</key>
 	<true/>
-	<key>nameConflictAction</key>
-	<string>override</string>
-	<key>downloadLimit</key>
-	<string>firstPerLanguage</string>
 	<key>mergeAdjacentWhitespaces</key>
 	<true/>
 	<key>correctPunctuation</key>
 	<true/>
+	<key>expectedEncoding</key>
+	<integer>4</integer>
+	<key>backupFrameRate</key>
+	<real>23.976</real>
+	<key>expectedSubtitleFormat</key>
+	<string>subRip</string>
+	<key>downloadLimit</key>
+	<string>firstPerLanguage</string>
+	<key>nameConflictAction</key>
+	<string>override</string>
 	<key>providers</key>
 	<array>
 		<string>Napisy24</string>
