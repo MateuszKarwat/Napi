@@ -5,17 +5,21 @@
 
 import Foundation
 
-// TODO: Add comments.
+/// Represents a subtitle provider which is supported,
+/// that is, `SubtitleProvider` protocol is implemented.
 enum SupportedSubtitleProvider {
     case napisy24
     case openSubtitles
     case napiProjekt
 
+    /// Returns an aray with all supported subtitle providers.
     static var allValues: [SupportedSubtitleProvider] {
         return [.napisy24, .openSubtitles, .napiProjekt]
     }
 
-    var type: SubtitleProvider {
+    /// Returns a new instance of corresponding
+    /// with specific subtitle provider.
+    var instance: SubtitleProvider {
         switch self {
         case .napisy24:
             return Napisy24()

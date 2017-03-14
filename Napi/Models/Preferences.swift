@@ -141,7 +141,7 @@ struct Preferences {
             }
 
             return SupportedSubtitleProvider.allValues
-                .map { $0.type }
+                .map { $0.instance }
                 .filter { strings.contains($0.name) }
         }
 
