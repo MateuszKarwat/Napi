@@ -52,7 +52,7 @@ struct Napisy24: SubtitleProvider {
 
             do {
                 let content = try fileManager.contentsOfDirectory(at: extractedArchive, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
-                let onlySubtitles = content.filter { ["txt", "srt"].contains($0.pathExtension) }
+                let onlySubtitles = content.filter { SupportedSubtitleFormat.allFileExtensions.contains($0.pathExtension) }
 
                 if let subtitle = onlySubtitles.first {
                     let extractedSubtitlePath = subtitleEntity.temporaryPathWithoutFormatExtension

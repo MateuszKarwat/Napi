@@ -18,6 +18,11 @@ enum SupportedSubtitleFormat: String {
         return [.mpl2, .microDVD, .subRip, .tmplayer]
     }
 
+    /// Returns a `Set` with file extensions of supported formats.
+    static var allFileExtensions: Set<String> {
+        return Set(self.allValues.map { $0.type.fileExtension })
+    }
+
     /// Returns a type which implements specific subtitle format.
     var type: SubtitleFormat.Type {
         switch self {
