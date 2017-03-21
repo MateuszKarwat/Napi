@@ -45,4 +45,24 @@ extension URL {
         let newName = self.lastPathComponentWithoutExtension + Date().timestamp
         return self.deletingLastPathComponent().appendingPathComponent(newName).appendingPathExtension(self.pathExtension)
     }
+
+    /// Inserts a new path component at the specified position.
+    ///
+    /// - Parameters:
+    ///   - pathComponent: A path component to insert into current path components.
+    ///   - index:         The position at which to insert the new path component.
+    ///
+    /// - Returns: A `URL` with new set of path components.
+    ///            If insertion is not possible, the same `URL` will be returned.
+    func appendingPathComponent(_ pathComponent: String, at index: Int) -> URL {
+        guard var urlComponents = URLComponents(url: self, resolvingAgainstBaseURL: false) else {
+            return self
+        }
+
+        var pathComponents = urlComponents.path.components(separatedBy: "/")
+        pathComponents.insert(pathComponent, at: min(index, pathComponents.endIndex))
+        urlComponents.path = pathComponents.joined(separator: "/")
+
+        return urlComponents.url ?? self
+    }
 }

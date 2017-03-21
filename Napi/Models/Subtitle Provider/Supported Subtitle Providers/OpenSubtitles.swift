@@ -126,9 +126,13 @@ final class OpenSubtitles: SubtitleProvider {
                 guard
                     let languageCode = result.rpcValue(forParameterWithName: "ISO639"),
                     let stringURL = result.rpcValue(forParameterWithName: "ZipDownloadLink"),
-                    let downloadURL = URL(string: stringURL)
+                    var downloadURL = URL(string: stringURL)
                 else {
                     return
+                }
+
+                if let downloadPathIndex = downloadURL.pathComponents.index(of: "download") {
+                    downloadURL = downloadURL.appendingPathComponent("subencoding-utf8", at: downloadPathIndex + 1)
                 }
 
                 let language = Language(isoCode: languageCode)
