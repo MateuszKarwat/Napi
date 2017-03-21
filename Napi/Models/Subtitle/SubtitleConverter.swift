@@ -6,26 +6,12 @@
 import Foundation
 
 enum SubtitleConvertionError: Error {
+    case subtitlesNotLoaded
     case subtitleFormatNotSupported
     case frameRateNotSpecified
 }
 
 final class SubtitleConverter {
-
-    /// Represents a subtitle format detected based on an initial subtitles.
-    let detectedSubtitleFormat: SupportedSubtitleFormat
-
-    /// Represent the very same subtitles passed to the `init` function. 
-    /// In other words, it represents raw subtitles with no modification.
-    let encodedSubtitles: String
-
-    /// Store all detected and decoded entries of subtitles. 
-    /// Entries are found and decoded based on `detectedSubtitleFormat`.
-    /// If there is a substring which wasn't detected, it won't be decoded
-    /// and stored in this array at all.
-    lazy var decodedSubtitles: [Subtitle] = {
-        return self.detectedSubtitleFormat.type.decode(self.encodedSubtitles)
-    }()
 
     /// Represents a delay of subtitles in milliseconds.
     var offset = 0
@@ -57,27 +43,26 @@ final class SubtitleConverter {
     ///     "Ugly , punctuation ." -> "Ugly, punctuation."
     var correctPunctuation = false
 
-    /// Creates a new instance of `SubtitleConverter`.
-    /// At first it tries to detect format of `subtitles.
-    /// Then it decodes all entries.
+    /// Represents a subtitle format detected based on a loaded subtitles.
+    private(set) var detectedSubtitleFormat: SupportedSubtitleFormat?
+
+    /// Represent the very same subtitles passed to the `load(subtitles:)` function.
+    /// In other words, it represents raw subtitles with no modification.
+    private var encodedSubtitles: String?
+
+    /// Tries to detect format of `subtitles` and prepare them for futher conversion.
     ///
     /// - Parameters:
     ///     - subtitles: A `String` with all encoded subtitles.
-    ///     - frameRate: A frame rate in which subtitles are encoded.
-    ///       Usually used by frame based subtitles formats.
     ///
     /// - Throws: An error of type `SubtitleConvertionError`.
     ///   * `subtitleFormatNotSupported` if any `SupportedSubtitleFormat`
     ///     can decode given subtitles.
-    ///
-    /// - Returns: A new instance of `SubtitleConverter` with
-    ///   decoded subtitles as an array of `Subtitle` and detectedSubtitleFormat.
-    init(subtitles: String) throws {
-        self.encodedSubtitles = subtitles
-
+    func load(subtitles: String) throws {
         for format in SupportedSubtitleFormat.allValues {
             if format.type.canDecode(subtitles) {
-                self.detectedSubtitleFormat = format
+                encodedSubtitles = subtitles
+                detectedSubtitleFormat = format
                 return
             }
         }
@@ -94,12 +79,22 @@ final class SubtitleConverter {
     /// - Throws: An error of type `SubtitleConvertionError`.
     ///   * `frameRateNotSpecified` if convertion is from frame based format
     ///     to time based format (or vice versa) and `frameRate` is `nil`.
+    ///   * `subtitlesNotLoaded` if no supported subtitles were passed into 
+    ///     `load(subtitles:)` function.
     ///
     /// - Returns: `String` with encoded subtitles in specified `SupportedSubtitleFormat`.
     func convert(to subtitleFormat: SupportedSubtitleFormat) throws -> String {
+        guard let encodedSubtitles = encodedSubtitles else {
+            throw SubtitleConvertionError.subtitlesNotLoaded
+        }
+
+        guard let detectedSubtitleFormat = detectedSubtitleFormat else {
+            throw SubtitleConvertionError.subtitleFormatNotSupported
+        }
+
         var modifiedSubtitles = [Subtitle]()
 
-        for subtitle in decodedSubtitles {
+        for subtitle in detectedSubtitleFormat.type.decode(encodedSubtitles) {
             var modifiedSubtitle = subtitle
 
             if detectedSubtitleFormat.type.isTimeBased != subtitleFormat.type.isTimeBased {
