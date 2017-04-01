@@ -62,6 +62,24 @@ final class NameMatcher {
         return constructedName
     }
 
+    /// Returns a `URL` which points to matched subtitles.
+    ///
+    /// - Parameters:
+    ///   - subtitleEntity: `SubtitleEntity` which local file should be renamed.
+    ///   - patternURL:     A `URL` to a file which name should be taken as a basename.
+    ///
+    /// - Returns: A `URL` which points to matched subtitles.
+    ///
+    /// - Throws: `NameMatchingError`.
+    func url(for subtitleEntity: SubtitleEntity, matchingFileAt patternURL: URL) throws -> URL {
+        guard patternURL.exists else { throw NameMatchingError.fileAtPatternURLDoesNotExist }
+        guard patternURL.isFile else { throw NameMatchingError.patternURLPointsToADirectory }
+
+        let subtitleName = try name(for: subtitleEntity, matchingFileAt: patternURL)
+
+        return patternURL.deletingLastPathComponent().appendingPathComponent(subtitleName)
+    }
+
     /// Moves file from `SubtitleEntity` to the `patternURL`'s destination
     /// and renames files based on `nameConflictAction`.
     ///
