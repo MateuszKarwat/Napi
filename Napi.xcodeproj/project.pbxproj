@@ -22,6 +22,7 @@
 		200C4BA61C664C8100FBE406 /* MPL2SubtitleFormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200C4BA41C6646B800FBE406 /* MPL2SubtitleFormatTests.swift */; };
 		200C4BA81C66552500FBE406 /* TMPlayerSubtitleFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200C4BA71C66552500FBE406 /* TMPlayerSubtitleFormat.swift */; };
 		200C4BAB1C66565700FBE406 /* SubRipSubtitleFormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200C4BAA1C66565700FBE406 /* SubRipSubtitleFormatTests.swift */; };
+		200D9F491E81A6B000DE8588 /* NapiEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200D9F481E81A6B000DE8588 /* NapiEngine.swift */; };
 		20176E931C6A502500574B5B /* Timestamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20176E921C6A502500574B5B /* Timestamp.swift */; };
 		201D62A91E3A70FF0010A7CA /* URLSession+DataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201D62A81E3A70FF0010A7CA /* URLSession+DataTask.swift */; };
 		201ED1151E2A47AF006392F8 /* DirectoryScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201ED1141E2A47AF006392F8 /* DirectoryScanner.swift */; };
@@ -44,6 +45,7 @@
 		2056CA871E339E5D007BF13A /* ISO-639-NameMapping.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2056CA861E339E5D007BF13A /* ISO-639-NameMapping.plist */; };
 		2057DBAF1E0433C70049DC3A /* SubtitleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2057DBAE1E0433C70049DC3A /* SubtitleEntity.swift */; };
 		2057DBB11E0436C30049DC3A /* SubtitleEntityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2057DBB01E0436C30049DC3A /* SubtitleEntityTests.swift */; };
+		206548581E914B080011DED8 /* NapiEngineDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206548571E914B080011DED8 /* NapiEngineDelegate.swift */; };
 		206C09811E7738810025B637 /* NSUserNotificationCenter+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206C09801E7738810025B637 /* NSUserNotificationCenter+URL.swift */; };
 		208625CB1D4513A800B6DEF6 /* Int+Timestamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208625CA1D4513A800B6DEF6 /* Int+Timestamp.swift */; };
 		208BF2AD1D7316FC00111F4D /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208BF2AC1D7316FC00111F4D /* String+MD5.swift */; };
@@ -120,6 +122,7 @@
 		200C4BA41C6646B800FBE406 /* MPL2SubtitleFormatTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPL2SubtitleFormatTests.swift; sourceTree = "<group>"; };
 		200C4BA71C66552500FBE406 /* TMPlayerSubtitleFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMPlayerSubtitleFormat.swift; sourceTree = "<group>"; };
 		200C4BAA1C66565700FBE406 /* SubRipSubtitleFormatTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubRipSubtitleFormatTests.swift; sourceTree = "<group>"; };
+		200D9F481E81A6B000DE8588 /* NapiEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NapiEngine.swift; sourceTree = "<group>"; };
 		20176E921C6A502500574B5B /* Timestamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Timestamp.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		201D62A81E3A70FF0010A7CA /* URLSession+DataTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLSession+DataTask.swift"; sourceTree = "<group>"; };
 		201ED1141E2A47AF006392F8 /* DirectoryScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectoryScanner.swift; sourceTree = "<group>"; };
@@ -142,6 +145,7 @@
 		2056CA861E339E5D007BF13A /* ISO-639-NameMapping.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ISO-639-NameMapping.plist"; sourceTree = "<group>"; };
 		2057DBAE1E0433C70049DC3A /* SubtitleEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitleEntity.swift; sourceTree = "<group>"; };
 		2057DBB01E0436C30049DC3A /* SubtitleEntityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitleEntityTests.swift; sourceTree = "<group>"; };
+		206548571E914B080011DED8 /* NapiEngineDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NapiEngineDelegate.swift; sourceTree = "<group>"; };
 		206C09801E7738810025B637 /* NSUserNotificationCenter+URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSUserNotificationCenter+URL.swift"; sourceTree = "<group>"; };
 		208625CA1D4513A800B6DEF6 /* Int+Timestamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "Int+Timestamp.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		208BF2A91D73073500111F4D /* Napi-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Napi-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -281,6 +285,7 @@
 			children = (
 				20F105C71D327501000E157F /* Extensions */,
 				20A8622B1D5226BA007FEC7C /* Lexer */,
+				206548561E914AF70011DED8 /* NapiEngine */,
 				20A8622C1D5226C1007FEC7C /* Subtitle */,
 				202F3B341E6C2E7F00BDB148 /* Subtitle Downloader */,
 				200780C91C64F2C80098B026 /* Subtitle Format */,
@@ -339,6 +344,16 @@
 				20DF1F4B1E335673003A3491 /* OpenSubtitles.swift */,
 			);
 			path = "Supported Subtitle Providers";
+			sourceTree = "<group>";
+		};
+		206548561E914AF70011DED8 /* NapiEngine */ = {
+			isa = PBXGroup;
+			children = (
+				200D9F481E81A6B000DE8588 /* NapiEngine.swift */,
+				206548571E914B080011DED8 /* NapiEngineDelegate.swift */,
+			);
+			name = NapiEngine;
+			path = NapiEngine;
 			sourceTree = "<group>";
 		};
 		206F86FD1D30066000C1585E /* Subtitle Formats */ = {
@@ -539,6 +554,7 @@
 				202F3B401E6C2F6000BDB148 /* SubtitleOperation.swift in Sources */,
 				2049F3DB1E755C580083547D /* Preferences.swift in Sources */,
 				20909F141D9C2631004622B0 /* Disctionary+HTTPBodyFormat.swift in Sources */,
+				200D9F491E81A6B000DE8588 /* NapiEngine.swift in Sources */,
 				206C09811E7738810025B637 /* NSUserNotificationCenter+URL.swift in Sources */,
 				200364F61CFE0EEA00A09CEA /* Lexer.swift in Sources */,
 				20C394651E055E3600EB7D63 /* NameMatcher.swift in Sources */,
@@ -564,6 +580,7 @@
 				20EFC2FA1E3A549100004CB1 /* XMLRPCDocument.swift in Sources */,
 				202F8DE41E0301B800F225D8 /* Language.swift in Sources */,
 				20DFA6691E2A5D0F0073ED45 /* NapiProjekt.swift in Sources */,
+				206548581E914B080011DED8 /* NapiEngineDelegate.swift in Sources */,
 				204CCC181E7071AD00A4F974 /* UserDefaults+RegisterDefaults.swift in Sources */,
 				208C77881E6F427C00ED7394 /* FileInformation.swift in Sources */,
 				201D62A91E3A70FF0010A7CA /* URLSession+DataTask.swift in Sources */,
