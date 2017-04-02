@@ -205,13 +205,15 @@ class SubtitleConverterModificationTests: XCTestCase {
 
     func testCorrectPunctuation() {
         let subtitleConverter = SubtitleConverter()
-        try! subtitleConverter.load(subtitles: "01:12:33:Ugly ?! , punctuation .")
+        try! subtitleConverter.load(subtitles: "01:12:33:Ugly ?! , punctuation . And - more ; .")
 
         subtitleConverter.correctPunctuation = true
 
         let convertedSubtitles = try! subtitleConverter.convert(to: .tmplayer)
 
-        XCTAssertEqual(convertedSubtitles, "01:12:33:Ugly?!, punctuation.")
+        XCTAssertEqual(convertedSubtitles, "01:12:33:Ugly?!, punctuation. And - more;.")
+
+
     }
 
 }
