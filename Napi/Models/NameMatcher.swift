@@ -62,7 +62,7 @@ final class NameMatcher {
         return constructedName
     }
 
-    /// Returns a `URL` which points to matched subtitles.
+    /// Returns a `URL` without path extension which points to matched subtitles.
     ///
     /// - Parameters:
     ///   - subtitleEntity: `SubtitleEntity` which local file should be renamed.
