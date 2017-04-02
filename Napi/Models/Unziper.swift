@@ -19,6 +19,7 @@ struct Unziper {
         guard fileURL.isFile, fileURL.exists else { return }
 
         let unzipProcess = Process()
+        unzipProcess.standardOutput = nil
         unzipProcess.launchPath = "/usr/bin/unzip"
         unzipProcess.currentDirectoryPath = fileURL.deletingLastPathComponent().path
         unzipProcess.arguments = []
