@@ -21,6 +21,8 @@ extension Data {
             output += String(format: "%02x", md5Buffer[i])
         }
 
+        md5Buffer.deallocate(capacity: digestLength)
+
         return output
     }
 }
