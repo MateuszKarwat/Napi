@@ -31,7 +31,7 @@ final class SubtitleDownloader {
     ///               When everything is done, state will be changed to `ready`.
     /// - cancelling: `SubtitleDownloader` is trying to cancel all operations.
     ///               Once all operations are cancelled, state will be changed to `ready`.
-    enum State {
+    enum Status {
         case ready
         case executing
         case cancelling
@@ -55,12 +55,17 @@ final class SubtitleDownloader {
     /// Indicates a state in which `SubtitleDownloader` currently is.
     /// Delegate's method `subtitleDownloaderDidChangeStatus(:)` is called for every
     /// new state.
-    private(set) var state: State = .ready {
+    private(set) var status: Status = .ready {
         didSet {
-            if state != oldValue {
+            if status != oldValue {
                 delegate?.subtitleDownloaderDidChangeStatus(self)
             }
         }
+    }
+
+    /// Returns number of remaining operations in a queue.
+    var operationsCount: Int {
+        return remainingSubtitleOperations.count
     }
 
     // MARK: Private Properties
@@ -142,7 +147,7 @@ final class SubtitleDownloader {
     ///
     /// - Important: Method leaves its execution immediately if `state` is not `ready`.
     func searchSubtitles(forFileAt url: URL, skipAlreadyDownloadedLanguages: Bool) {
-        guard state == .ready else {
+        guard status == .ready else {
             return
         }
 
@@ -159,7 +164,7 @@ final class SubtitleDownloader {
             }
         }
 
-        state = .executing
+        status = .executing
         performSearchOperation()
     }
 
@@ -167,7 +172,7 @@ final class SubtitleDownloader {
     /// and discards all futhers operations. It immediately changes `state` to `cancelling`.
     /// Once all above tasks are done, `state` will be set back to `ready`.
     func cancel() {
-        state = .cancelling
+        status = .cancelling
         queue.cancelAllOperations()
     }
 
@@ -181,10 +186,10 @@ final class SubtitleDownloader {
         prepareForNextSearchOperation()
 
         guard
-            state != .cancelling,
+            status != .cancelling,
             let url = currentFileURL,
             let subtitleOperation = currentSubtitleOperation else {
-                state = .ready
+                status = .ready
                 return
         }
 
@@ -193,7 +198,7 @@ final class SubtitleDownloader {
                 return
             }
 
-            if strongSelf.state != .cancelling {
+            if strongSelf.status != .cancelling {
                 if let entities = entities, entities.isNotEmpty {
                     strongSelf.subtitleEntitiesFromLastSearch = entities
                     strongSelf.notifyDelegate(subtitleDownloader: .didFindSubtitles)
@@ -208,7 +213,7 @@ final class SubtitleDownloader {
         if let searchOperation = searchOperation {
             notifyDelegate(subtitleDownloader: .willSearchSubtitles)
 
-            if state != .cancelling {
+            if status != .cancelling {
                 queue.addOperation(searchOperation)
                 return
             }
@@ -226,7 +231,7 @@ final class SubtitleDownloader {
         prepareForNextDownloadOperation()
 
         guard
-            state != .cancelling,
+            status != .cancelling,
             let subtitleOperation = currentSubtitleOperation,
             let entityToDownload = subtitleEntitiesFromLastSearch.first else {
                 performSearchOperation()
@@ -240,7 +245,7 @@ final class SubtitleDownloader {
                 return
             }
 
-            if let entity = entity, strongSelf.state != .cancelling {
+            if let entity = entity, strongSelf.status != .cancelling {
                 strongSelf.downloadedSubtitles.append(entity)
                 strongSelf.notifyDelegate(subtitleDownloader: .didDownloadSubtitles)
             }
@@ -248,10 +253,10 @@ final class SubtitleDownloader {
             strongSelf.performDownloadOperation()
         }
 
-        if let downloadOperation = downloadOperation, state != .cancelling {
+        if let downloadOperation = downloadOperation, status != .cancelling {
             notifyDelegate(subtitleDownloader: .willDownloadSubtitles)
 
-            if state != .cancelling {
+            if status != .cancelling {
                 queue.addOperation(downloadOperation)
                 return
             }
