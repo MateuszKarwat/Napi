@@ -145,14 +145,14 @@ final class OpenSubtitles: SubtitleProvider {
     private func searchRequest(with searchCriteria: SearchCriteria) -> URLRequest? {
         guard
             let fileInformation = FileInformation(url: searchCriteria.fileURL),
-            let md5 = fileInformation.md5(chunkSize: 10 * 1024 * 1024)
+            let checksum = fileInformation.checksum
         else {
             return nil
         }
 
         var parameters = [String: String]()
         parameters["sublanguageid"] = searchCriteria.language.isoCodeLong
-        parameters["moviehash"] = md5
+        parameters["moviehash"] = checksum
         parameters["moviebytesize"] = String(fileInformation.size)
 
         return urlRequest(with: searchSubtitlesXML(parameters: parameters))
