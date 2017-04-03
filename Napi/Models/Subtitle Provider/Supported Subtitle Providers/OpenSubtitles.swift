@@ -167,12 +167,15 @@ final class OpenSubtitles: SubtitleProvider {
         let request = urlRequest(with: loginXML())
 
         let dataTask = URLSession.shared.dataTask(with: request) { data, encoding in
+            defer {
+                completionHandler()
+            }
+
             guard
                 let data = data,
                 let encoding = encoding,
                 let stringResponse = String(data: data, encoding: encoding)
             else {
-                completionHandler()
                 return
             }
 
@@ -181,10 +184,7 @@ final class OpenSubtitles: SubtitleProvider {
                 let structNodes = try xmlDocument.nodes(forXPath: "//struct")
 
                 self.token = structNodes.first?.rpcValue(forParameterWithName: "token")
-                completionHandler()
-            } catch {
-                completionHandler()
-            }
+            } catch { }
         }
 
         dataTask.resume()
