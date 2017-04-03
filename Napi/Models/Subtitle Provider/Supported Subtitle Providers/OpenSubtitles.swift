@@ -16,33 +16,26 @@ final class OpenSubtitles: SubtitleProvider {
     let homepage = URL(string: "https://www.opensubtitles.org")!
 
     func searchSubtitles(using searchCritera: SearchCriteria, completionHandler: @escaping ([SubtitleEntity]) -> Void) {
-        guard let searchRequest = searchRequest(with: searchCritera) else {
-            completionHandler([])
-            return
-        }
-
-        let dataTask = URLSession.shared.dataTask(with: searchRequest) { data, encoding in
-            guard
-                let data = data,
-                let encoding = encoding,
-                let stringResponse = String(data: data, encoding: encoding)
-            else {
+        requestToken {
+            guard let searchRequest = self.searchRequest(with: searchCritera) else {
                 completionHandler([])
                 return
             }
 
-            completionHandler(self.subtitleEntities(from: stringResponse))
-        }
-
-        if token != nil {
-            dataTask.resume()
-        } else {
-            requestToken { receivedToken in
-                if let receivedToken = receivedToken {
-                    self.token = receivedToken
-                    dataTask.resume()
+            let dataTask = URLSession.shared.dataTask(with: searchRequest) { data, encoding in
+                guard
+                    let data = data,
+                    let encoding = encoding,
+                    let stringResponse = String(data: data, encoding: encoding)
+                    else {
+                        completionHandler([])
+                        return
                 }
+
+                completionHandler(self.subtitleEntities(from: stringResponse))
             }
+
+            dataTask.resume()
         }
     }
 
@@ -165,7 +158,12 @@ final class OpenSubtitles: SubtitleProvider {
         return urlRequest(with: searchSubtitlesXML(parameters: parameters))
     }
 
-    private func requestToken(completionHandler: @escaping (String?) -> Void) {
+    private func requestToken(completionHandler: @escaping () -> Void) {
+        guard token == nil else {
+            completionHandler()
+            return
+        }
+
         let request = urlRequest(with: loginXML())
 
         let dataTask = URLSession.shared.dataTask(with: request) { data, encoding in
@@ -174,7 +172,7 @@ final class OpenSubtitles: SubtitleProvider {
                 let encoding = encoding,
                 let stringResponse = String(data: data, encoding: encoding)
             else {
-                completionHandler(nil)
+                completionHandler()
                 return
             }
 
@@ -182,9 +180,10 @@ final class OpenSubtitles: SubtitleProvider {
                 let xmlDocument = try XMLDocument(xmlString: stringResponse, options: 0)
                 let structNodes = try xmlDocument.nodes(forXPath: "//struct")
 
-                completionHandler(structNodes.first?.rpcValue(forParameterWithName: "token"))
+                self.token = structNodes.first?.rpcValue(forParameterWithName: "token")
+                completionHandler()
             } catch {
-                completionHandler(nil)
+                completionHandler()
             }
         }
 
