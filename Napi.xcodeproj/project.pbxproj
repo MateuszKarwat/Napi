@@ -52,6 +52,9 @@
 		208BF2AF1D73170700111F4D /* Data+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208BF2AE1D73170700111F4D /* Data+MD5.swift */; };
 		208C77881E6F427C00ED7394 /* FileInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208C77871E6F427C00ED7394 /* FileInformation.swift */; };
 		20909F141D9C2631004622B0 /* Disctionary+HTTPBodyFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20909F131D9C2631004622B0 /* Disctionary+HTTPBodyFormat.swift */; };
+		2091C0D61E94203900B2D953 /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2091C0D51E94203900B2D953 /* SwiftyBeaver.framework */; };
+		2091C0D71E94203900B2D953 /* SwiftyBeaver.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2091C0D51E94203900B2D953 /* SwiftyBeaver.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2091C0DB1E94209100B2D953 /* SwiftyBeaver.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2091C0DA1E94209100B2D953 /* SwiftyBeaver.framework.dSYM */; };
 		209451621E7726A8001861CE /* SupportedSubtitleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209451611E7726A8001861CE /* SupportedSubtitleProvider.swift */; };
 		209FA9671D2FE4FD00C54DCA /* TokenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209FA9661D2FE4FD00C54DCA /* TokenTests.swift */; };
 		20A2C6B21E7075DF005131C8 /* DraggingDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A2C6B11E7075DF005131C8 /* DraggingDestinationView.swift */; };
@@ -96,8 +99,19 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				2091C0D71E94203900B2D953 /* SwiftyBeaver.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2091C0D91E94208100B2D953 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				2091C0DB1E94209100B2D953 /* SwiftyBeaver.framework.dSYM in CopyFiles */,
+			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -153,6 +167,8 @@
 		208BF2AE1D73170700111F4D /* Data+MD5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+MD5.swift"; sourceTree = "<group>"; };
 		208C77871E6F427C00ED7394 /* FileInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileInformation.swift; sourceTree = "<group>"; };
 		20909F131D9C2631004622B0 /* Disctionary+HTTPBodyFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Disctionary+HTTPBodyFormat.swift"; sourceTree = "<group>"; };
+		2091C0D51E94203900B2D953 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/Mac/SwiftyBeaver.framework; sourceTree = "<group>"; };
+		2091C0DA1E94209100B2D953 /* SwiftyBeaver.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftyBeaver.framework.dSYM; path = Carthage/Build/Mac/SwiftyBeaver.framework.dSYM; sourceTree = "<group>"; };
 		209451611E7726A8001861CE /* SupportedSubtitleProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportedSubtitleProvider.swift; sourceTree = "<group>"; };
 		209FA95F1D2FC04D00C54DCA /* LexerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LexerTests.swift; sourceTree = "<group>"; };
 		209FA9661D2FE4FD00C54DCA /* TokenTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenTests.swift; sourceTree = "<group>"; };
@@ -185,6 +201,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2091C0D61E94203900B2D953 /* SwiftyBeaver.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,6 +229,7 @@
 		2007805B1C64AE4F0098B026 = {
 			isa = PBXGroup;
 			children = (
+				2091C0D81E94205100B2D953 /* Frameworks */,
 				200780661C64AE4F0098B026 /* Napi */,
 				200780781C64AE4F0098B026 /* NapiTests */,
 				200780651C64AE4F0098B026 /* Products */,
@@ -352,7 +370,6 @@
 				200D9F481E81A6B000DE8588 /* NapiEngine.swift */,
 				206548571E914B080011DED8 /* NapiEngineDelegate.swift */,
 			);
-			name = NapiEngine;
 			path = NapiEngine;
 			sourceTree = "<group>";
 		};
@@ -365,6 +382,15 @@
 				200780CC1C64F3F90098B026 /* TMPlayerSubtitleFormatTests.swift */,
 			);
 			path = "Subtitle Formats";
+			sourceTree = "<group>";
+		};
+		2091C0D81E94205100B2D953 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2091C0DA1E94209100B2D953 /* SwiftyBeaver.framework.dSYM */,
+				2091C0D51E94203900B2D953 /* SwiftyBeaver.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		20A8622B1D5226BA007FEC7C /* Lexer */ = {
@@ -428,6 +454,7 @@
 				200780621C64AE4F0098B026 /* Resources */,
 				202C930C1DDCD23A0083658E /* Embed Frameworks */,
 				2027E6B11E5F5713002C17EA /* ShellScript */,
+				2091C0D91E94208100B2D953 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -728,7 +755,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_OPTIMIZATION_PROFILE_FILE = "$(SRCROOT)/OptimizationProfiles/$(PROJECT_NAME).profdata";
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/Mac";
 				INFOPLIST_FILE = "$(SRCROOT)/Napi/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
@@ -746,7 +773,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "";
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/Mac";
 				INFOPLIST_FILE = "$(SRCROOT)/Napi/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.12;

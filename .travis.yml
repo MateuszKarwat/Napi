@@ -14,6 +14,10 @@ env:
   - SCHEME=Napi
 
 script:
+  - brew update
+  - brew outdated carthage || brew upgrade carthage
+  - carthage version
+  - carthage update --platform macOS
   - xcodebuild -version
   - xcodebuild -showsdks
   - xcodebuild -project "$PROJECT" -scheme "$SCHEME" ONLY_ACTIVE_ARCH=NO -sdk macosx10.12 build | xcpretty

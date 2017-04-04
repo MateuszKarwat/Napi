@@ -4,6 +4,9 @@
 //
 
 import Cocoa
+import SwiftyBeaver
+
+let log = SwiftyBeaver.self
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -24,7 +27,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         UserDefaults.standard.registerDefaultSettings()
-
+        setupSwiftyBeaver()
         setupApplicationActivationPolicy()
     }
 
@@ -102,5 +105,28 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         dump(onlyVideos)
 
         queuedPaths = []
+    }
+
+    // MARK: - SwiftyBeaver
+
+    private func setupSwiftyBeaver() {
+        let file = FileDestination()
+        let console = ConsoleDestination()
+
+        if let cachesURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first,
+            let bundleName = Bundle.main.bundleIdentifier {
+            let logURL = cachesURL
+                .appendingPathComponent(bundleName, isDirectory: true)
+                .appendingPathComponent("Napi.log")
+            file.logFileURL = logURL
+        }
+
+        _ = file.deleteLogFile()
+
+        file.format = "$Dyyyy-MM-dd HH:mm:ss.SSS$d $C$L$c - $M"
+        console.format = "$Dyyyy-MM-dd HH:mm:ss.SSS$d $C$L$c - $M"
+
+        log.addDestination(file)
+        log.addDestination(console)
     }
 }
