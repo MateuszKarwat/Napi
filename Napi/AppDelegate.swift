@@ -123,8 +123,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         _ = file.deleteLogFile()
 
-        file.format = "$Dyyyy-MM-dd HH:mm:ss.SSS$d $C$L$c - $M"
-        console.format = "$Dyyyy-MM-dd HH:mm:ss.SSS$d $C$L$c - $M"
+        file.format = "$Dyyyy-MM-dd HH:mm:ss.SSS$d $C$L$c\t$N - $M"
+        console.format = "$Dyyyy-MM-dd HH:mm:ss.SSS$d $C$L$c \t$N - $M"
 
         log.addDestination(file)
         log.addDestination(console)
