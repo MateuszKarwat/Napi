@@ -59,14 +59,19 @@ final class SubtitleConverter {
     ///   * `subtitleFormatNotSupported` if any `SupportedSubtitleFormat`
     ///     can decode given subtitles.
     func load(subtitles: String) throws {
+        log.verbose("Trying to detect subtitles format.")
+
         for format in SupportedSubtitleFormat.allValues {
             if format.type.canDecode(subtitles) {
                 encodedSubtitles = subtitles
                 detectedSubtitleFormat = format
+
+                log.verbose("Detected subtitles format \(format).")
                 return
             }
         }
 
+        log.warning("Subtitles are in unsupported format.")
         throw SubtitleConvertionError.subtitleFormatNotSupported
     }
 
@@ -92,6 +97,8 @@ final class SubtitleConverter {
             throw SubtitleConvertionError.subtitleFormatNotSupported
         }
 
+        log.verbose("Converting subtitles to \(subtitleFormat.rawValue).")
+
         var modifiedSubtitles = [Subtitle]()
 
         for subtitle in detectedSubtitleFormat.type.decode(encodedSubtitles) {
@@ -99,6 +106,7 @@ final class SubtitleConverter {
 
             if detectedSubtitleFormat.type.isTimeBased != subtitleFormat.type.isTimeBased {
                 guard let frameRate = frameRate else {
+                    log.error("Convertion is from/to frame rate format to/from time based format, but frame rate is not provided.")
                     throw SubtitleConvertionError.frameRateNotSpecified
                 }
 
@@ -110,15 +118,9 @@ final class SubtitleConverter {
             if mergeAdjacentWhitespaces { modifiedSubtitle.mergeAdjacentWhitespaces() }
             if correctPunctuation { modifiedSubtitle.correctPunctuation() }
 
-            var convertedText = ""
-            for token in modifiedSubtitle.tokenizedText {
-                if let tokenString = subtitleFormat.type.stringValue(for: token) {
-                    convertedText += tokenString
-                } else {
-                    convertedText += token.lexeme
-                }
+            modifiedSubtitle.text = modifiedSubtitle.tokenizedText.reduce("") { result, token in
+                return result + (subtitleFormat.type.stringValue(for: token) ?? token.lexeme)
             }
-            modifiedSubtitle.text = convertedText
 
             modifiedSubtitles.append(modifiedSubtitle)
         }

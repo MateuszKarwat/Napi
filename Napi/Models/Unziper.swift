@@ -35,7 +35,9 @@ struct Unziper {
             unzipProcess.arguments?.append(contentsOf: ["-d", destination.path])
         }
 
+        log.verbose("Unzipping archive.")
         unzipProcess.launch()
         unzipProcess.waitUntilExit()
+        log.verbose("Archive has been unzipped.")
     }
 }

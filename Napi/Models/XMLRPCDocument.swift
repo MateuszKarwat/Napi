@@ -69,7 +69,8 @@ extension XMLNode {
             let matchedParameters = try self.nodes(forXPath: ".//*[text()='\(name)']")
 
             return matchedParameters.first?.nextSibling?.stringValue
-        } catch {
+        } catch let error {
+            log.error(error.localizedDescription)
             return nil
         }
     }

@@ -36,27 +36,44 @@ final class TemporaryDirectoryManager {
 
     /// Tries to create temporary directory.
     func createTemporaryDirectory() {
-        try? fileManager.createDirectory(at: temporaryDirectory, withIntermediateDirectories: false, attributes: nil)
+        if !temporaryDirectory.exists {
+            do {
+                try fileManager.createDirectory(at: temporaryDirectory, withIntermediateDirectories: false, attributes: nil)
+            } catch let error {
+                log.error(error.localizedDescription)
+            }
+        }
     }
 
     /// Returns paths to all files and directories inside temporary directory.
     var contentsOfTemporaryDirectory: [URL] {
         do {
             return try fileManager.contentsOfDirectory(at: temporaryDirectory, includingPropertiesForKeys: nil, options: [])
-        } catch {
+        } catch let error {
+            log.error(error.localizedDescription)
             return []
         }
     }
 
     /// Removes temporary directory with all its content.
     func removeTemporaryDirectory() {
-        try? fileManager.removeItem(at: temporaryDirectory)
+        if temporaryDirectory.exists {
+            do {
+                try fileManager.removeItem(at: temporaryDirectory)
+            } catch let error {
+                log.error(error.localizedDescription)
+            }
+        }
     }
 
     /// Removes all files and directories inside temporary directory.
     func cleanupTemporaryDirectory() {
         contentsOfTemporaryDirectory.forEach {
-            try? fileManager.removeItem(at: $0)
+            do {
+                try fileManager.removeItem(at: $0)
+            } catch let error {
+                log.error(error.localizedDescription)
+            }
         }
     }
 }

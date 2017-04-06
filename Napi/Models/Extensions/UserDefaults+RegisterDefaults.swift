@@ -22,7 +22,8 @@ extension UserDefaults {
             if let plistData = plistData {
                 self.register(defaults: plistData)
             }
-        } catch {
+        } catch let error {
+            log.error(error.localizedDescription)
             return
         }
     }

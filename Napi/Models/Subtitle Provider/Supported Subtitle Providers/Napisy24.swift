@@ -10,12 +10,17 @@ struct Napisy24: SubtitleProvider {
     let homepage = URL(string: "http://napisy24.pl")!
 
     func searchSubtitles(using searchCritera: SearchCriteria, completionHandler: @escaping ([SubtitleEntity]) -> Void) {
+        log.info("Sending search request.")
+
         guard let searchRequest = searchRequest(with: searchCritera) else {
+            log.warning("Search request couldn't be created.")
             completionHandler([])
             return
         }
 
         let dataTask = URLSession.shared.dataTask(with: searchRequest) { data, encoding in
+            log.info("Search response received.")
+
             guard
                 let data = data,
                 let encoding = encoding,
@@ -33,6 +38,8 @@ struct Napisy24: SubtitleProvider {
     }
 
     func download(_ subtitleEntity: SubtitleEntity, completionHandler: @escaping (SubtitleEntity?) -> Void) {
+        log.info("Downloading subtitles.")
+
         var downloadedSubtitleEntity: SubtitleEntity? = nil
 
         defer {
@@ -65,10 +72,13 @@ struct Napisy24: SubtitleProvider {
                     downloadedSubtitleEntity = subtitleEntity
                     downloadedSubtitleEntity?.format = .text
                     downloadedSubtitleEntity?.url = extractedSubtitlePath
+
+                    log.info("Subtitles downloaded.")
                 } else {
                     return
                 }
-            } catch {
+            } catch let error {
+                log.error(error.localizedDescription)
                 return
             }
         }
@@ -77,10 +87,13 @@ struct Napisy24: SubtitleProvider {
     }
 
     private func subtitleEntity(from stringResponse: String, in language: Language) -> SubtitleEntity? {
+        log.verbose("Parsing search response.")
+
         guard
             stringResponse.substring(to: 4) == "OK-2",
             let archiveStartIndex = stringResponse.range(of: "||")?.upperBound
         else {
+            log.verbose("Subtitles has not been found.")
             return nil
         }
 
@@ -92,7 +105,10 @@ struct Napisy24: SubtitleProvider {
             TemporaryDirectoryManager.default.createTemporaryDirectory()
 
             try archiveData?.write(to: subtitleEntity.url)
-        } catch {
+
+            log.verbose("Subtitles has been found.")
+        } catch let error {
+            log.error(error.localizedDescription)
             return nil
         }
 
