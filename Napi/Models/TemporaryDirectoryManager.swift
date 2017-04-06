@@ -38,6 +38,7 @@ final class TemporaryDirectoryManager {
     func createTemporaryDirectory() {
         if !temporaryDirectory.exists {
             do {
+                log.info("Creating temporary directory.")
                 try fileManager.createDirectory(at: temporaryDirectory, withIntermediateDirectories: false, attributes: nil)
             } catch let error {
                 log.error(error.localizedDescription)
@@ -59,6 +60,7 @@ final class TemporaryDirectoryManager {
     func removeTemporaryDirectory() {
         if temporaryDirectory.exists {
             do {
+                log.info("Removing temporary directory.")
                 try fileManager.removeItem(at: temporaryDirectory)
             } catch let error {
                 log.error(error.localizedDescription)
@@ -70,6 +72,7 @@ final class TemporaryDirectoryManager {
     func cleanupTemporaryDirectory() {
         contentsOfTemporaryDirectory.forEach {
             do {
+                log.info("Cleaning temporary directory.")
                 try fileManager.removeItem(at: $0)
             } catch let error {
                 log.error(error.localizedDescription)
