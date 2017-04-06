@@ -25,6 +25,16 @@ final class NapiEngine {
     /// A reference to object implementing `NapiEngineDelegate` protocol.
     var delegate: NapiEngineDelegate?
 
+    /// A state in which `NapiEngine` currently is.
+    fileprivate(set) var status: Status = .idle {
+        didSet {
+            delegate?.napiEngineDidChangeStatus(self)
+        }
+    }
+
+    /// Contains all informations which tell what `NapiEngine` is currently processing.
+    fileprivate(set) var statusInfo: StatusInfo?
+
     // MARK: Private
 
     fileprivate let directoryScanner = DirectoryScanner.self
@@ -33,7 +43,7 @@ final class NapiEngine {
     fileprivate let nameMatcher = NameMatcher()
 
     fileprivate var unprocessedVideoFiles = [URL]()
-    fileprivate var currentlyProcessedVideo: URL?
+    fileprivate var currentVideoFile: URL!
 
     // MARK: - Initialization
 
@@ -72,6 +82,7 @@ final class NapiEngine {
     }
 
     func cancel() {
+        log.info("Canceling.")
         // TODO: Implement option to cancel an execution of the engine.
     }
 
@@ -84,15 +95,22 @@ final class NapiEngine {
     fileprivate func initializeDownloadForNextVideo() {
         guard
             subtitleDownloader.status == .ready,
-            unprocessedVideoFiles.isNotEmpty else {
-                delegate?.napiEngineDidFinish(self)
-                return
+            unprocessedVideoFiles.isNotEmpty
+        else {
+            log.info("Finished.")
+
+            statusInfo = nil
+            status = .idle
+            delegate?.napiEngineDidFinish(self)
+
+            return
         }
 
-        let nextVideoFileToProcess = unprocessedVideoFiles.removeFirst()
+        currentVideoFile = unprocessedVideoFiles.removeFirst()
 
-        currentlyProcessedVideo = nextVideoFileToProcess
-        subtitleDownloader.searchSubtitles(forFileAt: nextVideoFileToProcess,
+        log.info("Processing video file \"\(currentVideoFile.lastPathComponent)\". [\(unprocessedVideoFiles.count) left]")
+
+        subtitleDownloader.searchSubtitles(forFileAt: currentVideoFile,
                                            skipAlreadyDownloadedLanguages: Preferences[.skipAlreadyDownloadedLanguages])
     }
 
@@ -102,14 +120,19 @@ final class NapiEngine {
     /// and/or convert subtitles to expected subtitle format.
     ///
     /// - Parameter subtitleEntity: `SubtitleEntity` with subtitles to convert.
-    fileprivate func convert(_ subtitleEntity: SubtitleEntity, usedSubtitleFormat: inout SupportedSubtitleFormat?) {
+    ///
+    /// - Returns: Final format of subtitles based on current and expected format. 
+    ///            If subtitles are in unsupported format `nil` is returned.
+    fileprivate func convert(_ subtitleEntity: SubtitleEntity) -> SupportedSubtitleFormat? {
         guard
             let subtitlesFileInformation = FileInformation(url: subtitleEntity.url),
-            var (subtitles, encoding) = subtitlesFileInformation.encodedString else {
-                return
+            var (subtitles, encoding) = subtitlesFileInformation.encodedString
+        else {
+            return nil
         }
 
-        var isWritingToFileNeeded = false
+        var fileNeedsWriting = false
+        var finalSubtitleFormat: SupportedSubtitleFormat?
 
         convertion: do {
             try subtitleConverter.load(subtitles: subtitles)
@@ -118,28 +141,40 @@ final class NapiEngine {
                 let expectedSubtitleFormat = Preferences[.expectedSubtitleFormat],
                 expectedSubtitleFormat != subtitleConverter.detectedSubtitleFormat,
                 Preferences[.convertSubtitles]
-                else {
-                    usedSubtitleFormat = subtitleConverter.detectedSubtitleFormat
-                    break convertion
+            else {
+                finalSubtitleFormat = subtitleConverter.detectedSubtitleFormat
+                break convertion
             }
 
             updateFrameRateInSubtitleConverter()
             subtitles = try subtitleConverter.convert(to: expectedSubtitleFormat)
-            usedSubtitleFormat = expectedSubtitleFormat
-            isWritingToFileNeeded = true
-        } catch { }
+            finalSubtitleFormat = expectedSubtitleFormat
+            fileNeedsWriting = true
+        } catch let error {
+            log.error(error.localizedDescription)
+        }
+
+        log.info("Detected encoding \(encoding).")
 
         let expectedEncoding = Preferences[.expectedEncoding]
         if Preferences[.changeEncoding] && expectedEncoding != encoding {
+            log.info("Changing encoding to \(expectedEncoding).")
+
             encoding = expectedEncoding
-            isWritingToFileNeeded = true
+            fileNeedsWriting = true
         }
 
-        if isWritingToFileNeeded {
+        if fileNeedsWriting {
             do {
+                log.info("Saving modified subtitles.")
+
                 try subtitles.write(to: subtitleEntity.url, atomically: true, encoding: encoding)
-            } catch { }
+            } catch let error {
+                log.error(error.localizedDescription)
+            }
         }
+
+        return finalSubtitleFormat
     }
 
     /// Clears current `frameRate` value in `subtitleConverter`
@@ -147,18 +182,18 @@ final class NapiEngine {
     private func updateFrameRateInSubtitleConverter() {
         subtitleConverter.frameRate = nil
 
-        guard
-            let videoURL = currentlyProcessedVideo,
-            let videoFileInformation = FileInformation(url: videoURL)
-        else {
+        guard let videoFileInformation = FileInformation(url: currentVideoFile) else {
             return
         }
 
         if Preferences[.tryToDetermineFrameRate] {
+            log.info("Trying to determine video frame rate.")
             if let detectedFrameRate = videoFileInformation.frameRate {
                 subtitleConverter.frameRate = detectedFrameRate
+                log.info("Detected frame rate: \(detectedFrameRate).")
             } else if Preferences[.useBackupFrameRate] {
                 subtitleConverter.frameRate = Preferences[.backupFrameRate]
+                log.info("Using backup frame rate: \(Preferences[.backupFrameRate]).")
             }
         }
     }
@@ -173,90 +208,82 @@ final class NapiEngine {
     ///   - pathExtension:  Extension of a final subtitles file.
     ///
     /// - Returns: A `URL` to the final subtitles.
-    ///
-    /// - Throws: `NameMatchingError` or `FileManager`'s error.
-    fileprivate func match(_ subtitleEntity: SubtitleEntity, pathExtension: String?) throws -> URL {
-        guard let videoURL = currentlyProcessedVideo else {
+    fileprivate func move(_ subtitleEntity: SubtitleEntity, pathExtension: String?) -> URL {
+        do {
+            let movedSubtitles = try nameMatcher.url(for: subtitleEntity, matchingFileAt: currentVideoFile)
+            try nameMatcher.move(subtitleEntity, toMatchFileAt: currentVideoFile, customExtension: pathExtension)
+
+            return movedSubtitles.appendingPathExtension(pathExtension ?? "")
+        } catch let error {
+            log.error(error.localizedDescription)
+
             return subtitleEntity.url
         }
-
-        let movedSubtitles = try nameMatcher.url(for: subtitleEntity, matchingFileAt: videoURL)
-
-        try nameMatcher.move(subtitleEntity, toMatchFileAt: videoURL, customExtension: pathExtension)
-
-        return movedSubtitles.appendingPathExtension(pathExtension ?? "")
     }
 }
 
-// MARK: - ProcessingComponent Type
+// MARK: - Types
 
 extension NapiEngine {
 
+    /// Indicates a state of `NapiEngine`.
+    /// By this value you can tell what `NapiEngine` is currently doing.
+    enum Status {
+
+        /// Nothing is happening.
+        case idle
+
+        /// Search request has been send and engine is waiting for a response.
+        case searching
+
+        /// Download request has been send and engine is waiting for subtitles.
+        case downloading
+
+        /// Subtitles are on disk and engine is converting and detecing subtitles format.
+        case processing
+
+        /// Subtitles are ready and engine is moving them to a destination folder.
+        case moving
+    }
+
     /// A set of informations about what is being currently processed.
-    struct ProcessingComponent {
+    struct StatusInfo {
 
         /// A name of `SubtitleProvider` used to search and download subtitles.
-        let subtitleProviderName: String
+        var subtitleProviderName: String
 
         /// A language of currently processed subtitles.
-        let language: Language
+        var language: Language
 
         /// A `URL` to a video file, which currently is a pattern video.
-        let videoURL: URL
-
-        /// A `URL` to the downloaded subtitles if any.
-        let subtitlesURL: URL?
-
-        /// Creates and returnes a new instance of `ProcessingComponent`.
-        init(searchCriteria: SearchCriteria, subtitleProvider: SubtitleProvider, subtitlesURL: URL? = nil) {
-            self.subtitleProviderName = subtitleProvider.name
-            self.language = searchCriteria.language
-            self.videoURL = searchCriteria.fileURL
-            self.subtitlesURL = subtitlesURL
-        }
+        var videoURL: URL
     }
 }
 
 // MARK: - SubtitleDownloaderDelegate
 
 extension NapiEngine: SubtitleDownloaderDelegate {
-    func subtitleDownloader(_ subtitleDownloader: SubtitleDownloader,
-                            willSearchSubtitlesFor searchCriteria: SearchCriteria,
-                            using subtitleProvider: SubtitleProvider) {
-        let processingComponent = ProcessingComponent(searchCriteria: searchCriteria, subtitleProvider: subtitleProvider)
-        delegate?.napiEngine(self, willSearchSubtitlesFor: processingComponent)
+    func subtitleDownloader(_ subtitleDownloader: SubtitleDownloader, willSearchSubtitlesFor searchCriteria: SearchCriteria, using subtitleProvider: SubtitleProvider) {
+        statusInfo = StatusInfo(subtitleProviderName: subtitleProvider.name, language: searchCriteria.language, videoURL: currentVideoFile)
+
+        log.info("Searching subtitles in \(searchCriteria.language.currentLocaleName ?? searchCriteria.language.isoCode).")
+        status = .searching
     }
 
-    func subtitleDownloader(_ subtitleDownloader: SubtitleDownloader,
-                            willDownloadSubtitlesFor searchCriteria: SearchCriteria,
-                            using subtitleProvider: SubtitleProvider) {
-        let processingComponent = ProcessingComponent(searchCriteria: searchCriteria, subtitleProvider: subtitleProvider)
-        delegate?.napiEngine(self, willDownloadSubtitlesFor: processingComponent)
+
+    func subtitleDownloader(_ subtitleDownloader: SubtitleDownloader, willDownloadSubtitlesFor searchCriteria: SearchCriteria, using subtitleProvider: SubtitleProvider) {
+        status = .downloading
     }
 
-    func subtitleDownloader(_ subtitleDownloader: SubtitleDownloader,
-                            didDownloadSubtitlesFor searchCriteria: SearchCriteria,
-                            using subtitleProvider: SubtitleProvider) {
+    func subtitleDownloader(_ subtitleDownloader: SubtitleDownloader, didDownloadSubtitlesFor searchCriteria: SearchCriteria, using subtitleProvider: SubtitleProvider) {
         if let subtitlesToConvert = subtitleDownloader.downloadedSubtitles.last {
-            let processingComponent = ProcessingComponent(searchCriteria: searchCriteria, subtitleProvider: subtitleProvider)
+            status = .processing
+            let finalSubtitleFormat = convert(subtitlesToConvert)
 
-            delegate?.napiEngine(self, willConvertSubtitlesFor: processingComponent)
+            status = .moving
+            let subtitlesURL = move(subtitlesToConvert, pathExtension: finalSubtitleFormat?.type.fileExtension)
 
-            var subtitleFormat: SupportedSubtitleFormat?
-            convert(subtitlesToConvert, usedSubtitleFormat: &subtitleFormat)
-
-            delegate?.napiEngine(self, willMoveSubtitlesFor: processingComponent)
-
-            let subtitlesURL: URL
-            do {
-                subtitlesURL = try match(subtitlesToConvert, pathExtension: subtitleFormat?.type.fileExtension)
-            } catch {
-                subtitlesURL = subtitlesToConvert.url
-            }
-
-            delegate?.napiEngine(self, didMatchSubtitlesFor: ProcessingComponent(searchCriteria: searchCriteria,
-                                                                                 subtitleProvider: subtitleProvider,
-                                                                                 subtitlesURL: subtitlesURL))
+            delegate?.napiEngine(self, didProvideSubtitlesAt: subtitlesURL)
         }
     }
 
@@ -269,7 +296,3 @@ extension NapiEngine: SubtitleDownloaderDelegate {
         }
     }
 }
-
-
-
-
