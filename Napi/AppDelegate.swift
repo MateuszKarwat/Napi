@@ -119,9 +119,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 .appendingPathComponent(bundleName, isDirectory: true)
                 .appendingPathComponent("Napi.log")
             file.logFileURL = logURL
-        }
 
-        _ = file.deleteLogFile()
+            if let fileInformation = FileInformation(url: logURL), fileInformation.size > 10_000_000 {
+                _ = file.deleteLogFile()
+            }
+        }
 
         file.format = "$Dyyyy-MM-dd HH:mm:ss.SSS$d $C$L$c\t$N - $M"
         console.format = "$Dyyyy-MM-dd HH:mm:ss.SSS$d $C$L$c \t$N - $M"
