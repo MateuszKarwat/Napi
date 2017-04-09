@@ -69,6 +69,8 @@
 		20C394671E05A33E00EB7D63 /* Date+Timestamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C394661E05A33E00EB7D63 /* Date+Timestamp.swift */; };
 		20C989691D36A92C00B16DD2 /* LexerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209FA95F1D2FC04D00C54DCA /* LexerTests.swift */; };
 		20C9896E1D36AB3100B16DD2 /* SubtitleTokenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F105C11D3114A2000E157F /* SubtitleTokenType.swift */; };
+		20DBFCD21E9A5FE600F2C93E /* PreferencesTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DBFCD11E9A5FE600F2C93E /* PreferencesTabViewController.swift */; };
+		20DBFCD41E9A66ED00F2C93E /* Preferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20DBFCD31E9A66ED00F2C93E /* Preferences.storyboard */; };
 		20DF1F4C1E335673003A3491 /* OpenSubtitles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DF1F4B1E335673003A3491 /* OpenSubtitles.swift */; };
 		20DFA6691E2A5D0F0073ED45 /* NapiProjekt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DFA6681E2A5D0F0073ED45 /* NapiProjekt.swift */; };
 		20EF7CFC1C67B1C4005A17A7 /* MicroDVDSubtitleFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EF7CFB1C67B1C4005A17A7 /* MicroDVDSubtitleFormat.swift */; };
@@ -182,6 +184,8 @@
 		20BEECED1E05BDDC0018A5B7 /* NameMatcherTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameMatcherTests.swift; sourceTree = "<group>"; };
 		20C394641E055E3600EB7D63 /* NameMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameMatcher.swift; sourceTree = "<group>"; };
 		20C394661E05A33E00EB7D63 /* Date+Timestamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Timestamp.swift"; sourceTree = "<group>"; };
+		20DBFCD11E9A5FE600F2C93E /* PreferencesTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesTabViewController.swift; sourceTree = "<group>"; };
+		20DBFCD31E9A66ED00F2C93E /* Preferences.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Preferences.storyboard; sourceTree = "<group>"; };
 		20DF1F4B1E335673003A3491 /* OpenSubtitles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenSubtitles.swift; sourceTree = "<group>"; };
 		20DFA6681E2A5D0F0073ED45 /* NapiProjekt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NapiProjekt.swift; sourceTree = "<group>"; };
 		20EF7CFB1C67B1C4005A17A7 /* MicroDVDSubtitleFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MicroDVDSubtitleFormat.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -278,6 +282,7 @@
 		200780841C64AE800098B026 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				20DBFCD51E9A8D0B00F2C93E /* Preferences */,
 				20A2C6B11E7075DF005131C8 /* DraggingDestinationView.swift */,
 				2007806D1C64AE4F0098B026 /* Main.storyboard */,
 				2049F3DC1E75615E0083547D /* MainWindowController.swift */,
@@ -413,6 +418,15 @@
 			path = Subtitle;
 			sourceTree = "<group>";
 		};
+		20DBFCD51E9A8D0B00F2C93E /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				20DBFCD11E9A5FE600F2C93E /* PreferencesTabViewController.swift */,
+				20DBFCD31E9A66ED00F2C93E /* Preferences.storyboard */,
+			);
+			name = Preferences;
+			sourceTree = "<group>";
+		};
 		20F105C71D327501000E157F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -531,6 +545,7 @@
 				2007806C1C64AE4F0098B026 /* Assets.xcassets in Resources */,
 				204CCC1A1E7071E600A4F974 /* DefaultPreferences.plist in Resources */,
 				2007806F1C64AE4F0098B026 /* Main.storyboard in Resources */,
+				20DBFCD41E9A66ED00F2C93E /* Preferences.storyboard in Resources */,
 				2056CA871E339E5D007BF13A /* ISO-639-NameMapping.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -570,6 +585,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2007806A1C64AE4F0098B026 /* ViewController.swift in Sources */,
+				20DBFCD21E9A5FE600F2C93E /* PreferencesTabViewController.swift in Sources */,
 				20A2C6B21E7075DF005131C8 /* DraggingDestinationView.swift in Sources */,
 				20F5D23A1DFF025E00FA9BAC /* TemporaryDirectoryManager.swift in Sources */,
 				200780681C64AE4F0098B026 /* AppDelegate.swift in Sources */,
