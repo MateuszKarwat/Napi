@@ -56,6 +56,10 @@
 		2091C0D71E94203900B2D953 /* SwiftyBeaver.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2091C0D51E94203900B2D953 /* SwiftyBeaver.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2091C0DB1E94209100B2D953 /* SwiftyBeaver.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2091C0DA1E94209100B2D953 /* SwiftyBeaver.framework.dSYM */; };
 		209451621E7726A8001861CE /* SupportedSubtitleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209451611E7726A8001861CE /* SupportedSubtitleProvider.swift */; };
+		209911CF1E9AB2C400B5681C /* GeneralPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209911CE1E9AB2C400B5681C /* GeneralPreferencesViewController.swift */; };
+		209911D11E9AB2D900B5681C /* DownloadPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209911D01E9AB2D900B5681C /* DownloadPreferencesViewController.swift */; };
+		209911D31E9AB2E300B5681C /* ConvertPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209911D21E9AB2E300B5681C /* ConvertPreferencesViewController.swift */; };
+		209911D51E9AB2F500B5681C /* MatchPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209911D41E9AB2F500B5681C /* MatchPreferencesViewController.swift */; };
 		209FA9671D2FE4FD00C54DCA /* TokenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209FA9661D2FE4FD00C54DCA /* TokenTests.swift */; };
 		20A2C6B21E7075DF005131C8 /* DraggingDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A2C6B11E7075DF005131C8 /* DraggingDestinationView.swift */; };
 		20A6DF241E59DDE900895BF0 /* AsynchronousOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A6DF231E59DDE900895BF0 /* AsynchronousOperation.swift */; };
@@ -172,6 +176,10 @@
 		2091C0D51E94203900B2D953 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/Mac/SwiftyBeaver.framework; sourceTree = "<group>"; };
 		2091C0DA1E94209100B2D953 /* SwiftyBeaver.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftyBeaver.framework.dSYM; path = Carthage/Build/Mac/SwiftyBeaver.framework.dSYM; sourceTree = "<group>"; };
 		209451611E7726A8001861CE /* SupportedSubtitleProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportedSubtitleProvider.swift; sourceTree = "<group>"; };
+		209911CE1E9AB2C400B5681C /* GeneralPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralPreferencesViewController.swift; sourceTree = "<group>"; };
+		209911D01E9AB2D900B5681C /* DownloadPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadPreferencesViewController.swift; sourceTree = "<group>"; };
+		209911D21E9AB2E300B5681C /* ConvertPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertPreferencesViewController.swift; sourceTree = "<group>"; };
+		209911D41E9AB2F500B5681C /* MatchPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchPreferencesViewController.swift; sourceTree = "<group>"; };
 		209FA95F1D2FC04D00C54DCA /* LexerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LexerTests.swift; sourceTree = "<group>"; };
 		209FA9661D2FE4FD00C54DCA /* TokenTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TokenTests.swift; sourceTree = "<group>"; };
 		20A2C6B11E7075DF005131C8 /* DraggingDestinationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggingDestinationView.swift; sourceTree = "<group>"; };
@@ -398,6 +406,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		209911CD1E9AB2A800B5681C /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				209911D21E9AB2E300B5681C /* ConvertPreferencesViewController.swift */,
+				209911D01E9AB2D900B5681C /* DownloadPreferencesViewController.swift */,
+				209911CE1E9AB2C400B5681C /* GeneralPreferencesViewController.swift */,
+				209911D41E9AB2F500B5681C /* MatchPreferencesViewController.swift */,
+			);
+			name = Tabs;
+			path = Tabs;
+			sourceTree = "<group>";
+		};
 		20A8622B1D5226BA007FEC7C /* Lexer */ = {
 			isa = PBXGroup;
 			children = (
@@ -421,10 +441,11 @@
 		20DBFCD51E9A8D0B00F2C93E /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
-				20DBFCD11E9A5FE600F2C93E /* PreferencesTabViewController.swift */,
+				209911CD1E9AB2A800B5681C /* Tabs */,
 				20DBFCD31E9A66ED00F2C93E /* Preferences.storyboard */,
+				20DBFCD11E9A5FE600F2C93E /* PreferencesTabViewController.swift */,
 			);
-			name = Preferences;
+			path = Preferences;
 			sourceTree = "<group>";
 		};
 		20F105C71D327501000E157F /* Extensions */ = {
@@ -620,6 +641,8 @@
 				20A862301D5246F1007FEC7C /* SubtitleConverter.swift in Sources */,
 				208625CB1D4513A800B6DEF6 /* Int+Timestamp.swift in Sources */,
 				200C4B9E1C6601F800FBE406 /* MPL2SubtitleFormat.swift in Sources */,
+				209911D11E9AB2D900B5681C /* DownloadPreferencesViewController.swift in Sources */,
+				209911D51E9AB2F500B5681C /* MatchPreferencesViewController.swift in Sources */,
 				20EFC2FA1E3A549100004CB1 /* XMLRPCDocument.swift in Sources */,
 				202F8DE41E0301B800F225D8 /* Language.swift in Sources */,
 				20DFA6691E2A5D0F0073ED45 /* NapiProjekt.swift in Sources */,
@@ -628,6 +651,8 @@
 				208C77881E6F427C00ED7394 /* FileInformation.swift in Sources */,
 				201D62A91E3A70FF0010A7CA /* URLSession+DataTask.swift in Sources */,
 				202F3B3F1E6C2F6000BDB148 /* SubtitleDownloaderDelegate.swift in Sources */,
+				209911D31E9AB2E300B5681C /* ConvertPreferencesViewController.swift in Sources */,
+				209911CF1E9AB2C400B5681C /* GeneralPreferencesViewController.swift in Sources */,
 				202F3B311E6C2C1800BDB148 /* Collection+IsNotEmpty.swift in Sources */,
 				20EF7CFC1C67B1C4005A17A7 /* MicroDVDSubtitleFormat.swift in Sources */,
 				208BF2AD1D7316FC00111F4D /* String+MD5.swift in Sources */,

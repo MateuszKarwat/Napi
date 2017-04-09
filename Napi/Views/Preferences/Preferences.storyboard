@@ -10,7 +10,7 @@
         <!--Window Controller-->
         <scene sceneID="2aO-ZY-SRC">
             <objects>
-                <windowController id="P4Q-a4-XYa" sceneMemberID="viewController">
+                <windowController showSeguePresentationStyle="single" id="P4Q-a4-XYa" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="MHJ-Us-XRG">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -56,7 +56,7 @@
         <!--Download-->
         <scene sceneID="rMj-f3-ED8">
             <objects>
-                <viewController title="Download" id="yvo-us-Zmo" sceneMemberID="viewController">
+                <viewController title="Download" id="yvo-us-Zmo" customClass="DownloadPreferencesViewController" customModule="Napi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="hO7-jX-vKK">
                         <rect key="frame" x="0.0" y="0.0" width="498" height="255"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -206,7 +206,7 @@
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Veb-aO-pcS">
                                                 <rect key="frame" x="16" y="0.0" width="477" height="28"/>
                                                 <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Skip downloads for language if video file has subtitles file with language suffix associated with." id="a6o-RV-ty2">
-                                                    <font key="font" metaFont="system" size="11"/>
+                                                    <font key="font" metaFont="smallSystem"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
@@ -255,13 +255,13 @@
         <!--Convert-->
         <scene sceneID="dpA-WT-Bap">
             <objects>
-                <viewController title="Convert" id="ywg-3a-B0e" sceneMemberID="viewController">
+                <viewController title="Convert" id="ywg-3a-B0e" customClass="ConvertPreferencesViewController" customModule="Napi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="hh2-Jc-S2W">
                         <rect key="frame" x="0.0" y="0.0" width="502" height="281"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="24" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S6Y-k5-M7t">
-                                <rect key="frame" x="1" y="25.5" width="500" height="230"/>
+                                <rect key="frame" x="1" y="25" width="500" height="230"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dcs-XQ-FvZ">
                                         <rect key="frame" x="0.0" y="63" width="500" height="167"/>
@@ -561,13 +561,13 @@
         <!--Match-->
         <scene sceneID="CXg-Ng-R9y">
             <objects>
-                <viewController title="Match" id="jPQ-e0-zdJ" sceneMemberID="viewController">
+                <viewController title="Match" id="jPQ-e0-zdJ" customClass="MatchPreferencesViewController" customModule="Napi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="2Bc-PZ-lcK">
                         <rect key="frame" x="0.0" y="0.0" width="469" height="199"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="24" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SxV-pq-mzl">
-                                <rect key="frame" x="-15.5" y="27.5" width="500" height="144"/>
+                                <rect key="frame" x="-16" y="27" width="500" height="144"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="horizontal" alignment="firstBaseline" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c79-hb-17D">
                                         <rect key="frame" x="121.5" y="127" width="257" height="17"/>
@@ -691,13 +691,13 @@
         <!--General-->
         <scene sceneID="AFp-L0-YCT">
             <objects>
-                <viewController title="General" id="QTd-ui-a5M" sceneMemberID="viewController">
+                <viewController title="General" id="QTd-ui-a5M" customClass="GeneralPreferencesViewController" customModule="Napi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="tJz-bh-5aC">
                         <rect key="frame" x="0.0" y="0.0" width="471" height="186"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="24" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lUo-Aj-cJr">
-                                <rect key="frame" x="-14.5" y="33" width="500" height="120"/>
+                                <rect key="frame" x="-15" y="33" width="500" height="120"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="horizontal" alignment="firstBaseline" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MWN-Nz-zMi">
                                         <rect key="frame" x="135" y="82" width="230" height="38"/>
