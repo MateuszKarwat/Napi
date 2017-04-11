@@ -37,3 +37,20 @@ enum SupportedSubtitleFormat: String {
         }
     }
 }
+
+extension SupportedSubtitleFormat: CustomStringConvertible {
+
+    /// A textual representation of this instance.
+    var description: String {
+        switch self {
+        case .mpl2:
+            return "MPL2"
+        case .microDVD:
+            return "MicroDVD"
+        case .subRip:
+            return "SubRip"
+        case .tmplayer:
+            return "TMPlayer"
+        }
+    }
+}
