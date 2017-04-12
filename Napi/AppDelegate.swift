@@ -3,7 +3,7 @@
 //  Copyright © 2016 Mateusz Karwat. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 import SwiftyBeaver
 
 let log = SwiftyBeaver.self
@@ -38,25 +38,24 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     // MARK: - Appearance
 
-    /// Shows Main Window and brings application to front.
-    private func showApplicationInterface() {
-        mainWindowController.showWindow(self)
-        NSApp.activate(ignoringOtherApps: true)
-    }
-
     /// Based on current settings sets application policy.
-    private func setupApplicationActivationPolicy() {
+    func setupApplicationActivationPolicy() {
         if !Preferences[.runInBackground] {
-            if Preferences[.showDockIcon] {
-                NSApp.setActivationPolicy(.regular)
-            }
+            NSApp.setActivationPolicy( Preferences[.showDockIcon] ? .regular : .accessory)
 
-            if Preferences[.showStatusBarItem] {
-                statusBarItemController.showStatusItem()
-            }
+            statusBarItemController.isStatusItemVisible = Preferences[.showStatusBarItem]
 
             showApplicationInterface()
         }
+    }
+
+    /// Brings application to front and shows main window if none window is opened.
+    func showApplicationInterface() {
+        if NSApp.mainWindow == nil && NSApp.keyWindow == nil {
+            mainWindowController.showWindow(self)
+        }
+
+        NSApp.activate(ignoringOtherApps: true)
     }
 
     // MARK: - Handle Files and Directories
