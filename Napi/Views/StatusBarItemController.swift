@@ -10,22 +10,16 @@ final class StatusBarItemController {
 
     private let statusItem = NSStatusBar.system().statusItem(withLength: -2)
 
+    var isStatusItemVisible = false {
+        didSet {
+            statusItem.isVisible = isStatusItemVisible
+        }
+    }
+
     // MARK: - Lifecycle
 
     init() {
         setupStatusItem()
-    }
-
-    // MARK: - Public Functions
-
-    /// Shows status item.
-    func showStatusItem() {
-        statusItem.isVisible = true
-    }
-
-    /// Hides status item.
-    func hideStatusItem() {
-        statusItem.isVisible = false
     }
 
     // MARK: - Private Functions
