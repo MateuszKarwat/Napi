@@ -20,6 +20,7 @@ final class PreferencesTabViewController: NSTabViewController {
 
         if let tabViewItem = tabView.selectedTabViewItem {
             resizeWindowToFit(tabViewItem: tabViewItem)
+            tabViewItem.view?.window?.center()
         }
     }
 
@@ -54,7 +55,7 @@ final class PreferencesTabViewController: NSTabViewController {
         let contentFrame = window.frameRect(forContentRect: contentRect)
         let toolbarHeight = window.frame.size.height - contentFrame.size.height
         let newOrigin = NSPoint(x: window.frame.origin.x, y: window.frame.origin.y + toolbarHeight)
-        let newFrame = NSRect(origin: newOrigin, size: contentFrame.size)
+        let newFrame = NSRect(origin: newOrigin, size: contentFrame.size)	
         window.setFrame(newFrame, display: false, animate: true)
 
         tabView.isHidden = false

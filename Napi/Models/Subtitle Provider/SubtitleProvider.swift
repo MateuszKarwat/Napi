@@ -6,7 +6,7 @@
 import Foundation
 
 /// Describes how subtitles must be searched and downloaded by any subtitle provider.
-protocol SubtitleProvider {
+protocol SubtitleProvider: CustomStringConvertible {
 
     /// Name of a provider.
     var name: String { get }
@@ -30,6 +30,15 @@ protocol SubtitleProvider {
 }
 
 // SubtitleProvider: Equatable
-func ==(lhs: SubtitleProvider, rhs: SubtitleProvider) -> Bool {
-    return lhs.name == rhs.name && lhs.homepage == rhs.homepage
+extension SubtitleProvider {
+    static func ==(lhs: Self, rhs: Self) -> Bool {
+        return lhs.name == rhs.name && lhs.homepage == rhs.homepage
+    }
+}
+
+// SubtitleProvider: CustomStringConvertible
+extension SubtitleProvider {
+    var description: String {
+        return name
+    }
 }

@@ -12,11 +12,11 @@
 		200364F81CFE0EF800A09CEA /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200364F71CFE0EF800A09CEA /* Token.swift */; };
 		200364FA1CFE110700A09CEA /* String+Substring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200364F91CFE110600A09CEA /* String+Substring.swift */; };
 		200780681C64AE4F0098B026 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200780671C64AE4F0098B026 /* AppDelegate.swift */; };
-		2007806A1C64AE4F0098B026 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200780691C64AE4F0098B026 /* ViewController.swift */; };
 		2007806C1C64AE4F0098B026 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2007806B1C64AE4F0098B026 /* Assets.xcassets */; };
 		2007806F1C64AE4F0098B026 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2007806D1C64AE4F0098B026 /* Main.storyboard */; };
 		200780CB1C64F3BC0098B026 /* SubRipSubtitleFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200780CA1C64F3BC0098B026 /* SubRipSubtitleFormat.swift */; };
 		200780CD1C64F3F90098B026 /* TMPlayerSubtitleFormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200780CC1C64F3F90098B026 /* TMPlayerSubtitleFormatTests.swift */; };
+		2007B6561EAE793D00EB258D /* Array+MoveElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2007B6551EAE793D00EB258D /* Array+MoveElement.swift */; };
 		200C4B9E1C6601F800FBE406 /* MPL2SubtitleFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200C4B9D1C6601F800FBE406 /* MPL2SubtitleFormat.swift */; };
 		200C4BA01C66089600FBE406 /* SubtitleFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200C4B9F1C66089600FBE406 /* SubtitleFormat.swift */; };
 		200C4BA61C664C8100FBE406 /* MPL2SubtitleFormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200C4BA41C6646B800FBE406 /* MPL2SubtitleFormatTests.swift */; };
@@ -37,6 +37,7 @@
 		2049F3D91E755A490083547D /* StatusBarItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2049F3D81E755A490083547D /* StatusBarItemController.swift */; };
 		2049F3DB1E755C580083547D /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2049F3DA1E755C580083547D /* Preferences.swift */; };
 		2049F3DD1E75615E0083547D /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2049F3DC1E75615E0083547D /* MainWindowController.swift */; };
+		204A45FD1E9E9BAA004F8687 /* CheckboxTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204A45FC1E9E9BAA004F8687 /* CheckboxTableViewController.swift */; };
 		204C2EE11E06AED300A8F58E /* SubtitleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204C2EE01E06AED300A8F58E /* SubtitleProvider.swift */; };
 		204C2EE41E06B07500A8F58E /* Napisy24.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204C2EE31E06B07500A8F58E /* Napisy24.swift */; };
 		204C2EE61E06B61200A8F58E /* SearchCriteria.swift in Sources */ = {isa = PBXBuildFile; fileRef = 204C2EE51E06B61200A8F58E /* SearchCriteria.swift */; };
@@ -56,7 +57,6 @@
 		2091C0D71E94203900B2D953 /* SwiftyBeaver.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2091C0D51E94203900B2D953 /* SwiftyBeaver.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2091C0DB1E94209100B2D953 /* SwiftyBeaver.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2091C0DA1E94209100B2D953 /* SwiftyBeaver.framework.dSYM */; };
 		209451621E7726A8001861CE /* SupportedSubtitleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209451611E7726A8001861CE /* SupportedSubtitleProvider.swift */; };
-		209911CF1E9AB2C400B5681C /* GeneralPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209911CE1E9AB2C400B5681C /* GeneralPreferencesViewController.swift */; };
 		209911D11E9AB2D900B5681C /* DownloadPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209911D01E9AB2D900B5681C /* DownloadPreferencesViewController.swift */; };
 		209911D31E9AB2E300B5681C /* ConvertPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209911D21E9AB2E300B5681C /* ConvertPreferencesViewController.swift */; };
 		209911D51E9AB2F500B5681C /* MatchPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209911D41E9AB2F500B5681C /* MatchPreferencesViewController.swift */; };
@@ -82,6 +82,7 @@
 		20EFC2FA1E3A549100004CB1 /* XMLRPCDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20EFC2F91E3A549100004CB1 /* XMLRPCDocument.swift */; };
 		20F5D23A1DFF025E00FA9BAC /* TemporaryDirectoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F5D2391DFF025E00FA9BAC /* TemporaryDirectoryManager.swift */; };
 		20F5D23C1DFF062F00FA9BAC /* TemporaryDirectoryManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F5D23B1DFF062F00FA9BAC /* TemporaryDirectoryManagerTests.swift */; };
+		20F689CE1E9C0697004C767E /* GeneralPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F689CD1E9C0697004C767E /* GeneralPreferencesViewController.swift */; };
 		20F6FBD31C6E5211005A1C12 /* SubRipSubtitleFormatFile.txt in Resources */ = {isa = PBXBuildFile; fileRef = 20F6FBD21C6E5211005A1C12 /* SubRipSubtitleFormatFile.txt */; };
 		20F6FBD51C6E527F005A1C12 /* MPL2SubtitleFormatFile.txt in Resources */ = {isa = PBXBuildFile; fileRef = 20F6FBD41C6E527F005A1C12 /* MPL2SubtitleFormatFile.txt */; };
 		20F6FBD71C6E52CE005A1C12 /* TMPlayerSubtitleFormatFile.txt in Resources */ = {isa = PBXBuildFile; fileRef = 20F6FBD61C6E52CE005A1C12 /* TMPlayerSubtitleFormatFile.txt */; };
@@ -129,7 +130,6 @@
 		200364F91CFE110600A09CEA /* String+Substring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Substring.swift"; sourceTree = "<group>"; };
 		200780641C64AE4F0098B026 /* Napi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Napi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		200780671C64AE4F0098B026 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		200780691C64AE4F0098B026 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2007806B1C64AE4F0098B026 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2007806E1C64AE4F0098B026 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		200780701C64AE4F0098B026 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -137,6 +137,7 @@
 		2007807B1C64AE4F0098B026 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		200780CA1C64F3BC0098B026 /* SubRipSubtitleFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = SubRipSubtitleFormat.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		200780CC1C64F3F90098B026 /* TMPlayerSubtitleFormatTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMPlayerSubtitleFormatTests.swift; sourceTree = "<group>"; };
+		2007B6551EAE793D00EB258D /* Array+MoveElement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+MoveElement.swift"; sourceTree = "<group>"; };
 		200C4B9D1C6601F800FBE406 /* MPL2SubtitleFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPL2SubtitleFormat.swift; sourceTree = "<group>"; };
 		200C4B9F1C66089600FBE406 /* SubtitleFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitleFormat.swift; sourceTree = "<group>"; };
 		200C4BA41C6646B800FBE406 /* MPL2SubtitleFormatTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPL2SubtitleFormatTests.swift; sourceTree = "<group>"; };
@@ -157,6 +158,7 @@
 		2049F3D81E755A490083547D /* StatusBarItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarItemController.swift; sourceTree = "<group>"; };
 		2049F3DA1E755C580083547D /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		2049F3DC1E75615E0083547D /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
+		204A45FC1E9E9BAA004F8687 /* CheckboxTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckboxTableViewController.swift; path = CheckboxTableViewController.swift; sourceTree = "<group>"; };
 		204C2EE01E06AED300A8F58E /* SubtitleProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitleProvider.swift; sourceTree = "<group>"; };
 		204C2EE31E06B07500A8F58E /* Napisy24.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Napisy24.swift; sourceTree = "<group>"; };
 		204C2EE51E06B61200A8F58E /* SearchCriteria.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCriteria.swift; sourceTree = "<group>"; };
@@ -176,7 +178,6 @@
 		2091C0D51E94203900B2D953 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/Mac/SwiftyBeaver.framework; sourceTree = "<group>"; };
 		2091C0DA1E94209100B2D953 /* SwiftyBeaver.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftyBeaver.framework.dSYM; path = Carthage/Build/Mac/SwiftyBeaver.framework.dSYM; sourceTree = "<group>"; };
 		209451611E7726A8001861CE /* SupportedSubtitleProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportedSubtitleProvider.swift; sourceTree = "<group>"; };
-		209911CE1E9AB2C400B5681C /* GeneralPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralPreferencesViewController.swift; sourceTree = "<group>"; };
 		209911D01E9AB2D900B5681C /* DownloadPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadPreferencesViewController.swift; sourceTree = "<group>"; };
 		209911D21E9AB2E300B5681C /* ConvertPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertPreferencesViewController.swift; sourceTree = "<group>"; };
 		209911D41E9AB2F500B5681C /* MatchPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchPreferencesViewController.swift; sourceTree = "<group>"; };
@@ -202,6 +203,7 @@
 		20F105C11D3114A2000E157F /* SubtitleTokenType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitleTokenType.swift; sourceTree = "<group>"; };
 		20F5D2391DFF025E00FA9BAC /* TemporaryDirectoryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemporaryDirectoryManager.swift; sourceTree = "<group>"; };
 		20F5D23B1DFF062F00FA9BAC /* TemporaryDirectoryManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemporaryDirectoryManagerTests.swift; sourceTree = "<group>"; };
+		20F689CD1E9C0697004C767E /* GeneralPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneralPreferencesViewController.swift; sourceTree = "<group>"; };
 		20F6FBD21C6E5211005A1C12 /* SubRipSubtitleFormatFile.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SubRipSubtitleFormatFile.txt; sourceTree = "<group>"; };
 		20F6FBD41C6E527F005A1C12 /* MPL2SubtitleFormatFile.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MPL2SubtitleFormatFile.txt; sourceTree = "<group>"; };
 		20F6FBD61C6E52CE005A1C12 /* TMPlayerSubtitleFormatFile.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TMPlayerSubtitleFormatFile.txt; sourceTree = "<group>"; };
@@ -260,11 +262,11 @@
 		200780661C64AE4F0098B026 /* Napi */ = {
 			isa = PBXGroup;
 			children = (
+				204A45FB1E9E90E2004F8687 /* Controllers */,
 				200780C61C64B2410098B026 /* Models */,
 				200780851C64AE880098B026 /* Supporting Files */,
 				200780841C64AE800098B026 /* Views */,
 				200780671C64AE4F0098B026 /* AppDelegate.swift */,
-				200780691C64AE4F0098B026 /* ViewController.swift */,
 			);
 			path = Napi;
 			sourceTree = "<group>";
@@ -290,11 +292,8 @@
 		200780841C64AE800098B026 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				20DBFCD51E9A8D0B00F2C93E /* Preferences */,
+				2057BBC21EB4B21200FF6D3D /* Storyboards */,
 				20A2C6B11E7075DF005131C8 /* DraggingDestinationView.swift */,
-				2007806D1C64AE4F0098B026 /* Main.storyboard */,
-				2049F3DC1E75615E0083547D /* MainWindowController.swift */,
-				2049F3D81E755A490083547D /* StatusBarItemController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -355,6 +354,17 @@
 			path = "Subtitle Downloader";
 			sourceTree = "<group>";
 		};
+		204A45FB1E9E90E2004F8687 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				20DBFCD51E9A8D0B00F2C93E /* Preferences */,
+				204A45FC1E9E9BAA004F8687 /* CheckboxTableViewController.swift */,
+				2049F3DC1E75615E0083547D /* MainWindowController.swift */,
+				2049F3D81E755A490083547D /* StatusBarItemController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		204C2EDF1E06AEBB00A8F58E /* Subtitle Provider */ = {
 			isa = PBXGroup;
 			children = (
@@ -375,6 +385,16 @@
 				20DF1F4B1E335673003A3491 /* OpenSubtitles.swift */,
 			);
 			path = "Supported Subtitle Providers";
+			sourceTree = "<group>";
+		};
+		2057BBC21EB4B21200FF6D3D /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				2007806D1C64AE4F0098B026 /* Main.storyboard */,
+				20DBFCD31E9A66ED00F2C93E /* Preferences.storyboard */,
+			);
+			name = Storyboards;
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		206548561E914AF70011DED8 /* NapiEngine */ = {
@@ -411,10 +431,9 @@
 			children = (
 				209911D21E9AB2E300B5681C /* ConvertPreferencesViewController.swift */,
 				209911D01E9AB2D900B5681C /* DownloadPreferencesViewController.swift */,
-				209911CE1E9AB2C400B5681C /* GeneralPreferencesViewController.swift */,
+				20F689CD1E9C0697004C767E /* GeneralPreferencesViewController.swift */,
 				209911D41E9AB2F500B5681C /* MatchPreferencesViewController.swift */,
 			);
-			name = Tabs;
 			path = Tabs;
 			sourceTree = "<group>";
 		};
@@ -442,7 +461,6 @@
 			isa = PBXGroup;
 			children = (
 				209911CD1E9AB2A800B5681C /* Tabs */,
-				20DBFCD31E9A66ED00F2C93E /* Preferences.storyboard */,
 				20DBFCD11E9A5FE600F2C93E /* PreferencesTabViewController.swift */,
 			);
 			path = Preferences;
@@ -451,6 +469,7 @@
 		20F105C71D327501000E157F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				2007B6551EAE793D00EB258D /* Array+MoveElement.swift */,
 				202F3B301E6C2C1800BDB148 /* Collection+IsNotEmpty.swift */,
 				208BF2AE1D73170700111F4D /* Data+MD5.swift */,
 				20C394661E05A33E00EB7D63 /* Date+Timestamp.swift */,
@@ -605,7 +624,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2007806A1C64AE4F0098B026 /* ViewController.swift in Sources */,
 				20DBFCD21E9A5FE600F2C93E /* PreferencesTabViewController.swift in Sources */,
 				20A2C6B21E7075DF005131C8 /* DraggingDestinationView.swift in Sources */,
 				20F5D23A1DFF025E00FA9BAC /* TemporaryDirectoryManager.swift in Sources */,
@@ -613,6 +631,7 @@
 				204C2EE41E06B07500A8F58E /* Napisy24.swift in Sources */,
 				20A6DF241E59DDE900895BF0 /* AsynchronousOperation.swift in Sources */,
 				2049F3D91E755A490083547D /* StatusBarItemController.swift in Sources */,
+				20F689CE1E9C0697004C767E /* GeneralPreferencesViewController.swift in Sources */,
 				20176E931C6A502500574B5B /* Timestamp.swift in Sources */,
 				20C394671E05A33E00EB7D63 /* Date+Timestamp.swift in Sources */,
 				202F3B401E6C2F6000BDB148 /* SubtitleOperation.swift in Sources */,
@@ -633,6 +652,7 @@
 				201ED1151E2A47AF006392F8 /* DirectoryScanner.swift in Sources */,
 				200364F81CFE0EF800A09CEA /* Token.swift in Sources */,
 				209451621E7726A8001861CE /* SupportedSubtitleProvider.swift in Sources */,
+				204A45FD1E9E9BAA004F8687 /* CheckboxTableViewController.swift in Sources */,
 				2049F3DD1E75615E0083547D /* MainWindowController.swift in Sources */,
 				200C4BA01C66089600FBE406 /* SubtitleFormat.swift in Sources */,
 				208BF2AF1D73170700111F4D /* Data+MD5.swift in Sources */,
@@ -652,13 +672,13 @@
 				201D62A91E3A70FF0010A7CA /* URLSession+DataTask.swift in Sources */,
 				202F3B3F1E6C2F6000BDB148 /* SubtitleDownloaderDelegate.swift in Sources */,
 				209911D31E9AB2E300B5681C /* ConvertPreferencesViewController.swift in Sources */,
-				209911CF1E9AB2C400B5681C /* GeneralPreferencesViewController.swift in Sources */,
 				202F3B311E6C2C1800BDB148 /* Collection+IsNotEmpty.swift in Sources */,
 				20EF7CFC1C67B1C4005A17A7 /* MicroDVDSubtitleFormat.swift in Sources */,
 				208BF2AD1D7316FC00111F4D /* String+MD5.swift in Sources */,
 				2057DBAF1E0433C70049DC3A /* SubtitleEntity.swift in Sources */,
 				20A8622E1D522C4C007FEC7C /* SubtitleCheckingResult.swift in Sources */,
 				200364FA1CFE110700A09CEA /* String+Substring.swift in Sources */,
+				2007B6561EAE793D00EB258D /* Array+MoveElement.swift in Sources */,
 				203B126E1DEF55ED0036D52D /* URL+FileManagerOperations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

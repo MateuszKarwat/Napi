@@ -42,3 +42,9 @@ extension Language: Equatable {
         return lhs.isoCode == rhs.isoCode
     }
 }
+
+extension Language: CustomStringConvertible {
+    var description: String {
+        return currentLocaleName ?? isoCode
+    }
+}

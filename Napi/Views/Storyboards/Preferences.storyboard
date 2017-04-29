@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="P4Q-a4-XYa">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="P4Q-a4-XYa">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12118"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12120"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
         <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
@@ -13,8 +13,7 @@
                 <windowController showSeguePresentationStyle="single" id="P4Q-a4-XYa" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="MHJ-Us-XRG">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
-                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="245" y="301" width="480" height="270"/>
+                        <rect key="contentRect" x="1198" y="755" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                     </window>
                     <connections>
@@ -84,6 +83,9 @@
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
+                                                        <connections>
+                                                            <segue destination="u5a-UZ-uud" kind="sheet" identifier="ProvidersSegueIdentifier" id="lTq-QZ-8lk"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <visibilityPriorities>
@@ -112,6 +114,9 @@
                                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
+                                                        <connections>
+                                                            <segue destination="u5a-UZ-uud" kind="sheet" identifier="LanguagesSegueIdentifier" id="OQP-Cb-vSB"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <visibilityPriorities>
@@ -156,6 +161,9 @@
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
+                                                        <connections>
+                                                            <action selector="downloadLimitRadioButtonDidChange:" target="yvo-us-Zmo" id="7nZ-Wq-KPL"/>
+                                                        </connections>
                                                     </button>
                                                     <button translatesAutoresizingMaskIntoConstraints="NO" id="PpM-DC-VjE">
                                                         <rect key="frame" x="-1" y="23" width="90" height="18"/>
@@ -163,6 +171,9 @@
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
+                                                        <connections>
+                                                            <action selector="downloadLimitRadioButtonDidChange:" target="yvo-us-Zmo" id="hjp-jn-8ni"/>
+                                                        </connections>
                                                     </button>
                                                     <button translatesAutoresizingMaskIntoConstraints="NO" id="KN0-18-pEJ">
                                                         <rect key="frame" x="-1" y="-1" width="173" height="18"/>
@@ -170,6 +181,9 @@
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
+                                                        <connections>
+                                                            <action selector="downloadLimitRadioButtonDidChange:" target="yvo-us-Zmo" id="7HJ-2K-vM5"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <visibilityPriorities>
@@ -202,6 +216,9 @@
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
+                                                <connections>
+                                                    <binding destination="MKx-fn-pka" name="value" keyPath="values.skipAlreadyDownloadedLanguages" id="ijn-mT-61p"/>
+                                                </connections>
                                             </button>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Veb-aO-pcS">
                                                 <rect key="frame" x="16" y="0.0" width="477" height="28"/>
@@ -247,21 +264,35 @@
                             <constraint firstItem="uBJ-A6-XNh" firstAttribute="centerY" secondItem="hO7-jX-vKK" secondAttribute="centerY" id="n7x-BP-PZR"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="downloadLimitFirstMatchPerLanguageRadioButton" destination="KN0-18-pEJ" id="DcE-Ef-GBK"/>
+                        <outlet property="downloadLimitFirstMatchRadioButton" destination="PpM-DC-VjE" id="cDn-Wf-pYn"/>
+                        <outlet property="downloadLimitNoneRadioButton" destination="Hfi-6i-eth" id="7kI-sH-pgL"/>
+                    </connections>
                 </viewController>
                 <customObject id="lct-Kh-fyW" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <userDefaultsController representsSharedInstance="YES" id="MKx-fn-pka"/>
             </objects>
             <point key="canvasLocation" x="-196" y="857"/>
+        </scene>
+        <!--CheckboxTableViewController-->
+        <scene sceneID="jXT-aF-Fi0">
+            <objects>
+                <controllerPlaceholder storyboardName="Main" referencedIdentifier="CheckboxTableViewController" id="u5a-UZ-uud" sceneMemberID="viewController"/>
+                <customObject id="eEg-Ga-WJd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-196" y="1156"/>
         </scene>
         <!--Convert-->
         <scene sceneID="dpA-WT-Bap">
             <objects>
                 <viewController title="Convert" id="ywg-3a-B0e" customClass="ConvertPreferencesViewController" customModule="Napi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="hh2-Jc-S2W">
-                        <rect key="frame" x="0.0" y="0.0" width="502" height="281"/>
+                        <rect key="frame" x="0.0" y="0.0" width="506" height="281"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="24" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S6Y-k5-M7t">
-                                <rect key="frame" x="1" y="25" width="500" height="230"/>
+                                <rect key="frame" x="3" y="25" width="500" height="230"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dcs-XQ-FvZ">
                                         <rect key="frame" x="0.0" y="63" width="500" height="167"/>
@@ -272,6 +303,9 @@
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
+                                                <connections>
+                                                    <binding destination="pFF-fn-pka" name="value" keyPath="values.convertSubtitles" id="xa5-NU-f7S"/>
+                                                </connections>
                                             </button>
                                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4nQ-G0-x62">
                                                 <rect key="frame" x="18" y="0.0" width="482" height="145"/>
@@ -280,7 +314,7 @@
                                                         <rect key="frame" x="0.0" y="124" width="206" height="21"/>
                                                         <subviews>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2p0-HF-h6N">
-                                                                <rect key="frame" x="-2" y="3" width="102" height="17"/>
+                                                                <rect key="frame" x="-2" y="4" width="102" height="17"/>
                                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Subtitle format:" id="cPJ-OM-Tac">
                                                                     <font key="font" metaFont="system"/>
                                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -292,17 +326,18 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="100" id="ZAY-C9-cbH"/>
                                                                 </constraints>
-                                                                <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="M8b-c0-zWz" id="c2a-Cv-edA">
+                                                                <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="c2a-Cv-edA">
                                                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                                     <font key="font" metaFont="menu"/>
-                                                                    <menu key="menu" id="Fuw-Ft-xqZ">
-                                                                        <items>
-                                                                            <menuItem title="Item 1" state="on" id="M8b-c0-zWz"/>
-                                                                            <menuItem title="Item 2" id="O3T-Dx-miK"/>
-                                                                            <menuItem title="Item 3" id="ipW-6E-hEt"/>
-                                                                        </items>
-                                                                    </menu>
+                                                                    <menu key="menu" id="Fuw-Ft-xqZ"/>
                                                                 </popUpButtonCell>
+                                                                <connections>
+                                                                    <action selector="subtitleFormatPopUpButtonDidChange:" target="ywg-3a-B0e" id="bmi-To-T4d"/>
+                                                                    <binding destination="1Xs-Jr-rOY" name="contentValues" keyPath="arrangedObjects" previousBinding="nRZ-oZ-2Ar" id="11i-4o-DD0"/>
+                                                                    <binding destination="1Xs-Jr-rOY" name="content" keyPath="arrangedObjects" id="nRZ-oZ-2Ar"/>
+                                                                    <binding destination="1Xs-Jr-rOY" name="selectedIndex" keyPath="selectionIndex" previousBinding="11i-4o-DD0" id="tgR-NW-R2Q"/>
+                                                                    <binding destination="pFF-fn-pka" name="enabled" keyPath="values.convertSubtitles" id="1lY-XW-nC7"/>
+                                                                </connections>
                                                             </popUpButton>
                                                         </subviews>
                                                         <visibilityPriorities>
@@ -334,6 +369,10 @@
                                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                             <font key="font" metaFont="system"/>
                                                                         </buttonCell>
+                                                                        <connections>
+                                                                            <binding destination="pFF-fn-pka" name="enabled" keyPath="values.convertSubtitles" id="cRb-KH-2QF"/>
+                                                                            <binding destination="pFF-fn-pka" name="value" keyPath="values.mergeAdjacentWhitespaces" id="HPJ-po-EO4"/>
+                                                                        </connections>
                                                                     </button>
                                                                     <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="4" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="48n-Cd-Agn">
                                                                         <rect key="frame" x="0.0" y="0.0" width="376" height="46"/>
@@ -344,6 +383,10 @@
                                                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                                     <font key="font" metaFont="system"/>
                                                                                 </buttonCell>
+                                                                                <connections>
+                                                                                    <binding destination="pFF-fn-pka" name="enabled" keyPath="values.convertSubtitles" id="ilR-Xp-g49"/>
+                                                                                    <binding destination="pFF-fn-pka" name="value" keyPath="values.correctPunctuation" id="sH8-X5-gwg"/>
+                                                                                </connections>
                                                                             </button>
                                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ilz-bI-fsu">
                                                                                 <rect key="frame" x="16" y="0.0" width="362" height="28"/>
@@ -395,6 +438,10 @@
                                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                     <font key="font" metaFont="system"/>
                                                                 </buttonCell>
+                                                                <connections>
+                                                                    <binding destination="pFF-fn-pka" name="enabled" keyPath="values.convertSubtitles" id="0qz-9t-3Ce"/>
+                                                                    <binding destination="pFF-fn-pka" name="value" keyPath="values.tryToDetermineFrameRate" id="GoI-3s-P1J"/>
+                                                                </connections>
                                                             </button>
                                                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gJV-NW-ltr">
                                                                 <rect key="frame" x="18" y="0.0" width="305" height="20"/>
@@ -405,6 +452,18 @@
                                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                                             <font key="font" metaFont="system"/>
                                                                         </buttonCell>
+                                                                        <connections>
+                                                                            <binding destination="pFF-fn-pka" name="enabled" keyPath="values.convertSubtitles" id="Fry-2Y-7hj"/>
+                                                                            <binding destination="pFF-fn-pka" name="enabled2" keyPath="values.tryToDetermineFrameRate" previousBinding="Fry-2Y-7hj" id="8Es-eH-6u1">
+                                                                                <dictionary key="options">
+                                                                                    <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                                                                    <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                                                                    <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                                                                    <integer key="NSNullPlaceholder" value="-1"/>
+                                                                                </dictionary>
+                                                                            </binding>
+                                                                            <binding destination="pFF-fn-pka" name="value" keyPath="values.useBackupFrameRate" id="vkJ-A4-hbW"/>
+                                                                        </connections>
                                                                     </button>
                                                                     <comboBox verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="org-eJ-WTU">
                                                                         <rect key="frame" x="205" y="-4" width="103" height="26"/>
@@ -416,11 +475,32 @@
                                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                             <objectValues>
-                                                                                <string>Item 1</string>
-                                                                                <string>Item 2</string>
-                                                                                <string>Item 3</string>
+                                                                                <string>23.976</string>
+                                                                                <string>24.000</string>
+                                                                                <string>25.000</string>
+                                                                                <string>30.000</string>
                                                                             </objectValues>
                                                                         </comboBoxCell>
+                                                                        <connections>
+                                                                            <action selector="frameRateComboBoxDidChange:" target="ywg-3a-B0e" id="5He-gf-5T6"/>
+                                                                            <binding destination="pFF-fn-pka" name="enabled" keyPath="values.convertSubtitles" id="Ntw-Lb-f63"/>
+                                                                            <binding destination="pFF-fn-pka" name="enabled2" keyPath="values.tryToDetermineFrameRate" previousBinding="Ntw-Lb-f63" id="Agx-Mg-UFz">
+                                                                                <dictionary key="options">
+                                                                                    <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                                                                    <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                                                                    <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                                                                    <integer key="NSNullPlaceholder" value="-1"/>
+                                                                                </dictionary>
+                                                                            </binding>
+                                                                            <binding destination="pFF-fn-pka" name="enabled3" keyPath="values.useBackupFrameRate" previousBinding="Agx-Mg-UFz" id="BWZ-I7-asa">
+                                                                                <dictionary key="options">
+                                                                                    <integer key="NSMultipleValuesPlaceholder" value="-1"/>
+                                                                                    <integer key="NSNoSelectionPlaceholder" value="-1"/>
+                                                                                    <integer key="NSNotApplicablePlaceholder" value="-1"/>
+                                                                                    <integer key="NSNullPlaceholder" value="-1"/>
+                                                                                </dictionary>
+                                                                            </binding>
+                                                                        </connections>
                                                                     </comboBox>
                                                                 </subviews>
                                                                 <visibilityPriorities>
@@ -482,12 +562,15 @@
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
+                                                <connections>
+                                                    <binding destination="pFF-fn-pka" name="value" keyPath="values.changeEncoding" id="CqX-cc-0mP"/>
+                                                </connections>
                                             </button>
                                             <stackView distribution="fill" orientation="horizontal" alignment="firstBaseline" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="awA-8Z-DFT">
                                                 <rect key="frame" x="18" y="0.0" width="269" height="21"/>
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vzz-AP-LUi">
-                                                        <rect key="frame" x="-2" y="3" width="65" height="17"/>
+                                                        <rect key="frame" x="-2" y="4" width="65" height="17"/>
                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Encoding:" id="HLl-Cm-thO">
                                                             <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -499,17 +582,18 @@
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="200" id="SEr-ue-2za"/>
                                                         </constraints>
-                                                        <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="KbP-Ia-6GH" id="i1R-lw-Q7M">
+                                                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="i1R-lw-Q7M">
                                                             <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                             <font key="font" metaFont="menu"/>
-                                                            <menu key="menu" id="irP-od-oH8">
-                                                                <items>
-                                                                    <menuItem title="Item 1" state="on" id="KbP-Ia-6GH"/>
-                                                                    <menuItem title="Item 2" id="SMj-Fh-ivG"/>
-                                                                    <menuItem title="Item 3" id="TpP-LP-o9r"/>
-                                                                </items>
-                                                            </menu>
+                                                            <menu key="menu" id="irP-od-oH8"/>
                                                         </popUpButtonCell>
+                                                        <connections>
+                                                            <action selector="encodingPopUpButtonDidChange:" target="ywg-3a-B0e" id="GmR-3i-O9S"/>
+                                                            <binding destination="21g-Wk-npg" name="contentValues" keyPath="arrangedObjects" previousBinding="zGC-Jn-m17" id="8CD-Vv-au4"/>
+                                                            <binding destination="21g-Wk-npg" name="content" keyPath="arrangedObjects" id="zGC-Jn-m17"/>
+                                                            <binding destination="21g-Wk-npg" name="selectedIndex" keyPath="selectionIndex" previousBinding="8CD-Vv-au4" id="iBD-6u-Tap"/>
+                                                            <binding destination="pFF-fn-pka" name="enabled" keyPath="values.changeEncoding" id="igT-qk-v3p"/>
+                                                        </connections>
                                                     </popUpButton>
                                                 </subviews>
                                                 <visibilityPriorities>
@@ -553,10 +637,18 @@
                             <constraint firstItem="S6Y-k5-M7t" firstAttribute="centerY" secondItem="hh2-Jc-S2W" secondAttribute="centerY" id="fIS-Dx-bUt"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="encodingsArrayController" destination="21g-Wk-npg" id="VKj-jH-3PE"/>
+                        <outlet property="frameRateComboBox" destination="org-eJ-WTU" id="OpD-wl-cy6"/>
+                        <outlet property="subtitleFormatsArrayController" destination="1Xs-Jr-rOY" id="4A4-GQ-pat"/>
+                    </connections>
                 </viewController>
                 <customObject id="K8G-1d-a11" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <userDefaultsController representsSharedInstance="YES" id="pFF-fn-pka"/>
+                <arrayController id="21g-Wk-npg"/>
+                <arrayController id="1Xs-Jr-rOY"/>
             </objects>
-            <point key="canvasLocation" x="344" y="869.5"/>
+            <point key="canvasLocation" x="346" y="869.5"/>
         </scene>
         <!--Match-->
         <scene sceneID="CXg-Ng-R9y">
@@ -567,10 +659,10 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="centerX" spacing="24" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SxV-pq-mzl">
-                                <rect key="frame" x="-16" y="27" width="500" height="144"/>
+                                <rect key="frame" x="-16" y="15" width="500" height="168"/>
                                 <subviews>
                                     <stackView distribution="fill" orientation="horizontal" alignment="firstBaseline" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c79-hb-17D">
-                                        <rect key="frame" x="121.5" y="127" width="257" height="17"/>
+                                        <rect key="frame" x="121.5" y="151" width="257" height="17"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1R4-Jk-2Sd">
                                                 <rect key="frame" x="-2" y="0.0" width="122" height="17"/>
@@ -586,6 +678,9 @@
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
+                                                <connections>
+                                                    <binding destination="pEV-Xn-pkS" name="value" keyPath="values.shallowSearch" id="ZXC-9m-PCY"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <visibilityPriorities>
@@ -598,10 +693,10 @@
                                         </customSpacing>
                                     </stackView>
                                     <stackView distribution="fill" orientation="horizontal" alignment="firstBaseline" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kqW-5M-vaM">
-                                        <rect key="frame" x="82.5" y="38" width="335" height="65"/>
+                                        <rect key="frame" x="82.5" y="38" width="335" height="89"/>
                                         <subviews>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJ4-lE-jIt">
-                                                <rect key="frame" x="-2" y="48" width="161" height="17"/>
+                                                <rect key="frame" x="-2" y="72" width="161" height="17"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="If there is a name conflict:" id="rXv-HU-iV7">
                                                     <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -609,14 +704,27 @@
                                                 </textFieldCell>
                                             </textField>
                                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3kM-3A-9Qj">
-                                                <rect key="frame" x="165" y="0.0" width="170" height="64"/>
+                                                <rect key="frame" x="165" y="0.0" width="170" height="88"/>
                                                 <subviews>
                                                     <button translatesAutoresizingMaskIntoConstraints="NO" id="sw5-q1-MdL">
-                                                        <rect key="frame" x="-1" y="47" width="89" height="18"/>
-                                                        <buttonCell key="cell" type="radio" title="Do nothing" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="W2Y-hm-Ve9">
+                                                        <rect key="frame" x="-1" y="71" width="64" height="18"/>
+                                                        <buttonCell key="cell" type="radio" title="Cancel" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="W2Y-hm-Ve9">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
+                                                        <connections>
+                                                            <action selector="nameConflictActionRadioButtonDidChange:" target="jPQ-e0-zdJ" id="fXf-gu-CmO"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button translatesAutoresizingMaskIntoConstraints="NO" id="oJr-um-pFQ">
+                                                        <rect key="frame" x="-1" y="47" width="75" height="18"/>
+                                                        <buttonCell key="cell" type="radio" title="Override" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="QYb-FN-xeT">
+                                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                            <font key="font" metaFont="system"/>
+                                                        </buttonCell>
+                                                        <connections>
+                                                            <action selector="nameConflictActionRadioButtonDidChange:" target="jPQ-e0-zdJ" id="hG2-cz-gJh"/>
+                                                        </connections>
                                                     </button>
                                                     <button translatesAutoresizingMaskIntoConstraints="NO" id="joT-BB-Lc6">
                                                         <rect key="frame" x="-1" y="23" width="151" height="18"/>
@@ -624,6 +732,9 @@
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
+                                                        <connections>
+                                                            <action selector="nameConflictActionRadioButtonDidChange:" target="jPQ-e0-zdJ" id="czy-4y-3QG"/>
+                                                        </connections>
                                                     </button>
                                                     <button translatesAutoresizingMaskIntoConstraints="NO" id="nlY-iT-8Rx">
                                                         <rect key="frame" x="-1" y="-1" width="173" height="18"/>
@@ -631,14 +742,19 @@
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
+                                                        <connections>
+                                                            <action selector="nameConflictActionRadioButtonDidChange:" target="jPQ-e0-zdJ" id="O3L-xo-9nU"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <visibilityPriorities>
                                                     <integer value="1000"/>
                                                     <integer value="1000"/>
                                                     <integer value="1000"/>
+                                                    <integer value="1000"/>
                                                 </visibilityPriorities>
                                                 <customSpacing>
+                                                    <real value="3.4028234663852886e+38"/>
                                                     <real value="3.4028234663852886e+38"/>
                                                     <real value="3.4028234663852886e+38"/>
                                                     <real value="3.4028234663852886e+38"/>
@@ -660,6 +776,9 @@
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <connections>
+                                            <binding destination="pEV-Xn-pkS" name="value" keyPath="values.appendLanguageCode" id="rUd-ba-kky"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -683,8 +802,15 @@
                             <constraint firstItem="SxV-pq-mzl" firstAttribute="centerX" secondItem="2Bc-PZ-lcK" secondAttribute="centerX" id="vrh-IO-Azc"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="backupExistingSubtitlesRadioButton" destination="nlY-iT-8Rx" id="6h3-EP-241"/>
+                        <outlet property="backupNewSubtitlesRadioButton" destination="joT-BB-Lc6" id="HQJ-zh-pM7"/>
+                        <outlet property="cancelRadioButton" destination="sw5-q1-MdL" id="bHA-1g-mDi"/>
+                        <outlet property="overrideRadioButton" destination="oJr-um-pFQ" id="BT8-rq-hHm"/>
+                    </connections>
                 </viewController>
                 <customObject id="xhM-yN-r1X" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <userDefaultsController representsSharedInstance="YES" id="pEV-Xn-pkS"/>
             </objects>
             <point key="canvasLocation" x="863.5" y="828.5"/>
         </scene>
@@ -719,6 +845,10 @@
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
+                                                        <connections>
+                                                            <action selector="showDockIconDidChange:" target="QTd-ui-a5M" id="pDF-6c-2kD"/>
+                                                            <binding destination="pEV-fn-pka" name="value" keyPath="values.showDockIcon" id="RTo-pf-t3x"/>
+                                                        </connections>
                                                     </button>
                                                     <button translatesAutoresizingMaskIntoConstraints="NO" id="CC7-yc-RhJ">
                                                         <rect key="frame" x="-2" y="-2" width="149" height="18"/>
@@ -726,6 +856,10 @@
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
+                                                        <connections>
+                                                            <action selector="showStatusBarIconDidChange:" target="QTd-ui-a5M" id="fjs-R3-DdV"/>
+                                                            <binding destination="pEV-fn-pka" name="value" keyPath="values.showStatusBarItem" id="yKO-u5-fop"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <visibilityPriorities>
@@ -756,6 +890,9 @@
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
+                                                <connections>
+                                                    <binding destination="pEV-fn-pka" name="value" keyPath="values.postNotifications" id="bvV-N3-xCK"/>
+                                                </connections>
                                             </button>
                                             <button translatesAutoresizingMaskIntoConstraints="NO" id="3SH-yZ-0Aq">
                                                 <rect key="frame" x="-2" y="20" width="264" height="18"/>
@@ -763,6 +900,9 @@
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
+                                                <connections>
+                                                    <binding destination="pEV-fn-pka" name="value" keyPath="values.showDownloadSummary" id="AIg-5m-Wfk"/>
+                                                </connections>
                                             </button>
                                             <button translatesAutoresizingMaskIntoConstraints="NO" id="WMd-PL-zmK">
                                                 <rect key="frame" x="-2" y="-2" width="214" height="18"/>
@@ -770,6 +910,9 @@
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
+                                                <connections>
+                                                    <binding destination="pEV-fn-pka" name="value" keyPath="values.closeApplicationWhenFinished" id="dyh-dD-yeu"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <visibilityPriorities>
@@ -804,6 +947,7 @@
                     </view>
                 </viewController>
                 <customObject id="G7U-Rj-TdL" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <userDefaultsController representsSharedInstance="YES" id="pEV-fn-pka"/>
             </objects>
             <point key="canvasLocation" x="-704" y="822"/>
         </scene>
@@ -811,4 +955,7 @@
     <resources>
         <image name="NSPreferencesGeneral" width="32" height="32"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="OQP-Cb-vSB"/>
+    </inferredMetricsTieBreakers>
 </document>
