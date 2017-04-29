@@ -18,9 +18,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }()
 
     lazy var mainWindowController: MainWindowController = {
-        let mainStoryboard = NSStoryboard(name: "Main", bundle: nil)
-        let windowController = mainStoryboard.instantiateController(withIdentifier: "MainWindowController") as! MainWindowController
-        return windowController
+        return Storyboard.Main.instantiate(MainWindowController.self)
     }()
 
     // MARK: - Lifecycle

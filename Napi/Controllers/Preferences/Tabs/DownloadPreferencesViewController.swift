@@ -26,11 +26,11 @@ final class DownloadPreferencesViewController: NSViewController {
 
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         switch segue.identifier {
-        case .some(Constants.providersSegueIdentifier):
+        case .some(Segue.Providers.storyboardIdentifier):
             if let checkboxTableViewController = segue.destinationController as? CheckboxTableViewController {
                 setupCheckboxTableViewControllerForProvidersSegue(checkboxTableViewController)
             }
-        case .some(Constants.languagesSegueIdentifier):
+        case .some(Segue.Languages.storyboardIdentifier):
             if let checkboxTableViewController = segue.destinationController as? CheckboxTableViewController {
                 setupCheckboxTableViewControllerForLanguagesSegue(checkboxTableViewController)
             }
@@ -116,11 +116,19 @@ final class DownloadPreferencesViewController: NSViewController {
     }
 }
 
+// MARK: - Storyboard Identifiers
+
+extension DownloadPreferencesViewController {
+    enum Segue: StoryboardIdentifiable {
+        case Providers
+        case Languages
+    }
+}
+
+// MARK: - Constants
+
 extension DownloadPreferencesViewController {
     fileprivate struct Constants {
-        static let providersSegueIdentifier = "ProvidersSegueIdentifier"
-        static let languagesSegueIdentifier = "LanguagesSegueIdentifier"
-
         static let incorrectLanguages = ["mul", "und", "zxx", "mdh", "mis", "swc"]
     }
 }

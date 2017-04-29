@@ -122,9 +122,9 @@ extension CheckboxTableViewController: NSTableViewDelegate {
             let contentObject = contentElements[row]
 
             switch columnIdentifier {
-            case Identifiers.contentColumnIdentifier:
+            case Column.Content.storyboardIdentifier:
                 return contentColumnCellView(with: contentObject)
-            case Identifiers.checkboxColumnIdentifier:
+            case Column.Checkbox.storyboardIdentifier:
                 return checkboxColumnCellView(with: contentObject)
             default:
                 break
@@ -136,19 +136,19 @@ extension CheckboxTableViewController: NSTableViewDelegate {
 
     private func contentColumnCellView(with contentObject: ContentElement) -> NSView {
         if showCellImage {
-            let cellView = tableView.make(withIdentifier: Identifiers.imageAndTextCellIdentifier, owner: nil) as! NSTableCellView
+            let cellView = tableView.make(withIdentifier: Cell.ImageAndText.storyboardIdentifier, owner: nil) as! NSTableCellView
             cellView.textField?.stringValue = contentObject.value.description
             cellView.imageView?.image = contentObject.image
             return cellView
         } else {
-            let cellView = tableView.make(withIdentifier: Identifiers.textCellIdentifier, owner: nil) as! NSTableCellView
+            let cellView = tableView.make(withIdentifier: Cell.Text.storyboardIdentifier, owner: nil) as! NSTableCellView
             cellView.textField?.stringValue = contentObject.value.description
             return cellView
         }
     }
 
     private func checkboxColumnCellView(with contentObject: ContentElement) -> NSView {
-        let cellView = tableView.make(withIdentifier: Identifiers.checkboxCellIdentifier, owner: nil) as! NSButton
+        let cellView = tableView.make(withIdentifier: Cell.Checkbox.storyboardIdentifier, owner: nil) as! NSButton
         cellView.state = contentObject.isSelected ? 1 : 0
         return cellView
     }
@@ -172,18 +172,24 @@ extension CheckboxTableViewController.ContentElement {
     }
 }
 
+// MARK: - Storyboard Identifiers
+
+extension CheckboxTableViewController {
+    enum Column: StoryboardIdentifiable {
+        case Checkbox
+        case Content
+    }
+
+    enum Cell: StoryboardIdentifiable {
+        case Checkbox
+        case Text
+        case ImageAndText
+    }
+}
+
 // MARK: - Constants
 
 extension CheckboxTableViewController {
-    fileprivate struct Identifiers {
-        static let checkboxColumnIdentifier = "CheckboxColumnIdentifier"
-        static let contentColumnIdentifier = "ContentColumnIdentifier"
-
-        static let checkboxCellIdentifier = "CheckboxCellIdentifier"
-        static let textCellIdentifier = "TextCellIdentifier"
-        static let imageAndTextCellIdentifier = "ImageAndTextCellIdentifier"
-    }
-
     fileprivate struct Constants {
         static let dragTypeUTI = "private.tableViewRow"
     }

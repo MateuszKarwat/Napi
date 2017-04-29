@@ -718,7 +718,7 @@ Gw
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn identifier="CheckboxColumnIdentifier" editable="NO" width="18" minWidth="18" maxWidth="1000" id="oSD-uO-5Gi" userLabel="Table Column - Checkbox">
+                                                <tableColumn identifier="CheckboxTableViewController.Column.Checkbox" editable="NO" width="18" minWidth="18" maxWidth="1000" id="oSD-uO-5Gi">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -730,7 +730,7 @@ Gw
                                                     </buttonCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <button identifier="CheckboxCellIdentifier" id="ji1-KC-7La">
+                                                        <button identifier="CheckboxTableViewController.Cell.Checkbox" id="ji1-KC-7La">
                                                             <rect key="frame" x="1" y="1" width="18" height="18"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                             <buttonCell key="cell" type="check" title="Check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="YE8-FA-whw">
@@ -743,7 +743,7 @@ Gw
                                                         </button>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn identifier="ContentColumnIdentifier" width="224" minWidth="10" maxWidth="3.4028234663852886e+38" id="g5V-Wz-AE1" userLabel="Table Column - Image and Text">
+                                                <tableColumn identifier="CheckboxTableViewController.Column.Content" width="224" minWidth="10" maxWidth="3.4028234663852886e+38" id="g5V-Wz-AE1">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -756,7 +756,7 @@ Gw
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView identifier="ImageAndTextCellIdentifier" id="vkE-eE-e2d">
+                                                        <tableCellView identifier="CheckboxTableViewController.Cell.ImageAndText" id="vkE-eE-e2d">
                                                             <rect key="frame" x="22" y="1" width="224" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
@@ -780,7 +780,7 @@ Gw
                                                                 <outlet property="textField" destination="cn5-lk-OJs" id="fI7-9o-QKB"/>
                                                             </connections>
                                                         </tableCellView>
-                                                        <tableCellView identifier="TextCellIdentifier" id="tYz-IH-Vv0">
+                                                        <tableCellView identifier="CheckboxTableViewController.Cell.Text" id="tYz-IH-Vv0">
                                                             <rect key="frame" x="22" y="20" width="224" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>

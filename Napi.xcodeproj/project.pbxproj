@@ -48,6 +48,7 @@
 		2057DBB11E0436C30049DC3A /* SubtitleEntityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2057DBB01E0436C30049DC3A /* SubtitleEntityTests.swift */; };
 		206548581E914B080011DED8 /* NapiEngineDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206548571E914B080011DED8 /* NapiEngineDelegate.swift */; };
 		206C09811E7738810025B637 /* NSUserNotificationCenter+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206C09801E7738810025B637 /* NSUserNotificationCenter+URL.swift */; };
+		207F64621EB4E451005C8A11 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207F64611EB4E451005C8A11 /* Storyboard.swift */; };
 		208625CB1D4513A800B6DEF6 /* Int+Timestamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208625CA1D4513A800B6DEF6 /* Int+Timestamp.swift */; };
 		208BF2AD1D7316FC00111F4D /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208BF2AC1D7316FC00111F4D /* String+MD5.swift */; };
 		208BF2AF1D73170700111F4D /* Data+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208BF2AE1D73170700111F4D /* Data+MD5.swift */; };
@@ -158,7 +159,7 @@
 		2049F3D81E755A490083547D /* StatusBarItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusBarItemController.swift; sourceTree = "<group>"; };
 		2049F3DA1E755C580083547D /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		2049F3DC1E75615E0083547D /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
-		204A45FC1E9E9BAA004F8687 /* CheckboxTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckboxTableViewController.swift; path = CheckboxTableViewController.swift; sourceTree = "<group>"; };
+		204A45FC1E9E9BAA004F8687 /* CheckboxTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxTableViewController.swift; sourceTree = "<group>"; };
 		204C2EE01E06AED300A8F58E /* SubtitleProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitleProvider.swift; sourceTree = "<group>"; };
 		204C2EE31E06B07500A8F58E /* Napisy24.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Napisy24.swift; sourceTree = "<group>"; };
 		204C2EE51E06B61200A8F58E /* SearchCriteria.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCriteria.swift; sourceTree = "<group>"; };
@@ -169,6 +170,7 @@
 		2057DBB01E0436C30049DC3A /* SubtitleEntityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitleEntityTests.swift; sourceTree = "<group>"; };
 		206548571E914B080011DED8 /* NapiEngineDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NapiEngineDelegate.swift; sourceTree = "<group>"; };
 		206C09801E7738810025B637 /* NSUserNotificationCenter+URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSUserNotificationCenter+URL.swift"; sourceTree = "<group>"; };
+		207F64611EB4E451005C8A11 /* Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		208625CA1D4513A800B6DEF6 /* Int+Timestamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "Int+Timestamp.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		208BF2A91D73073500111F4D /* Napi-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Napi-Bridging-Header.h"; sourceTree = "<group>"; };
 		208BF2AC1D7316FC00111F4D /* String+MD5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
@@ -392,8 +394,8 @@
 			children = (
 				2007806D1C64AE4F0098B026 /* Main.storyboard */,
 				20DBFCD31E9A66ED00F2C93E /* Preferences.storyboard */,
+				207F64611EB4E451005C8A11 /* Storyboard.swift */,
 			);
-			name = Storyboards;
 			path = Storyboards;
 			sourceTree = "<group>";
 		};
@@ -634,6 +636,7 @@
 				20F689CE1E9C0697004C767E /* GeneralPreferencesViewController.swift in Sources */,
 				20176E931C6A502500574B5B /* Timestamp.swift in Sources */,
 				20C394671E05A33E00EB7D63 /* Date+Timestamp.swift in Sources */,
+				207F64621EB4E451005C8A11 /* Storyboard.swift in Sources */,
 				202F3B401E6C2F6000BDB148 /* SubtitleOperation.swift in Sources */,
 				2049F3DB1E755C580083547D /* Preferences.swift in Sources */,
 				20909F141D9C2631004622B0 /* Disctionary+HTTPBodyFormat.swift in Sources */,

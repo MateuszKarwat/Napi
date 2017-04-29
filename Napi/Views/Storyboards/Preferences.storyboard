@@ -84,7 +84,7 @@
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
                                                         <connections>
-                                                            <segue destination="u5a-UZ-uud" kind="sheet" identifier="ProvidersSegueIdentifier" id="lTq-QZ-8lk"/>
+                                                            <segue destination="u5a-UZ-uud" kind="sheet" identifier="DownloadPreferencesViewController.Segue.Providers" id="lTq-QZ-8lk"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -115,7 +115,7 @@
                                                             <font key="font" metaFont="system"/>
                                                         </buttonCell>
                                                         <connections>
-                                                            <segue destination="u5a-UZ-uud" kind="sheet" identifier="LanguagesSegueIdentifier" id="OQP-Cb-vSB"/>
+                                                            <segue destination="u5a-UZ-uud" kind="sheet" identifier="DownloadPreferencesViewController.Segue.Languages" id="OQP-Cb-vSB"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>

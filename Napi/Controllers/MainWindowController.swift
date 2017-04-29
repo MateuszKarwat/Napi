@@ -7,14 +7,18 @@ import Cocoa
 import Foundation
 
 final class MainWindowController: NSWindowController {
-    private struct Constants {
-        static let autosaveName = "MainWindow"
-    }
-
     override func windowDidLoad() {
         super.windowDidLoad()
 
         shouldCascadeWindows = false
         window?.setFrameAutosaveName(Constants.autosaveName)
+    }
+}
+
+// MARK: - Constants
+
+extension MainWindowController {
+    fileprivate struct Constants {
+        static let autosaveName = "MainWindow"
     }
 }
