@@ -15,6 +15,9 @@ final class CheckboxTableViewController: NSViewController {
     /// An `Array` of elements which are presented as `tableView`'s content.
     var contentElements = [ContentElement]()
 
+    /// Used to specify a custom description if default one is not valid.
+    var customDescription: ((ContentElement) -> String)?
+
     /// Text displayed above the `tableView` explaining what table view presents.
     var descriptionText: String?
 
@@ -134,22 +137,24 @@ extension CheckboxTableViewController: NSTableViewDelegate {
         return nil
     }
 
-    private func contentColumnCellView(with contentObject: ContentElement) -> NSView {
+    private func contentColumnCellView(with contentElement: ContentElement) -> NSView {
+        let cellView: NSTableCellView
+
         if showCellImage {
-            let cellView = tableView.make(withIdentifier: Cell.ImageAndText.storyboardIdentifier, owner: nil) as! NSTableCellView
-            cellView.textField?.stringValue = contentObject.value.description
-            cellView.imageView?.image = contentObject.image
-            return cellView
+            cellView = tableView.make(withIdentifier: Cell.ImageAndText.storyboardIdentifier, owner: nil) as! NSTableCellView
+            cellView.imageView?.image = contentElement.image
         } else {
-            let cellView = tableView.make(withIdentifier: Cell.Text.storyboardIdentifier, owner: nil) as! NSTableCellView
-            cellView.textField?.stringValue = contentObject.value.description
-            return cellView
+            cellView = tableView.make(withIdentifier: Cell.Text.storyboardIdentifier, owner: nil) as! NSTableCellView
         }
+
+        cellView.textField?.stringValue = customDescription?(contentElement) ?? contentElement.value.description
+
+        return cellView
     }
 
-    private func checkboxColumnCellView(with contentObject: ContentElement) -> NSView {
+    private func checkboxColumnCellView(with contentElement: ContentElement) -> NSView {
         let cellView = tableView.make(withIdentifier: Cell.Checkbox.storyboardIdentifier, owner: nil) as! NSButton
-        cellView.state = contentObject.isSelected ? 1 : 0
+        cellView.state = contentElement.isSelected ? 1 : 0
         return cellView
     }
 }
