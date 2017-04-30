@@ -57,6 +57,7 @@
 		2091C0D61E94203900B2D953 /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2091C0D51E94203900B2D953 /* SwiftyBeaver.framework */; };
 		2091C0D71E94203900B2D953 /* SwiftyBeaver.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2091C0D51E94203900B2D953 /* SwiftyBeaver.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2091C0DB1E94209100B2D953 /* SwiftyBeaver.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2091C0DA1E94209100B2D953 /* SwiftyBeaver.framework.dSYM */; };
+		20924EDD1EB4FBD7005655C9 /* MainWindowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20924EDC1EB4FBD7005655C9 /* MainWindowViewController.swift */; };
 		209451621E7726A8001861CE /* SupportedSubtitleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209451611E7726A8001861CE /* SupportedSubtitleProvider.swift */; };
 		209911D11E9AB2D900B5681C /* DownloadPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209911D01E9AB2D900B5681C /* DownloadPreferencesViewController.swift */; };
 		209911D31E9AB2E300B5681C /* ConvertPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209911D21E9AB2E300B5681C /* ConvertPreferencesViewController.swift */; };
@@ -179,6 +180,7 @@
 		20909F131D9C2631004622B0 /* Disctionary+HTTPBodyFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Disctionary+HTTPBodyFormat.swift"; sourceTree = "<group>"; };
 		2091C0D51E94203900B2D953 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/Mac/SwiftyBeaver.framework; sourceTree = "<group>"; };
 		2091C0DA1E94209100B2D953 /* SwiftyBeaver.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftyBeaver.framework.dSYM; path = Carthage/Build/Mac/SwiftyBeaver.framework.dSYM; sourceTree = "<group>"; };
+		20924EDC1EB4FBD7005655C9 /* MainWindowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowViewController.swift; sourceTree = "<group>"; };
 		209451611E7726A8001861CE /* SupportedSubtitleProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportedSubtitleProvider.swift; sourceTree = "<group>"; };
 		209911D01E9AB2D900B5681C /* DownloadPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadPreferencesViewController.swift; sourceTree = "<group>"; };
 		209911D21E9AB2E300B5681C /* ConvertPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConvertPreferencesViewController.swift; sourceTree = "<group>"; };
@@ -363,6 +365,7 @@
 				204A45FC1E9E9BAA004F8687 /* CheckboxTableViewController.swift */,
 				2049F3DC1E75615E0083547D /* MainWindowController.swift */,
 				2049F3D81E755A490083547D /* StatusBarItemController.swift */,
+				20924EDC1EB4FBD7005655C9 /* MainWindowViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -629,6 +632,7 @@
 				20DBFCD21E9A5FE600F2C93E /* PreferencesTabViewController.swift in Sources */,
 				20A2C6B21E7075DF005131C8 /* DraggingDestinationView.swift in Sources */,
 				20F5D23A1DFF025E00FA9BAC /* TemporaryDirectoryManager.swift in Sources */,
+				20924EDD1EB4FBD7005655C9 /* MainWindowViewController.swift in Sources */,
 				200780681C64AE4F0098B026 /* AppDelegate.swift in Sources */,
 				204C2EE41E06B07500A8F58E /* Napisy24.swift in Sources */,
 				20A6DF241E59DDE900895BF0 /* AsynchronousOperation.swift in Sources */,

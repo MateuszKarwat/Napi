@@ -9,6 +9,7 @@ final class CheckboxTableViewController: NSViewController {
     @IBOutlet weak var tableView: NSTableView!
     @IBOutlet weak var cancelButton: NSButton!
     @IBOutlet weak var applyButton: NSButton!
+    @IBOutlet weak var tableViewWidthConstraint: NSLayoutConstraint!
 
     // MARK: - Properties
 
@@ -43,6 +44,8 @@ final class CheckboxTableViewController: NSViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(forDraggedTypes: [Constants.dragTypeUTI])
+
+        updateTableViewWidthConstraint()
     }
 
     // MARK: - IBActions
@@ -61,6 +64,48 @@ final class CheckboxTableViewController: NSViewController {
 
     @IBAction func applyButtonClicked(_ sender: NSButton) {
         applyAction?()
+    }
+
+    // MARK: - Private Properties
+
+    /// Counts a fitting size of content column.
+    private var contentColumnWidth: CGFloat {
+        var calculatedWidth: CGFloat = 0.0
+
+        for row in 0 ..< min(contentElements.count, 20) {
+            guard
+                let cellView = tableView.view(atColumn: tableView.tableColumns.count - 1,
+                                              row: row,
+                                              makeIfNecessary: true) as? NSTableCellView,
+                let textFieldWidth = cellView.textField?.fittingSize.width
+                else {
+                    continue
+            }
+
+            let remainingSubviewsCombinedWidth = cellView.subviews
+                .filter { $0 as? NSTextField == nil }
+                .map { $0.frame.size.width }
+                .reduce(0.0, +)
+
+            calculatedWidth = max(calculatedWidth, textFieldWidth + remainingSubviewsCombinedWidth)
+        }
+
+        return calculatedWidth
+    }
+
+    // MARK: - Private Functions
+
+    // MARK: Sizing
+
+    /// Updates a width of table view based on calculated fitting size of content column
+    /// and hard-coded extra spacing.
+    ///
+    /// - Note: It would be nice to remove hard-coded values and calculate it dynamically.
+    private func updateTableViewWidthConstraint() {
+        let extraSpaceForOtherColumns: CGFloat = 17 * 3.0
+        let calculatedTableViewWidthContant = contentColumnWidth + extraSpaceForOtherColumns
+
+        tableViewWidthConstraint.constant = max(tableViewWidthConstraint.constant, calculatedTableViewWidthContant)
     }
 }
 
