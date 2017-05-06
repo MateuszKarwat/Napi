@@ -278,7 +278,7 @@
         <!--CheckboxTableViewController-->
         <scene sceneID="jXT-aF-Fi0">
             <objects>
-                <controllerPlaceholder storyboardName="Main" referencedIdentifier="CheckboxTableViewController" id="u5a-UZ-uud" sceneMemberID="viewController"/>
+                <controllerPlaceholder storyboardName="Selection" referencedIdentifier="CheckboxTableViewController" id="u5a-UZ-uud" sceneMemberID="viewController"/>
                 <customObject id="eEg-Ga-WJd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-196" y="1156"/>
@@ -956,6 +956,6 @@
         <image name="NSPreferencesGeneral" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="OQP-Cb-vSB"/>
+        <segue reference="lTq-QZ-8lk"/>
     </inferredMetricsTieBreakers>
 </document>

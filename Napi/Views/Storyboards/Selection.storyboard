@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12120"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Checkbox Table View Controller-->
+        <scene sceneID="w4b-u9-LGg">
+            <objects>
+                <viewController storyboardIdentifier="CheckboxTableViewController" id="Irl-DZ-yUt" customClass="CheckboxTableViewController" customModule="Napi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="suy-7n-P5i">
+                        <rect key="frame" x="0.0" y="0.0" width="290" height="262"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RXK-yp-tCb">
+                                <rect key="frame" x="201" y="13" width="75" height="32"/>
+                                <buttonCell key="cell" type="push" title="Apply" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Wsn-gR-EEN">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="applyButtonClicked:" target="Irl-DZ-yUt" id="3dz-qN-yb4"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QBC-e6-Fpi">
+                                <rect key="frame" x="119" y="13" width="82" height="32"/>
+                                <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="LZY-wT-Qvc">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="cancelButtonClicked:" target="Irl-DZ-yUt" id="j7T-ba-cUS"/>
+                                </connections>
+                            </button>
+                            <textField horizontalHuggingPriority="300" verticalHuggingPriority="750" horizontalCompressionResistancePriority="600" verticalCompressionResistancePriority="700" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OpP-3C-lju">
+                                <rect key="frame" x="18" y="225" width="254" height="17"/>
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Description" id="KBr-Eq-bB4">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <scrollView wantsLayer="YES" horizontalCompressionResistancePriority="700" verticalCompressionResistancePriority="700" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qGS-zE-rnH">
+                                <rect key="frame" x="20" y="61" width="250" height="145"/>
+                                <clipView key="contentView" copiesOnScroll="NO" id="WdC-e9-Dy2">
+                                    <rect key="frame" x="1" y="1" width="248" height="143"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnSelection="YES" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="fEs-JC-UV1">
+                                            <rect key="frame" x="0.0" y="0.0" width="248" height="143"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <size key="intercellSpacing" width="3" height="2"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                            <tableColumns>
+                                                <tableColumn identifier="CheckboxTableViewController.Column.Checkbox" editable="NO" width="18" minWidth="18" maxWidth="18" id="OWf-pI-oRf">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                                    </tableHeaderCell>
+                                                    <buttonCell key="dataCell" type="check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="92A-Iu-xqV">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES"/>
+                                                    <prototypeCellViews>
+                                                        <button identifier="CheckboxTableViewController.Cell.Checkbox" id="2HE-56-ZDm">
+                                                            <rect key="frame" x="1" y="1" width="18" height="18"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="QUa-NX-4Es">
+                                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                                <font key="font" metaFont="system"/>
+                                                            </buttonCell>
+                                                            <connections>
+                                                                <action selector="checkboxButtonDidChange:" target="Irl-DZ-yUt" id="u89-bh-zc9"/>
+                                                            </connections>
+                                                        </button>
+                                                    </prototypeCellViews>
+                                                </tableColumn>
+                                                <tableColumn identifier="CheckboxTableViewController.Column.Content" editable="NO" width="224" minWidth="10" maxWidth="3.4028234663852886e+38" id="kfV-qO-nSk">
+                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
+                                                        <font key="font" metaFont="smallSystem"/>
+                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    </tableHeaderCell>
+                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" title="Text Cell" id="PtX-7c-wtE">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES"/>
+                                                    <prototypeCellViews>
+                                                        <tableCellView identifier="CheckboxTableViewController.Cell.ImageAndText" id="Tby-kN-XkC">
+                                                            <rect key="frame" x="22" y="1" width="224" height="17"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F7I-VJ-1Iz">
+                                                                    <rect key="frame" x="3" y="0.0" width="17" height="17"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSActionTemplate" id="NbK-y3-IxO"/>
+                                                                </imageView>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsExpansionToolTips="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5G6-Kz-OO6">
+                                                                    <rect key="frame" x="25" y="0.0" width="198" height="17"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingMiddle" sendsActionOnEndEditing="YES" title="Table View Cell" id="kJf-Qo-KdI">
+                                                                        <font key="font" metaFont="system"/>
+                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                            </subviews>
+                                                            <connections>
+                                                                <outlet property="imageView" destination="F7I-VJ-1Iz" id="LYF-M3-gUS"/>
+                                                                <outlet property="textField" destination="5G6-Kz-OO6" id="yhU-39-jMM"/>
+                                                            </connections>
+                                                        </tableCellView>
+                                                        <tableCellView identifier="CheckboxTableViewController.Cell.Text" id="JQ3-xQ-5hm">
+                                                            <rect key="frame" x="22" y="20" width="224" height="17"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <subviews>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kD4-Yq-PlV">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="383" height="17"/>
+                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                                    <textFieldCell key="cell" lineBreakMode="truncatingMiddle" sendsActionOnEndEditing="YES" title="Table View Cell" id="VWn-OP-YQF">
+                                                                        <font key="font" metaFont="system"/>
+                                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                            </subviews>
+                                                            <connections>
+                                                                <outlet property="textField" destination="kD4-Yq-PlV" id="3RC-90-U1d"/>
+                                                            </connections>
+                                                        </tableCellView>
+                                                    </prototypeCellViews>
+                                                </tableColumn>
+                                            </tableColumns>
+                                        </tableView>
+                                    </subviews>
+                                </clipView>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="145" id="avl-ea-gPD"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="h4Z-Nv-H4w"/>
+                                </constraints>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="THf-nK-eXR">
+                                    <rect key="frame" x="1" y="133" width="148" height="16"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="tYP-6P-HR9">
+                                    <rect key="frame" x="224" y="17" width="15" height="102"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="qGS-zE-rnH" firstAttribute="leading" secondItem="suy-7n-P5i" secondAttribute="leading" constant="20" id="5t2-Sg-fhQ"/>
+                            <constraint firstAttribute="bottom" secondItem="QBC-e6-Fpi" secondAttribute="bottom" constant="20" id="HNA-2b-l3T"/>
+                            <constraint firstItem="QBC-e6-Fpi" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="suy-7n-P5i" secondAttribute="leading" constant="20" id="IGB-dQ-ckH"/>
+                            <constraint firstAttribute="bottom" secondItem="RXK-yp-tCb" secondAttribute="bottom" constant="20" id="Ikl-cl-3TI"/>
+                            <constraint firstAttribute="trailing" secondItem="RXK-yp-tCb" secondAttribute="trailing" constant="20" id="KpC-6g-wui"/>
+                            <constraint firstItem="OpP-3C-lju" firstAttribute="top" secondItem="suy-7n-P5i" secondAttribute="top" constant="20" id="Rca-iH-3YT"/>
+                            <constraint firstItem="QBC-e6-Fpi" firstAttribute="top" secondItem="qGS-zE-rnH" secondAttribute="bottom" constant="20" id="Yxp-TK-7dZ"/>
+                            <constraint firstItem="OpP-3C-lju" firstAttribute="leading" secondItem="qGS-zE-rnH" secondAttribute="leading" id="Z9J-Q9-gQz"/>
+                            <constraint firstAttribute="trailing" secondItem="qGS-zE-rnH" secondAttribute="trailing" constant="20" id="kJi-fd-9QP"/>
+                            <constraint firstItem="qGS-zE-rnH" firstAttribute="top" secondItem="OpP-3C-lju" secondAttribute="bottom" constant="19" id="mw2-5I-cTd"/>
+                            <constraint firstItem="OpP-3C-lju" firstAttribute="trailing" secondItem="qGS-zE-rnH" secondAttribute="trailing" id="niE-z8-Wnc"/>
+                            <constraint firstItem="RXK-yp-tCb" firstAttribute="leading" secondItem="QBC-e6-Fpi" secondAttribute="trailing" constant="12" id="ojX-DH-758"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="applyButton" destination="RXK-yp-tCb" id="TsQ-9l-Ioh"/>
+                        <outlet property="cancelButton" destination="QBC-e6-Fpi" id="KzL-DK-h0d"/>
+                        <outlet property="tableView" destination="fEs-JC-UV1" id="CB2-hs-ESi"/>
+                        <outlet property="tableViewWidthConstraint" destination="h4Z-Nv-H4w" id="jA1-ZR-4g4"/>
+                    </connections>
+                </viewController>
+                <customObject id="Nx1-wM-PMq" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="644" y="109"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="NSActionTemplate" width="14" height="14"/>
+    </resources>
+</document>

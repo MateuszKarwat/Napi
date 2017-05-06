@@ -28,7 +28,7 @@ extension MainWindowViewController: DraggingDestinationViewDelegate {
                                                        value: $0)
         }
 
-        let checkboxTableViewController = Storyboard.Main.instantiate(CheckboxTableViewController.self)
+        let checkboxTableViewController = Storyboard.Selection.instantiate(CheckboxTableViewController.self)
         checkboxTableViewController.showCellImage = true
         checkboxTableViewController.contentElements = contentElements
 

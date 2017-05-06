@@ -8,6 +8,8 @@ import AppKit
 enum Storyboard: String {
     case Main
     case Preferences
+    case Selection
+    case Progress
 
     func instantiate<C: StoryboardIdentifiable>(_ viewController: C.Type, inBundle bundle: Bundle = .main) -> C {
         guard let vc = NSStoryboard(name: self.rawValue, bundle: bundle)
