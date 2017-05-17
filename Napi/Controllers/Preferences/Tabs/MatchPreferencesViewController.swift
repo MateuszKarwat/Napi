@@ -6,10 +6,10 @@
 import AppKit
 
 final class MatchPreferencesViewController: NSViewController {
-    @IBOutlet weak var cancelRadioButton: NSButton!
-    @IBOutlet weak var overrideRadioButton: NSButton!
-    @IBOutlet weak var backupNewSubtitlesRadioButton: NSButton!
-    @IBOutlet weak var backupExistingSubtitlesRadioButton: NSButton!
+    @IBOutlet private weak var cancelRadioButton: NSButton!
+    @IBOutlet private weak var overrideRadioButton: NSButton!
+    @IBOutlet private weak var backupNewSubtitlesRadioButton: NSButton!
+    @IBOutlet private weak var backupExistingSubtitlesRadioButton: NSButton!
 
     var radioButtonsBinding: [NameMatcher.NameConflictAction: NSButton] {
         return [.cancel: cancelRadioButton,

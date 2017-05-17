@@ -6,10 +6,10 @@
 import AppKit
 
 final class CheckboxTableViewController: NSViewController {
-    @IBOutlet weak var tableView: NSTableView!
-    @IBOutlet weak var cancelButton: NSButton!
-    @IBOutlet weak var applyButton: NSButton!
-    @IBOutlet weak var tableViewWidthConstraint: NSLayoutConstraint!
+    @IBOutlet fileprivate weak var tableView: NSTableView!
+    @IBOutlet fileprivate weak var cancelButton: NSButton!
+    @IBOutlet fileprivate weak var applyButton: NSButton!
+    @IBOutlet fileprivate weak var tableViewWidthConstraint: NSLayoutConstraint!
 
     // MARK: - Properties
 

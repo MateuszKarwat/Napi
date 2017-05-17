@@ -9,13 +9,13 @@ final class ConvertPreferencesViewController: NSViewController {
 
     // MARK: - Frame Rate
 
-    @IBOutlet weak var frameRateComboBox: NSComboBox! {
+    @IBOutlet private weak var frameRateComboBox: NSComboBox! {
         didSet {
             frameRateComboBox.stringValue = String(Preferences[.backupFrameRate])
         }
     }
 
-    @IBAction func frameRateComboBoxDidChange(_ sender: NSComboBox) {
+    @IBAction private func frameRateComboBoxDidChange(_ sender: NSComboBox) {
         if let newFrameRate = Double(sender.stringValue) {
             Preferences[.backupFrameRate] = newFrameRate
         } else {
@@ -25,7 +25,7 @@ final class ConvertPreferencesViewController: NSViewController {
 
     // MARK: - Subtitle Format
 
-    @IBOutlet var subtitleFormatsArrayController: NSArrayController! {
+    @IBOutlet private var subtitleFormatsArrayController: NSArrayController! {
         didSet {
             let availableSubtitleFormats = SupportedSubtitleFormat.allValues
             subtitleFormatsArrayController.add(contentsOf: availableSubtitleFormats)
@@ -37,7 +37,7 @@ final class ConvertPreferencesViewController: NSViewController {
         }
     }
 
-    @IBAction func subtitleFormatPopUpButtonDidChange(_ sender: NSPopUpButton) {
+    @IBAction private func subtitleFormatPopUpButtonDidChange(_ sender: NSPopUpButton) {
         if let newSubtitleFormat = subtitleFormatsArrayController.selectedObjects.first as? SupportedSubtitleFormat {
             Preferences[.expectedSubtitleFormat] = newSubtitleFormat
         }
@@ -45,7 +45,7 @@ final class ConvertPreferencesViewController: NSViewController {
 
     // MARK: - Encoding
 
-    @IBOutlet var encodingsArrayController: NSArrayController! {
+    @IBOutlet private var encodingsArrayController: NSArrayController! {
         didSet {
             let availableEncodings = String.availableStringEncodings
             let selectionIndex = availableEncodings.index(of: Preferences[.expectedEncoding]) ?? 0
@@ -55,7 +55,7 @@ final class ConvertPreferencesViewController: NSViewController {
         }
     }
 
-    @IBAction func encodingPopUpButtonDidChange(_ sender: NSPopUpButton) {
+    @IBAction private func encodingPopUpButtonDidChange(_ sender: NSPopUpButton) {
         if let newEncoding = encodingsArrayController.selectedObjects.first as? String.Encoding {
             Preferences[.expectedEncoding] = newEncoding
         }

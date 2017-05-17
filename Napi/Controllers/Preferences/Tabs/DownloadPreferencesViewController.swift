@@ -6,9 +6,9 @@
 import AppKit
 
 final class DownloadPreferencesViewController: NSViewController {
-    @IBOutlet weak var downloadLimitNoneRadioButton: NSButton!
-    @IBOutlet weak var downloadLimitFirstMatchRadioButton: NSButton!
-    @IBOutlet weak var downloadLimitFirstMatchPerLanguageRadioButton: NSButton!
+    @IBOutlet private weak var downloadLimitNoneRadioButton: NSButton!
+    @IBOutlet private weak var downloadLimitFirstMatchRadioButton: NSButton!
+    @IBOutlet private weak var downloadLimitFirstMatchPerLanguageRadioButton: NSButton!
 
     var downloadLimitRadioButtonsBinding: [SubtitleDownloader.DownloadLimit: NSButton] {
         return [.none: downloadLimitNoneRadioButton,
@@ -48,7 +48,7 @@ final class DownloadPreferencesViewController: NSViewController {
         }
     }
 
-    @IBAction func downloadLimitRadioButtonDidChange(_ sender: NSButton) {
+    @IBAction private func downloadLimitRadioButtonDidChange(_ sender: NSButton) {
         downloadLimitRadioButtonsBinding.forEach { downloadLimit, radioButton in
             if radioButton === sender {
                 Preferences[.downloadLimit] = downloadLimit
