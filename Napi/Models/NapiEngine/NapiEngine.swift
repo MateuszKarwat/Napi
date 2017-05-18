@@ -23,7 +23,7 @@ final class NapiEngine {
     // MARK: Public
 
     /// A reference to object implementing `NapiEngineDelegate` protocol.
-    var delegate: NapiEngineDelegate?
+    weak var delegate: NapiEngineDelegate?
 
     /// A state in which `NapiEngine` currently is.
     fileprivate(set) var status: Status = .idle {
