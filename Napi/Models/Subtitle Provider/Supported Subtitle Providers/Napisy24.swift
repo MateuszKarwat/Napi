@@ -24,7 +24,7 @@ struct Napisy24: SubtitleProvider {
             guard
                 let data = data,
                 let encoding = encoding,
-                let stringResponse = String(data: data, encoding: encoding),
+                let stringResponse = String(data: data, encoding: encoding) ?? String(data: data, encoding: .isoLatin1),
                 let subtitleEntity = self.subtitleEntity(from: stringResponse, in: searchCritera.language)
             else {
                 completionHandler([])
