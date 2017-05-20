@@ -74,11 +74,11 @@ final class DownloadPreferencesViewController: NSViewController {
                                                        value: $0)
         }
 
-        viewController.cancelAction = {
+        viewController.cancelAction = { [unowned viewController] in
             self.dismissViewController(viewController)
         }
 
-        viewController.applyAction = {
+        viewController.applyAction = { [unowned viewController] in
             Preferences[.providers] = viewController.selectedContentObjects.map { $0.value as! SubtitleProvider }
             self.dismissViewController(viewController)
         }
@@ -105,11 +105,11 @@ final class DownloadPreferencesViewController: NSViewController {
                                                        value: $0)
         }
 
-        viewController.cancelAction = {
+        viewController.cancelAction = { [unowned viewController] in
             self.dismissViewController(viewController)
         }
 
-        viewController.applyAction = {
+        viewController.applyAction = { [unowned viewController] in
             Preferences[.languages] = viewController.selectedContentObjects.map { $0.value as! Language }
             self.dismissViewController(viewController)
         }
