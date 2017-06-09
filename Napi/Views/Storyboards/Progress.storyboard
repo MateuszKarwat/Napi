@@ -1,7 +1,146 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="pwZ-mE-7Ai">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12120"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Window Controller-->
+        <scene sceneID="Y2Q-r6-lca">
+            <objects>
+                <windowController showSeguePresentationStyle="single" id="pwZ-mE-7Ai" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="QaE-rW-uIW">
+                        <windowStyleMask key="styleMask" titled="YES" miniaturizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="384" y="366" width="341" height="205"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                    </window>
+                    <connections>
+                        <segue destination="5jn-4g-LhE" kind="relationship" relationship="window.shadowedContentViewController" id="iur-w8-fzC"/>
+                    </connections>
+                </windowController>
+                <customObject id="5cJ-uF-JZJ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-253" y="-384"/>
+        </scene>
+        <!--Progress View Controller-->
+        <scene sceneID="ra6-Dn-nnI">
+            <objects>
+                <viewController storyboardIdentifier="ProgressViewController" id="5jn-4g-LhE" customClass="ProgressViewController" customModule="Napi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="J8a-K0-vit">
+                        <rect key="frame" x="0.0" y="0.0" width="350" height="168"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="WSe-9l-9c0">
+                                <rect key="frame" x="16" y="18" width="16" height="16"/>
+                            </progressIndicator>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n9S-o7-RdT">
+                                <rect key="frame" x="177" y="110" width="167" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Polish" id="vdc-f7-At4">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <binding destination="5jn-4g-LhE" name="value" keyPath="self.viewModel.language" id="QJU-HJ-ymN"/>
+                                </connections>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ns-ZR-gHf">
+                                <rect key="frame" x="14" y="135" width="322" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Star Wars: the Last Jedi" id="2qO-CX-wNM">
+                                    <font key="font" metaFont="systemBold"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <binding destination="5jn-4g-LhE" name="value" keyPath="self.viewModel.filename" id="Hbg-yE-Mt3"/>
+                                </connections>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NSQ-WZ-Oog">
+                                <rect key="frame" x="258" y="9" width="82" height="32"/>
+                                <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="u7a-ae-WjA">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="cancelButtonClicked:" target="5jn-4g-LhE" id="Eca-n5-nP8"/>
+                                </connections>
+                            </button>
+                            <textField horizontalHuggingPriority="240" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kBM-13-dJT">
+                                <rect key="frame" x="38" y="18" width="220" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Searching subtitles" id="pgs-vH-pfF">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <binding destination="5jn-4g-LhE" name="value" keyPath="self.viewModel.stateDescription" id="sD1-pF-U7l"/>
+                                </connections>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZ3-Gm-hgT">
+                                <rect key="frame" x="6" y="110" width="167" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Language:" id="al4-yD-LH0">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Dk-P0-eMH">
+                                <rect key="frame" x="6" y="85" width="167" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Subtitle Provider:" id="RmA-YF-nkG">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3A-Gf-8oo">
+                                <rect key="frame" x="177" y="85" width="167" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="left" title="Napisy24" id="uZ4-vF-fbS">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                                <connections>
+                                    <binding destination="5jn-4g-LhE" name="value" keyPath="self.viewModel.subtitleProvider" id="urA-Jx-Es8"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="NSQ-WZ-Oog" firstAttribute="leading" secondItem="kBM-13-dJT" secondAttribute="trailing" constant="8" id="1VG-4l-0FJ"/>
+                            <constraint firstItem="n9S-o7-RdT" firstAttribute="width" secondItem="aZ3-Gm-hgT" secondAttribute="width" id="4Wk-n2-BqI"/>
+                            <constraint firstItem="0Dk-P0-eMH" firstAttribute="width" secondItem="G3A-Gf-8oo" secondAttribute="width" id="6ws-pi-xS3"/>
+                            <constraint firstItem="n9S-o7-RdT" firstAttribute="top" secondItem="2ns-ZR-gHf" secondAttribute="bottom" constant="8" id="8Gm-Gw-30P"/>
+                            <constraint firstItem="kBM-13-dJT" firstAttribute="centerY" secondItem="NSQ-WZ-Oog" secondAttribute="centerY" id="8j3-nA-BR8"/>
+                            <constraint firstAttribute="trailing" secondItem="2ns-ZR-gHf" secondAttribute="trailing" constant="16" id="AVj-pL-rKY"/>
+                            <constraint firstItem="G3A-Gf-8oo" firstAttribute="top" secondItem="n9S-o7-RdT" secondAttribute="bottom" constant="8" id="Cpy-uI-3nj"/>
+                            <constraint firstItem="0Dk-P0-eMH" firstAttribute="leading" secondItem="J8a-K0-vit" secondAttribute="leading" constant="8" id="MBD-FO-6ei"/>
+                            <constraint firstItem="0Dk-P0-eMH" firstAttribute="top" secondItem="aZ3-Gm-hgT" secondAttribute="bottom" constant="8" id="Mla-M2-o20"/>
+                            <constraint firstAttribute="trailing" secondItem="NSQ-WZ-Oog" secondAttribute="trailing" constant="16" id="V0X-Uh-yi2"/>
+                            <constraint firstItem="kBM-13-dJT" firstAttribute="leading" secondItem="WSe-9l-9c0" secondAttribute="trailing" constant="8" id="WGi-mt-KEe"/>
+                            <constraint firstItem="WSe-9l-9c0" firstAttribute="leading" secondItem="J8a-K0-vit" secondAttribute="leading" constant="16" id="ZME-eR-KBJ"/>
+                            <constraint firstItem="G3A-Gf-8oo" firstAttribute="leading" secondItem="0Dk-P0-eMH" secondAttribute="trailing" constant="8" id="cdX-AI-nLd"/>
+                            <constraint firstItem="2ns-ZR-gHf" firstAttribute="leading" secondItem="J8a-K0-vit" secondAttribute="leading" constant="16" id="dN8-vM-qZG"/>
+                            <constraint firstItem="aZ3-Gm-hgT" firstAttribute="leading" secondItem="J8a-K0-vit" secondAttribute="leading" constant="8" id="hh3-gk-N0b"/>
+                            <constraint firstItem="2ns-ZR-gHf" firstAttribute="top" secondItem="J8a-K0-vit" secondAttribute="top" constant="16" id="hmP-KW-TUY"/>
+                            <constraint firstItem="aZ3-Gm-hgT" firstAttribute="top" secondItem="2ns-ZR-gHf" secondAttribute="bottom" constant="8" id="iZD-5d-pkU"/>
+                            <constraint firstItem="n9S-o7-RdT" firstAttribute="leading" secondItem="aZ3-Gm-hgT" secondAttribute="trailing" constant="8" id="kDi-aT-58b"/>
+                            <constraint firstAttribute="trailing" secondItem="n9S-o7-RdT" secondAttribute="trailing" constant="8" id="mnB-ro-wEd"/>
+                            <constraint firstAttribute="trailing" secondItem="G3A-Gf-8oo" secondAttribute="trailing" constant="8" id="qVq-Rl-PyR"/>
+                            <constraint firstItem="WSe-9l-9c0" firstAttribute="centerY" secondItem="kBM-13-dJT" secondAttribute="centerY" id="u7E-kR-ngq"/>
+                            <constraint firstAttribute="bottom" secondItem="NSQ-WZ-Oog" secondAttribute="bottom" constant="16" id="vda-dF-dBp"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="indicator" destination="WSe-9l-9c0" id="Gsa-QO-S4L"/>
+                    </connections>
+                </viewController>
+                <customObject id="W0d-yP-Kcd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-253" y="-32"/>
+        </scene>
+    </scenes>
 </document>

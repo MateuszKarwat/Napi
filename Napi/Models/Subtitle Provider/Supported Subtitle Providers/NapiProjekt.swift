@@ -96,6 +96,11 @@ struct NapiProjekt: SubtitleProvider {
         parameters["pass"] = ""
         parameters["napios"] = "macOS"
 
+        // NapiProject requires ISO-639-2 for English.
+        if parameters["l"] == "EN" {
+            parameters["l"] = "ENG"
+        }
+
         guard let baseURL = URL(string: "http://napiprojekt.pl/unit_napisy/dl.php?".appending(parameters.httpBodyFormat)) else {
             return nil
         }

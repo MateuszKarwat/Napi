@@ -39,7 +39,6 @@ final class DownloadPreferencesViewController: NSViewController {
         }
     }
 
-
     // MARK: - Download Limit
 
     private func setupDownloadLimitRadioButtons() {
@@ -66,22 +65,20 @@ final class DownloadPreferencesViewController: NSViewController {
         let unselectedProviders = availableProviders.filter { !selectedProvidersNames.contains($0.name) }
         let orderedProviders = selectedProviders + unselectedProviders
 
-        viewController.showCellImage = true
+        let viewModel = CheckboxTableViewModel(elements: orderedProviders.map {
+            .init(value: $0,
+                  isSelected: selectedProvidersNames.contains($0.name),
+                  image: NSImage(named: $0.name),
+                  description: $0.description)
+        })
 
-        viewController.contentElements = orderedProviders.map {
-            CheckboxTableViewController.ContentElement(isSelected: selectedProvidersNames.contains($0.name),
-                                                       image: NSImage(named: $0.name),
-                                                       value: $0)
+        viewModel.onApply = { selectedValues in
+            Preferences[.providers] = selectedValues.map { $0 as! SubtitleProvider }
         }
 
-        viewController.cancelAction = { [unowned viewController] in
-            self.dismissViewController(viewController)
-        }
+        viewModel.showCellImage = true
 
-        viewController.applyAction = { [unowned viewController] in
-            Preferences[.providers] = viewController.selectedContentObjects.map { $0.value as! SubtitleProvider }
-            self.dismissViewController(viewController)
-        }
+        viewController.viewModel = viewModel
     }
 
     // MARK: - Languages
@@ -99,20 +96,18 @@ final class DownloadPreferencesViewController: NSViewController {
 
         let orderedLanguages = selectedLanguages + unselectedLanguages
 
-        viewController.contentElements = orderedLanguages.map {
-            CheckboxTableViewController.ContentElement(isSelected: selectedLanguages.contains($0),
-                                                       image: nil,
-                                                       value: $0)
+        let viewModel = CheckboxTableViewModel(elements: orderedLanguages.map {
+            .init(value: $0,
+                  isSelected: selectedLanguages.contains($0),
+                  image: nil,
+                  description: $0.description)
+        })
+
+        viewModel.onApply = { selectedValues in
+            Preferences[.languages] = selectedValues.map { $0 as! Language }
         }
 
-        viewController.cancelAction = { [unowned viewController] in
-            self.dismissViewController(viewController)
-        }
-
-        viewController.applyAction = { [unowned viewController] in
-            Preferences[.languages] = viewController.selectedContentObjects.map { $0.value as! Language }
-            self.dismissViewController(viewController)
-        }
+        viewController.viewModel = viewModel
     }
 }
 

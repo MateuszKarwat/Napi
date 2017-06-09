@@ -26,6 +26,7 @@ extension Defaults {
     static let showStatusBarItem                = DefaultsKey<Bool>("showStatusBarItem")
     static let postNotifications                = DefaultsKey<Bool>("postNotifications")
     static let showDownloadSummary              = DefaultsKey<Bool>("showDownloadSummary")
+    static let showDownloadSelection            = DefaultsKey<Bool>("showDownloadSelection")
     static let closeApplicationWhenFinished     = DefaultsKey<Bool>("closeApplicationWhenFinished")
 
     // Directory Scanner

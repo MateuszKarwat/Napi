@@ -16,8 +16,7 @@ final class GeneralPreferencesViewController: NSViewController {
     }
 
     private func updateApplicationVisibility() {
-        let delegate = NSApp.delegate as! AppDelegate
-        delegate.setupApplicationActivationPolicy()
-        delegate.showApplicationInterface()
+        applicationDelegate.setupApplicationActivationPolicy()
+        applicationDelegate.mainFlowController.showApplicationInterface()
     }
 }

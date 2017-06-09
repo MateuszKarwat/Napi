@@ -31,9 +31,9 @@ final class OpenSubtitles: SubtitleProvider {
                     let data = data,
                     let encoding = encoding,
                     let stringResponse = String(data: data, encoding: encoding)
-                    else {
-                        completionHandler([])
-                        return
+                else {
+                    completionHandler([])
+                    return
                 }
 
                 completionHandler(self.subtitleEntities(from: stringResponse))

@@ -7,73 +7,71 @@ import AppKit
 import SwiftyBeaver
 
 let log = SwiftyBeaver.self
+let applicationDelegate = NSApp.delegate as! AppDelegate
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDelegate {
 
-    // MARK: - Controllers
-
-    lazy var statusBarItemController: StatusBarItemController = {
-        return StatusBarItemController()
-    }()
-
-    lazy var mainWindowController: MainWindowController = {
-        return Storyboard.Main.instantiate(MainWindowController.self)
-    }()
+    lazy var mainFlowController = MainFlowController()
+    lazy var commandLineFlowController = CommandLineFlowController()
+    lazy var statusBarItemController = StatusBarItemController()
 
     // MARK: - Lifecycle
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         UserDefaults.standard.registerDefaultSettings()
+        NSUserNotificationCenter.default.delegate = self
+
         setupSwiftyBeaver()
         setupApplicationActivationPolicy()
+
+        InputHandler.parseLaunchArguments()
     }
 
     func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
-        showApplicationInterface()
+        mainFlowController.showApplicationInterface()
+
         return true
+    }
+
+    func applicationShouldTerminate(_ sender: NSApplication) -> NSApplicationTerminateReply {
+        TemporaryDirectoryManager.default.cleanupTemporaryDirectory()
+
+        return .terminateNow
     }
 
     // MARK: - Appearance
 
-    /// Based on current settings sets application policy.
+    /// Sets application policy based on current settings.
     func setupApplicationActivationPolicy() {
         if !Preferences[.runInBackground] {
-            NSApp.setActivationPolicy( Preferences[.showDockIcon] ? .regular : .accessory)
+            NSApp.setActivationPolicy(Preferences[.showDockIcon] ? .regular : .accessory)
 
             statusBarItemController.isStatusItemVisible = Preferences[.showStatusBarItem]
 
-            showApplicationInterface()
+            mainFlowController.showApplicationInterface()
         }
     }
 
-    /// Brings application to front and shows main window if none window is opened.
-    func showApplicationInterface() {
-        if NSApp.mainWindow == nil && NSApp.keyWindow == nil {
-            mainWindowController.showWindow(self)
+    // MARK: - Notifications
+
+    func userNotificationCenter(_ center: NSUserNotificationCenter, shouldPresent notification: NSUserNotification) -> Bool {
+        return true
+    }
+
+    func userNotificationCenter(_ center: NSUserNotificationCenter, didActivate notification: NSUserNotification) {
+        guard
+            let absoluteURL = notification.userInfo?["url"] as? String,
+            let fileURL = URL(string: absoluteURL)
+        else {
+            return
         }
 
-        NSApp.activate(ignoringOtherApps: true)
+        center.removeDeliveredNotification(notification)
+        NSWorkspace.shared().activateFileViewerSelecting([fileURL])
     }
 
     // MARK: - Handle Files and Directories
-
-    // MARK: Command Line
-
-    /// Takes a `URL` passed from Command Line and scans it to find all videos.
-    ///
-    /// - Returns: `URL`s to all videos in `-pathToScan` `URL`.
-    private func videoURLsInPathFromCommandLine() -> [URL] {
-        guard let path = UserDefaults.standard.string(forKey: "pathToScan") else {
-            return []
-        }
-
-        let url = URL(fileURLWithPath: path)
-
-        return DirectoryScanner.videoFiles(inDirectoryAt: url)
-    }
-
-    // MARK: Drag on an icon or use "Open with..."
 
     private var queuedPaths = [String]()
 
@@ -96,12 +94,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
 
         let urls = queuedPaths.map { URL(fileURLWithPath: $0) }
-        let onlyVideos = DirectoryScanner.videoFiles(in: urls)
-
-        // TODO: Do something with videoURLs.
-        dump(onlyVideos)
+        InputHandler.applicationDidReceiveURLs(urls)
 
         queuedPaths = []
+    }
+
+    /// First responder for cmd+o shortcut.
+    func openDocument(_ sender: Any?) {
+        mainFlowController.presentOpenPanel()
     }
 
     // MARK: - SwiftyBeaver

@@ -13,28 +13,7 @@ final class CheckboxTableViewController: NSViewController {
 
     // MARK: - Properties
 
-    /// An `Array` of elements which are presented as `tableView`'s content.
-    var contentElements = [ContentElement]()
-
-    /// Used to specify a custom description if default one is not valid.
-    var customDescription: ((ContentElement) -> String)?
-
-    /// Text displayed above the `tableView` explaining what table view presents.
-    var descriptionText: String?
-
-    /// Specifies if the `tableView`'s content comlumn should show an image view.
-    var showCellImage = false
-
-    /// A block called when `cancelButton` action is triggered either by click or `ESC` key.
-    var cancelAction: (() -> Void)?
-
-    /// A block called when `applyButton` action is triggered either by click or `Return` key.
-    var applyAction: (() -> Void)?
-
-    /// Returns a list of selected elements in order they are presented in the `tableView`.
-    var selectedContentObjects: [ContentElement] {
-        return contentElements.filter { $0.isSelected }
-    }
+    var viewModel: CheckboxTableViewModel!
 
     // MARK: - Lifecycle
 
@@ -51,19 +30,19 @@ final class CheckboxTableViewController: NSViewController {
     // MARK: - IBActions
 
     @IBAction func checkboxButtonDidChange(_ sender: NSButton) {
-        let clickedRow = tableView.row(for: sender)
-        let isContentObjectSelected = contentElements[clickedRow].isSelected
-        contentElements[clickedRow].isSelected = !isContentObjectSelected
+        viewModel.selectionDidChange(at: tableView.row(for: sender))
 
         tableView.reloadData()
     }
     
     @IBAction func cancelButtonClicked(_ sender: NSButton) {
-        cancelAction?()
+        viewModel.cancelButtonClicked()
+        dismiss(nil)
     }
 
     @IBAction func applyButtonClicked(_ sender: NSButton) {
-        applyAction?()
+        viewModel.applyButtonClicked()
+        dismiss(nil)
     }
 
     // MARK: - Private Properties
@@ -72,14 +51,14 @@ final class CheckboxTableViewController: NSViewController {
     private var contentColumnWidth: CGFloat {
         var calculatedWidth: CGFloat = 0.0
 
-        for row in 0 ..< min(contentElements.count, 20) {
+        for row in 0 ..< min(viewModel.numberOfRows, 20) {
             guard
                 let cellView = tableView.view(atColumn: tableView.tableColumns.count - 1,
                                               row: row,
                                               makeIfNecessary: true) as? NSTableCellView,
                 let textFieldWidth = cellView.textField?.fittingSize.width
-                else {
-                    continue
+            else {
+                continue
             }
 
             let remainingSubviewsCombinedWidth = cellView.subviews
@@ -116,7 +95,7 @@ extension CheckboxTableViewController: NSTableViewDataSource {
     // MARK: Data
 
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return contentElements.count
+        return viewModel.numberOfRows
     }
 
     // MARK: Drag and Drop
@@ -145,15 +124,7 @@ extension CheckboxTableViewController: NSTableViewDataSource {
             }
         }
 
-        let draggedObjects = contentElements.removeElements(at: IndexSet(oldIndexes))
-        let numberOfIndexesLowerThanRow = oldIndexes.sorted().prefix { $0 < row }.count
-        let positionToInsertObjects = max(0, row - numberOfIndexesLowerThanRow)
-
-        let indexesToSelect = draggedObjects.enumerated().map { index, _ in
-            index + positionToInsertObjects
-        }
-
-        contentElements.insert(contentsOf: draggedObjects, at: positionToInsertObjects)
+        let indexesToSelect = viewModel.didMoveElements(at: oldIndexes, to: row)
 
         tableView.reloadData()
         tableView.selectRowIndexes(IndexSet(indexesToSelect), byExtendingSelection: false)
@@ -166,59 +137,42 @@ extension CheckboxTableViewController: NSTableViewDataSource {
 
 extension CheckboxTableViewController: NSTableViewDelegate {
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        if contentElements.count >= row, let columnIdentifier = tableColumn?.identifier {
-            let contentObject = contentElements[row]
-
-            switch columnIdentifier {
-            case Column.Content.storyboardIdentifier:
-                return contentColumnCellView(with: contentObject)
-            case Column.Checkbox.storyboardIdentifier:
-                return checkboxColumnCellView(with: contentObject)
-            default:
-                break
-            }
+        guard
+            let elementToDisplay = viewModel.element(at: row),
+            let columnIdentifier = tableColumn?.identifier
+        else {
+            return nil
         }
 
-        return nil
+        switch columnIdentifier {
+        case Column.Content.storyboardIdentifier:
+            return contentColumnCellView(with: elementToDisplay)
+        case Column.Checkbox.storyboardIdentifier:
+            return checkboxColumnCellView(with: elementToDisplay)
+        default:
+            return nil
+        }
     }
 
-    private func contentColumnCellView(with contentElement: ContentElement) -> NSView {
+    private func contentColumnCellView(with element: CheckboxTableViewModel.Element) -> NSView {
         let cellView: NSTableCellView
 
-        if showCellImage {
+        if viewModel.showCellImage {
             cellView = tableView.make(withIdentifier: Cell.ImageAndText.storyboardIdentifier, owner: nil) as! NSTableCellView
-            cellView.imageView?.image = contentElement.image
+            cellView.imageView?.image = element.image
         } else {
             cellView = tableView.make(withIdentifier: Cell.Text.storyboardIdentifier, owner: nil) as! NSTableCellView
         }
 
-        cellView.textField?.stringValue = customDescription?(contentElement) ?? contentElement.value.description
+        cellView.textField?.stringValue = element.description
 
         return cellView
     }
 
-    private func checkboxColumnCellView(with contentElement: ContentElement) -> NSView {
+    private func checkboxColumnCellView(with element: CheckboxTableViewModel.Element) -> NSView {
         let cellView = tableView.make(withIdentifier: Cell.Checkbox.storyboardIdentifier, owner: nil) as! NSButton
-        cellView.state = contentElement.isSelected ? 1 : 0
+        cellView.state = element.isSelected ? 1 : 0
         return cellView
-    }
-}
-
-// MARK: - ContentElement
-
-extension CheckboxTableViewController {
-    struct ContentElement {
-        var isSelected: Bool
-        var image: NSImage?
-        var value: CustomStringConvertible
-    }
-}
-
-extension CheckboxTableViewController.ContentElement {
-    init(value: CustomStringConvertible) {
-        self.isSelected = false
-        self.image = nil
-        self.value = value
     }
 }
 
