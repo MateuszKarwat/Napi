@@ -73,7 +73,7 @@ final class NapiEngine {
     /// Scanns all `URLs` to find video files and add them to a queue.
     /// Then the queue is processed in FIFO order.
     ///
-    /// - Parameter urls: `URLs` to scan in order to find video files.
+    /// - Parameter urls: `URLs` to scan in order to find video files./Users/Morrs/Movies/Movies
     ///                   It can include both directories and files.
     func downloadSubtitles(forVideoFilesAt urls: [URL]) {
         unprocessedVideoFiles += directoryScanner.videoFiles(in: urls, shallowSearch: Preferences[.shallowSearch])
@@ -83,7 +83,8 @@ final class NapiEngine {
 
     func cancel() {
         log.info("Canceling.")
-        // TODO: Implement option to cancel an execution of the engine.
+        status = .canceling
+        subtitleDownloader.cancel()
     }
 
     // MARK: - Private Functions
@@ -94,6 +95,7 @@ final class NapiEngine {
     /// and remove from a videos to process query.
     fileprivate func initializeDownloadForNextVideo() {
         guard
+            status != .canceling,
             subtitleDownloader.status == .ready,
             unprocessedVideoFiles.isNotEmpty
         else {
@@ -244,6 +246,9 @@ extension NapiEngine {
 
         /// Subtitles are ready and engine is moving them to a destination folder.
         case moving
+
+        /// Engine is trying to cancel futher operations.
+        case canceling
     }
 
     /// A set of informations about what is being currently processed.

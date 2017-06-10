@@ -43,7 +43,6 @@ final class ProgressViewModel: NSObject {
     }
 
     func cancelButtonClicked() {
-        stateDescription = "Canceling..."
         engine.cancel()
     }
 }
@@ -88,6 +87,8 @@ extension NapiEngine.Status {
             return "Processing subtitles"
         case .moving:
             return "Moving subtitles"
+        case .canceling:
+            return "Canceling remaining operations"
         }
     }
 }
