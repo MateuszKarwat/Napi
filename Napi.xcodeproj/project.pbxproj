@@ -11,6 +11,7 @@
 		200364F61CFE0EEA00A09CEA /* Lexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200364F51CFE0EEA00A09CEA /* Lexer.swift */; };
 		200364F81CFE0EF800A09CEA /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200364F71CFE0EF800A09CEA /* Token.swift */; };
 		200364FA1CFE110700A09CEA /* String+Substring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200364F91CFE110600A09CEA /* String+Substring.swift */; };
+		200560B31EEDBAE9007CD040 /* String+LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200560B21EEDBAE9007CD040 /* String+LocalizedString.swift */; };
 		200780681C64AE4F0098B026 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200780671C64AE4F0098B026 /* AppDelegate.swift */; };
 		2007806C1C64AE4F0098B026 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2007806B1C64AE4F0098B026 /* Assets.xcassets */; };
 		2007806F1C64AE4F0098B026 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2007806D1C64AE4F0098B026 /* Main.storyboard */; };
@@ -138,6 +139,7 @@
 		200364F51CFE0EEA00A09CEA /* Lexer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lexer.swift; sourceTree = "<group>"; };
 		200364F71CFE0EF800A09CEA /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		200364F91CFE110600A09CEA /* String+Substring.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Substring.swift"; sourceTree = "<group>"; };
+		200560B21EEDBAE9007CD040 /* String+LocalizedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+LocalizedString.swift"; sourceTree = "<group>"; };
 		200780641C64AE4F0098B026 /* Napi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Napi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		200780671C64AE4F0098B026 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2007806B1C64AE4F0098B026 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -513,6 +515,7 @@
 				20909F131D9C2631004622B0 /* Disctionary+HTTPBodyFormat.swift */,
 				208625CA1D4513A800B6DEF6 /* Int+Timestamp.swift */,
 				206C09801E7738810025B637 /* NSUserNotificationCenter+URL.swift */,
+				200560B21EEDBAE9007CD040 /* String+LocalizedString.swift */,
 				208BF2AC1D7316FC00111F4D /* String+MD5.swift */,
 				200364F91CFE110600A09CEA /* String+Substring.swift */,
 				203B126D1DEF55ED0036D52D /* URL+FileManagerOperations.swift */,
@@ -667,6 +670,7 @@
 				20A2C6B21E7075DF005131C8 /* DraggingDestinationView.swift in Sources */,
 				20F5D23A1DFF025E00FA9BAC /* TemporaryDirectoryManager.swift in Sources */,
 				20924EDD1EB4FBD7005655C9 /* MainViewController.swift in Sources */,
+				200560B31EEDBAE9007CD040 /* String+LocalizedString.swift in Sources */,
 				200780681C64AE4F0098B026 /* AppDelegate.swift in Sources */,
 				204C2EE41E06B07500A8F58E /* Napisy24.swift in Sources */,
 				20A6DF241E59DDE900895BF0 /* AsynchronousOperation.swift in Sources */,
