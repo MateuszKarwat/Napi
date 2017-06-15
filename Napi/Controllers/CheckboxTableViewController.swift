@@ -9,7 +9,6 @@ final class CheckboxTableViewController: NSViewController {
     @IBOutlet fileprivate weak var tableView: NSTableView!
     @IBOutlet fileprivate weak var cancelButton: NSButton!
     @IBOutlet fileprivate weak var applyButton: NSButton!
-    @IBOutlet fileprivate weak var descriptionTextField: NSTextField!
     @IBOutlet fileprivate weak var tableViewWidthConstraint: NSLayoutConstraint!
 
     // MARK: - Properties
@@ -20,8 +19,6 @@ final class CheckboxTableViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        descriptionTextField.stringValue = viewModel.description
 
         tableView.dataSource = self
         tableView.delegate = self
@@ -46,6 +43,19 @@ final class CheckboxTableViewController: NSViewController {
     @IBAction func applyButtonClicked(_ sender: NSButton) {
         viewModel.applyButtonClicked()
         dismiss(nil)
+    }
+
+    // MARK: - Segue
+
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case .some(Segue.descriptionPopover.storyboardIdentifier):
+            if let popoverViewController = segue.destinationController as? CheckboxDescriptionPopoverViewController {
+                popoverViewController.descriptionText = viewModel.description
+            }
+        default:
+            return
+        }
     }
 
     // MARK: - Private Properties
@@ -191,6 +201,10 @@ extension CheckboxTableViewController {
         case Checkbox
         case Text
         case ImageAndText
+    }
+
+    enum Segue: StoryboardIdentifiable {
+        case descriptionPopover
     }
 }
 

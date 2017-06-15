@@ -43,7 +43,7 @@
 
 
 /* Description displayed in a video selection window explaining that videos can be unchecked and reordered. */
-"Download_Video_Selection_Description" = "Wybierz pliki wideo, dla których mają zostać pobrane napisy.\nPliki mogą być ustawione w dowolnej kolejności. Kolejność ustawiona tutaj determinuje porządek pobierania napisów.";
+"Download_Video_Selection_Description" = "Wybierz pliki wideo, dla których mają zostać pobrane napisy.\nPliki mogą być ustawione w dowolnej kolejności.\nKolejność ustawiona tutaj determinuje porządek pobierania napisów.";
 
 /* Main message displayed in summary alert view. */
 "Download_Summary_Message" = "Pobieranie zostało zakończone";

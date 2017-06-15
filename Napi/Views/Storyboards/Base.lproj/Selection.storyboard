@@ -11,7 +11,7 @@
             <objects>
                 <viewController storyboardIdentifier="CheckboxTableViewController" id="Irl-DZ-yUt" customClass="CheckboxTableViewController" customModule="Napi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="suy-7n-P5i">
-                        <rect key="frame" x="0.0" y="0.0" width="290" height="262"/>
+                        <rect key="frame" x="0.0" y="0.0" width="290" height="226"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="RXK-yp-tCb">
@@ -40,14 +40,6 @@ Gw
                                     <action selector="cancelButtonClicked:" target="Irl-DZ-yUt" id="j7T-ba-cUS"/>
                                 </connections>
                             </button>
-                            <textField horizontalHuggingPriority="300" verticalHuggingPriority="750" horizontalCompressionResistancePriority="600" verticalCompressionResistancePriority="700" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OpP-3C-lju">
-                                <rect key="frame" x="18" y="225" width="254" height="17"/>
-                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" id="KBr-Eq-bB4">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <scrollView wantsLayer="YES" horizontalCompressionResistancePriority="700" verticalCompressionResistancePriority="700" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qGS-zE-rnH">
                                 <rect key="frame" x="20" y="61" width="250" height="145"/>
                                 <clipView key="contentView" copiesOnScroll="NO" id="WdC-e9-Dy2">
@@ -160,6 +152,16 @@ Gw
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
+                            <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0v4-qU-OJo">
+                                <rect key="frame" x="19" y="18" width="25" height="25"/>
+                                <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Rq6-KL-wKN">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <segue destination="yom-HQ-kIM" kind="popover" identifier="CheckboxTableViewController.Segue.descriptionPopover" popoverAnchorView="0v4-qU-OJo" popoverBehavior="t" preferredEdge="maxX" id="KGy-Jt-ntD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="qGS-zE-rnH" firstAttribute="leading" secondItem="suy-7n-P5i" secondAttribute="leading" constant="20" id="5t2-Sg-fhQ"/>
@@ -167,26 +169,56 @@ Gw
                             <constraint firstItem="QBC-e6-Fpi" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="suy-7n-P5i" secondAttribute="leading" constant="20" id="IGB-dQ-ckH"/>
                             <constraint firstAttribute="bottom" secondItem="RXK-yp-tCb" secondAttribute="bottom" constant="20" id="Ikl-cl-3TI"/>
                             <constraint firstAttribute="trailing" secondItem="RXK-yp-tCb" secondAttribute="trailing" constant="20" id="KpC-6g-wui"/>
-                            <constraint firstItem="OpP-3C-lju" firstAttribute="top" secondItem="suy-7n-P5i" secondAttribute="top" constant="20" id="Rca-iH-3YT"/>
+                            <constraint firstItem="0v4-qU-OJo" firstAttribute="leading" secondItem="fEs-JC-UV1" secondAttribute="leading" id="LbR-al-S5z"/>
+                            <constraint firstItem="0v4-qU-OJo" firstAttribute="baseline" secondItem="QBC-e6-Fpi" secondAttribute="baseline" id="SSd-at-LsU"/>
                             <constraint firstItem="QBC-e6-Fpi" firstAttribute="top" secondItem="qGS-zE-rnH" secondAttribute="bottom" constant="20" id="Yxp-TK-7dZ"/>
-                            <constraint firstItem="OpP-3C-lju" firstAttribute="leading" secondItem="qGS-zE-rnH" secondAttribute="leading" id="Z9J-Q9-gQz"/>
+                            <constraint firstItem="qGS-zE-rnH" firstAttribute="top" secondItem="suy-7n-P5i" secondAttribute="top" constant="20" id="bb1-35-3s1"/>
                             <constraint firstAttribute="trailing" secondItem="qGS-zE-rnH" secondAttribute="trailing" constant="20" id="kJi-fd-9QP"/>
-                            <constraint firstItem="qGS-zE-rnH" firstAttribute="top" secondItem="OpP-3C-lju" secondAttribute="bottom" constant="19" id="mw2-5I-cTd"/>
-                            <constraint firstItem="OpP-3C-lju" firstAttribute="trailing" secondItem="qGS-zE-rnH" secondAttribute="trailing" id="niE-z8-Wnc"/>
                             <constraint firstItem="RXK-yp-tCb" firstAttribute="leading" secondItem="QBC-e6-Fpi" secondAttribute="trailing" constant="12" id="ojX-DH-758"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="applyButton" destination="RXK-yp-tCb" id="TsQ-9l-Ioh"/>
                         <outlet property="cancelButton" destination="QBC-e6-Fpi" id="KzL-DK-h0d"/>
-                        <outlet property="descriptionTextField" destination="OpP-3C-lju" id="mzI-w5-gt7"/>
                         <outlet property="tableView" destination="fEs-JC-UV1" id="CB2-hs-ESi"/>
                         <outlet property="tableViewWidthConstraint" destination="h4Z-Nv-H4w" id="jA1-ZR-4g4"/>
                     </connections>
                 </viewController>
                 <customObject id="Nx1-wM-PMq" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="644" y="109"/>
+            <point key="canvasLocation" x="643" y="246"/>
+        </scene>
+        <!--Checkbox Description Popover View Controller-->
+        <scene sceneID="f4P-TW-2Mk">
+            <objects>
+                <viewController id="yom-HQ-kIM" customClass="CheckboxDescriptionPopoverViewController" customModule="Napi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="my1-L7-RB4">
+                        <rect key="frame" x="0.0" y="0.0" width="16" height="33"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="755" verticalHuggingPriority="755" horizontalCompressionResistancePriority="755" verticalCompressionResistancePriority="755" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GRe-NR-hJu">
+                                <rect key="frame" x="6" y="8" width="4" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="Vqo-yq-k9W">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="GRe-NR-hJu" secondAttribute="bottom" constant="8" id="8QN-xE-DA0"/>
+                            <constraint firstAttribute="trailing" secondItem="GRe-NR-hJu" secondAttribute="trailing" constant="8" id="N6O-lM-oZn"/>
+                            <constraint firstItem="GRe-NR-hJu" firstAttribute="leading" secondItem="my1-L7-RB4" secondAttribute="leading" constant="8" id="pMq-6B-Mu0"/>
+                            <constraint firstItem="GRe-NR-hJu" firstAttribute="top" secondItem="my1-L7-RB4" secondAttribute="top" constant="8" id="tYy-by-o0P"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionTextField" destination="GRe-NR-hJu" id="yNA-of-T3E"/>
+                    </connections>
+                </viewController>
+                <customObject id="bMc-by-Cu3" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="643" y="550.5"/>
         </scene>
     </scenes>
     <resources>

@@ -19,6 +19,7 @@
 		200780CD1C64F3F90098B026 /* TMPlayerSubtitleFormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200780CC1C64F3F90098B026 /* TMPlayerSubtitleFormatTests.swift */; };
 		2007B6561EAE793D00EB258D /* Array+MoveElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2007B6551EAE793D00EB258D /* Array+MoveElement.swift */; };
 		2008FF641EF2AFF4005A6EAC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2008FF661EF2AFF4005A6EAC /* Localizable.strings */; };
+		2008FF6A1EF2B88C005A6EAC /* CheckboxDescriptionPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2008FF691EF2B88C005A6EAC /* CheckboxDescriptionPopoverViewController.swift */; };
 		200C4B9E1C6601F800FBE406 /* MPL2SubtitleFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200C4B9D1C6601F800FBE406 /* MPL2SubtitleFormat.swift */; };
 		200C4BA01C66089600FBE406 /* SubtitleFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200C4B9F1C66089600FBE406 /* SubtitleFormat.swift */; };
 		200C4BA61C664C8100FBE406 /* MPL2SubtitleFormatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200C4BA41C6646B800FBE406 /* MPL2SubtitleFormatTests.swift */; };
@@ -154,6 +155,7 @@
 		2008FF651EF2AFF4005A6EAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2008FF671EF2AFF6005A6EAC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2008FF681EF2B003005A6EAC /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2008FF691EF2B88C005A6EAC /* CheckboxDescriptionPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxDescriptionPopoverViewController.swift; sourceTree = "<group>"; };
 		200C4B9D1C6601F800FBE406 /* MPL2SubtitleFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPL2SubtitleFormat.swift; sourceTree = "<group>"; };
 		200C4B9F1C66089600FBE406 /* SubtitleFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitleFormat.swift; sourceTree = "<group>"; };
 		200C4BA41C6646B800FBE406 /* MPL2SubtitleFormatTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPL2SubtitleFormatTests.swift; sourceTree = "<group>"; };
@@ -404,6 +406,7 @@
 			isa = PBXGroup;
 			children = (
 				20DBFCD51E9A8D0B00F2C93E /* Preferences */,
+				2008FF691EF2B88C005A6EAC /* CheckboxDescriptionPopoverViewController.swift */,
 				204A45FC1E9E9BAA004F8687 /* CheckboxTableViewController.swift */,
 				20227B4C1ED3612600E55352 /* CommandLineFlowController.swift */,
 				20227B4A1ED35E8300E55352 /* MainFlowController.swift */,
@@ -729,6 +732,7 @@
 				20227B4B1ED35E8300E55352 /* MainFlowController.swift in Sources */,
 				20EFC2FA1E3A549100004CB1 /* XMLRPCDocument.swift in Sources */,
 				202F8DE41E0301B800F225D8 /* Language.swift in Sources */,
+				2008FF6A1EF2B88C005A6EAC /* CheckboxDescriptionPopoverViewController.swift in Sources */,
 				20DFA6691E2A5D0F0073ED45 /* NapiProjekt.swift in Sources */,
 				206548581E914B080011DED8 /* NapiEngineDelegate.swift in Sources */,
 				204CCC181E7071AD00A4F974 /* UserDefaults+RegisterDefaults.swift in Sources */,
