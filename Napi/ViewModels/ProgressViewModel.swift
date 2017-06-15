@@ -34,7 +34,7 @@ final class ProgressViewModel: NSObject {
     fileprivate(set) dynamic var filename = ""
     fileprivate(set) dynamic var language = "-"
     fileprivate(set) dynamic var subtitleProvider = "-"
-    fileprivate(set) dynamic var stateDescription = "Scanning folders"
+    fileprivate(set) dynamic var stateDescription = "Progress_Scanning".localized
 
     // MARK: - Inputs
 
@@ -78,17 +78,17 @@ extension NapiEngine.Status {
     fileprivate var localizedDescription: String {
         switch self {
         case .idle:
-            return "Waiting for an action"
+            return "Progress_Waiting".localized
         case .searching:
-            return "Searching subtitles"
+            return "Progress_Searching".localized
         case .downloading:
-            return "Downloading subtitles"
+            return "Progress_Downloading".localized
         case .processing:
-            return "Processing subtitles"
+            return "Progress_Processing".localized
         case .moving:
-            return "Moving subtitles"
+            return "Progress_Moving".localized
         case .canceling:
-            return "Canceling remaining operations"
+            return "Progress_Canceling".localized
         }
     }
 }

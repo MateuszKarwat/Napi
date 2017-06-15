@@ -69,7 +69,7 @@ final class MainFlowController {
 
         let viewModel = CheckboxTableViewModel(elements: elements)
         viewModel.showCellImage = true
-        viewModel.description = "Some description"
+        viewModel.description = "Download_Video_Selection_Description".localized
         viewModel.onApply = { [unowned self] selectedValues in
             self.handleVideoFiles(at: selectedValues.map { $0 as! URL })
         }
@@ -106,8 +106,8 @@ final class MainFlowController {
 
         let downloadCompleteAlert = NSAlert()
         downloadCompleteAlert.alertStyle = .informational
-        downloadCompleteAlert.messageText = "Download complete"
-        downloadCompleteAlert.informativeText = "Available subtitles have been downloaded."
+        downloadCompleteAlert.messageText = "Download_Summary_Message".localized
+        downloadCompleteAlert.informativeText = "Download_Summary_Informative".localized
         downloadCompleteAlert.beginSheetModal(for: mainWindow) { _ in
             if Preferences[.closeApplicationWhenFinished] {
                 NSApp.terminate(nil)

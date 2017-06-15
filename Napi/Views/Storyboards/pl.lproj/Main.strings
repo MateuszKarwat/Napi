@@ -1,0 +1,84 @@
+
+/* Class = "NSMenuItem"; title = "Napi"; ObjectID = "1Xt-HY-uBw"; */
+"1Xt-HY-uBw.title" = "Napi";
+
+/* Class = "NSMenuItem"; title = "Quit Napi"; ObjectID = "4sb-4s-VLi"; */
+"4sb-4s-VLi.title" = "Zakończ Napi";
+
+/* Class = "NSMenuItem"; title = "About Napi"; ObjectID = "5kV-Vb-QxS"; */
+"5kV-Vb-QxS.title" = "Napi...";
+
+/* Class = "NSMenu"; title = "Main Menu"; ObjectID = "AYu-sK-qS6"; */
+"AYu-sK-qS6.title" = "Menu główne";
+
+/* Class = "NSMenuItem"; title = "Preferences…"; ObjectID = "BOF-NM-1cW"; */
+"BOF-NM-1cW.title" = "Preferencje…";
+
+/* Class = "NSMenuItem"; title = "Close"; ObjectID = "DVo-aG-piG"; */
+"DVo-aG-piG.title" = "Zamknij okno";
+
+/* Class = "NSMenu"; title = "Help"; ObjectID = "F2S-fz-NVQ"; */
+"F2S-fz-NVQ.title" = "Pomoc";
+
+/* Class = "NSMenuItem"; title = "Napi Help"; ObjectID = "FKE-Sm-Kum"; */
+"FKE-Sm-Kum.title" = "Pomoc Napi";
+
+/* Class = "NSMenuItem"; title = "Open…"; ObjectID = "IAo-SY-fd9"; */
+"IAo-SY-fd9.title" = "Otwórz plik…";
+
+/* Class = "NSWindow"; title = "Napi"; ObjectID = "IQv-IB-iLA"; */
+"IQv-IB-iLA.title" = "Napi";
+
+/* Class = "NSMenuItem"; title = "Show All"; ObjectID = "Kd2-mp-pUS"; */
+"Kd2-mp-pUS.title" = "Pokaż wszystkie";
+
+/* Class = "NSMenuItem"; title = "Bring All to Front"; ObjectID = "LE2-aR-0XJ"; */
+"LE2-aR-0XJ.title" = "Umieść wszystkie na wierzchu";
+
+/* Class = "NSMenuItem"; title = "Services"; ObjectID = "NMo-om-nkz"; */
+"NMo-om-nkz.title" = "Usługi";
+
+/* Class = "NSMenuItem"; title = "Minimize"; ObjectID = "OY7-WF-poV"; */
+"OY7-WF-poV.title" = "Minimalizuj okna";
+
+/* Class = "NSMenuItem"; title = "Hide Napi"; ObjectID = "Olw-nP-bQN"; */
+"Olw-nP-bQN.title" = "Ukryj Napi";
+
+/* Class = "NSMenuItem"; title = "Zoom"; ObjectID = "R4o-n2-Eq4"; */
+"R4o-n2-Eq4.title" = "Zoom";
+
+/* Class = "NSMenu"; title = "Window"; ObjectID = "Td7-aD-5lo"; */
+"Td7-aD-5lo.title" = "Okno";
+
+/* Class = "NSMenuItem"; title = "Hide Others"; ObjectID = "Vdr-fp-XzO"; */
+"Vdr-fp-XzO.title" = "Ukryj pozostałe";
+
+/* Class = "NSMenuItem"; title = "Window"; ObjectID = "aUF-d1-5bR"; */
+"aUF-d1-5bR.title" = "Okno";
+
+/* Class = "NSMenu"; title = "File"; ObjectID = "bib-Uj-vzu"; */
+"bib-Uj-vzu.title" = "Plik";
+
+/* Class = "NSMenuItem"; title = "File"; ObjectID = "dMs-cI-mzQ"; */
+"dMs-cI-mzQ.title" = "Plik";
+
+/* Class = "NSMenu"; title = "Services"; ObjectID = "hz9-B4-Xy5"; */
+"hz9-B4-Xy5.title" = "Usługi";
+
+/* Class = "NSMenu"; title = "Open Recent"; ObjectID = "oas-Oc-fiZ"; */
+"oas-Oc-fiZ.title" = "Otwórz ostatnie";
+
+/* Class = "NSMenuItem"; title = "Open Recent"; ObjectID = "tXI-mr-wws"; */
+"tXI-mr-wws.title" = "Otwórz ostatnie";
+
+/* Class = "NSMenu"; title = "Napi"; ObjectID = "uQy-DD-JDr"; */
+"uQy-DD-JDr.title" = "Napi";
+
+/* Class = "NSMenuItem"; title = "Clear Menu"; ObjectID = "vNY-rz-j42"; */
+"vNY-rz-j42.title" = "Wyczyść Menu";
+
+/* Class = "NSMenuItem"; title = "Help"; ObjectID = "wpr-3q-Mcd"; */
+"wpr-3q-Mcd.title" = "Pomoc";
+
+/* Class = "NSTextFieldCell"; title = "Drag files or directories here."; ObjectID = "xaj-V9-Opm"; */
+"xaj-V9-Opm.title" = "Przeciągnij pliki lub foldery tutaj.";

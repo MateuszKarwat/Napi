@@ -1,0 +1,52 @@
+/*
+ Created by Mateusz Karwat on 14/06/2017.
+ Copyright © 2017 Mateusz Karwat. All rights reserved.
+ */
+
+
+/* Progress View */
+
+
+/* Engine is scanning folders */
+"Progress_Scanning" = "Scanning...";
+
+/* Engine is waiting for some input or an action. Is in an idle mode. */
+"Progress_Waiting" = "Waiting for a action";
+
+/* Engine is searching subtitles on the internet. */
+"Progress_Searching" = "Searching subtitles";
+
+/* Engine is downloading subtitles from the internet. */
+"Progress_Downloading" = "Downloading subtitles";
+
+/* Engine is converting subtitles as well as applying other style rules. */
+"Progress_Processing" = "Processing subtitles";
+
+/* Engine is moving subtitles to the final destination where video file is. */
+"Progress_Moving" = "Moving subtitles";
+
+/* User pressed a cancel button and engine is trying to cancel its operations. */
+"Progress_Canceling" = "Canceling...";
+
+
+/* Preferences View */
+
+
+/* Description in languages selection window explaining that languages can be selected and reordered. */
+"Preferences_Download_Languages_Selection_Description" = "Languages can be selected and reordered as you want.\nNapi will download subtitles in the same order as it is specified here.";
+
+/* Description in providers selection window explaining that providers can be selected and reordered. */
+"Preferences_Download_Providers_Selection_Description" = "Providers can be selected and reordered as you want.\nNapi will download subtitles in the same order as it is specified here.";
+
+
+/* Download Flow */
+
+
+/* Description displayed in a video selection window explaining that videos can be unchecked and reordered. */
+"Download_Video_Selection_Description" = "Please choose for which videos Napi should download subtitles for.\nFiles can be reordered to specify in which order Napi will perform a download.";
+
+/* Main message displayed in summary alert view. */
+"Download_Summary_Message" = "Download has been finished";
+
+/* Additional text displayed in summary alert view. */
+"Download_Summary_Informative" = "All available subtitles have been downloaded.";

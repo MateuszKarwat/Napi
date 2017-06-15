@@ -76,6 +76,7 @@ final class DownloadPreferencesViewController: NSViewController {
             Preferences[.providers] = selectedValues.map { $0 as! SubtitleProvider }
         }
 
+        viewModel.description = "Preferences_Download_Providers_Selection_Description".localized
         viewModel.showCellImage = true
 
         viewController.viewModel = viewModel
@@ -102,7 +103,7 @@ final class DownloadPreferencesViewController: NSViewController {
                   image: nil,
                   description: $0.description)
         })
-
+        viewModel.description = "Preferences_Download_Languages_Selection_Description".localized
         viewModel.onApply = { selectedValues in
             Preferences[.languages] = selectedValues.map { $0 as! Language }
         }

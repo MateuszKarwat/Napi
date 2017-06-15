@@ -1,0 +1,129 @@
+
+/* Class = "NSButtonCell"; title = "Manage..."; ObjectID = "4I4-Ne-j7Y"; */
+"4I4-Ne-j7Y.title" = "Zarządzaj...";
+
+/* Class = "NSComboBoxCell"; 7v9-16-hNt.ibShadowedObjectValues[0] = "23.976"; ObjectID = "7v9-16-hNt"; */
+"7v9-16-hNt.ibShadowedObjectValues[0]" = "23.976";
+
+/* Class = "NSComboBoxCell"; 7v9-16-hNt.ibShadowedObjectValues[1] = "24.000"; ObjectID = "7v9-16-hNt"; */
+"7v9-16-hNt.ibShadowedObjectValues[1]" = "24.000";
+
+/* Class = "NSComboBoxCell"; 7v9-16-hNt.ibShadowedObjectValues[2] = "25.000"; ObjectID = "7v9-16-hNt"; */
+"7v9-16-hNt.ibShadowedObjectValues[2]" = "25.000";
+
+/* Class = "NSComboBoxCell"; 7v9-16-hNt.ibShadowedObjectValues[3] = "30.000"; ObjectID = "7v9-16-hNt"; */
+"7v9-16-hNt.ibShadowedObjectValues[3]" = "30.000";
+
+/* Class = "NSTextFieldCell"; title = "Languages:"; ObjectID = "Abi-59-0L7"; */
+"Abi-59-0L7.title" = "Języki:";
+
+/* Class = "NSButtonCell"; title = "Show notifications when new subtitles are available"; ObjectID = "BOc-tw-ykt"; */
+"BOc-tw-ykt.title" = "Pokaż powiadomienie, kiedy pojawią się nowe napisy";
+
+/* Class = "NSButtonCell"; title = "Merge adjacent whitespaces"; ObjectID = "Eca-Ze-VG5"; */
+"Eca-Ze-VG5.title" = "Połącz sąsiadujące odstępy";
+
+/* Class = "NSButtonCell"; title = "Try to determine video frame rate"; ObjectID = "Efn-rG-ByJ"; */
+"Efn-rG-ByJ.title" = "Próbuj wykryć liczbę klatek na sekundę";
+
+/* Class = "NSTextFieldCell"; title = "Encoding:"; ObjectID = "HLl-Cm-thO"; */
+"HLl-Cm-thO.title" = "Kodowanie:";
+
+/* Class = "NSTextFieldCell"; title = "Providers:"; ObjectID = "HVJ-aH-xUz"; */
+"HVJ-aH-xUz.title" = "Serwisy:";
+
+/* Class = "NSTextFieldCell"; title = "Removes whitespaces before punctuation characters like comma or question mark..."; ObjectID = "IRu-28-6gY"; */
+"IRu-28-6gY.title" = "Usuwa odstępy przed znakami interpunkcyjnymi takimi jak przecinek czy znak zapytania...";
+
+/* Class = "NSTextFieldCell"; title = "Style:"; ObjectID = "JEG-Uz-SI8"; */
+"JEG-Uz-SI8.title" = "Style:";
+
+/* Class = "NSButtonCell"; title = "First match per language"; ObjectID = "LGm-I4-QPt"; */
+"LGm-I4-QPt.title" = "Pierwsze dopasowanie dla każdego języka";
+
+/* Class = "NSButtonCell"; title = "None"; ObjectID = "LPe-mT-SmV"; */
+"LPe-mT-SmV.title" = "Brak";
+
+/* Class = "NSTextFieldCell"; title = "Appearance:"; ObjectID = "Pyg-K6-wwY"; */
+"Pyg-K6-wwY.title" = "Wygląd:";
+
+/* Class = "NSViewController"; title = "General"; ObjectID = "QTd-ui-a5M"; */
+"QTd-ui-a5M.title" = "Ogólne";
+
+/* Class = "NSButtonCell"; title = "Override"; ObjectID = "QYb-FN-xeT"; */
+"QYb-FN-xeT.title" = "Nadpisz";
+
+/* Class = "NSButtonCell"; title = "Backup existing subtitles"; ObjectID = "SpQ-yU-FBk"; */
+"SpQ-yU-FBk.title" = "Archiwizuj istniejące napisy";
+
+/* Class = "NSButtonCell"; title = "Skip already downloaded languages"; ObjectID = "VH3-my-fKr"; */
+"VH3-my-fKr.title" = "Pomiń języki, które są już pobrane";
+
+/* Class = "NSButtonCell"; title = "Cancel"; ObjectID = "W2Y-hm-Ve9"; */
+"W2Y-hm-Ve9.title" = "Anuluj";
+
+/* Class = "NSButtonCell"; title = "Use backup video frame rate:"; ObjectID = "YFb-25-Him"; */
+"YFb-25-Him.title" = "Użyj zapasowej liczby klatek na sekundę:";
+
+/* Class = "NSButtonCell"; title = "First match"; ObjectID = "YNx-io-2gg"; */
+"YNx-io-2gg.title" = "Pierwsze dopasowanie";
+
+/* Class = "NSTextFieldCell"; title = "Download limit:"; ObjectID = "YbJ-QR-YVc"; */
+"YbJ-QR-YVc.title" = "Limit pobierania:";
+
+/* Class = "NSButtonCell"; title = "Show dock icon"; ObjectID = "YhX-FU-AqX"; */
+"YhX-FU-AqX.title" = "Pokaż ikonę w docku";
+
+/* Class = "NSTextFieldCell"; title = "Skip downloads for language if video file has subtitles file with language suffix associated with."; ObjectID = "a6o-RV-ty2"; */
+"a6o-RV-ty2.title" = "Nie pobieraj napisów w języku, dla którego istnieje już plik z odpowiednim przyrostkiem.";
+
+/* Class = "NSButtonCell"; title = "Close application when finished"; ObjectID = "aSH-JL-2tI"; */
+"aSH-JL-2tI.title" = "Zamknij aplikację po zakończeniu pobierania";
+
+/* Class = "NSTextFieldCell"; title = "Subtitle format:"; ObjectID = "cPJ-OM-Tac"; */
+"cPJ-OM-Tac.title" = "Format napisów:";
+
+/* Class = "NSButtonCell"; title = "Backup new subtitles"; ObjectID = "dc1-3f-eNd"; */
+"dc1-3f-eNd.title" = "Archiwizuj nowe napisy";
+
+/* Class = "NSButtonCell"; title = "Show video selection before downloading"; ObjectID = "gn9-qq-RgF"; */
+"gn9-qq-RgF.title" = "Przed rozpoczęciem pobierania pokaż listę plików wideo";
+
+/* Class = "NSButtonCell"; title = "Correct punctuation"; ObjectID = "iZK-TY-Rcn"; */
+"iZK-TY-Rcn.title" = "Popraw interpunkcję";
+
+/* Class = "NSViewController"; title = "Match"; ObjectID = "jPQ-e0-zdJ"; */
+"jPQ-e0-zdJ.title" = "Dopasowywanie";
+
+/* Class = "NSButtonCell"; title = "Show status bar icon"; ObjectID = "kmU-Cm-84Q"; */
+"kmU-Cm-84Q.title" = "Pokaż ikonę w pasku menu";
+
+/* Class = "NSButtonCell"; title = "Show summary of downloaded subtitles"; ObjectID = "lod-fZ-1Xg"; */
+"lod-fZ-1Xg.title" = "Pokaż podsumowanie po zakończeniu pobierania";
+
+/* Class = "NSButtonCell"; title = "Change encoding"; ObjectID = "o8h-ck-6Yl"; */
+"o8h-ck-6Yl.title" = "Zmień kodowanie";
+
+/* Class = "NSButtonCell"; title = "Manage..."; ObjectID = "qYI-WY-2Fb"; */
+"qYI-WY-2Fb.title" = "Zarządzaj...";
+
+/* Class = "NSTextFieldCell"; title = "Directory scanning:"; ObjectID = "rDm-WG-3kg"; */
+"rDm-WG-3kg.title" = "Skanowanie katalogów:";
+
+/* Class = "NSTextFieldCell"; title = "If there is a name conflict:"; ObjectID = "rXv-HU-iV7"; */
+"rXv-HU-iV7.title" = "W przypadku konfliktu z nazwą pliku:";
+
+/* Class = "NSButtonCell"; title = "Convert subtitles"; ObjectID = "uxU-hD-Ace"; */
+"uxU-hD-Ace.title" = "Konwertuj napisy";
+
+/* Class = "NSButtonCell"; title = "Append language code suffix to subtitles filenames"; ObjectID = "wKw-Ug-eU6"; */
+"wKw-Ug-eU6.title" = "Dodaj przyrostek z kodem języka do nazwy pliku";
+
+/* Class = "NSButtonCell"; title = "Shallow search"; ObjectID = "yL6-iB-X03"; */
+"yL6-iB-X03.title" = "Płytkie skanowanie";
+
+/* Class = "NSViewController"; title = "Download"; ObjectID = "yvo-us-Zmo"; */
+"yvo-us-Zmo.title" = "Pobieranie";
+
+/* Class = "NSViewController"; title = "Convert"; ObjectID = "ywg-3a-B0e"; */
+"ywg-3a-B0e.title" = "Konwertowanie";

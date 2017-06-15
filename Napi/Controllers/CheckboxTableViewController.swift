@@ -9,6 +9,7 @@ final class CheckboxTableViewController: NSViewController {
     @IBOutlet fileprivate weak var tableView: NSTableView!
     @IBOutlet fileprivate weak var cancelButton: NSButton!
     @IBOutlet fileprivate weak var applyButton: NSButton!
+    @IBOutlet fileprivate weak var descriptionTextField: NSTextField!
     @IBOutlet fileprivate weak var tableViewWidthConstraint: NSLayoutConstraint!
 
     // MARK: - Properties
@@ -19,6 +20,8 @@ final class CheckboxTableViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        descriptionTextField.stringValue = viewModel.description
 
         tableView.dataSource = self
         tableView.delegate = self

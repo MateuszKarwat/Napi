@@ -8,7 +8,7 @@ import Foundation
 extension String {
 
     /// Returns a localized string, using the main bundle if one is not specified.
-    var localizedString: String {
+    var localized: String {
         return NSLocalizedString(self, comment: "")
     }
 }
