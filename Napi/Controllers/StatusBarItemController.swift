@@ -26,7 +26,7 @@ final class StatusBarItemController {
 
     private func setupStatusItem() {
         statusItem.isVisible = false
-        statusItem.image = #imageLiteral(resourceName: "StatusBarButtonImage")
+        statusItem.image = #imageLiteral(resourceName: "StatusBarIcon")
         statusItem.target = self
         statusItem.action = #selector(statusItemClicked(_:))
     }
