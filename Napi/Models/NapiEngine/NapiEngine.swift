@@ -141,7 +141,6 @@ final class NapiEngine {
 
             guard
                 let expectedSubtitleFormat = Preferences[.expectedSubtitleFormat],
-                expectedSubtitleFormat != subtitleConverter.detectedSubtitleFormat,
                 Preferences[.convertSubtitles]
             else {
                 finalSubtitleFormat = subtitleConverter.detectedSubtitleFormat
