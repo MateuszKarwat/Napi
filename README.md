@@ -49,5 +49,6 @@ providers you can use UI preferences pane and/or use defaults.
 If you need more details about what happens when application is running, you can look at `Napi.log` file located at `~/Library/Caches/com.mateuszkarwat.Napi/`. It's also a good idea to attach that file if you're creating an issue. It will help to find a problem you're facing.
 
 -----
+Thank you [Asia](https://www.linkedin.com/in/joannahrycalik) for your testing contribution to this project.
 
 [![donate](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=7SZZGSVAGTLK2&lc=US&item_name=Mateusz%20Karwat&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted)

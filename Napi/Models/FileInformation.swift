@@ -67,7 +67,7 @@ struct FileInformation {
         let charactersToCount: [Character] = ["ą", "ć", "ź", "ł", "ó", "ę", "ń", "ż"]
 
         // A set of most common encodings to try if standard detection fails.
-        let possibleEncodings: [String.Encoding] = [.isoLatin1, .windowsCP1250, .windowsCP1252, .utf8]
+        let possibleEncodings: [String.Encoding] = [.isoLatin1, .windowsCP1250, .windowsCP1251, .windowsCP1252, .utf8]
 
         var encodedString: String?
         var bestNumberOfMatches = 0
