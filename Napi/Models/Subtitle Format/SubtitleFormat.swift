@@ -55,7 +55,7 @@ extension SubtitleFormat {
             if let match = match {
                 var substrings = [String]()
                 for rangeIdx in 1 ... match.numberOfRanges - 1 {
-                    substrings.append(aString[match.rangeAt(rangeIdx)])
+                    substrings.append(aString[match.range(at: rangeIdx)])
                 }
 
                 block(SubtitleCheckingResult(matchedString: aString[match.range], capturedSubstrings: substrings))
@@ -91,7 +91,7 @@ extension SubtitleFormat {
     /// - Returns: `true` if specified `String` begins with text
     ///   matched by `regexPattern`. Returns `false` otherwise.
     static func canDecode(_ aString: String) -> Bool {
-        let range = NSRange(location: 0, length: aString.characters.count)
+        let range = NSRange(location: 0, length: aString.count)
 
         if
             let regex = try? NSRegularExpression(pattern: Self.regexPattern, options: []),

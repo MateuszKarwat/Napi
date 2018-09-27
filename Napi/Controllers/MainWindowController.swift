@@ -11,14 +11,12 @@ final class MainWindowController: NSWindowController {
         super.windowDidLoad()
 
         shouldCascadeWindows = false
-        window?.setFrameAutosaveName(Constants.autosaveName)
+        window?.setFrameAutosaveName(.autosaveName)
     }
 }
 
 // MARK: - Constants
 
-extension MainWindowController {
-    fileprivate struct Constants {
-        static let autosaveName = "MainWindow"
-    }
+private extension NSWindow.FrameAutosaveName {
+    static let autosaveName = "MainWindow"
 }

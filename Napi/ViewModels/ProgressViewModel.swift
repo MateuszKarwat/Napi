@@ -31,10 +31,10 @@ final class ProgressViewModel: NSObject {
 
     // MARK: - Outputs
 
-    fileprivate(set) dynamic var filename = ""
-    fileprivate(set) dynamic var language = "-"
-    fileprivate(set) dynamic var subtitleProvider = "-"
-    fileprivate(set) dynamic var stateDescription = "Progress_Scanning".localized
+    @objc fileprivate(set) dynamic var filename = ""
+    @objc fileprivate(set) dynamic var language = "-"
+    @objc fileprivate(set) dynamic var subtitleProvider = "-"
+    @objc fileprivate(set) dynamic var stateDescription = "Progress_Scanning".localized
 
     // MARK: - Inputs
 

@@ -78,7 +78,7 @@ final class Lexer<TokenType: RawRepresentable> {
             if let nextToken = nextToken {
                 tokens.append(nextToken)
             } else {
-                unmatchedStream.characters.removeFirst()
+                unmatchedStream.removeFirst()
             }
         }
 

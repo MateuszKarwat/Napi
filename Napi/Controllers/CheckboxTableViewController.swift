@@ -22,7 +22,7 @@ final class CheckboxTableViewController: NSViewController {
 
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(forDraggedTypes: [Constants.dragTypeUTI])
+        tableView.registerForDraggedTypes([.dragTypeUTI])
 
         updateTableViewWidthConstraint()
     }
@@ -49,7 +49,7 @@ final class CheckboxTableViewController: NSViewController {
 
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         switch segue.identifier {
-        case .some(Segue.descriptionPopover.storyboardIdentifier):
+        case .some(Segue.descriptionPopover.segueIdentifier):
             if let popoverViewController = segue.destinationController as? CheckboxDescriptionPopoverViewController {
                 popoverViewController.descriptionText = viewModel.description
             }
@@ -115,11 +115,11 @@ extension CheckboxTableViewController: NSTableViewDataSource {
 
     func tableView(_ tableView: NSTableView, pasteboardWriterForRow row: Int) -> NSPasteboardWriting? {
         let item = NSPasteboardItem()
-        item.setString(String(row), forType: Constants.dragTypeUTI)
+        item.setString(String(row), forType: .dragTypeUTI)
         return item
     }
 
-    func tableView(_ tableView: NSTableView, validateDrop info: NSDraggingInfo, proposedRow row: Int, proposedDropOperation dropOperation: NSTableViewDropOperation) -> NSDragOperation {
+    func tableView(_ tableView: NSTableView, validateDrop info: NSDraggingInfo, proposedRow row: Int, proposedDropOperation dropOperation: NSTableView.DropOperation) -> NSDragOperation {
         if dropOperation == .above {
             return .move
         }
@@ -127,11 +127,11 @@ extension CheckboxTableViewController: NSTableViewDataSource {
         return []
     }
 
-    func tableView(_ tableView: NSTableView, acceptDrop info: NSDraggingInfo, row: Int, dropOperation: NSTableViewDropOperation) -> Bool {
+    func tableView(_ tableView: NSTableView, acceptDrop info: NSDraggingInfo, row: Int, dropOperation: NSTableView.DropOperation) -> Bool {
         var oldIndexes = [Int]()
 
-        info.enumerateDraggingItems(options: [], for: tableView, classes: [NSPasteboardItem.self], searchOptions: [:]) {
-            if let pasteboardString = ($0.0.item as! NSPasteboardItem).string(forType: Constants.dragTypeUTI),
+        info.enumerateDraggingItems(options: [], for: tableView, classes: [NSPasteboardItem.self], searchOptions: [:]) { draggingItem, _, _ in
+            if let pasteboardString = (draggingItem.item as! NSPasteboardItem).string(forType: .dragTypeUTI),
                let index = Int(pasteboardString) {
                    oldIndexes.append(index)
             }
@@ -158,9 +158,9 @@ extension CheckboxTableViewController: NSTableViewDelegate {
         }
 
         switch columnIdentifier {
-        case Column.Content.storyboardIdentifier:
+        case Column.Content.userInterfaceItemIdentifier:
             return contentColumnCellView(with: elementToDisplay)
-        case Column.Checkbox.storyboardIdentifier:
+        case Column.Checkbox.userInterfaceItemIdentifier:
             return checkboxColumnCellView(with: elementToDisplay)
         default:
             return nil
@@ -171,10 +171,10 @@ extension CheckboxTableViewController: NSTableViewDelegate {
         let cellView: NSTableCellView
 
         if viewModel.showCellImage {
-            cellView = tableView.make(withIdentifier: Cell.ImageAndText.storyboardIdentifier, owner: nil) as! NSTableCellView
+            cellView = tableView.makeView(withIdentifier: Cell.ImageAndText.userInterfaceItemIdentifier, owner: nil) as! NSTableCellView
             cellView.imageView?.image = element.image
         } else {
-            cellView = tableView.make(withIdentifier: Cell.Text.storyboardIdentifier, owner: nil) as! NSTableCellView
+            cellView = tableView.makeView(withIdentifier: Cell.Text.userInterfaceItemIdentifier, owner: nil) as! NSTableCellView
         }
 
         cellView.textField?.stringValue = element.description
@@ -183,8 +183,8 @@ extension CheckboxTableViewController: NSTableViewDelegate {
     }
 
     private func checkboxColumnCellView(with element: CheckboxTableViewModel.Element) -> NSView {
-        let cellView = tableView.make(withIdentifier: Cell.Checkbox.storyboardIdentifier, owner: nil) as! NSButton
-        cellView.state = element.isSelected ? 1 : 0
+        let cellView = tableView.makeView(withIdentifier: Cell.Checkbox.userInterfaceItemIdentifier, owner: nil) as! NSButton
+        cellView.state = element.isSelected ? .on : .off
         return cellView
     }
 }
@@ -210,8 +210,6 @@ extension CheckboxTableViewController {
 
 // MARK: - Constants
 
-extension CheckboxTableViewController {
-    fileprivate struct Constants {
-        static let dragTypeUTI = "private.tableViewRow"
-    }
+private extension NSPasteboard.PasteboardType {
+    static let dragTypeUTI = NSPasteboard.PasteboardType("private.tableViewRow")
 }

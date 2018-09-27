@@ -34,7 +34,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         return true
     }
 
-    func applicationShouldTerminate(_ sender: NSApplication) -> NSApplicationTerminateReply {
+    func applicationShouldTerminate(_ sender: NSApplication) -> NSApplication.TerminateReply {
         TemporaryDirectoryManager.default.cleanupTemporaryDirectory()
 
         return .terminateNow
@@ -68,7 +68,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         }
 
         center.removeDeliveredNotification(notification)
-        NSWorkspace.shared().activateFileViewerSelecting([fileURL])
+        NSWorkspace.shared.activateFileViewerSelecting([fileURL])
     }
 
     // MARK: - Handle Files and Directories
@@ -88,7 +88,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
         NSApp.reply(toOpenOrPrint: .success)
     }
 
-    func processQueuedPaths() {
+    @objc func processQueuedPaths() {
         guard queuedPaths.isNotEmpty else {
             return
         }

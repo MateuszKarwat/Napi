@@ -26,11 +26,11 @@ final class DownloadPreferencesViewController: NSViewController {
 
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         switch segue.identifier {
-        case .some(Segue.Providers.storyboardIdentifier):
+        case .some(Segue.Providers.segueIdentifier):
             if let checkboxTableViewController = segue.destinationController as? CheckboxTableViewController {
                 setupCheckboxTableViewControllerForProvidersSegue(checkboxTableViewController)
             }
-        case .some(Segue.Languages.storyboardIdentifier):
+        case .some(Segue.Languages.segueIdentifier):
             if let checkboxTableViewController = segue.destinationController as? CheckboxTableViewController {
                 setupCheckboxTableViewControllerForLanguagesSegue(checkboxTableViewController)
             }
@@ -43,7 +43,7 @@ final class DownloadPreferencesViewController: NSViewController {
 
     private func setupDownloadLimitRadioButtons() {
         if let enabledRadioButton = downloadLimitRadioButtonsBinding[Preferences[.downloadLimit]] {
-            enabledRadioButton.state = 1
+            enabledRadioButton.state = .on
         }
     }
 
@@ -123,8 +123,8 @@ extension DownloadPreferencesViewController {
 
 // MARK: - Constants
 
-extension DownloadPreferencesViewController {
-    fileprivate struct Constants {
+private extension DownloadPreferencesViewController {
+    struct Constants {
         static let incorrectLanguages = ["mul", "und", "zxx", "mdh", "mis", "swc"]
     }
 }

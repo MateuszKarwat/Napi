@@ -124,7 +124,7 @@ extension UserDefaults {
     subscript(key: DefaultsKey<[SubtitleProvider]>) -> [SubtitleProvider] {
         get {
             guard let strings = stringArray(forKey: "providers") else { return [] }
-            return strings.flatMap { SupportedSubtitleProvider.provider(withName: $0) }
+            return strings.compactMap { SupportedSubtitleProvider.provider(withName: $0) }
         }
 
         set { set(newValue.map { $0.name }, forKey: key.key) }

@@ -37,7 +37,11 @@ class DraggingDestinationView: NSView {
     // MARK: - Lifecycle
 
     override func awakeFromNib() {
-        register(forDraggedTypes: [NSURLPboardType])
+        if #available(OSX 10.13, *) {
+            registerForDraggedTypes([.fileURL])
+        } else {
+            registerForDraggedTypes([kUTTypeFileURL as NSPasteboard.PasteboardType])
+        }
     }
 
     // MARK: - Dragging Session
@@ -52,13 +56,13 @@ class DraggingDestinationView: NSView {
     }
 
     override func prepareForDragOperation(_ sender: NSDraggingInfo) -> Bool {
-        return sender.draggingPasteboard().canReadObject(forClasses: [NSURL.self], options: nil)
+        return sender.draggingPasteboard.canReadObject(forClasses: [NSURL.self], options: nil)
     }
 
     override func performDragOperation(_ sender: NSDraggingInfo) -> Bool {
         isReceivingDrag = false
 
-        let pasteboard = sender.draggingPasteboard()
+        let pasteboard = sender.draggingPasteboard
 
         if let urls = pasteboard.readObjects(forClasses: [NSURL.self], options: nil) as? [URL], urls.isNotEmpty {
             delegate?.draggingDestinationView(self, didReceiveURLs: urls)
@@ -80,3 +84,4 @@ class DraggingDestinationView: NSView {
         }
     }
 }
+

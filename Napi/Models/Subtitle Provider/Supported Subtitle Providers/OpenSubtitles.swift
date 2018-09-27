@@ -122,7 +122,7 @@ final class OpenSubtitles: SubtitleProvider {
         var subtitleEntities = [SubtitleEntity]()
 
         do {
-            let xml = try XMLDocument(xmlString: xmlResponse, options: 0)
+            let xml = try XMLDocument(xmlString: xmlResponse)
             let matchResults = try xml.nodes(forXPath: "//struct//data//struct")
 
             matchResults.forEach { result in
@@ -197,7 +197,7 @@ final class OpenSubtitles: SubtitleProvider {
             }
 
             do {
-                let xmlDocument = try XMLDocument(xmlString: stringResponse, options: 0)
+                let xmlDocument = try XMLDocument(xmlString: stringResponse)
                 let structNodes = try xmlDocument.nodes(forXPath: "//struct")
 
                 self.token = structNodes.first?.rpcValue(forParameterWithName: "token")

@@ -135,7 +135,7 @@ struct NapiProjekt: SubtitleProvider {
                 subString = md5Hash.substring(from: t)
             } else {
                 let characterIndex = md5Hash.index(md5Hash.startIndex, offsetBy: t)
-                subString = md5Hash[characterIndex ..< md5Hash.index(characterIndex, offsetBy: 2)]
+                subString = String(md5Hash[characterIndex ..< md5Hash.index(characterIndex, offsetBy: 2)])
             }
 
             scanner = Scanner(string: subString)

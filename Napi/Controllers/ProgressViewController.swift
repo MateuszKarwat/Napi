@@ -8,7 +8,7 @@ import AppKit
 final class ProgressViewController: NSViewController {
     @IBOutlet private weak var indicator: NSProgressIndicator!
 
-    dynamic var viewModel: ProgressViewModel?
+    @objc dynamic var viewModel: ProgressViewModel?
 
     // MARK: - Lifecycle
 

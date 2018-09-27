@@ -9,12 +9,6 @@ final class PreferencesTabViewController: NSTabViewController {
 
     // MARK: - Lifecycle
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        tabView.delegate = self
-    }
-
     override func viewWillAppear() {
         super.viewWillAppear()
 

@@ -98,7 +98,7 @@ struct Napisy24: SubtitleProvider {
         }
 
         let subtitleEntity = SubtitleEntity(language: language, format: .archive)
-        let archiveString = stringResponse.substring(from: archiveStartIndex)
+        let archiveString = stringResponse[archiveStartIndex...]
         let archiveData = archiveString.data(using: .isoLatin1)
 
         do {

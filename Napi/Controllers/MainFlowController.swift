@@ -28,7 +28,7 @@ final class MainFlowController {
         panel.allowsMultipleSelection = true
         panel.allowedFileTypes = ["public.movie"]
 
-        if panel.runModal() == NSFileHandlingPanelOKButton {
+        if panel.runModal() == .OK {
             InputHandler.applicationDidReceiveURLs(panel.urls)
         }
     }
@@ -77,7 +77,7 @@ final class MainFlowController {
         let viewController = Storyboard.Selection.instantiate(CheckboxTableViewController.self)
         viewController.viewModel = viewModel
 
-        mainViewController.presentViewControllerAsSheet(viewController)
+        mainViewController.presentAsSheet(viewController)
     }
 
     private func presentProgressWindow(withVideoURLs videoURLs: [URL]) {
@@ -96,7 +96,7 @@ final class MainFlowController {
         let progressViewController = Storyboard.Progress.instantiate(ProgressViewController.self)
         progressViewController.viewModel = progressViewModel
 
-        mainViewController.presentViewControllerAsSheet(progressViewController)
+        mainViewController.presentAsSheet(progressViewController)
     }
 
     fileprivate func presentCompletionAlert() {

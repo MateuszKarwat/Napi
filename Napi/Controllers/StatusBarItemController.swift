@@ -8,7 +8,7 @@ import Foundation
 
 final class StatusBarItemController {
 
-    private let statusItem = NSStatusBar.system().statusItem(withLength: -2)
+    private let statusItem = NSStatusBar.system.statusItem(withLength: -2)
 
     var isStatusItemVisible = false {
         didSet {

@@ -81,7 +81,7 @@ struct FileInformation {
                 }
 
                 for character in charactersToCount {
-                    if content.characters.contains(character) {
+                    if content.contains(character) {
                         currentNumberOfMatches += 1
                     }
                 }
@@ -137,7 +137,7 @@ struct FileInformation {
         var resultString = String(format: "%qx", result)
 
         // Make sure it has 16 characters. Otherwise add zeros at the beginning.
-        for _ in 0 ..< 16 - resultString.characters.count {
+        for _ in 0 ..< 16 - resultString.count {
             resultString.insert("0", at: resultString.startIndex)
         }
 
@@ -148,7 +148,7 @@ struct FileInformation {
     /// If `frameRate` is not possible to find, `nil` is returned.
     var frameRate: Double? {
         let asset = AVAsset(url: url)
-        let videoTracks = asset.tracks(withMediaType: AVMediaTypeVideo)
+        let videoTracks = asset.tracks(withMediaType: .video)
 
         if let frameRate = videoTracks.first?.nominalFrameRate {
             return Double(frameRate)

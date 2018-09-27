@@ -26,7 +26,7 @@ final class MatchPreferencesViewController: NSViewController {
 
     private func setupRadioButtons() {
         if let enabledRadioButton = radioButtonsBinding[Preferences[.nameConflictAction]] {
-            enabledRadioButton.state = 1
+            enabledRadioButton.state = .on
         }
     }
 

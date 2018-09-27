@@ -35,9 +35,9 @@ extension URLSession {
 
             var convertedEncoding: String.Encoding? = nil
 
-            if let encodingName = response.textEncodingName as CFString!, convertedEncoding == nil {
+            if let encodingName = response.textEncodingName, convertedEncoding == nil {
                 convertedEncoding = String.Encoding(rawValue: CFStringConvertEncodingToNSStringEncoding(
-                    CFStringConvertIANACharSetNameToEncoding(encodingName))
+                    CFStringConvertIANACharSetNameToEncoding(encodingName as CFString))
                 )
             }
 

@@ -26,12 +26,12 @@ extension Token {
     /// Substrings of the `lexeme` which are extracted
     /// based on the `capture groups` of the `pattern`.
     var values: [String] {
-        let match = pattern.firstMatch(in: lexeme, options: [], range: NSRange(location: 0, length: lexeme.characters.count))!
+        let match = pattern.firstMatch(in: lexeme, options: [], range: NSRange(location: 0, length: lexeme.count))!
 
         var substrings = [String]()
 
         for rangeIdx in 1 ..< match.numberOfRanges {
-            let rangeOfSubstring = match.rangeAt(rangeIdx)
+            let rangeOfSubstring = match.range(at: rangeIdx)
             let substring = lexeme[rangeOfSubstring]
 
             substrings.append(substring)

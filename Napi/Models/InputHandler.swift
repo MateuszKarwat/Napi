@@ -30,7 +30,7 @@ struct InputHandler {
     /// or passed using "Open with..." menu option.
     static func applicationDidReceiveURLs(_ urls: [URL]) {
         let videoURLs = DirectoryScanner.videoFiles(in: urls, shallowSearch: Preferences[.shallowSearch])
-        let sortedVideoURLs = videoURLs.sorted  { $0.0.absoluteString < $0.1.absoluteString }
+        let sortedVideoURLs = videoURLs.sorted  { $0.absoluteString < $1.absoluteString }
 
         if Preferences[.runInBackground] {
             applicationDelegate.commandLineFlowController.handleFiles(at: sortedVideoURLs)
