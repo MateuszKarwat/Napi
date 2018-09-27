@@ -184,7 +184,7 @@ fileprivate extension Subtitle {
     /// Finds all punctuations followed by whitespaces and removes those whitespaces.
     mutating func correctPunctuation() {
         let regex = try! NSRegularExpression(pattern: " +[,|.|?|!|;|:]", options: [])
-        let textRange = NSRange(location: 0, length: self.text.characters.count)
+        let textRange = NSRange(location: 0, length: self.text.count)
 
         for match in regex.matches(in: self.text, options: [], range: textRange).reversed() {
             let startIndex = self.text.index(self.text.startIndex, offsetBy: match.range.location)

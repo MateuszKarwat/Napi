@@ -109,7 +109,7 @@ struct NapiProjekt: SubtitleProvider {
     }
 
     private func mysteriousHash(of md5Hash: String) -> String? {
-        if md5Hash.characters.count != 32 {
+        if md5Hash.count != 32 {
             return nil
         }
 
@@ -142,7 +142,7 @@ struct NapiProjekt: SubtitleProvider {
             scanner.scanHexInt32(&v)
 
             let hexResult = String(format: "%x", Int(v) * mul[i])
-            let lastHexCharacter = hexResult.characters.last ?? Character("")
+            let lastHexCharacter = hexResult.last ?? Character("")
             generatedHash.append(lastHexCharacter)
         }
         
