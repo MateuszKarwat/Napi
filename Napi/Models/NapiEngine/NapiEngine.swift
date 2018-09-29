@@ -38,7 +38,7 @@ final class NapiEngine {
     // MARK: Private
 
     fileprivate let directoryScanner = DirectoryScanner.self
-    fileprivate let subtitleDownloader = SubtitleDownloader(languages: Preferences[.languages], providers: Preferences[.providers])
+    fileprivate let subtitleDownloader: SubtitleDownloader
     fileprivate let subtitleConverter = SubtitleConverter()
     fileprivate let nameMatcher = NameMatcher()
 
@@ -47,7 +47,9 @@ final class NapiEngine {
 
     // MARK: - Initialization
 
-    init() {
+    init(subtitleProviders: [SubtitleProvider]) {
+        subtitleDownloader = SubtitleDownloader(languages: Preferences[.languages],
+                                                providers: subtitleProviders)
         configureNameMatcher()
         configureSubtitleConverter()
         configureSubtitleDownloader()

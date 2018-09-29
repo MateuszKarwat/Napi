@@ -87,6 +87,7 @@
 		20C394671E05A33E00EB7D63 /* Date+Timestamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C394661E05A33E00EB7D63 /* Date+Timestamp.swift */; };
 		20C989691D36A92C00B16DD2 /* LexerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209FA95F1D2FC04D00C54DCA /* LexerTests.swift */; };
 		20C9896E1D36AB3100B16DD2 /* SubtitleTokenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F105C11D3114A2000E157F /* SubtitleTokenType.swift */; };
+		20D7F873215EAAF1005CA4A9 /* NSMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D7F872215EAAF1005CA4A9 /* NSMenuItem.swift */; };
 		20D7F875215EADE9005CA4A9 /* SwiftyBeaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D7F874215EADE9005CA4A9 /* SwiftyBeaver.swift */; };
 		20DBFCD21E9A5FE600F2C93E /* PreferencesTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DBFCD11E9A5FE600F2C93E /* PreferencesTabViewController.swift */; };
 		20DF1F4C1E335673003A3491 /* OpenSubtitles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DF1F4B1E335673003A3491 /* OpenSubtitles.swift */; };
@@ -227,6 +228,7 @@
 		20BEECED1E05BDDC0018A5B7 /* NameMatcherTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameMatcherTests.swift; sourceTree = "<group>"; };
 		20C394641E055E3600EB7D63 /* NameMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameMatcher.swift; sourceTree = "<group>"; };
 		20C394661E05A33E00EB7D63 /* Date+Timestamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Timestamp.swift"; sourceTree = "<group>"; };
+		20D7F872215EAAF1005CA4A9 /* NSMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMenuItem.swift; sourceTree = "<group>"; };
 		20D7F874215EADE9005CA4A9 /* SwiftyBeaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyBeaver.swift; sourceTree = "<group>"; };
 		20DBFCD11E9A5FE600F2C93E /* PreferencesTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesTabViewController.swift; sourceTree = "<group>"; };
 		20DF1F4B1E335673003A3491 /* OpenSubtitles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenSubtitles.swift; sourceTree = "<group>"; };
@@ -533,6 +535,7 @@
 				20909F131D9C2631004622B0 /* Disctionary+HTTPBodyFormat.swift */,
 				208625CA1D4513A800B6DEF6 /* Int+Timestamp.swift */,
 				206C09801E7738810025B637 /* NSUserNotificationCenter+URL.swift */,
+				20D7F872215EAAF1005CA4A9 /* NSMenuItem.swift */,
 				200560B21EEDBAE9007CD040 /* String+Localized.swift */,
 				208BF2AC1D7316FC00111F4D /* String+MD5.swift */,
 				200364F91CFE110600A09CEA /* String+Substring.swift */,
@@ -707,6 +710,7 @@
 				206C09811E7738810025B637 /* NSUserNotificationCenter+URL.swift in Sources */,
 				200364F61CFE0EEA00A09CEA /* Lexer.swift in Sources */,
 				20BC26171ED72C6000404558 /* CheckboxTableViewModel.swift in Sources */,
+				20D7F873215EAAF1005CA4A9 /* NSMenuItem.swift in Sources */,
 				20C394651E055E3600EB7D63 /* NameMatcher.swift in Sources */,
 				203247D51EC890F000B19F94 /* InputHandler.swift in Sources */,
 				203B12701DEF56220036D52D /* Unziper.swift in Sources */,

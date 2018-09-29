@@ -6,7 +6,8 @@
 import AppKit
 
 final class MainFlowController {
-    fileprivate let mainWindowController = Storyboard.Main.instantiate(MainWindowController.self)
+    private let mainWindowController = Storyboard.Main.instantiate(MainWindowController.self)
+    private var requestedSpecificSubtitleProvider: SupportedSubtitleProvider?
 
     // MARK: - Public Methods
 
@@ -30,6 +31,8 @@ final class MainFlowController {
 
         if panel.runModal() == .OK {
             InputHandler.applicationDidReceiveURLs(panel.urls)
+        } else {
+            requestedSpecificSubtitleProvider = nil
         }
     }
 
@@ -46,6 +49,8 @@ final class MainFlowController {
     func handleVideoFiles(at videoURLs: [URL]) {
         if videoURLs.isNotEmpty {
             presentProgressWindow(withVideoURLs: videoURLs)
+        } else {
+            requestedSpecificSubtitleProvider = nil
         }
     }
 
@@ -82,15 +87,24 @@ final class MainFlowController {
 
     private func presentProgressWindow(withVideoURLs videoURLs: [URL]) {
         guard let mainViewController = mainWindowController.contentViewController as? MainViewController else {
+            requestedSpecificSubtitleProvider = nil
             return
         }
 
         if let attachedViewController = mainWindowController.window?.attachedSheet?.contentViewController,
-           attachedViewController.isKind(of: ProgressViewController.self) {
-               return
+               attachedViewController.isKind(of: ProgressViewController.self) {
+            requestedSpecificSubtitleProvider = nil
+            return
         }
 
-        let progressViewModel = ProgressViewModel(engine: NapiEngine(), videoURLs: videoURLs)
+        let napiEngine: NapiEngine
+        if let requestedSpecificSubtitleProvider = requestedSpecificSubtitleProvider {
+            napiEngine = NapiEngine(subtitleProviders: [requestedSpecificSubtitleProvider.instance])
+        } else {
+            napiEngine = NapiEngine(subtitleProviders: Preferences[.providers])
+        }
+
+        let progressViewModel = ProgressViewModel(engine: napiEngine, videoURLs: videoURLs)
         progressViewModel.delegate = self
 
         let progressViewController = Storyboard.Progress.instantiate(ProgressViewController.self)
@@ -132,6 +146,16 @@ extension MainFlowController: ProgressViewModelDelegate {
                 }
             }
         }
+    }
+}
+
+extension MainFlowController: StatusBarItemControllerDelegate {
+    func statusBarItemController(
+        _ sbic: StatusBarItemController,
+        didSelectDownloadSubtitlesUsing provider: SupportedSubtitleProvider
+    ) {
+        requestedSpecificSubtitleProvider = provider
+        presentOpenPanel()
     }
 }
 

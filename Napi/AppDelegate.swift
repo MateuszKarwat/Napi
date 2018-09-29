@@ -48,6 +48,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
             NSApp.setActivationPolicy(Preferences[.showDockIcon] ? .regular : .accessory)
 
             statusBarItemController.isStatusItemVisible = Preferences[.showStatusBarItem]
+            statusBarItemController.delegate = mainFlowController
 
             mainFlowController.showApplicationInterface()
         }
@@ -60,10 +61,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     }
 
     func userNotificationCenter(_ center: NSUserNotificationCenter, didActivate notification: NSUserNotification) {
-        guard
-            let absoluteURL = notification.userInfo?["url"] as? String,
-            let fileURL = URL(string: absoluteURL)
-        else {
+        guard let absoluteURL = notification.userInfo?["url"] as? String,
+              let fileURL = URL(string: absoluteURL) else {
             return
         }
 

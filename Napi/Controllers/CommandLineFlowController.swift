@@ -12,7 +12,7 @@ final class CommandLineFlowController {
     private var engine: NapiEngine?
 
     func handleFiles(at urls: [URL]) {
-        engine = NapiEngine()
+        engine = NapiEngine(subtitleProviders: Preferences[.providers])
         engine?.delegate = self
         engine?.downloadSubtitles(forVideoFilesAt: urls)
     }
