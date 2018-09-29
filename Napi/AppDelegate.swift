@@ -21,8 +21,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     func applicationDidFinishLaunching(_ notification: Notification) {
         UserDefaults.standard.registerDefaultSettings()
         NSUserNotificationCenter.default.delegate = self
+        SwiftyBeaver.configure()
 
-        setupSwiftyBeaver()
         setupApplicationActivationPolicy()
 
         InputHandler.parseLaunchArguments()
@@ -102,30 +102,5 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     /// First responder for cmd+o shortcut.
     func openDocument(_ sender: Any?) {
         mainFlowController.presentOpenPanel()
-    }
-
-    // MARK: - SwiftyBeaver
-
-    private func setupSwiftyBeaver() {
-        let file = FileDestination()
-        let console = ConsoleDestination()
-
-        if let cachesURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first,
-            let bundleName = Bundle.main.bundleIdentifier {
-            let logURL = cachesURL
-                .appendingPathComponent(bundleName, isDirectory: true)
-                .appendingPathComponent("Napi.log")
-            file.logFileURL = logURL
-
-            if let fileInformation = FileInformation(url: logURL), fileInformation.size > 10_000_000 {
-                _ = file.deleteLogFile()
-            }
-        }
-
-        file.format = "$Dyyyy-MM-dd HH:mm:ss.SSS$d $C$L$c\t$N - $M"
-        console.format = "$Dyyyy-MM-dd HH:mm:ss.SSS$d $C$L$c \t$N - $M"
-
-        log.addDestination(file)
-        log.addDestination(console)
     }
 }

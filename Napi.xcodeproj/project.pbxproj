@@ -87,6 +87,7 @@
 		20C394671E05A33E00EB7D63 /* Date+Timestamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C394661E05A33E00EB7D63 /* Date+Timestamp.swift */; };
 		20C989691D36A92C00B16DD2 /* LexerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209FA95F1D2FC04D00C54DCA /* LexerTests.swift */; };
 		20C9896E1D36AB3100B16DD2 /* SubtitleTokenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F105C11D3114A2000E157F /* SubtitleTokenType.swift */; };
+		20D7F875215EADE9005CA4A9 /* SwiftyBeaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D7F874215EADE9005CA4A9 /* SwiftyBeaver.swift */; };
 		20DBFCD21E9A5FE600F2C93E /* PreferencesTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DBFCD11E9A5FE600F2C93E /* PreferencesTabViewController.swift */; };
 		20DF1F4C1E335673003A3491 /* OpenSubtitles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DF1F4B1E335673003A3491 /* OpenSubtitles.swift */; };
 		20DFA6691E2A5D0F0073ED45 /* NapiProjekt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DFA6681E2A5D0F0073ED45 /* NapiProjekt.swift */; };
@@ -226,6 +227,7 @@
 		20BEECED1E05BDDC0018A5B7 /* NameMatcherTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameMatcherTests.swift; sourceTree = "<group>"; };
 		20C394641E055E3600EB7D63 /* NameMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameMatcher.swift; sourceTree = "<group>"; };
 		20C394661E05A33E00EB7D63 /* Date+Timestamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Timestamp.swift"; sourceTree = "<group>"; };
+		20D7F874215EADE9005CA4A9 /* SwiftyBeaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyBeaver.swift; sourceTree = "<group>"; };
 		20DBFCD11E9A5FE600F2C93E /* PreferencesTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesTabViewController.swift; sourceTree = "<group>"; };
 		20DF1F4B1E335673003A3491 /* OpenSubtitles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenSubtitles.swift; sourceTree = "<group>"; };
 		20DFA6681E2A5D0F0073ED45 /* NapiProjekt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NapiProjekt.swift; sourceTree = "<group>"; };
@@ -534,6 +536,7 @@
 				200560B21EEDBAE9007CD040 /* String+Localized.swift */,
 				208BF2AC1D7316FC00111F4D /* String+MD5.swift */,
 				200364F91CFE110600A09CEA /* String+Substring.swift */,
+				20D7F874215EADE9005CA4A9 /* SwiftyBeaver.swift */,
 				203B126D1DEF55ED0036D52D /* URL+FileManagerOperations.swift */,
 				201D62A81E3A70FF0010A7CA /* URLSession+DataTask.swift */,
 				204CCC171E7071AD00A4F974 /* UserDefaults+RegisterDefaults.swift */,
@@ -747,6 +750,7 @@
 				208BF2AD1D7316FC00111F4D /* String+MD5.swift in Sources */,
 				2057DBAF1E0433C70049DC3A /* SubtitleEntity.swift in Sources */,
 				20A8622E1D522C4C007FEC7C /* SubtitleCheckingResult.swift in Sources */,
+				20D7F875215EADE9005CA4A9 /* SwiftyBeaver.swift in Sources */,
 				200364FA1CFE110700A09CEA /* String+Substring.swift in Sources */,
 				2007B6561EAE793D00EB258D /* Array+MoveElement.swift in Sources */,
 				203B126E1DEF55ED0036D52D /* URL+FileManagerOperations.swift in Sources */,
