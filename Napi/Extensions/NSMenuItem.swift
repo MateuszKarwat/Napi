@@ -8,8 +8,6 @@
 
 import AppKit
 
-// TODO: Localize titles
-
 extension NSMenuItem {
     static func downloadSubtitles(target: AnyObject, action: Selector) -> NSMenuItem {
         let menu = NSMenu()
@@ -23,7 +21,7 @@ extension NSMenuItem {
             menu.addItem(providerMenuItem)
         }
 
-        let menuItem = NSMenuItem(title: "Download Subtitles",
+        let menuItem = NSMenuItem(title: "StatusBar_Download_Subtitles".localized,
                                   action: nil,
                                   keyEquivalent: "")
         menuItem.submenu = menu
@@ -32,7 +30,7 @@ extension NSMenuItem {
     }
 
     static func showApplication(target: AnyObject, action: Selector) -> NSMenuItem {
-        let menuItem = NSMenuItem(title: "Show Napi",
+        let menuItem = NSMenuItem(title: "StatusBar_Show_Napi".localized,
                                   action: action,
                                   keyEquivalent: "")
         menuItem.target = target
@@ -40,7 +38,7 @@ extension NSMenuItem {
     }
 
     static func quitApplication() -> NSMenuItem {
-        return NSMenuItem(title: "Quit Napi",
+        return NSMenuItem(title: "StatusBar_Quit_Napi".localized,
                           action: #selector(NSApplication.terminate(_:)),
                           keyEquivalent: "q")
     }

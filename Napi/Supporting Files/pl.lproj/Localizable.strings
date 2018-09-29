@@ -50,3 +50,16 @@
 
 /* Additional text displayed in summary alert view. */
 "Download_Summary_Informative" = "Wszystkie dostępne napisy zostały pobrane.";
+
+
+/* Status Bar Menu */
+
+
+/* Menu Item presenting Subtitle Providers to download subtitles from. */
+"StatusBar_Download_Subtitles" = "Pobierz napisy";
+
+/* Menu Item to bring the application to front. */
+"StatusBar_Show_Napi" = "Pokaż Napi";
+
+/* Menu Item to terminate the application. */
+"StatusBar_Quit_Napi" = "Zakończ Napi";
