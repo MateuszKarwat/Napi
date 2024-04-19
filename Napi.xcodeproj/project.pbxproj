@@ -623,10 +623,9 @@
 			};
 			buildConfigurationList = 2007805F1C64AE4F0098B026 /* Build configuration list for PBXProject "Napi" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 				pl,
