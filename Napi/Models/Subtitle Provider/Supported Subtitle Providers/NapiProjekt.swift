@@ -121,14 +121,14 @@ struct NapiProjekt: SubtitleProvider {
         let add = [0x0, 0xd, 0x10, 0xb, 0x5]
 
         var t = 0
-        var tmp: UInt32 = 0
-        var v: UInt32 = 0
+        var tmp: UInt64 = 0
+        var v: UInt64 = 0
 
         var generatedHash = ""
 
         for i in 0 ..< 5 {
             var scanner = Scanner(string: String(format: "%c", (md5Hash as NSString).character(at: idx[i])))
-            scanner.scanHexInt32(&tmp)
+            scanner.scanHexInt64(&tmp)
 
             t = add[i] + Int(tmp)
 
@@ -142,7 +142,7 @@ struct NapiProjekt: SubtitleProvider {
             }
 
             scanner = Scanner(string: subString)
-            scanner.scanHexInt32(&v)
+            scanner.scanHexInt64(&v)
 
             let hexResult = String(format: "%x", Int(v) * mul[i])
             let lastHexCharacter = hexResult.last ?? Character("")

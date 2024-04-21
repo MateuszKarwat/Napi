@@ -55,13 +55,12 @@
 		2057DBAF1E0433C70049DC3A /* SubtitleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2057DBAE1E0433C70049DC3A /* SubtitleEntity.swift */; };
 		2057DBB11E0436C30049DC3A /* SubtitleEntityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2057DBB01E0436C30049DC3A /* SubtitleEntityTests.swift */; };
 		206548581E914B080011DED8 /* NapiEngineDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206548571E914B080011DED8 /* NapiEngineDelegate.swift */; };
-		206C09811E7738810025B637 /* NSUserNotificationCenter+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206C09801E7738810025B637 /* NSUserNotificationCenter+URL.swift */; };
+		206C09811E7738810025B637 /* UNUserNotificationCenter+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206C09801E7738810025B637 /* UNUserNotificationCenter+URL.swift */; };
 		207F64621EB4E451005C8A11 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207F64611EB4E451005C8A11 /* Storyboard.swift */; };
 		208625CB1D4513A800B6DEF6 /* Int+Timestamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208625CA1D4513A800B6DEF6 /* Int+Timestamp.swift */; };
 		208B63DA1EF1AB94005010B1 /* Preferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 208B63DC1EF1AB94005010B1 /* Preferences.storyboard */; };
 		208B63DD1EF1ABAA005010B1 /* Progress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 208B63DF1EF1ABAA005010B1 /* Progress.storyboard */; };
 		208B63E01EF1ABCF005010B1 /* Selection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 208B63E21EF1ABCF005010B1 /* Selection.storyboard */; };
-		208BF2AD1D7316FC00111F4D /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208BF2AC1D7316FC00111F4D /* String+MD5.swift */; };
 		208BF2AF1D73170700111F4D /* Data+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208BF2AE1D73170700111F4D /* Data+MD5.swift */; };
 		208C77881E6F427C00ED7394 /* FileInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208C77871E6F427C00ED7394 /* FileInformation.swift */; };
 		20909F141D9C2631004622B0 /* Disctionary+HTTPBodyFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20909F131D9C2631004622B0 /* Disctionary+HTTPBodyFormat.swift */; };
@@ -166,7 +165,7 @@
 		2057DBAE1E0433C70049DC3A /* SubtitleEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitleEntity.swift; sourceTree = "<group>"; };
 		2057DBB01E0436C30049DC3A /* SubtitleEntityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitleEntityTests.swift; sourceTree = "<group>"; };
 		206548571E914B080011DED8 /* NapiEngineDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NapiEngineDelegate.swift; sourceTree = "<group>"; };
-		206C09801E7738810025B637 /* NSUserNotificationCenter+URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSUserNotificationCenter+URL.swift"; sourceTree = "<group>"; };
+		206C09801E7738810025B637 /* UNUserNotificationCenter+URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UNUserNotificationCenter+URL.swift"; sourceTree = "<group>"; };
 		207F64611EB4E451005C8A11 /* Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		208625CA1D4513A800B6DEF6 /* Int+Timestamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "Int+Timestamp.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		208B63DB1EF1AB94005010B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Preferences.storyboard; sourceTree = "<group>"; };
@@ -177,7 +176,6 @@
 		208B63EA1EF1ABEE005010B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Preferences.strings; sourceTree = "<group>"; };
 		208B63EE1EF1AC03005010B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		208BF2A91D73073500111F4D /* Napi-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Napi-Bridging-Header.h"; sourceTree = "<group>"; };
-		208BF2AC1D7316FC00111F4D /* String+MD5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
 		208BF2AE1D73170700111F4D /* Data+MD5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+MD5.swift"; sourceTree = "<group>"; };
 		208C77871E6F427C00ED7394 /* FileInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileInformation.swift; sourceTree = "<group>"; };
 		20909F131D9C2631004622B0 /* Disctionary+HTTPBodyFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Disctionary+HTTPBodyFormat.swift"; sourceTree = "<group>"; };
@@ -494,10 +492,9 @@
 				20C394661E05A33E00EB7D63 /* Date+Timestamp.swift */,
 				20909F131D9C2631004622B0 /* Disctionary+HTTPBodyFormat.swift */,
 				208625CA1D4513A800B6DEF6 /* Int+Timestamp.swift */,
-				206C09801E7738810025B637 /* NSUserNotificationCenter+URL.swift */,
+				206C09801E7738810025B637 /* UNUserNotificationCenter+URL.swift */,
 				20D7F872215EAAF1005CA4A9 /* NSMenuItem.swift */,
 				200560B21EEDBAE9007CD040 /* String+Localized.swift */,
-				208BF2AC1D7316FC00111F4D /* String+MD5.swift */,
 				200364F91CFE110600A09CEA /* String+Substring.swift */,
 				203B126D1DEF55ED0036D52D /* URL+FileManagerOperations.swift */,
 				201D62A81E3A70FF0010A7CA /* URLSession+DataTask.swift */,
@@ -649,7 +646,7 @@
 				2049F3DB1E755C580083547D /* Preferences.swift in Sources */,
 				20909F141D9C2631004622B0 /* Disctionary+HTTPBodyFormat.swift in Sources */,
 				200D9F491E81A6B000DE8588 /* NapiEngine.swift in Sources */,
-				206C09811E7738810025B637 /* NSUserNotificationCenter+URL.swift in Sources */,
+				206C09811E7738810025B637 /* UNUserNotificationCenter+URL.swift in Sources */,
 				200364F61CFE0EEA00A09CEA /* Lexer.swift in Sources */,
 				20BC26171ED72C6000404558 /* CheckboxTableViewModel.swift in Sources */,
 				20D7F873215EAAF1005CA4A9 /* NSMenuItem.swift in Sources */,
@@ -694,7 +691,6 @@
 				209911D31E9AB2E300B5681C /* ConvertPreferencesViewController.swift in Sources */,
 				202F3B311E6C2C1800BDB148 /* Collection+IsNotEmpty.swift in Sources */,
 				20EF7CFC1C67B1C4005A17A7 /* MicroDVDSubtitleFormat.swift in Sources */,
-				208BF2AD1D7316FC00111F4D /* String+MD5.swift in Sources */,
 				2057DBAF1E0433C70049DC3A /* SubtitleEntity.swift in Sources */,
 				20A8622E1D522C4C007FEC7C /* SubtitleCheckingResult.swift in Sources */,
 				200364FA1CFE110700A09CEA /* String+Substring.swift in Sources */,

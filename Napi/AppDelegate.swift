@@ -4,11 +4,12 @@
 //
 
 import AppKit
+import UserNotifications
 
 let applicationDelegate = NSApp.delegate as! AppDelegate
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate {
 
     lazy var mainFlowController = MainFlowController()
     lazy var commandLineFlowController = CommandLineFlowController()
@@ -18,7 +19,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         UserDefaults.standard.registerDefaultSettings()
-        NSUserNotificationCenter.default.delegate = self
+        UNUserNotificationCenter.current().delegate = self
 
         setupApplicationActivationPolicy()
 
@@ -49,22 +50,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
 
             mainFlowController.showApplicationInterface()
         }
-    }
-
-    // MARK: - Notifications
-
-    func userNotificationCenter(_ center: NSUserNotificationCenter, shouldPresent notification: NSUserNotification) -> Bool {
-        return true
-    }
-
-    func userNotificationCenter(_ center: NSUserNotificationCenter, didActivate notification: NSUserNotification) {
-        guard let absoluteURL = notification.userInfo?["url"] as? String,
-              let fileURL = URL(string: absoluteURL) else {
-            return
-        }
-
-        center.removeDeliveredNotification(notification)
-        NSWorkspace.shared.activateFileViewerSelecting([fileURL])
     }
 
     // MARK: - Handle Files and Directories
@@ -98,5 +83,22 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     /// First responder for cmd+o shortcut.
     func openDocument(_ sender: Any?) {
         mainFlowController.presentOpenPanel()
+    }
+}
+
+// MARK: - UNUserNotificationCenterDelegate
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(
+        _ center: UNUserNotificationCenter,
+        didReceive response: UNNotificationResponse,
+        withCompletionHandler completionHandler: @escaping () -> Void
+    ) {
+        guard let absoluteURL = response.notification.request.content.userInfo["url"] as? String,
+              let fileURL = URL(string: absoluteURL) else {
+            return
+        }
+
+        center.removeDeliveredNotifications(withIdentifiers: [absoluteURL])
+        NSWorkspace.shared.activateFileViewerSelecting([fileURL])
     }
 }

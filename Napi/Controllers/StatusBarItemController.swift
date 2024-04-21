@@ -34,7 +34,7 @@ final class StatusBarItemController {
 
     private func setupStatusItem() {
         statusItem.isVisible = false
-        statusItem.image = #imageLiteral(resourceName: "StatusBarIcon")
+        statusItem.button?.image = #imageLiteral(resourceName: "StatusBarIcon")
     }
 
     private func createMainMenu() {

@@ -31,7 +31,7 @@ final class ConvertPreferencesViewController: NSViewController {
             subtitleFormatsArrayController.add(contentsOf: availableSubtitleFormats)
 
             if let expectedSubtitleFormat = Preferences[.expectedSubtitleFormat],
-                let selectionIndex = availableSubtitleFormats.index(of: expectedSubtitleFormat) {
+               let selectionIndex = availableSubtitleFormats.firstIndex(of: expectedSubtitleFormat) {
                 subtitleFormatsArrayController.setSelectionIndex(selectionIndex)
             }
         }
@@ -48,7 +48,7 @@ final class ConvertPreferencesViewController: NSViewController {
     @IBOutlet private var encodingsArrayController: NSArrayController! {
         didSet {
             let availableEncodings = String.availableStringEncodings
-            let selectionIndex = availableEncodings.index(of: Preferences[.expectedEncoding]) ?? 0
+            let selectionIndex = availableEncodings.firstIndex(of: Preferences[.expectedEncoding]) ?? 0
 
             encodingsArrayController.add(contentsOf: availableEncodings)
             encodingsArrayController.setSelectionIndex(selectionIndex)

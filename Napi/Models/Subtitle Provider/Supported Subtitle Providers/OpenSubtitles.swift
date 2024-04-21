@@ -136,7 +136,7 @@ final class OpenSubtitles: SubtitleProvider {
                     return
                 }
 
-                if let downloadPathIndex = downloadURL.pathComponents.index(of: "download") {
+                if let downloadPathIndex = downloadURL.pathComponents.firstIndex(of: "download") {
                     downloadURL = downloadURL.appendingPathComponent("subencoding-utf8", at: downloadPathIndex + 1)
                 }
 

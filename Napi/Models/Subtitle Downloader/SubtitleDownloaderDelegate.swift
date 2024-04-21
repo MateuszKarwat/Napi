@@ -5,7 +5,7 @@
 
 import Foundation
 
-protocol SubtitleDownloaderDelegate: class {
+protocol SubtitleDownloaderDelegate: AnyObject {
 
     /// Called when `SubtitleDownloader` is going to search for subtitles.
     ///

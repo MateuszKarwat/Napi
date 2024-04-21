@@ -124,12 +124,14 @@ struct FileInformation {
         let fileDataEnd = fileHandler.readData(ofLength: chunkSize)
 
         var result: UInt64 = fileSize
-        fileDataBegin.withUnsafeBytes { (bytes: UnsafePointer<UInt64>) -> Void in
+        fileDataBegin.withUnsafeBytes { pointer in
+            guard let bytes = pointer.baseAddress?.assumingMemoryBound(to: UInt64.self) else { return }
             let dataBytes = UnsafeBufferPointer<UInt64>(start: bytes, count: fileDataBegin.count / uInt64Size)
             result = dataBytes.reduce(result, &+)
         }
 
-        fileDataEnd.withUnsafeBytes { (bytes: UnsafePointer<UInt64>) -> Void in
+        fileDataEnd.withUnsafeBytes { pointer in
+            guard let bytes = pointer.baseAddress?.assumingMemoryBound(to: UInt64.self) else { return }
             let dataBytes = UnsafeBufferPointer<UInt64>(start: bytes, count: fileDataEnd.count / uInt64Size)
             result = dataBytes.reduce(result, &+)
         }

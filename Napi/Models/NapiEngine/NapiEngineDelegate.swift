@@ -5,7 +5,7 @@
 
 import Foundation
 
-protocol NapiEngineDelegate: class {
+protocol NapiEngineDelegate: AnyObject {
 
     /// Called whenever `NapiEngine` changes its status.
     ///
