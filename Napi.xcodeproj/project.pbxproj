@@ -181,8 +181,6 @@
 		208BF2AE1D73170700111F4D /* Data+MD5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+MD5.swift"; sourceTree = "<group>"; };
 		208C77871E6F427C00ED7394 /* FileInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileInformation.swift; sourceTree = "<group>"; };
 		20909F131D9C2631004622B0 /* Disctionary+HTTPBodyFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Disctionary+HTTPBodyFormat.swift"; sourceTree = "<group>"; };
-		2091C0D51E94203900B2D953 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/Mac/SwiftyBeaver.framework; sourceTree = "<group>"; };
-		2091C0DA1E94209100B2D953 /* SwiftyBeaver.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftyBeaver.framework.dSYM; path = Carthage/Build/Mac/SwiftyBeaver.framework.dSYM; sourceTree = "<group>"; };
 		20924EDC1EB4FBD7005655C9 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		209451611E7726A8001861CE /* SupportedSubtitleProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportedSubtitleProvider.swift; sourceTree = "<group>"; };
 		209911D01E9AB2D900B5681C /* DownloadPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadPreferencesViewController.swift; sourceTree = "<group>"; };
@@ -255,7 +253,6 @@
 		2007805B1C64AE4F0098B026 = {
 			isa = PBXGroup;
 			children = (
-				2091C0D81E94205100B2D953 /* Frameworks */,
 				200780661C64AE4F0098B026 /* Napi */,
 				200780781C64AE4F0098B026 /* NapiTests */,
 				200780651C64AE4F0098B026 /* Products */,
@@ -446,15 +443,6 @@
 				200780CC1C64F3F90098B026 /* TMPlayerSubtitleFormatTests.swift */,
 			);
 			path = "Subtitle Formats";
-			sourceTree = "<group>";
-		};
-		2091C0D81E94205100B2D953 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				2091C0DA1E94209100B2D953 /* SwiftyBeaver.framework.dSYM */,
-				2091C0D51E94203900B2D953 /* SwiftyBeaver.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		209911CD1E9AB2A800B5681C /* Tabs */ = {
