@@ -63,3 +63,10 @@
 
 /* Menu Item to terminate the application. */
 "StatusBar_Quit_Napi" = "Quit Napi";
+
+
+/* Notifications */
+
+
+/* Notification subtitle informing about downloaded subtitles */
+"Notification_Subtitles_Downloaded" = "Subtitles downloaded";

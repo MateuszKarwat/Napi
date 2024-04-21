@@ -9,7 +9,7 @@ extension UNUserNotificationCenter {
     func postNotification(forFileAt url: URL) {
         let content = UNMutableNotificationContent()
         content.title = "Napi"
-        content.subtitle = "Subtitles downloaded"
+        content.subtitle = "Notification_Subtitles_Downloaded".localized
         content.body = url.lastPathComponentWithoutExtension
         content.sound = .default
         content.userInfo = ["url": url.absoluteString]
