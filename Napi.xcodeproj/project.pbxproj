@@ -65,9 +65,6 @@
 		208BF2AF1D73170700111F4D /* Data+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208BF2AE1D73170700111F4D /* Data+MD5.swift */; };
 		208C77881E6F427C00ED7394 /* FileInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208C77871E6F427C00ED7394 /* FileInformation.swift */; };
 		20909F141D9C2631004622B0 /* Disctionary+HTTPBodyFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20909F131D9C2631004622B0 /* Disctionary+HTTPBodyFormat.swift */; };
-		2091C0D61E94203900B2D953 /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2091C0D51E94203900B2D953 /* SwiftyBeaver.framework */; };
-		2091C0D71E94203900B2D953 /* SwiftyBeaver.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2091C0D51E94203900B2D953 /* SwiftyBeaver.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2091C0DB1E94209100B2D953 /* SwiftyBeaver.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2091C0DA1E94209100B2D953 /* SwiftyBeaver.framework.dSYM */; };
 		20924EDD1EB4FBD7005655C9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20924EDC1EB4FBD7005655C9 /* MainViewController.swift */; };
 		209451621E7726A8001861CE /* SupportedSubtitleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209451611E7726A8001861CE /* SupportedSubtitleProvider.swift */; };
 		209911D11E9AB2D900B5681C /* DownloadPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209911D01E9AB2D900B5681C /* DownloadPreferencesViewController.swift */; };
@@ -88,7 +85,6 @@
 		20C989691D36A92C00B16DD2 /* LexerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209FA95F1D2FC04D00C54DCA /* LexerTests.swift */; };
 		20C9896E1D36AB3100B16DD2 /* SubtitleTokenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F105C11D3114A2000E157F /* SubtitleTokenType.swift */; };
 		20D7F873215EAAF1005CA4A9 /* NSMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D7F872215EAAF1005CA4A9 /* NSMenuItem.swift */; };
-		20D7F875215EADE9005CA4A9 /* SwiftyBeaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D7F874215EADE9005CA4A9 /* SwiftyBeaver.swift */; };
 		20DBFCD21E9A5FE600F2C93E /* PreferencesTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DBFCD11E9A5FE600F2C93E /* PreferencesTabViewController.swift */; };
 		20DF1F4C1E335673003A3491 /* OpenSubtitles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DF1F4B1E335673003A3491 /* OpenSubtitles.swift */; };
 		20DFA6691E2A5D0F0073ED45 /* NapiProjekt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DFA6681E2A5D0F0073ED45 /* NapiProjekt.swift */; };
@@ -102,6 +98,7 @@
 		20F6FBD51C6E527F005A1C12 /* MPL2SubtitleFormatFile.txt in Resources */ = {isa = PBXBuildFile; fileRef = 20F6FBD41C6E527F005A1C12 /* MPL2SubtitleFormatFile.txt */; };
 		20F6FBD71C6E52CE005A1C12 /* TMPlayerSubtitleFormatFile.txt in Resources */ = {isa = PBXBuildFile; fileRef = 20F6FBD61C6E52CE005A1C12 /* TMPlayerSubtitleFormatFile.txt */; };
 		20F6FBD91C6E5306005A1C12 /* MicroDVDSubtitleFormatFile.txt in Resources */ = {isa = PBXBuildFile; fileRef = 20F6FBD81C6E5306005A1C12 /* MicroDVDSubtitleFormatFile.txt */; };
+		614B14EF2BD2E32300FDA78E /* Logger+Subsystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614B14EE2BD2E32300FDA78E /* Logger+Subsystem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,30 +110,6 @@
 			remoteInfo = Napi;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		202C930C1DDCD23A0083658E /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				2091C0D71E94203900B2D953 /* SwiftyBeaver.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2091C0D91E94208100B2D953 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 16;
-			files = (
-				2091C0DB1E94209100B2D953 /* SwiftyBeaver.framework.dSYM in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		200364F11CFE04A400A09CEA /* TimestampTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TimestampTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -229,7 +202,6 @@
 		20C394641E055E3600EB7D63 /* NameMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameMatcher.swift; sourceTree = "<group>"; };
 		20C394661E05A33E00EB7D63 /* Date+Timestamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Timestamp.swift"; sourceTree = "<group>"; };
 		20D7F872215EAAF1005CA4A9 /* NSMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMenuItem.swift; sourceTree = "<group>"; };
-		20D7F874215EADE9005CA4A9 /* SwiftyBeaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyBeaver.swift; sourceTree = "<group>"; };
 		20DBFCD11E9A5FE600F2C93E /* PreferencesTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesTabViewController.swift; sourceTree = "<group>"; };
 		20DF1F4B1E335673003A3491 /* OpenSubtitles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenSubtitles.swift; sourceTree = "<group>"; };
 		20DFA6681E2A5D0F0073ED45 /* NapiProjekt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NapiProjekt.swift; sourceTree = "<group>"; };
@@ -248,6 +220,7 @@
 		20FD66041EF1B360001CFC79 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Progress.strings; sourceTree = "<group>"; };
 		20FD660C1EF1B3A3001CFC79 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Selection.strings; sourceTree = "<group>"; };
 		20FD66191EF1B41F001CFC79 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Preferences.strings; sourceTree = "<group>"; };
+		614B14EE2BD2E32300FDA78E /* Logger+Subsystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+Subsystem.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,7 +228,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2091C0D61E94203900B2D953 /* SwiftyBeaver.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -539,10 +511,10 @@
 				200560B21EEDBAE9007CD040 /* String+Localized.swift */,
 				208BF2AC1D7316FC00111F4D /* String+MD5.swift */,
 				200364F91CFE110600A09CEA /* String+Substring.swift */,
-				20D7F874215EADE9005CA4A9 /* SwiftyBeaver.swift */,
 				203B126D1DEF55ED0036D52D /* URL+FileManagerOperations.swift */,
 				201D62A81E3A70FF0010A7CA /* URLSession+DataTask.swift */,
 				204CCC171E7071AD00A4F974 /* UserDefaults+RegisterDefaults.swift */,
+				614B14EE2BD2E32300FDA78E /* Logger+Subsystem.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -568,9 +540,7 @@
 				200780601C64AE4F0098B026 /* Sources */,
 				200780611C64AE4F0098B026 /* Frameworks */,
 				200780621C64AE4F0098B026 /* Resources */,
-				202C930C1DDCD23A0083658E /* Embed Frameworks */,
 				2027E6B11E5F5713002C17EA /* ShellScript */,
-				2091C0D91E94208100B2D953 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -682,7 +652,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "TAGS=\"TODO:|FIXME:\"\necho \"searching ${SRCROOT} for ${TAGS}\"\nfind \"${SRCROOT}\" \\( -name \"*.swift\" \\) -print0 \\\n    | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$\" \\\n    | perl -p -e \"s/($TAGS)/ warning: \\$1/\"";
+			shellScript = "TAGS=\"TODO:|FIXME:\"\necho \"searching ${SRCROOT} for ${TAGS}\"\nfind \"${SRCROOT}\" \\( -name \"*.swift\" \\) -print0 \\\n    | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$\" \\\n    | perl -p -e \"s/($TAGS)/ warning: \\$1/\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -735,6 +705,7 @@
 				20A862301D5246F1007FEC7C /* SubtitleConverter.swift in Sources */,
 				208625CB1D4513A800B6DEF6 /* Int+Timestamp.swift in Sources */,
 				200C4B9E1C6601F800FBE406 /* MPL2SubtitleFormat.swift in Sources */,
+				614B14EF2BD2E32300FDA78E /* Logger+Subsystem.swift in Sources */,
 				209911D11E9AB2D900B5681C /* DownloadPreferencesViewController.swift in Sources */,
 				209911D51E9AB2F500B5681C /* MatchPreferencesViewController.swift in Sources */,
 				20227B4B1ED35E8300E55352 /* MainFlowController.swift in Sources */,
@@ -755,7 +726,6 @@
 				208BF2AD1D7316FC00111F4D /* String+MD5.swift in Sources */,
 				2057DBAF1E0433C70049DC3A /* SubtitleEntity.swift in Sources */,
 				20A8622E1D522C4C007FEC7C /* SubtitleCheckingResult.swift in Sources */,
-				20D7F875215EADE9005CA4A9 /* SwiftyBeaver.swift in Sources */,
 				200364FA1CFE110700A09CEA /* String+Substring.swift in Sources */,
 				2007B6561EAE793D00EB258D /* Array+MoveElement.swift in Sources */,
 				203B126E1DEF55ED0036D52D /* URL+FileManagerOperations.swift in Sources */,

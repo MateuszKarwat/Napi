@@ -4,10 +4,12 @@
 //
 
 import Foundation
+import OSLog
 
 /// Provides an easy and clean way to access and manage temporary directory.
 final class TemporaryDirectoryManager {
     private let fileManager = FileManager.default
+    private let logger = Logger(category: "TemporaryDirectoryManager")
 
     let temporaryDirectory: URL
 
@@ -38,10 +40,10 @@ final class TemporaryDirectoryManager {
     func createTemporaryDirectory() {
         if !temporaryDirectory.exists {
             do {
-                log.info("Creating temporary directory.")
+                logger.info("Creating temporary directory.")
                 try fileManager.createDirectory(at: temporaryDirectory, withIntermediateDirectories: false, attributes: nil)
             } catch let error {
-                log.error(error.localizedDescription)
+                logger.error("\(error.localizedDescription)")
             }
         }
     }
@@ -51,7 +53,7 @@ final class TemporaryDirectoryManager {
         do {
             return try fileManager.contentsOfDirectory(at: temporaryDirectory, includingPropertiesForKeys: nil, options: [])
         } catch let error {
-            log.error(error.localizedDescription)
+            logger.error("\(error.localizedDescription)")
             return []
         }
     }
@@ -60,10 +62,10 @@ final class TemporaryDirectoryManager {
     func removeTemporaryDirectory() {
         if temporaryDirectory.exists {
             do {
-                log.info("Removing temporary directory.")
+                logger.info("Removing temporary directory.")
                 try fileManager.removeItem(at: temporaryDirectory)
             } catch let error {
-                log.error(error.localizedDescription)
+                logger.error("\(error.localizedDescription)")
             }
         }
     }
@@ -72,10 +74,10 @@ final class TemporaryDirectoryManager {
     func cleanupTemporaryDirectory() {
         contentsOfTemporaryDirectory.forEach {
             do {
-                log.info("Cleaning temporary directory.")
+                logger.info("Cleaning temporary directory.")
                 try fileManager.removeItem(at: $0)
             } catch let error {
-                log.error(error.localizedDescription)
+                logger.error("\(error.localizedDescription)")
             }
         }
     }

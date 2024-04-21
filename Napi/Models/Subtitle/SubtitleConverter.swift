@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import OSLog
 
 enum SubtitleConvertionError: Error {
     case subtitlesNotLoaded
@@ -50,6 +51,9 @@ final class SubtitleConverter {
     /// In other words, it represents raw subtitles with no modification.
     private var encodedSubtitles: String?
 
+    /// Instance of a logger.
+    private let logger = Logger(category: "SubtitleConverter")
+
     /// Tries to detect format of `subtitles` and prepare them for futher conversion.
     ///
     /// - Parameters:
@@ -59,19 +63,19 @@ final class SubtitleConverter {
     ///   * `subtitleFormatNotSupported` if any `SupportedSubtitleFormat`
     ///     can decode given subtitles.
     func load(subtitles: String) throws {
-        log.verbose("Trying to detect subtitles format.")
+        logger.debug("Trying to detect subtitles format.")
 
         for format in SupportedSubtitleFormat.allValues {
             if format.type.canDecode(subtitles) {
                 encodedSubtitles = subtitles
                 detectedSubtitleFormat = format
 
-                log.verbose("Detected subtitles format \(format).")
+                logger.debug("Detected subtitles format \(format).")
                 return
             }
         }
 
-        log.warning("Subtitles are in unsupported format.")
+        logger.warning("Subtitles are in unsupported format.")
         throw SubtitleConvertionError.subtitleFormatNotSupported
     }
 
@@ -97,7 +101,7 @@ final class SubtitleConverter {
             throw SubtitleConvertionError.subtitleFormatNotSupported
         }
 
-        log.verbose("Converting subtitles to \(subtitleFormat.rawValue).")
+        logger.debug("Converting subtitles to \(subtitleFormat.rawValue).")
 
         var modifiedSubtitles = [Subtitle]()
 
@@ -106,7 +110,7 @@ final class SubtitleConverter {
 
             if detectedSubtitleFormat.type.isTimeBased != subtitleFormat.type.isTimeBased {
                 guard let frameRate = frameRate else {
-                    log.error("Convertion is from/to frame rate format to/from time based format, but frame rate is not provided.")
+                    logger.error("Convertion is from/to frame rate format to/from time based format, but frame rate is not provided.")
                     throw SubtitleConvertionError.frameRateNotSpecified
                 }
 

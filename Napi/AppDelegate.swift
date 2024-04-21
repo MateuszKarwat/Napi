@@ -4,9 +4,7 @@
 //
 
 import AppKit
-import SwiftyBeaver
 
-let log = SwiftyBeaver.self
 let applicationDelegate = NSApp.delegate as! AppDelegate
 
 @NSApplicationMain
@@ -21,7 +19,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSUserNotificationCenterDele
     func applicationDidFinishLaunching(_ notification: Notification) {
         UserDefaults.standard.registerDefaultSettings()
         NSUserNotificationCenter.default.delegate = self
-        SwiftyBeaver.configure()
 
         setupApplicationActivationPolicy()
 

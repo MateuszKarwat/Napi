@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import OSLog
 
 /// Utility struct to extract compressed files.
 struct Unziper {
@@ -35,9 +36,10 @@ struct Unziper {
             unzipProcess.arguments?.append(contentsOf: ["-d", destination.path])
         }
 
-        log.verbose("Unzipping archive.")
+        let logger = Logger(category: "Unziper")
+        logger.debug("Unzipping archive.")
         unzipProcess.launch()
         unzipProcess.waitUntilExit()
-        log.verbose("Archive has been unzipped.")
+        logger.debug("Archive has been unzipped.")
     }
 }

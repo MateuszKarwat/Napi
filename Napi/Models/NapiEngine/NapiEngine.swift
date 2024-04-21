@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import OSLog
 
 /// A core class to download, search and postprocess subtitles.
 /// Class has an initializer without any parameter, because every step
@@ -41,6 +42,7 @@ final class NapiEngine {
     fileprivate let subtitleDownloader: SubtitleDownloader
     fileprivate let subtitleConverter = SubtitleConverter()
     fileprivate let nameMatcher = NameMatcher()
+    fileprivate let logger = Logger(category: "NapiEngine")
 
     fileprivate var unprocessedVideoFiles = [URL]()
     fileprivate var currentVideoFile: URL!
@@ -84,7 +86,7 @@ final class NapiEngine {
     }
 
     func cancel() {
-        log.info("Canceling.")
+        logger.info("Canceling.")
         status = .canceling
         subtitleDownloader.cancel()
     }
@@ -101,7 +103,7 @@ final class NapiEngine {
             subtitleDownloader.status == .ready,
             unprocessedVideoFiles.isNotEmpty
         else {
-            log.info("Finished.")
+            logger.info("Finished.")
 
             statusInfo = nil
             status = .idle
@@ -112,7 +114,7 @@ final class NapiEngine {
 
         currentVideoFile = unprocessedVideoFiles.removeFirst()
 
-        log.info("Processing video file \"\(currentVideoFile.lastPathComponent)\". [\(unprocessedVideoFiles.count) left]")
+        logger.info("Processing video file \"\(self.currentVideoFile.lastPathComponent)\". [\(self.unprocessedVideoFiles.count) left]")
 
         subtitleDownloader.searchSubtitles(forFileAt: currentVideoFile,
                                            skipAlreadyDownloadedLanguages: Preferences[.skipAlreadyDownloadedLanguages])
@@ -154,14 +156,14 @@ final class NapiEngine {
             finalSubtitleFormat = expectedSubtitleFormat
             fileNeedsWriting = true
         } catch let error {
-            log.error(error.localizedDescription)
+            logger.error("\(error.localizedDescription)")
         }
 
-        log.info("Detected encoding \(encoding).")
+        logger.info("Detected encoding \(encoding).")
 
         let expectedEncoding = Preferences[.expectedEncoding]
         if Preferences[.changeEncoding] && expectedEncoding != encoding {
-            log.info("Changing encoding to \(expectedEncoding).")
+            logger.info("Changing encoding to \(expectedEncoding).")
 
             encoding = expectedEncoding
             fileNeedsWriting = true
@@ -169,11 +171,11 @@ final class NapiEngine {
 
         if fileNeedsWriting {
             do {
-                log.info("Saving modified subtitles.")
+                logger.info("Saving modified subtitles.")
 
                 try subtitles.write(to: subtitleEntity.url, atomically: true, encoding: encoding)
             } catch let error {
-                log.error(error.localizedDescription)
+                logger.error("\(error.localizedDescription)")
             }
         }
 
@@ -190,13 +192,13 @@ final class NapiEngine {
         }
 
         if Preferences[.tryToDetermineFrameRate] {
-            log.info("Trying to determine video frame rate.")
+            logger.info("Trying to determine video frame rate.")
             if let detectedFrameRate = videoFileInformation.frameRate {
                 subtitleConverter.frameRate = detectedFrameRate
-                log.info("Detected frame rate: \(detectedFrameRate).")
+                logger.info("Detected frame rate: \(detectedFrameRate).")
             } else if Preferences[.useBackupFrameRate] {
                 subtitleConverter.frameRate = Preferences[.backupFrameRate]
-                log.info("Using backup frame rate: \(Preferences[.backupFrameRate]).")
+                logger.info("Using backup frame rate: \(Preferences[.backupFrameRate]).")
             }
         }
     }
@@ -218,7 +220,7 @@ final class NapiEngine {
 
             return movedSubtitles.appendingPathExtension(pathExtension ?? "")
         } catch let error {
-            log.error(error.localizedDescription)
+            logger.error("\(error.localizedDescription)")
 
             return subtitleEntity.url
         }
@@ -272,7 +274,7 @@ extension NapiEngine: SubtitleDownloaderDelegate {
     func subtitleDownloader(_ subtitleDownloader: SubtitleDownloader, willSearchSubtitlesFor searchCriteria: SearchCriteria, using subtitleProvider: SubtitleProvider) {
         statusInfo = StatusInfo(subtitleProviderName: subtitleProvider.name, language: searchCriteria.language, videoURL: currentVideoFile)
 
-        log.info("Searching subtitles in \(searchCriteria.language.currentLocaleName ?? searchCriteria.language.isoCode).")
+        logger.info("Searching subtitles in \(searchCriteria.language.currentLocaleName ?? searchCriteria.language.isoCode).")
         status = .searching
     }
 
