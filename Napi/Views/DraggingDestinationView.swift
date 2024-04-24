@@ -7,7 +7,7 @@ import Cocoa
 import Foundation
 
 /// Delegate for `DraggingDestinationView`.
-protocol DraggingDestinationViewDelegate: class {
+protocol DraggingDestinationViewDelegate: AnyObject {
 
     /// Called when dragging session ends and there is at lease one URL.
     ///

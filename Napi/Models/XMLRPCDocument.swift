@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import OSLog
 
 /// `XMLDocument` with default structure in `XML-RPC` format.
 class XMLRPCDocument: XMLDocument {
@@ -70,7 +71,8 @@ extension XMLNode {
 
             return matchedParameters.first?.nextSibling?.stringValue
         } catch let error {
-            log.error(error.localizedDescription)
+            let logger = Logger(category: "XMLNode")
+            logger.error("\(error.localizedDescription)")
             return nil
         }
     }

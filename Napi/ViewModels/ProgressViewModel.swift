@@ -4,8 +4,9 @@
 //
 
 import Foundation
+import UserNotifications
 
-protocol ProgressViewModelDelegate: class {
+protocol ProgressViewModelDelegate: AnyObject {
 
     /// Called when download is completed, correctly cancelled
     /// or something happens what makes a futher download impossible.
@@ -63,7 +64,7 @@ extension ProgressViewModel: NapiEngineDelegate {
 
     func napiEngine(_ napiEngine: NapiEngine, didProvideSubtitlesAt url: URL) {
         if Preferences[.postNotifications] {
-            NSUserNotificationCenter.default.postNotification(forFileAt: url)
+            UNUserNotificationCenter.current().postNotification(forFileAt: url)
         }
     }
 

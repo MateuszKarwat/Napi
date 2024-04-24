@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import OSLog
 
 extension UserDefaults {
 
@@ -23,7 +24,8 @@ extension UserDefaults {
                 self.register(defaults: plistData)
             }
         } catch let error {
-            log.error(error.localizedDescription)
+            let logger = Logger(category: "UserDefaults")
+            logger.error("\(error.localizedDescription)")
             return
         }
     }

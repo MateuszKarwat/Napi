@@ -66,10 +66,12 @@ final class DownloadPreferencesViewController: NSViewController {
         let orderedProviders = selectedProviders + unselectedProviders
 
         let viewModel = CheckboxTableViewModel(elements: orderedProviders.map {
-            .init(value: $0,
-                  isSelected: selectedProvidersNames.contains($0.name),
-                  image: NSImage(named: $0.name),
-                  description: $0.description)
+            .init(
+                value: $0,
+                isSelected: selectedProvidersNames.contains($0.name),
+                image: nil,
+                description: $0.description
+            )
         })
 
         viewModel.onApply = { selectedValues in
@@ -77,7 +79,6 @@ final class DownloadPreferencesViewController: NSViewController {
         }
 
         viewModel.description = "Preferences_Download_Providers_Selection_Description".localized
-        viewModel.showCellImage = true
 
         viewController.viewModel = viewModel
     }

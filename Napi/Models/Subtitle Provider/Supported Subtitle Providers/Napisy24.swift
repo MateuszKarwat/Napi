@@ -4,22 +4,25 @@
 //
 
 import Foundation
+import OSLog
 
 struct Napisy24: SubtitleProvider {
+    private let logger = Logger(category: "Napisy24")
+
     let name = "Napisy24"
     let homepage = URL(string: "http://napisy24.pl")!
 
     func searchSubtitles(using searchCritera: SearchCriteria, completionHandler: @escaping ([SubtitleEntity]) -> Void) {
-        log.info("Sending search request.")
+        logger.info("Sending search request.")
 
         guard let searchRequest = searchRequest(with: searchCritera) else {
-            log.warning("Search request couldn't be created.")
+            logger.warning("Search request couldn't be created.")
             completionHandler([])
             return
         }
 
         let dataTask = URLSession.shared.dataTask(with: searchRequest) { data, encoding in
-            log.info("Search response received.")
+            logger.info("Search response received.")
 
             guard
                 let data = data,
@@ -38,7 +41,7 @@ struct Napisy24: SubtitleProvider {
     }
 
     func download(_ subtitleEntity: SubtitleEntity, completionHandler: @escaping (SubtitleEntity?) -> Void) {
-        log.info("Downloading subtitles.")
+        logger.info("Downloading subtitles.")
 
         var downloadedSubtitleEntity: SubtitleEntity? = nil
 
@@ -73,12 +76,12 @@ struct Napisy24: SubtitleProvider {
                     downloadedSubtitleEntity?.format = .text
                     downloadedSubtitleEntity?.url = extractedSubtitlePath
 
-                    log.info("Subtitles downloaded.")
+                    logger.info("Subtitles downloaded.")
                 } else {
                     return
                 }
             } catch let error {
-                log.error(error.localizedDescription)
+                logger.error("\(error.localizedDescription)")
                 return
             }
         }
@@ -87,13 +90,13 @@ struct Napisy24: SubtitleProvider {
     }
 
     private func subtitleEntity(from stringResponse: String, in language: Language) -> SubtitleEntity? {
-        log.verbose("Parsing search response.")
+        logger.debug("Parsing search response.")
 
         guard
             stringResponse.substring(to: 4) == "OK-2",
             let archiveStartIndex = stringResponse.range(of: "||")?.upperBound
         else {
-            log.verbose("Subtitles has not been found.")
+            logger.debug("Subtitles has not been found.")
             return nil
         }
 
@@ -106,9 +109,9 @@ struct Napisy24: SubtitleProvider {
 
             try archiveData?.write(to: subtitleEntity.url)
 
-            log.verbose("Subtitles has been found.")
+            logger.debug("Subtitles has been found.")
         } catch let error {
-            log.error(error.localizedDescription)
+            logger.error("\(error.localizedDescription)")
             return nil
         }
 

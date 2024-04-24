@@ -70,7 +70,7 @@ final class DirectoryScanner {
             return []
         }
 
-        if let indexOfPatternFile = adjacentFiles.index(of: path) {
+        if let indexOfPatternFile = adjacentFiles.firstIndex(of: path) {
             adjacentFiles.remove(at: indexOfPatternFile)
         }
 

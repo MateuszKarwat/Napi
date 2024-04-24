@@ -5,6 +5,7 @@
 
 import AppKit
 import Foundation
+import UserNotifications
 
 /// Flow Controller responsible for running an app
 /// as a command line tool.
@@ -21,7 +22,7 @@ final class CommandLineFlowController {
 extension CommandLineFlowController: NapiEngineDelegate {
     func napiEngine(_ napiEngine: NapiEngine, didProvideSubtitlesAt url: URL) {
         if Preferences[.postNotifications] {
-            NSUserNotificationCenter.default.postNotification(forFileAt: url)
+            UNUserNotificationCenter.current().postNotification(forFileAt: url)
         }
     }
 

@@ -4,8 +4,10 @@
 //
 
 import Foundation
+import OSLog
 
 final class OpenSubtitles: SubtitleProvider {
+    private let logger = Logger(category: "OpenSubtitles")
 
     /// Token required for API requests.
     var token: String?
@@ -16,16 +18,16 @@ final class OpenSubtitles: SubtitleProvider {
     let homepage = URL(string: "https://www.opensubtitles.org")!
 
     func searchSubtitles(using searchCritera: SearchCriteria, completionHandler: @escaping ([SubtitleEntity]) -> Void) {
-        requestToken {
-            log.info("Sending search request.")
+        requestToken { [self] in
+            self.logger.info("Sending search request.")
 
             guard let searchRequest = self.searchRequest(with: searchCritera) else {
                 completionHandler([])
                 return
             }
 
-            let dataTask = URLSession.shared.dataTask(with: searchRequest) { data, encoding in
-                log.info("Search response received.")
+            let dataTask = URLSession.shared.dataTask(with: searchRequest) { [self] data, encoding in
+                self.logger.info("Search response received.")
 
                 guard
                     let data = data,
@@ -56,8 +58,8 @@ final class OpenSubtitles: SubtitleProvider {
         directoryManager.createTemporaryDirectory()
 
         let downloadRequest = URLRequest(url: subtitleEntity.url)
-        let downloadTask = URLSession.shared.downloadTask(with: downloadRequest) { downloadLocation, _, error in
-            log.info("Download response received.")
+        let downloadTask = URLSession.shared.downloadTask(with: downloadRequest) { [logger] downloadLocation, _, error in
+            logger.info("Download response received.")
 
             guard
                 error == nil,
@@ -95,14 +97,14 @@ final class OpenSubtitles: SubtitleProvider {
                         return
                     }
                 } catch let error {
-                    log.error(error.localizedDescription)
+                    logger.error("\(error.localizedDescription)")
                     completionHandler(nil)
                     return
                 }
             }
         }
 
-        log.info("Sending download request.")
+        logger.info("Sending download request.")
         downloadTask.resume()
     }
 
@@ -117,7 +119,7 @@ final class OpenSubtitles: SubtitleProvider {
     // MARK: - Responses
 
     private func subtitleEntities(from xmlResponse: String) -> [SubtitleEntity] {
-        log.verbose("Parsing search response.")
+        logger.debug("Parsing search response.")
 
         var subtitleEntities = [SubtitleEntity]()
 
@@ -134,7 +136,7 @@ final class OpenSubtitles: SubtitleProvider {
                     return
                 }
 
-                if let downloadPathIndex = downloadURL.pathComponents.index(of: "download") {
+                if let downloadPathIndex = downloadURL.pathComponents.firstIndex(of: "download") {
                     downloadURL = downloadURL.appendingPathComponent("subencoding-utf8", at: downloadPathIndex + 1)
                 }
 
@@ -144,11 +146,11 @@ final class OpenSubtitles: SubtitleProvider {
                 subtitleEntities.append(subtitleEntity)
             }
         } catch let error {
-            log.error(error.localizedDescription)
+            logger.error("\(error.localizedDescription)")
             return []
         }
 
-        log.verbose("\(subtitleEntities.count) subtitles have been found.")
+        logger.debug("\(subtitleEntities.count) subtitles have been found.")
         return subtitleEntities
     }
 
@@ -171,18 +173,18 @@ final class OpenSubtitles: SubtitleProvider {
     }
 
     private func requestToken(completionHandler: @escaping () -> Void) {
-        log.info("Sending token request.")
+        logger.info("Sending token request.")
 
         guard token == nil else {
-            log.verbose("Token is already granted.")
+            logger.debug("Token is already granted.")
             completionHandler()
             return
         }
 
         let request = urlRequest(with: loginXML())
 
-        let dataTask = URLSession.shared.dataTask(with: request) { data, encoding in
-            log.verbose("Token received.")
+        let dataTask = URLSession.shared.dataTask(with: request) { [logger] data, encoding in
+            logger.debug("Token received.")
 
             defer {
                 completionHandler()
@@ -202,7 +204,7 @@ final class OpenSubtitles: SubtitleProvider {
 
                 self.token = structNodes.first?.rpcValue(forParameterWithName: "token")
             } catch let error {
-                log.error(error.localizedDescription)
+                logger.error("\(error.localizedDescription)")
             }
         }
 
@@ -214,7 +216,7 @@ final class OpenSubtitles: SubtitleProvider {
             let request = urlRequest(with: logoutXML(withToken: token))
             let dataTask = URLSession.shared.dataTask(with: request)
 
-            log.info("Sending logout request.")
+            logger.info("Sending logout request.")
             dataTask.resume()
         }
     }

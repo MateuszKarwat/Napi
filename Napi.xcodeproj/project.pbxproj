@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -55,19 +55,15 @@
 		2057DBAF1E0433C70049DC3A /* SubtitleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2057DBAE1E0433C70049DC3A /* SubtitleEntity.swift */; };
 		2057DBB11E0436C30049DC3A /* SubtitleEntityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2057DBB01E0436C30049DC3A /* SubtitleEntityTests.swift */; };
 		206548581E914B080011DED8 /* NapiEngineDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206548571E914B080011DED8 /* NapiEngineDelegate.swift */; };
-		206C09811E7738810025B637 /* NSUserNotificationCenter+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206C09801E7738810025B637 /* NSUserNotificationCenter+URL.swift */; };
+		206C09811E7738810025B637 /* UNUserNotificationCenter+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 206C09801E7738810025B637 /* UNUserNotificationCenter+URL.swift */; };
 		207F64621EB4E451005C8A11 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 207F64611EB4E451005C8A11 /* Storyboard.swift */; };
 		208625CB1D4513A800B6DEF6 /* Int+Timestamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208625CA1D4513A800B6DEF6 /* Int+Timestamp.swift */; };
 		208B63DA1EF1AB94005010B1 /* Preferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 208B63DC1EF1AB94005010B1 /* Preferences.storyboard */; };
 		208B63DD1EF1ABAA005010B1 /* Progress.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 208B63DF1EF1ABAA005010B1 /* Progress.storyboard */; };
 		208B63E01EF1ABCF005010B1 /* Selection.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 208B63E21EF1ABCF005010B1 /* Selection.storyboard */; };
-		208BF2AD1D7316FC00111F4D /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208BF2AC1D7316FC00111F4D /* String+MD5.swift */; };
 		208BF2AF1D73170700111F4D /* Data+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208BF2AE1D73170700111F4D /* Data+MD5.swift */; };
 		208C77881E6F427C00ED7394 /* FileInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208C77871E6F427C00ED7394 /* FileInformation.swift */; };
 		20909F141D9C2631004622B0 /* Disctionary+HTTPBodyFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20909F131D9C2631004622B0 /* Disctionary+HTTPBodyFormat.swift */; };
-		2091C0D61E94203900B2D953 /* SwiftyBeaver.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2091C0D51E94203900B2D953 /* SwiftyBeaver.framework */; };
-		2091C0D71E94203900B2D953 /* SwiftyBeaver.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2091C0D51E94203900B2D953 /* SwiftyBeaver.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2091C0DB1E94209100B2D953 /* SwiftyBeaver.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2091C0DA1E94209100B2D953 /* SwiftyBeaver.framework.dSYM */; };
 		20924EDD1EB4FBD7005655C9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20924EDC1EB4FBD7005655C9 /* MainViewController.swift */; };
 		209451621E7726A8001861CE /* SupportedSubtitleProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209451611E7726A8001861CE /* SupportedSubtitleProvider.swift */; };
 		209911D11E9AB2D900B5681C /* DownloadPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209911D01E9AB2D900B5681C /* DownloadPreferencesViewController.swift */; };
@@ -88,7 +84,6 @@
 		20C989691D36A92C00B16DD2 /* LexerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209FA95F1D2FC04D00C54DCA /* LexerTests.swift */; };
 		20C9896E1D36AB3100B16DD2 /* SubtitleTokenType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F105C11D3114A2000E157F /* SubtitleTokenType.swift */; };
 		20D7F873215EAAF1005CA4A9 /* NSMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D7F872215EAAF1005CA4A9 /* NSMenuItem.swift */; };
-		20D7F875215EADE9005CA4A9 /* SwiftyBeaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20D7F874215EADE9005CA4A9 /* SwiftyBeaver.swift */; };
 		20DBFCD21E9A5FE600F2C93E /* PreferencesTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DBFCD11E9A5FE600F2C93E /* PreferencesTabViewController.swift */; };
 		20DF1F4C1E335673003A3491 /* OpenSubtitles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DF1F4B1E335673003A3491 /* OpenSubtitles.swift */; };
 		20DFA6691E2A5D0F0073ED45 /* NapiProjekt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DFA6681E2A5D0F0073ED45 /* NapiProjekt.swift */; };
@@ -102,6 +97,7 @@
 		20F6FBD51C6E527F005A1C12 /* MPL2SubtitleFormatFile.txt in Resources */ = {isa = PBXBuildFile; fileRef = 20F6FBD41C6E527F005A1C12 /* MPL2SubtitleFormatFile.txt */; };
 		20F6FBD71C6E52CE005A1C12 /* TMPlayerSubtitleFormatFile.txt in Resources */ = {isa = PBXBuildFile; fileRef = 20F6FBD61C6E52CE005A1C12 /* TMPlayerSubtitleFormatFile.txt */; };
 		20F6FBD91C6E5306005A1C12 /* MicroDVDSubtitleFormatFile.txt in Resources */ = {isa = PBXBuildFile; fileRef = 20F6FBD81C6E5306005A1C12 /* MicroDVDSubtitleFormatFile.txt */; };
+		614B14EF2BD2E32300FDA78E /* Logger+Subsystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 614B14EE2BD2E32300FDA78E /* Logger+Subsystem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,30 +109,6 @@
 			remoteInfo = Napi;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		202C930C1DDCD23A0083658E /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				2091C0D71E94203900B2D953 /* SwiftyBeaver.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2091C0D91E94208100B2D953 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 16;
-			files = (
-				2091C0DB1E94209100B2D953 /* SwiftyBeaver.framework.dSYM in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		200364F11CFE04A400A09CEA /* TimestampTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TimestampTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -193,7 +165,7 @@
 		2057DBAE1E0433C70049DC3A /* SubtitleEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitleEntity.swift; sourceTree = "<group>"; };
 		2057DBB01E0436C30049DC3A /* SubtitleEntityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubtitleEntityTests.swift; sourceTree = "<group>"; };
 		206548571E914B080011DED8 /* NapiEngineDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NapiEngineDelegate.swift; sourceTree = "<group>"; };
-		206C09801E7738810025B637 /* NSUserNotificationCenter+URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSUserNotificationCenter+URL.swift"; sourceTree = "<group>"; };
+		206C09801E7738810025B637 /* UNUserNotificationCenter+URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UNUserNotificationCenter+URL.swift"; sourceTree = "<group>"; };
 		207F64611EB4E451005C8A11 /* Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
 		208625CA1D4513A800B6DEF6 /* Int+Timestamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = "Int+Timestamp.swift"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		208B63DB1EF1AB94005010B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Preferences.storyboard; sourceTree = "<group>"; };
@@ -204,12 +176,9 @@
 		208B63EA1EF1ABEE005010B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Preferences.strings; sourceTree = "<group>"; };
 		208B63EE1EF1AC03005010B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		208BF2A91D73073500111F4D /* Napi-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Napi-Bridging-Header.h"; sourceTree = "<group>"; };
-		208BF2AC1D7316FC00111F4D /* String+MD5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
 		208BF2AE1D73170700111F4D /* Data+MD5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+MD5.swift"; sourceTree = "<group>"; };
 		208C77871E6F427C00ED7394 /* FileInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileInformation.swift; sourceTree = "<group>"; };
 		20909F131D9C2631004622B0 /* Disctionary+HTTPBodyFormat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Disctionary+HTTPBodyFormat.swift"; sourceTree = "<group>"; };
-		2091C0D51E94203900B2D953 /* SwiftyBeaver.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyBeaver.framework; path = Carthage/Build/Mac/SwiftyBeaver.framework; sourceTree = "<group>"; };
-		2091C0DA1E94209100B2D953 /* SwiftyBeaver.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SwiftyBeaver.framework.dSYM; path = Carthage/Build/Mac/SwiftyBeaver.framework.dSYM; sourceTree = "<group>"; };
 		20924EDC1EB4FBD7005655C9 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		209451611E7726A8001861CE /* SupportedSubtitleProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupportedSubtitleProvider.swift; sourceTree = "<group>"; };
 		209911D01E9AB2D900B5681C /* DownloadPreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadPreferencesViewController.swift; sourceTree = "<group>"; };
@@ -229,7 +198,6 @@
 		20C394641E055E3600EB7D63 /* NameMatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameMatcher.swift; sourceTree = "<group>"; };
 		20C394661E05A33E00EB7D63 /* Date+Timestamp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Timestamp.swift"; sourceTree = "<group>"; };
 		20D7F872215EAAF1005CA4A9 /* NSMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMenuItem.swift; sourceTree = "<group>"; };
-		20D7F874215EADE9005CA4A9 /* SwiftyBeaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyBeaver.swift; sourceTree = "<group>"; };
 		20DBFCD11E9A5FE600F2C93E /* PreferencesTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesTabViewController.swift; sourceTree = "<group>"; };
 		20DF1F4B1E335673003A3491 /* OpenSubtitles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenSubtitles.swift; sourceTree = "<group>"; };
 		20DFA6681E2A5D0F0073ED45 /* NapiProjekt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NapiProjekt.swift; sourceTree = "<group>"; };
@@ -248,6 +216,7 @@
 		20FD66041EF1B360001CFC79 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Progress.strings; sourceTree = "<group>"; };
 		20FD660C1EF1B3A3001CFC79 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Selection.strings; sourceTree = "<group>"; };
 		20FD66191EF1B41F001CFC79 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Preferences.strings; sourceTree = "<group>"; };
+		614B14EE2BD2E32300FDA78E /* Logger+Subsystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Logger+Subsystem.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -255,7 +224,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2091C0D61E94203900B2D953 /* SwiftyBeaver.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,7 +251,6 @@
 		2007805B1C64AE4F0098B026 = {
 			isa = PBXGroup;
 			children = (
-				2091C0D81E94205100B2D953 /* Frameworks */,
 				200780661C64AE4F0098B026 /* Napi */,
 				200780781C64AE4F0098B026 /* NapiTests */,
 				200780651C64AE4F0098B026 /* Products */,
@@ -476,15 +443,6 @@
 			path = "Subtitle Formats";
 			sourceTree = "<group>";
 		};
-		2091C0D81E94205100B2D953 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				2091C0DA1E94209100B2D953 /* SwiftyBeaver.framework.dSYM */,
-				2091C0D51E94203900B2D953 /* SwiftyBeaver.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		209911CD1E9AB2A800B5681C /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
@@ -534,15 +492,14 @@
 				20C394661E05A33E00EB7D63 /* Date+Timestamp.swift */,
 				20909F131D9C2631004622B0 /* Disctionary+HTTPBodyFormat.swift */,
 				208625CA1D4513A800B6DEF6 /* Int+Timestamp.swift */,
-				206C09801E7738810025B637 /* NSUserNotificationCenter+URL.swift */,
+				206C09801E7738810025B637 /* UNUserNotificationCenter+URL.swift */,
 				20D7F872215EAAF1005CA4A9 /* NSMenuItem.swift */,
 				200560B21EEDBAE9007CD040 /* String+Localized.swift */,
-				208BF2AC1D7316FC00111F4D /* String+MD5.swift */,
 				200364F91CFE110600A09CEA /* String+Substring.swift */,
-				20D7F874215EADE9005CA4A9 /* SwiftyBeaver.swift */,
 				203B126D1DEF55ED0036D52D /* URL+FileManagerOperations.swift */,
 				201D62A81E3A70FF0010A7CA /* URLSession+DataTask.swift */,
 				204CCC171E7071AD00A4F974 /* UserDefaults+RegisterDefaults.swift */,
+				614B14EE2BD2E32300FDA78E /* Logger+Subsystem.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -568,9 +525,6 @@
 				200780601C64AE4F0098B026 /* Sources */,
 				200780611C64AE4F0098B026 /* Frameworks */,
 				200780621C64AE4F0098B026 /* Resources */,
-				202C930C1DDCD23A0083658E /* Embed Frameworks */,
-				2027E6B11E5F5713002C17EA /* ShellScript */,
-				2091C0D91E94208100B2D953 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -605,24 +559,25 @@
 		2007805C1C64AE4F0098B026 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1530;
 				ORGANIZATIONNAME = "Mateusz Karwat";
 				TargetAttributes = {
 					200780631C64AE4F0098B026 = {
 						CreatedOnToolsVersion = 7.2.1;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1530;
 					};
 					200780741C64AE4F0098B026 = {
 						CreatedOnToolsVersion = 7.2.1;
-						LastSwiftMigration = 1000;
+						LastSwiftMigration = 1530;
 						TestTargetID = 200780631C64AE4F0098B026;
 					};
 				};
 			};
 			buildConfigurationList = 2007805F1C64AE4F0098B026 /* Build configuration list for PBXProject "Napi" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -669,22 +624,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		2027E6B11E5F5713002C17EA /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "TAGS=\"TODO:|FIXME:\"\necho \"searching ${SRCROOT} for ${TAGS}\"\nfind \"${SRCROOT}\" \\( -name \"*.swift\" \\) -print0 \\\n    | xargs -0 egrep --with-filename --line-number --only-matching \"($TAGS).*\\$\" \\\n    | perl -p -e \"s/($TAGS)/ warning: \\$1/\"";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		200780601C64AE4F0098B026 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -707,7 +646,7 @@
 				2049F3DB1E755C580083547D /* Preferences.swift in Sources */,
 				20909F141D9C2631004622B0 /* Disctionary+HTTPBodyFormat.swift in Sources */,
 				200D9F491E81A6B000DE8588 /* NapiEngine.swift in Sources */,
-				206C09811E7738810025B637 /* NSUserNotificationCenter+URL.swift in Sources */,
+				206C09811E7738810025B637 /* UNUserNotificationCenter+URL.swift in Sources */,
 				200364F61CFE0EEA00A09CEA /* Lexer.swift in Sources */,
 				20BC26171ED72C6000404558 /* CheckboxTableViewModel.swift in Sources */,
 				20D7F873215EAAF1005CA4A9 /* NSMenuItem.swift in Sources */,
@@ -734,6 +673,7 @@
 				20A862301D5246F1007FEC7C /* SubtitleConverter.swift in Sources */,
 				208625CB1D4513A800B6DEF6 /* Int+Timestamp.swift in Sources */,
 				200C4B9E1C6601F800FBE406 /* MPL2SubtitleFormat.swift in Sources */,
+				614B14EF2BD2E32300FDA78E /* Logger+Subsystem.swift in Sources */,
 				209911D11E9AB2D900B5681C /* DownloadPreferencesViewController.swift in Sources */,
 				209911D51E9AB2F500B5681C /* MatchPreferencesViewController.swift in Sources */,
 				20227B4B1ED35E8300E55352 /* MainFlowController.swift in Sources */,
@@ -751,10 +691,8 @@
 				209911D31E9AB2E300B5681C /* ConvertPreferencesViewController.swift in Sources */,
 				202F3B311E6C2C1800BDB148 /* Collection+IsNotEmpty.swift in Sources */,
 				20EF7CFC1C67B1C4005A17A7 /* MicroDVDSubtitleFormat.swift in Sources */,
-				208BF2AD1D7316FC00111F4D /* String+MD5.swift in Sources */,
 				2057DBAF1E0433C70049DC3A /* SubtitleEntity.swift in Sources */,
 				20A8622E1D522C4C007FEC7C /* SubtitleCheckingResult.swift in Sources */,
-				20D7F875215EADE9005CA4A9 /* SwiftyBeaver.swift in Sources */,
 				200364FA1CFE110700A09CEA /* String+Substring.swift in Sources */,
 				2007B6561EAE793D00EB258D /* Array+MoveElement.swift in Sources */,
 				203B126E1DEF55ED0036D52D /* URL+FileManagerOperations.swift in Sources */,
@@ -868,6 +806,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -875,9 +814,11 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -892,12 +833,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -924,6 +866,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -931,9 +874,11 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -942,10 +887,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -956,15 +902,13 @@
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_OPTIMIZATION_PROFILE_FILE = "$(SRCROOT)/OptimizationProfiles/$(PROJECT_NAME).profdata";
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/Mac";
+				DEAD_CODE_STRIPPING = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Napi/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mateuszkarwat.Napi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Napi/Supporting Files/Napi-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -974,15 +918,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Carthage/Build/Mac";
+				DEAD_CODE_STRIPPING = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Napi/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mateuszkarwat.Napi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OBJC_BRIDGING_HEADER = "Napi/Supporting Files/Napi-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.2;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Release;
 		};
@@ -992,12 +935,16 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				INFOPLIST_FILE = NapiTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = mateuszkarwat.NapiTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Napi.app/Contents/MacOS/Napi";
 			};
 			name = Debug;
@@ -1008,12 +955,17 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				INFOPLIST_FILE = NapiTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = mateuszkarwat.NapiTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.2;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Napi.app/Contents/MacOS/Napi";
 			};
 			name = Release;

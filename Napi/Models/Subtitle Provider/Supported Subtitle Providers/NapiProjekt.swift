@@ -4,22 +4,25 @@
 //
 
 import Foundation
+import OSLog
 
 struct NapiProjekt: SubtitleProvider {
+    private let logger = Logger(category: "NapiProjekt")
+
     let name = "NapiProjekt"
     let homepage = URL(string: "http://www.napiprojekt.pl")!
 
     func searchSubtitles(using searchCritera: SearchCriteria, completionHandler: @escaping ([SubtitleEntity]) -> Void) {
-        log.info("Sending search request.")
+        logger.info("Sending search request.")
 
         guard let searchRequest = searchRequest(with: searchCritera) else {
-            log.warning("Search request couldn't be created.")
+            logger.warning("Search request couldn't be created.")
             completionHandler([])
             return
         }
 
         let dataTask = URLSession.shared.dataTask(with: searchRequest) { data, _ in
-            log.info("Search response received.")
+            logger.info("Search response received.")
 
             guard
                 let data = data,
@@ -37,27 +40,27 @@ struct NapiProjekt: SubtitleProvider {
     }
 
     func download(_ subtitleEntity: SubtitleEntity, completionHandler: @escaping (SubtitleEntity?) -> Void) {
-        log.info("Downloading subtitles.")
+        logger.info("Downloading subtitles.")
 
         guard
             subtitleEntity.format == .text,
             subtitleEntity.url.isFile,
             subtitleEntity.url.exists
         else {
-            log.error("Download failed.")
+            logger.error("Download failed.")
             completionHandler(nil)
             return
         }
 
-        log.info("Subtitles downloaded.")
+        logger.info("Subtitles downloaded.")
         completionHandler(subtitleEntity)
     }
 
     private func subtitleEntity(from stringResponse: String, in language: Language) -> SubtitleEntity? {
-        log.verbose("Parsing search response.")
+        logger.debug("Parsing search response.")
 
         if stringResponse == "NPc0" {
-            log.verbose("Subtitles has not been found.")
+            logger.debug("Subtitles has not been found.")
             return nil
         }
 
@@ -69,10 +72,10 @@ struct NapiProjekt: SubtitleProvider {
         do {
             try stringResponse.write(to: subtitleEntity.url, atomically: true, encoding: .windowsCP1250)
 
-            log.verbose("Subtitles has been found.")
+            logger.debug("Subtitles has been found.")
             return subtitleEntity
         } catch let error {
-            log.error(error.localizedDescription)
+            logger.error("\(error.localizedDescription)")
             return nil
         }
     }
@@ -118,14 +121,14 @@ struct NapiProjekt: SubtitleProvider {
         let add = [0x0, 0xd, 0x10, 0xb, 0x5]
 
         var t = 0
-        var tmp: UInt32 = 0
-        var v: UInt32 = 0
+        var tmp: UInt64 = 0
+        var v: UInt64 = 0
 
         var generatedHash = ""
 
         for i in 0 ..< 5 {
             var scanner = Scanner(string: String(format: "%c", (md5Hash as NSString).character(at: idx[i])))
-            scanner.scanHexInt32(&tmp)
+            scanner.scanHexInt64(&tmp)
 
             t = add[i] + Int(tmp)
 
@@ -139,7 +142,7 @@ struct NapiProjekt: SubtitleProvider {
             }
 
             scanner = Scanner(string: subString)
-            scanner.scanHexInt32(&v)
+            scanner.scanHexInt64(&v)
 
             let hexResult = String(format: "%x", Int(v) * mul[i])
             let lastHexCharacter = hexResult.last ?? Character("")
